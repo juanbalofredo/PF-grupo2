@@ -1,0 +1,95 @@
+{
+    "coto": [
+      {
+        "id": "p1_1",
+        "nombre": "leche",
+        "precio": 10.5,
+        "stock": 20,
+        "marca": "serenisima"
+      },
+      {
+        "id": "p1_2",
+        "nombre": "pan",
+        "precio": 15.0,
+        "stock": 15,
+        "marca": "bimbo"
+      },
+      {
+        "id": "p1_3",
+        "nombre": "azucar",
+        "precio": 29.0,
+        "stock": 25,
+        "marca": "zulka"
+      }
+    ],
+    "dia": [
+      {
+        "id": "p2_1",
+        "nombre": "leche",
+        "precio": 11.0,
+        "stock": 10,
+        "marca": "serenisima"
+      },
+      {
+        "id": "p2_2",
+        "nombre": "pan",
+        "precio": 14.5,
+        "stock": 30,
+        "marca": "bimbo"
+      },
+      {
+        "id": "p2_3",
+        "nombre": "azucar",
+        "precio": 28.0,
+        "stock": 5,
+        "marca": "zulka"
+      }
+    ],
+    "carrefour": [
+      {
+        "id": "p3_1",
+        "nombre": "leche",
+        "precio": 12.0,
+        "stock": 8,
+        "marca": "serenisima"
+      },
+      {
+        "id": "p3_2",
+        "nombre": "pan",
+        "precio": 14.5,
+        "stock": 40,
+        "marca": "bimbo"
+      },
+      {
+        "id": "p3_3",
+        "nombre": "azucar",
+        "precio": 27.0,
+        "stock": 12,
+        "marca": "zulka"
+      }
+    ],
+    "jumbo": [
+      {
+        "id": "p4_1",
+        "nombre": "leche",
+        "precio": 10.0,
+        "stock": 50,
+        "marca": "serenisima"
+      },
+      {
+        "id": "p4_2",
+        "nombre": "pan",
+        "precio": 13.5,
+        "stock": 3,
+        "marca": "bimbo"
+      },
+      {
+        "id": "p4_3",
+        "nombre": "azucar",
+        "precio": 29.0,
+        "stock": 18,
+        "marca": "zulka"
+      }
+    ]
+  }
+  
