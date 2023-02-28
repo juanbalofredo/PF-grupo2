@@ -1,9 +1,11 @@
+
 import "./styles/styles.css";
 import Landing from "./views/Landing";
 import Home from "./views/Home";
 import { Route, Routes} from "react-router-dom";
 
-function App() {
+
+const App =()=>{
   return (
     <div className="App">
       <Routes>
@@ -13,5 +15,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

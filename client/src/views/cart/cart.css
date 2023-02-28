@@ -1,0 +1,5 @@
+@media only screen and (min-width: 1401px) and (max-width: 1000000px) {
+  .cart-container {
+    width: 30rem;
+  }
+}
