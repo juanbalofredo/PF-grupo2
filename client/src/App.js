@@ -1,9 +1,13 @@
-import "./styles/styles.css"
+import Landing from "./views/Landing";
+import Home from "./views/Home";
 
 function App() {
   return (
     <div className="App">
-      hola mundo
+       <Routes>
+        <Route path="/" element={<Landing/>}/>
+        <Route path="/Home" element={<Home />} />
+      </Routes>
     </div>
   );
 }
