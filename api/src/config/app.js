@@ -12,10 +12,27 @@ const server = express();
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+server.use(cookieParser());
+server.use(morgan('dev'));
+server.use(cors());
+server.use((req, res, next) => {
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 server.use(morgan('dev'));
 server.use(cors());
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // ! se puede cambiar "http://localhost:3000" por "*" para habilitar todos los puertos y evitar problemas de CORS
+<<<<<<< Updated upstream
+=======
+>>>>>>> terry
+=======
+  res.header('Access-Control-Allow-Origin', '*'); // ! se puede cambiar "http://localhost:3000" por "*" para habilitar todos los puertos y evitar problemas de CORS
+>>>>>>> 8a5dbde (cambiando el Sequelize)
+>>>>>>> Stashed changes
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
