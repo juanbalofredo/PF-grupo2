@@ -1,20 +1,29 @@
-//import axios from "./axios";
+import axios from 'axios';
 import { allProducts } from "./slice";
-import productos from "./prueba.js"
 
+export async function getAllProducts(dispatch) {
+    try {
+      const peticion = await axios.get("http://localhost:3001/");
+      dispatch(allProducts(peticion?.data));
+    } catch (error) {
+      return error.response;
+    }
+  }
 
-export const getAllProducts = (dispacth) => {
-//    try {
-//     const peticion = productos 
-//     dispatch(allProducts(peticion));
-//    }    
-//    } catch (error) {
-    
-};
-// const url = "http://localhost:3001/pokemons";
-//   axios.get(url)
-//   .then(function(valor){
-//   dispacth(allProducts(valor.data))})
-//   .catch( error => {
-//     console.error( 'función en rechazo invocada: ', error );
-//   })
+  
+export async function crearUser(input) {
+  console.log(input)
+try {
+  return await axios.post("http://localhost:3001/"),{
+     ...input,
+     name: input.name,
+     avatar: input.avatar,
+     mail: input.mail,
+     apellido: input.apellido,
+     password: input.password,
+}  
+} catch (error) {
+return error.message  
+}
+}
+  
