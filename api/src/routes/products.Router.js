@@ -7,7 +7,7 @@ import allProducts from "../controllers/allProducts.js"
 
 const app = Router();
 
-app.get("/", allProducts)
+app.get("/products", allProducts)
 
 // products.get("/id/:id", /*aqui va el controller */)
 // products.get("/name?", /*aqui va el controller */)
