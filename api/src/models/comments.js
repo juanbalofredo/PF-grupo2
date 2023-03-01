@@ -3,8 +3,9 @@ import dataBase from "../config/db.js";
 
 const Reviews = dataBase.define('reviews', {
     id: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement:true
     },
     message: {
         type: DataTypes.STRING(250),
