@@ -8,25 +8,19 @@ const Register = () => {
 
     // const [input, setInput] = useState({
     //     name: '',
-    //     urlImg: '',
-    //     tipo: '',
-    //     relleno: '',
-    //     cobertura: '',
-    //     precio: 0,
-    //     stock: 0,
-    //     descripcion: ''
+    //     avatar: '',
+    //     apellido: '',
+    //     mail: '',
+    //     contraseña: '',
     // })
 
 
     // const [error, setError] = useState({
     //     name: '',
-    //     urlImg: '',
-    //     tipo: '',
-    //     relleno: '',
-    //     cobertura: '',
-    //     precio: 0,
-    //     stock: 0,
-    //     descripcion: ''
+    //     avatar: '',
+    //     apellido: '',
+    //     mail: '',
+    //     contraseña: '',
     // })
 
     // function handleChange(e) {
