@@ -1,6 +1,6 @@
 import apiInfo from "../helpers/apiInfo.js"
 import Products from "../models/products.js";
-
+// asdasd
 export default async function getProducts(req, res){
     try{
         apiInfo();
