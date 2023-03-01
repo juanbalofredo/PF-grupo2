@@ -1,18 +1,19 @@
 import products from "../models/products.js";
-import product from "./products.js"
+import prodtuctos from "../prueba (1).js"
 
 const apiInfo = async()=> {
-    const produc = product.map( p=>{
-         products.create({
-            id : p.id,
+    const produc = prodtuctos.map(async p=>{
+        await products.create({
+     
             name : p.name,
             brand : p.brand,
             price : p.price,
             unity : p.unity,
-            category : p.category
+            category : p.category,
+            supermarket: "Dia"
         })
+        console.log(p);
     })
-    console.log(produc);
-        return product;
+        return produc;
     };
 export default apiInfo;
