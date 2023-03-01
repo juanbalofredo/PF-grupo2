@@ -6,10 +6,10 @@ import "./navBar.css";
 import User from "./User";
 import { Link } from "react-router-dom";
 
- const Navbar = ({}) => {
+const Navbar = ({ }) => {
   const dispatch = useDispatch();
   const [model, setModel] = useState("");
-  const user =  useSelector((state) => state.userLogged);
+  const user = useSelector((state) => state.userLogged);
   const [active, setActive] = useState(false);
 
   const handleInputModel = (e) => {
@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
   }
 
   const changeTheme = () => {
-    if(document.querySelector("body").getAttribute("data-bs-theme") === "light") {
+    if (document.querySelector("body").getAttribute("data-bs-theme") === "light") {
       document.querySelector("body").setAttribute("data-bs-theme", "dark");
       document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
       document.querySelector("#body").setAttribute("class", "bodyDark");
@@ -27,13 +27,12 @@ import { Link } from "react-router-dom";
       document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
       document.querySelector("#body").setAttribute("class", "");
     }
-  
   }
 
   return (
     <section className="" id="navbar1">
       <div className="logo-Container">
-        <a  href="/"></a>
+        <a href="/"></a>
       </div>
       <div className="searchbar-container">
         <form className="">
@@ -63,16 +62,21 @@ import { Link } from "react-router-dom";
         </div>
         <div>
           {!user ?
-          <Link to="/login">
-            <button>Log in</button>
-          </Link>
-          :
-          <button className="btnClose">Log out</button>}
+            <div>
+              <Link to="/register">
+                <button>Register</button>
+              </Link>
+              <Link to="/login">
+                <button>Log in</button>
+              </Link>
+            </div>
+            :
+            <button className="btnClose">Log out</button>}
         </div>
 
         <div>
           <button onClick={changeTheme} className="btn rounded-fill">
-            <i id="dl-icon" className="bi bi-moon-fill"></i>
+            cambniar color(img)
           </button>
         </div>
       </div>
