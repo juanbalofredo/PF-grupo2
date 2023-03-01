@@ -16,7 +16,10 @@
     margin: auto;
     padding: 5rem;
   }
-  
+  body{
+    margin: 0;
+  }
+
   .modal {
     width: auto;
   }
@@ -385,6 +388,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: #272525;
     height: 10vh;
   }
   
