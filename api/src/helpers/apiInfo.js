@@ -9,7 +9,7 @@ const apiInfo = async()=> {
             price : p.price,
             unity : p.unity,
             category : p.category,
-            supermarket: "Dia"
+            supermarket: "Coto"
         })
     })
         return produc;
