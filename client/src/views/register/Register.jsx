@@ -2,117 +2,94 @@ import "./register.css"
 import { useState } from "react"
 import { useEffect } from "react"
 import NavBar from '../../components/assets/NavBar'
-
+import axios from 'axios'
+import { useDispatch } from "react-redux"
 
 
 const Register = () => {
 
-    // const [imageSelected, setImageSelected] = useState('');
-    // const uploadImage = () => {
-    //     const formData = new FormData();
-    //     formData.append('file', imageSelected)
-    //     formData.append('upload_preset', 'Learning')
+    const dispatch = useDispatch();
 
-    //     axios.post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
-    //         .then((response) => {
-    //             const url = response.data.secure_url;
-    //             setInput({
-    //                 ...input,
-    //                 urlImg: url,
-    //             })
-    //         })
-    // }
+    const [imageSelected, setImageSelected] = useState('');
+    const uploadImage = () => {
+        const formData = new FormData();
+        formData.append('file', imageSelected)
+        formData.append('upload_preset', 'proyectof')
 
-    // const [input, setInput] = useState({
-    //     name: '',
-    //     avatar: '',
-    //     apellido: '',
-    //     mail: '',
-    //     contraseña: '',
-    // })
+        axios.post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
+            .then((response) => {
+                const url = response.data.secure_url;
+                setInput({
+                    ...input,
+                    avatar: url,
+                })
+            })
+            console.log(input)
+            
+    }
 
-
-    // const [error, setError] = useState({
-    //     name: '',
-    //     avatar: '',
-    //     apellido: '',
-    //     mail: '',
-    //     contraseña: '',
-    // })
-
-    // function handleChange(e) {
-    //     const { name, value } = e.target;
-    //     switch (name) {
-    //         case 'name': {
-    //             setError({
-    //                 ...error,
-    //                 name: value.length < 3 ? 'El nombre es demasiado corto' : ''
-    //             })
-    //             break;
-    //         }
+    const [input, setInput] = useState({
+        name: '',
+        avatar: '',
+        apellido: '',
+        mail: '',
+        password: '',
+    })
 
 
-    //         case 'tipo': {
-    //             setError({
-    //                 ...error,
-    //                 tipo: value.length < 1 ? 'Tipo no puede estar vacio' : ''
-    //             })
-    //             break;
-    //         }
+    const [error, setError] = useState({
+        name: '',
+        avatar: '',
+        apellido: '',
+        mail: '',
+        password: '',
+    })
 
-    //         case 'cobertura': {
-    //             setError({
-    //                 ...error,
-    //                 cobertura: value.length < 1 ? 'Cobertura no puede estar vacio' : ''
-    //             })
-    //             break;
-    //         }
+    function handleChange(e) {
+        const { name, value } = e.target;
+        switch (name) {
+            case 'name': {
+                setError({
+                    ...error,
+                    name: value.length < 3 ? 'El nombre es demasiado corto' : ''
+                })
+                break;
+            }
 
+            case 'apellido': {
+                setError({
+                    ...error,
+                    apellido: value.length < 1 ? 'Apellido no puede estar vacio' : ''
+                })
+                break;
+            }
 
+            case 'mail': {
+                setError({
+                    ...error,
+                    mail: value.length < 1 ? 'mail no puede esatr vacio' : ''
+                })
+                break;
+            }
 
-    //         case 'relleno': {
-    //             setError({
-    //                 ...error,
-    //                 relleno: value.length < 1 ? 'Relleno no puede esatr vacio' : ''
-    //             })
-    //             break;
-    //         }
+            case 'password': {
+                setError({
+                    ...error,
+                    password: value < 1 ? 'password no puede esatr vacia' : ''
+                })
+                break;
+            }
+            default: {
+                break;
+            }
+        }
 
-    //         case 'stock': {
-    //             setError({
-    //                 ...error,
-    //                 stock: value < 1 ? 'El stock deberia ser mayor a 0' : ''
-    //             })
-    //             break;
-    //         }
+        setInput({
+            ...input,
+            [name]: value
+        })
 
-    //         case 'descripcion': {
-    //             setError({
-    //                 ...error,
-    //                 descripcion: value.length < 10 || value > 200 ? 'La descripcion debe tener entre 10 y 200 palabras' : ''
-    //             })
-    //             break;
-    //         }
-
-    //         case 'precio': {
-    //             setError({
-    //                 ...error,
-    //                 precio: value < 1 ? 'El precio deberia ser mayor a 0' : ''
-    //             })
-    //             break;
-    //         }
-
-    //         default: {
-    //             break;
-    //         }
-    //     }
-
-    //     setInput({
-    //         ...input,
-    //         [name]: value
-    //     })
-
-    // }
+    }
 
     // function validarForm() {
     //     let valid = true;
@@ -179,8 +156,8 @@ const Register = () => {
 
 
 
-    return ( <div className="reg-todo"> 
-    <NavBar/>         
+    return (<div className="reg-todo">
+        <NavBar />
         <div className="register-container">
 
             <div className="register-logo">
@@ -190,14 +167,23 @@ const Register = () => {
                 <form>
                     <h1>Registrarse</h1>
                     <div className="register-text">
-                        <div className="register-name">
-                            <div><input placeholder="Nombre" type="text" /></div>
-                            <div><input placeholder="Apellido" type="text" /></div>
+                        <label htmlFor='img'>Imagen</label>
+                        <div>
+                            <input type="file" name="avatar" placeholder='Imagen' autoComplete='off' onChange={(e) => {
+                                setImageSelected(e.target.files[0])
+                            }}></input>
+
                         </div>
-                        <div className="register-correo"><input type="email" placeholder="bautgod@gmail.com" /></div>
-                        <div className="rgister-contra"><input type='password' placeholder="Contraseña" /></div>
-                        <div className="register-conta2"><input type='password' placeholder="Repetir contraseña" /></div>
-                        <button>Registrarse</button>
+                        <div onClick={uploadImage}>Subir imagen</div>
+                        <div className="register-name">
+
+                            <div><input placeholder="Nombre" type="text" value={input.name} onChange={handleChange} /></div>
+                            <div><input placeholder="Apellido" type="text" value={input.apellido} onChange={handleChange} /></div>
+                        </div>
+                        <div className="register-correo"><input type="email" value={input.mail} onChange={handleChange} placeholder="bautgod@gmail.com" /></div>
+                        <div className="rgister-contra"><input type='password' value={input.password} onChange={handleChange} placeholder="Contraseña" /></div>
+                        <div className="register-conta2"><input type='password' value={input.password} onChange={handleChange} placeholder="Repetir contraseña" /></div>
+                        <button type="submit" onClick={console.log(input)}>Registrarse</button>
                     </div>
                     <div className="reg-google-fac">
                         <button className="register-google">Iniciar con Google</button>
@@ -207,7 +193,7 @@ const Register = () => {
             </div>
         </div>
     </div>
-     )
+    )
 }
 
 export default Register

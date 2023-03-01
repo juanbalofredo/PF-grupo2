@@ -6,6 +6,9 @@ const initialState = {
   loading:false,
   page:1,
   error: false,
+  name:'',
+  apelido:'',
+  avatar:'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp',
 };
 export const bolsilloSlice = createSlice({
     name: "bolsillo",
