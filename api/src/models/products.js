@@ -5,10 +5,9 @@ import Market from "./market.js";
 const Products = dataBase.define('products', {
     id: {
         type: DataTypes.INTEGER,
-        defaultValue: DataTypes.UUIDV4,
-        allowNull : true,
-        primaryKey: true,
-        autoIncrement: true
+        primaryKey: true,    
+        autoIncrement: true, 
+        
     },
     name: {
         type: DataTypes.STRING,
@@ -34,7 +33,8 @@ const Products = dataBase.define('products', {
         type: DataTypes.STRING,
         allowNull: false,
     }
-}, { timestamps: false })
+},
+ { timestamps: false })
 
 Products.belongsTo(Market, {
     through: "Products_Market",
@@ -45,4 +45,4 @@ Market.belongsToMany(Products, {
     timestamps: false,
 });
 
-export default Market;
+export default Products;
