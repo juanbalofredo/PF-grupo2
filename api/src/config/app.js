@@ -20,7 +20,7 @@ server.use((req, res, next) => {
   next();
 });
 
- server.use('/products', products);
+ server.use('/', products);
 // server.use('/comentaries', post); 
 
 // Error catching endware.
