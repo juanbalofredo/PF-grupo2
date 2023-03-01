@@ -1,48 +1,57 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
-import Market from "./market.js";
+import Brand from "./brand.js";
 
-const Products = dataBase.define('products', {
+const Products = dataBase.define(
+  "products",
+  {
     id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,    
-        autoIncrement: true, 
-        
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     price: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     brand: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    unity: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    unit: {
+      type: DataTypes.STRING,
     },
     category: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     supermarket: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    }
-},
- { timestamps: false })
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+  },
+  { timestamps: false }
+);
 
-Products.belongsTo(Market, {
-    through: "Products_Market",
-    timestamps: false
+Products.belongsTo(Brand, {
+  through: "Products_Brand",
+  timestamps: false,
 });
-Market.belongsToMany(Products, {
-    through: "Products_Market",
-    timestamps: false,
+Brand.belongsToMany(Products, {
+  through: "Products_Brand",
+  timestamps: false,
 });
 
 export default Products;

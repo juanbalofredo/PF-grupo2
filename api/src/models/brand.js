@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
 
-const Market = dataBase.define('market', {
+const Brand = dataBase.define('brandTable', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -13,4 +13,4 @@ const Market = dataBase.define('market', {
   }
 }, { timestamps: false })
 
-export default Market;
+export default Brand;

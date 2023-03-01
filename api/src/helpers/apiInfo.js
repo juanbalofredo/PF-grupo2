@@ -1,19 +1,21 @@
-import products from "../models/products.js";
-import prodtuctos from "../prueba (1).js"
+import Products from "../models/products.js";
+//products es el json de todos los productos 
+import products from "../prueba (1).js";
 
 const apiInfo = async()=> {
-    const produc = prodtuctos.map(async p=>{
-        await products.create({
+    const allProducts = products.map(async p=>{
+        await Products.create({
      
             name : p.name,
             brand : p.brand,
             price : p.price,
-            unity : p.unity,
+            unit : p.unity,
             category : p.category,
-            supermarket: "Dia"
+            description : p.description,
+            supermarket: p.supermarket,
+            image: p.image
         })
-        console.log(p);
     })
-        return produc;
+        return allProducts;
     };
 export default apiInfo;

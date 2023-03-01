@@ -1,11 +1,13 @@
-let prodtuctos = [
+let products = [
     {
         "name": "Leche",
         "brand": "Lechelita",
         "price": 20.50,
         "unity": "litro",
         "category": "Lácteos",
-        "supermarket": "tienda 1"
+        "supermarket": "tienda 1",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Leche",
@@ -13,7 +15,9 @@ let prodtuctos = [
         "price": 28.50,
         "unity": "litro",
         "category": "Lácteos",
-        "supermarket": "tienda 3"
+        "supermarket": "tienda 3",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Yogurt",
@@ -21,7 +25,9 @@ let prodtuctos = [
         "price": 15.90,
         "unity": "tarrina",
         "category": "Lácteos",
-        "supermarket": "tienda 1"
+        "supermarket": "tienda 1",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Queso",
@@ -29,7 +35,9 @@ let prodtuctos = [
         "price": 45.90,
         "unity": "kg",
         "category": "Lácteos",
-        "supermarket": "tienda 1"
+        "supermarket": "tienda 1",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Huevo",
@@ -37,7 +45,9 @@ let prodtuctos = [
         "price": 29.90,
         "unity": "docena",
         "category": "Huevos y Derivados",
-        "supermarket": "tienda 1"
+        "supermarket": "tienda 1",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Mantequilla",
@@ -45,7 +55,9 @@ let prodtuctos = [
         "price": 38.50,
         "unity": "paquete",
         "category": "Lácteos",
-        "supermarket": "tienda 1"
+        "supermarket": "tienda 1",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Aceite de oliva",
@@ -53,7 +65,9 @@ let prodtuctos = [
         "price": 99.90,
         "unity": "botella",
         "category": "Aceites",
-        "supermarket": "tienda 2"
+        "supermarket": "tienda 2",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Aceite vegetal",
@@ -61,7 +75,9 @@ let prodtuctos = [
         "price": 24.90,
         "unity": "litro",
         "category": "Aceites",
-        "supermarket": "tienda 2"
+        "supermarket": "tienda 2",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Azúcar",
@@ -69,7 +85,9 @@ let prodtuctos = [
         "price": 12.90,
         "unity": "kg",
         "category": "Endulzantes",
-        "supermarket": "tienda 2"
+        "supermarket": "tienda 2",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Miel",
@@ -77,7 +95,9 @@ let prodtuctos = [
         "price": 29.90,
         "unity": "bote",
         "category": "Endulzantes",
-        "supermarket": "tienda 2"
+        "supermarket": "tienda 2",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Café",
@@ -85,7 +105,9 @@ let prodtuctos = [
         "price": 65.90,
         "unity": "frasco",
         "category": "Café y Té",
-        "supermarket": "tienda 2"
+        "supermarket": "tienda 2",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Té",
@@ -93,7 +115,9 @@ let prodtuctos = [
         "price": 48.90,
         "unity": "caja",
         "category": "Café y Té",
-        "supermarket": "tienda 2"
+        "supermarket": "tienda 2",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Sopa instantánea",
@@ -101,7 +125,9 @@ let prodtuctos = [
         "price": 7.50,
         "unity": "sobre",
         "category": "Sopas y Caldos",
-        "supermarket": "tienda 3"
+        "supermarket": "tienda 3",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Consomé de pollo",
@@ -109,7 +135,9 @@ let prodtuctos = [
         "price": 12.90,
         "unity": "paquete",
         "category": "Sopas y Caldos",
-        "supermarket": "tienda 3"
+        "supermarket": "tienda 3",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Frijoles",
@@ -117,7 +145,9 @@ let prodtuctos = [
         "price": 15.90,
         "unity": "lata",
         "category": "Legumbres",
-        "supermarket": "tienda 3"
+        "supermarket": "tienda 3",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
     {
         "name": "Garbanzos",
@@ -125,8 +155,10 @@ let prodtuctos = [
         "price": 18.90,
         "unity": "lata",
         "category": "Legumbres",
-        "supermarket": "tienda 3"
+        "supermarket": "tienda 3",
+        "image": "texto de ejemplo",
+        "description": "Descripcion de Prueba"
     },
 ]
 
-export default prodtuctos
+export default products;
