@@ -11,9 +11,7 @@ const apiInfo = async()=> {
             category : p.category,
             supermarket: "Dia"
         })
-        console.log(p);
     })
-    console.log(produc);
         return produc;
     };
 export default apiInfo;
