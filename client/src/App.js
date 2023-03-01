@@ -3,9 +3,17 @@ import Home from "./views/home/Home";
 import Login from "./components/login/Login"
 import Register from "./views/register/Register";
 import { Route, Routes} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getAllProducts } from "./redux/apiPetitions";
 
 
 const App =()=>{
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getAllProducts(dispatch);
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Routes>
