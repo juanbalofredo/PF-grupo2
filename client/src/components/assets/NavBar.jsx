@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Cart from "../../views/cart/";
+import Cart from "../../views/cart/Cart";
 import "./navBar.css";
-import User from "./user.jsx";
+import User from "./User";
 import { Link } from "react-router-dom";
 
  const Navbar = ({}) => {

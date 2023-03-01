@@ -1,8 +1,14 @@
 import './home.css'
-import navBar from '../../components/assets/NavBar'
+import NavBar from '../../components/assets/NavBar'
 
 const Home =()=>{
-
+return(
+    <>
+    <div>
+    <NavBar/>
+    </div>
+    </>
+)
 
 
 
