@@ -1,17 +1,15 @@
 import express from 'express';
-import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 //importo las rutas
-import post from '../routes/post.Coment';
-import products from '../routes/products.Router';
+// import post from '../routes/post.Coment';
+import products from '../routes/products.Router.js';
 
 const server = express();
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
-server.use(cookieParser());
 server.use(morgan('dev'));
 server.use(cors());
 server.use((req, res, next) => {
@@ -22,8 +20,8 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/products', products);
-server.use('/comentaries', post); 
+ server.use('/products', products);
+// server.use('/comentaries', post); 
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
