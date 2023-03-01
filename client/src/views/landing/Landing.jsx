@@ -13,7 +13,7 @@ const Landing = () => {
                 <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677677451/dfmbqz6lottpgltuy6ye.webp" alt="foto" />
                 <div>
                 <Link to='/home'>
-                    <button className='landing-boton'>Ir al inicio</button> </Link>
+                    <button className='landing-boton'>Inicio</button> </Link>
                 </div>
             </div>
         </div>
