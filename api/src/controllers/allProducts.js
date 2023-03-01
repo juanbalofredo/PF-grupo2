@@ -5,6 +5,7 @@ import Products from "../models/products.js";
 export default async function getProducts(req, res) {
     const response2 = await Products.findAll()
     try {
+        // esto es para seguir creando la misma base de datos
         if (response2.length == 0) {
             apiInfo().then(r => res.status(200).json(r));
         }
