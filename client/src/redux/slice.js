@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
+  productsBackup:[],
+  loading:false,
+  page:1,
   error: false,
 };
 export const bolsilloSlice = createSlice({
