@@ -3,8 +3,9 @@ import dataBase from "../config/db.js";
 
 const Market = dataBase.define('market', {
   id: {
-    type: DataTypes.STRING(3),
+    type: DataTypes.INTEGER,
     primaryKey: true,
+    autoIncrement: true
   },
   name: {
     type: DataTypes.STRING,

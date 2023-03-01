@@ -1,8 +1,8 @@
-import { Router } from "express";
-//importar controller de post
+// import { Router } from "express";
+// //importar controller de post
 
-const post = Router();
+// const post = Router();
 
- post.post("/", /*aqui va el controller*/);
+//  post.post("/", /*aqui va el controller*/);
 
- export default post;
+// module.export = post;

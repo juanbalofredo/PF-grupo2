@@ -4,15 +4,18 @@ import Market from "./market.js";
 
 const Products = dataBase.define('products', {
     id: {
-        type: DataTypes.STRING(3),
+        type: DataTypes.INTEGER,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull : true,
         primaryKey: true,
+        autoIncrement: true
     },
     name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
     price: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     brand: {
@@ -26,10 +29,14 @@ const Products = dataBase.define('products', {
     category: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    supermarket: {
+        type: DataTypes.STRING,
+        allowNull: false,
     }
 }, { timestamps: false })
 
-Products.belongsToOne(Market, {
+Products.belongsTo(Market, {
     through: "Products_Market",
     timestamps: false
 });
