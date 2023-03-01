@@ -20,11 +20,11 @@
 @media @desktop{
     .landing-principal{
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 700px;
-        background-color: aqua;
-        margin-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(230, 245, 245);
+    width: 2500px;
+    height: 2500px;
     }
     .landing-container{
         display: flex;
@@ -33,18 +33,73 @@
     }
     .landing-fotos{
         display: grid;
-        grid-template-columns: 200px 200px 200px 200px;
+        grid-template-columns: 20px 20px 20px 20px;
         align-items: center;
         column-gap: 100px;
         margin-bottom: 100px;
     }
+    .landing-boton {
+        color: rgb(230, 170, 61);
+        margin-left: 10%;
+        border-radius: 3em;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(17, 32, 233);
+        font-size: 30px;
+        /* font-weight: bold; */
+        font-style: oblique;
+        box-shadow: 0rem 0.1875rem 0.375rem rgb(255, 255, 255);
+        height: 1000px;
+      }
+      
+      #landing-boton:hover {
+        background-color: rgb(241, 197, 116);
+        color: rgb(211, 124, 43);
+      }
 
 
 }
 
 
 @media @tablet{
-    
+    .landing-principal{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(230, 245, 245);
+    width: 2500px;
+    height: 2500px;
+    }
+    .landing-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .landing-fotos{
+        display: grid;
+        grid-template-columns: 20px 20px 20px 20px;
+        align-items: center;
+        column-gap: 100px;
+        margin-bottom: 100px;
+    }
+    .landing-boton {
+        color: rgb(230, 170, 61);
+        margin-left: 10%;
+        border-radius: 3em;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(17, 32, 233);
+        font-size: 30px;
+        /* font-weight: bold; */
+        font-style: oblique;
+        box-shadow: 0rem 0.1875rem 0.375rem rgb(255, 255, 255);
+        height: 100px;
+      }
+      
+      #landing-boton:hover {
+        background-color: rgb(241, 197, 116);
+        color: rgb(211, 124, 43);
+      }
 }
 @media @bigMobile{
     
