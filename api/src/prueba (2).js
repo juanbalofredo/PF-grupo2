@@ -1,7 +1,7 @@
 const users = [
   {
     "nombre": "Ana",
-    "apellido": "García",
+    "apellido": "Garcia",
     "avatar": "URL imagen avatar",
     "mail": "ana.garcia@mail.com",
     "contraseña": "123456",

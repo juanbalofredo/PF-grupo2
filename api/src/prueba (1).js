@@ -2,7 +2,7 @@ let products = [
     {
         "name": "Leche",
         "brand": "Lechelita",
-        "price": 20.50,
+        "price": 20.51,
         "unity": "litro",
         "category": "Lácteos",
         "supermarket": "tienda 1",
