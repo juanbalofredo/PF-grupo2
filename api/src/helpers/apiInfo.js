@@ -3,8 +3,8 @@ import Products from "../models/products.js";
 import products from "../prueba (1).js";
 
 const apiInfo = async () => {
-    const produc = products.map(p => {
-        Products.create({
+    const produc = products.map(async (p) => {
+        return await Products.create({
             name: p.name,
             brand: p.brand,
             price: p.price,
@@ -15,7 +15,11 @@ const apiInfo = async () => {
             image: p.image
         })
     })
-
+    produc.forEach(e => {
+        e
+            .then(info => console.log(info.dataValues))
+    })
+    console.log("Esto es produc ==>", produc)
     return produc;
 };
 export default apiInfo;
