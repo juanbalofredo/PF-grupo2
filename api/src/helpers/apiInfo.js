@@ -2,8 +2,8 @@ import products from "../models/products.js";
 import product from "./products.js"
 
 const apiInfo = async()=> {
-    const produc = product.map( p=>{
-         products.create({
+    const productos = product.map(async(p)=>{
+        await products.create({
             id : p.id,
             name : p.name,
             brand : p.brand,
@@ -12,7 +12,6 @@ const apiInfo = async()=> {
             category : p.category
         })
     })
-    console.log(produc);
-        return product;
+        return productos;
     };
 export default apiInfo;
