@@ -21,10 +21,10 @@ const Landing = () => {
                 <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png" alt="" />
                 <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png" alt="" />
                 <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png" alt="" />
+                <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/cnfvf4ktda34t0ata0se.png" alt="" />
             </div>
         </div>
     )
-
 
 
 }
