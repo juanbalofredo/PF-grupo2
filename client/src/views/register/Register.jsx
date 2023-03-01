@@ -4,29 +4,40 @@ import { useEffect } from "react"
 import NavBar from '../../components/assets/NavBar'
 
 
+
 const Register = () => {
+
+    // const [imageSelected, setImageSelected] = useState('');
+    // const uploadImage = () => {
+    //     const formData = new FormData();
+    //     formData.append('file', imageSelected)
+    //     formData.append('upload_preset', 'Learning')
+
+    //     axios.post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
+    //         .then((response) => {
+    //             const url = response.data.secure_url;
+    //             setInput({
+    //                 ...input,
+    //                 urlImg: url,
+    //             })
+    //         })
+    // }
 
     // const [input, setInput] = useState({
     //     name: '',
-    //     urlImg: '',
-    //     tipo: '',
-    //     relleno: '',
-    //     cobertura: '',
-    //     precio: 0,
-    //     stock: 0,
-    //     descripcion: ''
+    //     avatar: '',
+    //     apellido: '',
+    //     mail: '',
+    //     contraseña: '',
     // })
 
 
     // const [error, setError] = useState({
     //     name: '',
-    //     urlImg: '',
-    //     tipo: '',
-    //     relleno: '',
-    //     cobertura: '',
-    //     precio: 0,
-    //     stock: 0,
-    //     descripcion: ''
+    //     avatar: '',
+    //     apellido: '',
+    //     mail: '',
+    //     contraseña: '',
     // })
 
     // function handleChange(e) {
