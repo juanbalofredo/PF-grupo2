@@ -1,5 +1,6 @@
 import { Router } from "express";
 //importar los controller
+console.log("s")
 
 const products = Router();
 
