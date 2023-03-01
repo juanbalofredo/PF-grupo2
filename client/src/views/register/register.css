@@ -41,6 +41,9 @@
     margin-top: 20px;
     width: 17.5rem;
   }
+  .register-form input:focus-visible {
+    outline: none;
+  }
   .register-form h1 {
     text-align: center;
     margin-top: 50px;
