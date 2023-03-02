@@ -38,6 +38,7 @@ return error.message
 }
 }
 
+
 export async function validateUser(dispatch) {
 try {
   const pedir = axios.get("http://localhost:3001/user/id/:id");
