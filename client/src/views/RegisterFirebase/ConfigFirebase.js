@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
-import "firebase/firestore"
+import "firebase/firestore";
+import "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyClAR60QNv1HSAY2pIu7i5ZmSO8jYDK1Hg",
     authDomain: "bolsillo-feliz.firebaseapp.com",
@@ -11,4 +12,9 @@ const firebaseConfig = {
   };
   // Initialize Firebase
 const fb = firebase.initializeApp(firebaseConfig);
-export const db = fb.firestore();
+const db = fb.firestore();
+const auth = firebase.auth();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
+
+export {auth, googleAuthProvider,facebookAuthProvider, db};
