@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { allProducts, allUsers,oneUsers } from "./slice";
+import { allProducts, allUsers,LoginWithGoogle,oneUsers } from "./slice";
+import {firebase, googleAuthProvider} from "../views/RegisterFirebase/ConfigFirebase";
 
 export async function getAllProducts(dispatch) {
     try {
@@ -50,4 +51,17 @@ try {
 return error.message  
 }
 }
-
+export const StartGoogleAuth = (dispatch)=>{
+  try {
+      firebase
+      .auth()
+      .signInWithPopup(googleAuthProvider)
+      .then(({user})=>{
+          console.log(user);
+          dispatch(LoginWithGoogle(user));
+      })
+    } catch (error) {
+      return error.response;
+    }
+  }
+ 

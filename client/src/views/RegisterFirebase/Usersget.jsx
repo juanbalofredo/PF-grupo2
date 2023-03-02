@@ -3,6 +3,7 @@ import { useState } from "react"
 import NavBar from '../../components/assets/NavBar'
 import {db} from "./ConfigFirebase"
 import { useDispatch } from "react-redux"
+import { LoginWithGoogle } from "./Slice"
 
 
 const Register = () => {
@@ -14,7 +15,6 @@ const Register = () => {
         email: '',
         password: '',
     })
-
     function handleChange(e) {
         const { name, value } = e.target;
         setInput({
@@ -22,6 +22,9 @@ const Register = () => {
             [name]: value
         })
 
+    }
+    const handleSubmitGoogle= ()=>{
+        dispatch(LoginWithGoogle())
     }
     async function handleSubmit(e) {
     e.preventDefault()
@@ -48,7 +51,7 @@ const Register = () => {
                         <button type="submit">Registrarse</button>
                     </div>
                     <div className="reg-google-fac">
-                        <button className="register-google">Registrarse con Google</button>
+                        <button className="register-google" onClick={handleSubmitGoogle}>Registrarse con Google</button>
                         <button className="register-facebook">Registrarse con Facebook</button>
                     </div>
                 </form>
