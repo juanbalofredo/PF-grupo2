@@ -22,7 +22,7 @@ server.use((req, res, next) => {
 
 server.use('/products', products);
 server.use('/user', users)
-//  server.use('/commentes', coments )
+//  server.use('/commentes', coments)
 //  server.use('/market', market )
 // server.use('/comentaries', post); 
 
