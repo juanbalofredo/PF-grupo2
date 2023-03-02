@@ -49,12 +49,4 @@ export async function deleteUser(req, res) {
 };
 
 
-// app.delete('/usuarios/:id', (req, res) => {
-//     const id = req.params.id;    
-//     Usuario.destroy({ where: { id } })
-//      .then(() => res.send('Usuario eliminado'))
-//      .catch(err => {
-//         console.log(err);
-//         res.status(500).send('Error eliminando usuario');
-//       });
-//   });
+
