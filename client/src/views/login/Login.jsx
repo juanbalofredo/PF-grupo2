@@ -1,3 +1,4 @@
+import "./login.css"
 import "./register.css"
 import { useState } from "react"
 import { useEffect } from "react"
@@ -5,25 +6,9 @@ import NavBar from '../../components/assets/NavBar'
 import axios from 'axios'
 import { crearUser } from "../../redux/apiPetitions"
 
-const Register = () => {
 
+const Login = () => {
 
-    const [imageSelected, setImageSelected] = useState('');
-    const uploadImage = () => {
-        const formData = new FormData();
-        formData.append('file', imageSelected)
-        formData.append('upload_preset', 'proyectof')
-
-        axios.post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
-            .then((response) => {
-                const url = response.data.secure_url;
-                setInput({
-                    ...input,
-                    avatar: url,
-                })
-            })
-            
-    }
 
     const [input, setInput] = useState({
         name: '',
@@ -136,7 +121,9 @@ const Register = () => {
 
 
 
-    return (<div className="reg-todo">
+
+    return(
+<div className="reg-todo">
         <NavBar />
         <div className="register-container">
 
@@ -145,27 +132,16 @@ const Register = () => {
             </div>
             <div className="register-form">
                 <form onSubmit={handleSubmit}>
-                    <h1>Registrarse</h1>
+                    <h1>Iniciar sesion</h1>
                     <div className="register-text">
-                        <label htmlFor='img'>Imagen</label>
-                        <div>
-                            <input type="file" name="avatar" placeholder='Imagen' autoComplete='off' onChange={(e) => {
-                                setImageSelected(e.target.files[0])
-                            }}></input>
-                        </div>
                         <div onClick={uploadImage}>Subir imagen</div>
-                        <div className="register-name">
-                            <div><input placeholder="Nombre" name="name" type="text" value={input.name}  onChange={handleChange} /></div>
-                            <div><input placeholder="Apellido" name="last_name" type="text" value={input.last_name} onChange={handleChange} /></div>
-                        </div>
                         <div className="register-correo"><input name="email" type="email" value={input.email} onChange={handleChange} placeholder="bautgod@gmail.com" /></div>
                         <div className="rgister-contra"><input name="password" type='password' value={input.password} onChange={handleChange} placeholder="Contraseña" /></div>
-                        <div className="register-contra2"><input name="password" type='password' onChange={handleChange} placeholder="Repetir contraseña" /></div>
-                        <button type="submit">Registrarse</button>
+                        <button type="submit">Iniciar sesion</button>
                     </div>
                     <div className="reg-google-fac">
-                        <button className="register-google">Registrarse con Google</button>
-                        <button className="register-facebook">Registrarse con Facebook</button>
+                        <button className="register-google">Iniciar con Google</button>
+                        <button className="register-facebook">Iniciar con Facebook</button>
                     </div>
                 </form>
             </div>
@@ -174,4 +150,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Login
