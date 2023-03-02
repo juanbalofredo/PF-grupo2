@@ -12,4 +12,5 @@ export default async function createUser({ name, last_name, avatar, email, passw
         notifications,
         activity
     })
+    
 }

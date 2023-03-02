@@ -17,8 +17,4 @@ export async function createReviews({message, userId}) {
 }
 
 
-
-
-
-
 // app.delete("/reviews/:id", allProducts)
