@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { allProducts, allUsers } from "./slice";
+import { allProducts, allUsers,oneUsers } from "./slice";
 
 export async function getAllProducts(dispatch) {
     try {
@@ -33,7 +33,6 @@ return error.message
 }
 //get usuarios
 export async function getUsers(dispatch) {
-
 try {
   const pedir = axios.post("http://localhost:3001/user");
   dispatch(allUsers(pedir?.data));
@@ -42,7 +41,7 @@ return error.message
 }
 }
 
-export async function validateUser(input) {
+export async function validateUser(dispatch) {
 try {
   const pedir = axios.post("http://localhost:3001/user/id/:id");
   dispatch(oneUsers(pedir?.data));

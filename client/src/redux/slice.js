@@ -37,5 +37,5 @@ export const bolsilloSlice = createSlice({
   },
 });
 
-export const { allProducts, createUser,allusers } = bolsilloSlice.actions;
+export const { allProducts, createUser,allUsers,oneUsers } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;
