@@ -9,7 +9,8 @@ const initialState = {
   last_name: '',
   email:'',
   avatar: '',
-  comment: [] 
+  comment: [], 
+  detail: []
 };
 export const bolsilloSlice = createSlice({
   name: "bolsillo",
