@@ -7,9 +7,8 @@ const products= Router();
 
 products.get("/", getProducts);
 products.get("/id/:id", getProductId);
-products.get("/name/name?", getByName);
+products.get("/name=?", getByName);
 // products.get("/category", /*aqui va el controller */)
-
 
 export default products;
 

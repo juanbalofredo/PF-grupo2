@@ -2,7 +2,7 @@ import Products from "../models/products.js";
 import { getProductByName } from "../helpers/products.helper.js";
 import apiInfo from "../helpers/apiInfo.js"
 
-export default async function getProducts(req, res) {
+export async function getProducts(req, res) {
     const response2 = await Products.findAll()
     try {
         // esto es para seguir creando la misma base de datos
@@ -16,7 +16,7 @@ export default async function getProducts(req, res) {
     }
 };
 
-export default async function getProductId(req, res) {
+export async function getProductId(req, res) {
     try {
         const { id } = req.params
         const result = prod.filter(e => e.id == id)

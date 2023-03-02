@@ -1,4 +1,4 @@
-import Products from "../models/products";
+import Products from "../models/products.js";
 import { Op } from "sequelize";
 
 export async function getProductsById(id){
