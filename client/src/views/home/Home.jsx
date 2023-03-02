@@ -2,6 +2,7 @@ import './home.css'
 import NavBar from '../../components/assets/NavBar'
 import { useSelector } from "react-redux";
 import Card from '../Card/Card';
+import Footer from "../footer/Footer";
 
 const Home =()=>{
 const state = useSelector((state) => state.bolsillo);
@@ -17,6 +18,7 @@ return(
         ))}  
     </div>
     </div>
+    <Footer/>
     </>
 )
 }
