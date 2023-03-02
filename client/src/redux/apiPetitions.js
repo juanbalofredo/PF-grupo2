@@ -13,6 +13,7 @@ export async function getAllProducts(dispatch) {
 
   
 export async function crearUser(input) {
+  
 if(input.avatar.lenght<5){
   input.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp'
 }
@@ -43,7 +44,7 @@ return error.message
 
 export async function validateUser(dispatch) {
 try {
-  const pedir = axios.get("http://localhost:3001/user/id/:id");
+  const pedir = axios.get("http://localhost:3001/user/email/:email");
   dispatch(oneUsers(pedir?.data));
 } catch (error) {
 return error.message  
