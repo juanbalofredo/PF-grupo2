@@ -25,6 +25,7 @@ export const bolsilloSlice = createSlice({
       state.name = action.payload.name;
       state.last_name = action.payload.last_name;
       state.avatar = action.payload.avatar;
+      state.email = action.payload.email;
     },
     createUser(state, action) {
       state.name = action.payload.name;
