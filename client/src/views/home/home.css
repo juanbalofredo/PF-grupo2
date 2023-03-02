@@ -2,8 +2,8 @@
     justify-content: center;
     align-items: center;
     display: grid;
-    gap: 20px;
     grid-template-columns: auto auto auto auto auto;
-    background-color: green;
+    background-color: #0f4571;
     padding-top: 100px;
+    padding-bottom: 200px;
 }
