@@ -14,9 +14,6 @@ export async function getAllProducts(dispatch) {
   
 export async function crearUser(input) {
 
-  if (!input.avatar) {
-    input.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp'
-  }
 try {
   return await axios.post("http://localhost:3001/user/postUsers",{
      name: input.name,
