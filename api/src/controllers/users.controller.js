@@ -1,5 +1,5 @@
 import Users from "../models/users.js";
-import { getUserById } from "../helpers/users.js";
+import { getUserById } from "../helpers/users.helper.js";
 
 
 export default async function getAllUsers(req, res) {
