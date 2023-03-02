@@ -23,9 +23,6 @@ const Register = () => {
         })
 
     }
-    // const handleGoogleSignIn = ()=>{
-    //     dispatch(googleSignInInitiate());
-    // }
     async function handleSubmit(e) {
     e.preventDefault()
     db.collection("User").doc().set(input)
