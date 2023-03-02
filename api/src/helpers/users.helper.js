@@ -6,3 +6,10 @@ export async function getUserById(id){
     });
     return userById;
 }
+
+export async function getUserByEmail(email){
+    const userByemail = await Users.findOne({
+        where: {email}
+    });
+    return userByEmail;
+};
