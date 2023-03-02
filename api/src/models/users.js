@@ -13,7 +13,7 @@ const Users = dataBase.define('users', {
         allowNull: false
     },
     last_name: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     user_name: {
@@ -39,14 +39,18 @@ const Users = dataBase.define('users', {
     notifications: {
         type: DataTypes.BOOLEAN,
     },
+    activity: {
+        type: DataTypes.BOOLEAN,
+    },
+    
 
 }, { timestamps: false })
 
-Users.hasMany(Reviews, {
+Users.belongsToMany(Reviews, {
     through: "Users_Review",
     timestamps: false,
   });
-Reviews.belongsToMany(Users, {
+Reviews.hasOne(Users, {
     through: "Users_Review",
     timestamps: false,
   });
