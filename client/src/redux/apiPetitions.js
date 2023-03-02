@@ -88,6 +88,7 @@ export const StartGoogleAuth = (dispatch)=>{
      
         try {
           let json = await axios.get(`http://localhost:3001/products/id/${id}`, dispatch);
+          dispatch(oneComment(json?.data));
           return json;
         } catch (error) {
         console.log(error)
