@@ -7,21 +7,31 @@ import { crearUser } from "../../redux/apiPetitions";
 import Footer from "../footer/Footer";
 
 const Register = () => {
-  const [imageSelected, setImageSelected] = useState("");
-  const uploadImage = () => { 
-     
+
+
+  var uploadedImage = "";
+
+
+  const uploadImage = (e) => {
+    console.log("hola")
+    console.log(e)
+    console.log("adios")
+
     const formData = new FormData();
-    formData.append("file", imageSelected);
+
+    formData.append("file", e.target.files[0]);
     formData.append("upload_preset", "proyectof");
 
     axios
       .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
       .then((response) => {
-        const url = response.data.secure_url;
+        console.log(response);
+        uploadedImage = response.data.secure_url;
+        console.log(uploadedImage)
         setInput({
-          ...input,
-          avatar: url,
-        });
+            ...input,
+            avatar: uploadedImage,
+        })
       });
   };
 
@@ -104,9 +114,9 @@ const Register = () => {
     e.preventDefault();
     if (validarForm()) {
       try {
-        uploadImage();
-        crearUser(input);
+        console.log('queso')
         console.log(input.avatar)
+        crearUser(input);
         setInput({
           name: "",
           avatar: "",
@@ -151,8 +161,8 @@ const Register = () => {
                     name="avatar"
                     placeholder="Imagen"
                     autoComplete="off"
-                    onChange={(e) => {
-                      setImageSelected(e.target.files[0]);}}
+                    value={uploadedImage}
+                    onChange={e=>uploadImage(e)}
                   ></input>
                 </div>
                 <div onClick={uploadImage}>Subir imagen</div>

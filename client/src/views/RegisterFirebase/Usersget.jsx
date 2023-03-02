@@ -2,10 +2,11 @@ import "../register/register.css"
 import { useState } from "react"
 import NavBar from '../../components/assets/NavBar'
 import {db} from "./ConfigFirebase"
+import { useDispatch } from "react-redux"
 
 
-const Register = (props) => {
-
+const Register = () => {
+    const dispatch = useDispatch();
     const [input, setInput] = useState({
         name: '',
         avatar: '',
@@ -22,7 +23,6 @@ const Register = (props) => {
         })
 
     }
-
     async function handleSubmit(e) {
     e.preventDefault()
     db.collection("User").doc().set(input)
