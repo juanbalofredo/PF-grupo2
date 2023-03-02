@@ -2,15 +2,16 @@
 import "./card.css";
 
 export default function Card({ product }) {
-  const { name, brand, price} = product;
-  
-//   const navigate = useNavigate();
-//   const click = () => {
-//     navigate(`/details/${product.id}`);
-//   };
-//onClick={product.id ? click : null}
+  const { name, brand, price } = product;
+
+  //   const navigate = useNavigate();
+  //   const click = () => {
+  //     navigate(`/details/${product.id}`);
+  //   };
+  //onClick={product.id ? click : null}
   return (
     <>
+      <div className="container-Cards">
         <div className="card">
           <div className="cardetails">
             {/* <img className="image" src={img} alt={name} key={name}></img> */}
@@ -20,6 +21,7 @@ export default function Card({ product }) {
           </div>
           <button className="card-button">More info</button>
         </div>
+      </div>
     </>
   );
 }
