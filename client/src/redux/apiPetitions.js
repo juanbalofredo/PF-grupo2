@@ -15,7 +15,7 @@ export async function getAllProducts(dispatch) {
 export async function crearUser(input) {
   console.log(input)
 try {
-  return await axios.post("http://localhost:3001/"),{
+  return await axios.post("http://localhost:3001/",{
      ...input,
      name: input.name,
      avatar: input.avatar,
@@ -23,7 +23,7 @@ try {
      apellido: input.apellido,
      password: input.password,
 }  
-} catch (error) {
+)} catch (error) {
 return error.message  
 }
 }
