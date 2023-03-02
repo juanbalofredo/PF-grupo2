@@ -1061,7 +1061,7 @@ let products = [
             "supermarket": "Chango Mas",
             "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677784445/rl5w7eosyqsbn71f7rfk.jpg",
             "description": "Los garbanzos son una legumbre versátil y nutritiva, rica en proteínas, fibra y carbohidratos complejos. Presentados enlatados o en bolsas de plástico, son un ingrediente esencial en la cocina mediterránea y en la preparación de platos como el hummus, la ensalada de garbanzos o el curry de garbanzos. Además, son económicos y fáciles de almacenar."
-        },,
+        },
 ]
 
 export default products;
