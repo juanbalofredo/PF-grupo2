@@ -16,5 +16,10 @@ export async function createReviews({message, userId}) {
     })
 }
 
+export function deleteReviewById(id) {
+    const reviewDelete = Reviews.destroy({ where: { id } });
+    return reviewDelete;
+};
+
 
 // app.delete("/reviews/:id", allProducts)
