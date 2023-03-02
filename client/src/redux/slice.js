@@ -8,7 +8,7 @@ const initialState = {
   name: '',
   last_name: '',
   email:'',
-  avatar: 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp',
+  avatar: '',
 };
 export const bolsilloSlice = createSlice({
   name: "bolsillo",
@@ -29,7 +29,7 @@ export const bolsilloSlice = createSlice({
     createUser(state, action) {
       state.name = action.payload.name;
       state.last_name = action.payload.last_name;
-      if (!action.payload.avatar) {
+      if (action.payload.avatar.length > 10) {
         state.avatar = action.payload.avatar;
       } else { state.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp' }
 
