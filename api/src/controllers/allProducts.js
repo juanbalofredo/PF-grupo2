@@ -10,8 +10,6 @@ export default async function getProducts(req, res) {
             apiInfo().then(r => res.status(200).json(r));
         }
         else return res.status(200).json(response2);
-
-
     } catch (error) {
         return res.status(400).json({ err: error.message });
 

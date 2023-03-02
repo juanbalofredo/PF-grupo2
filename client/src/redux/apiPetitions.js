@@ -14,16 +14,22 @@ export async function getAllProducts(dispatch) {
   
 export async function crearUser(input) {
   console.log(input)
+  if (!input.avatar) {
+    input.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp'
+  }
 try {
   return await axios.post("http://localhost:3001/user/postUsers",{
-     ...input,
+
      name: input.name,
      avatar: input.avatar,
-     mail: input.mail,
-     apellido: input.apellido,
+     email: input.email,
+     last_name: input.last_name,
      password: input.password,
-}  
-)} catch (error) {
+
+     type_account: '1'
+})
+} catch (error) {
+
 return error.message  
 }
 }

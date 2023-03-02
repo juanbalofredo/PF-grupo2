@@ -3,12 +3,10 @@ import { useState } from "react"
 import { useEffect } from "react"
 import NavBar from '../../components/assets/NavBar'
 import axios from 'axios'
-import { useDispatch } from "react-redux"
 import { crearUser } from "../../redux/apiPetitions"
 
 const Register = () => {
 
-    const dispatch = useDispatch();
 
     const [imageSelected, setImageSelected] = useState('');
     const uploadImage = () => {
@@ -30,7 +28,7 @@ const Register = () => {
     const [input, setInput] = useState({
         name: '',
         avatar: '',
-        apellido: '',
+        last_name: '',
         email: '',
         password: '',
     })
@@ -39,7 +37,7 @@ const Register = () => {
     const [error, setError] = useState({
         name: '',
         avatar: '',
-        apellido: '',
+        last_name: '',
         email: '',
         password: '',
     })
@@ -55,10 +53,10 @@ const Register = () => {
                 break;
             }
 
-            case 'apellido': {
+            case 'last_name': {
                 setError({
                     ...error,
-                    apellido: value.length < 1 ? 'Apellido no puede estar vacio' : ''
+                    last_name: value.length < 1 ? 'Apellido no puede estar vacio' : ''
                 })
                 break;
             }
@@ -96,7 +94,7 @@ const Register = () => {
 
         if (input.name.length <= 2) valid = false
 
-        if (input.apellido.length <= 2) valid = false
+        if (input.last_name.length <= 2) valid = false
 
         if (input.email.length <= 2) valid = false
 
@@ -109,12 +107,12 @@ const Register = () => {
         e.preventDefault()
         if (validarForm()) {
             try {
-                    uploadImage()
+
                     crearUser(input)
                     setInput({
                         name: '',
                         avatar: '',
-                        apellido: '',
+                        last_name: '',
                         email: '',
                         password: '',
                     })
@@ -158,7 +156,7 @@ const Register = () => {
                         <div onClick={uploadImage}>Subir imagen</div>
                         <div className="register-name">
                             <div><input placeholder="Nombre" name="name" type="text" value={input.name}  onChange={handleChange} /></div>
-                            <div><input placeholder="Apellido" name="apellido" type="text" value={input.apellido} onChange={handleChange} /></div>
+                            <div><input placeholder="Apellido" name="last_name" type="text" value={input.last_name} onChange={handleChange} /></div>
                         </div>
                         <div className="register-correo"><input name="email" type="email" value={input.email} onChange={handleChange} placeholder="bautgod@gmail.com" /></div>
                         <div className="rgister-contra"><input name="password" type='password' value={input.password} onChange={handleChange} placeholder="Contraseña" /></div>
