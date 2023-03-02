@@ -30,7 +30,8 @@ const Users = dataBase.define('users', {
     },
     type_account: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue:"Client"
     },
     notifications: {
         type: DataTypes.BOOLEAN,
