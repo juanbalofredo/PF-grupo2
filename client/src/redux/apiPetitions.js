@@ -19,14 +19,17 @@ export async function crearUser(input) {
   }
 try {
   return await axios.post("http://localhost:3001/user/postUsers",{
+
      name: input.name,
      avatar: input.avatar,
      email: input.email,
      last_name: input.last_name,
      password: input.password,
+
      type_account: '1'
 })
 } catch (error) {
+
 return error.message  
 }
 }
