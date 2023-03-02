@@ -1,4 +1,4 @@
-import createUser from "../helpers/createUser.js"
+import createUser from "../helpers/createUser.helper.js"
 
 
 export default function postUser(req,res){

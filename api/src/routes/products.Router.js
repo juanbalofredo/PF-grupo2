@@ -1,17 +1,14 @@
 import { Router } from "express";
 // //importar los controller
-// console.log("s")
-import allProducts from "../controllers/allProducts.js"
-import ProductId from "../controllers/ProductId.js";
+import { getByName, getProductId, getProducts} from "../controllers/product.controller.js";
 
 
 const products= Router();
 
-products.get("/", allProducts);
-products.get("/id/:id", ProductId);
-// products.get("/name?", /*aqui va el controller */)
+products.get("/", getProducts);
+products.get("/id/:id", getProductId);
+products.get("/name=?", getByName);
 // products.get("/category", /*aqui va el controller */)
-
 
 export default products;
 
