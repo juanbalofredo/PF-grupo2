@@ -29,15 +29,17 @@ const Users = dataBase.define('users', {
         allowNull: false
     },
     type_account: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("1","2","3"),
         allowNull: false,
-        defaultValue:"Client"
+        defaultValue: "1"
     },
     notifications: {
         type: DataTypes.BOOLEAN,
+        defaultValue: true
     },
     activity: {
         type: DataTypes.BOOLEAN,
+        defaultValue: true
     },
     
 
