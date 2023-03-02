@@ -83,7 +83,7 @@ const Login = () => {
     }
 
     useEffect(() => {
-        document.title = "Registrarse";
+        document.title = "Log in";
     }, [])
 
 

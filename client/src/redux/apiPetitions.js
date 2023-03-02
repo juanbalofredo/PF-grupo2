@@ -34,7 +34,7 @@ return error.message
 //get usuarios
 export async function getUsers(dispatch) {
 try {
-  const pedir = axios.post("http://localhost:3001/user");
+  const pedir = axios.get("http://localhost:3001/user");
   dispatch(allUsers(pedir?.data));
 } catch (error) {
 return error.message  
@@ -43,7 +43,7 @@ return error.message
 
 export async function validateUser(dispatch) {
 try {
-  const pedir = axios.post("http://localhost:3001/user/id/:id");
+  const pedir = axios.get("http://localhost:3001/user/id/:id");
   dispatch(oneUsers(pedir?.data));
 } catch (error) {
 return error.message  
