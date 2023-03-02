@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { allProducts, allUsers,LoginWithGoogle,oneUsers } from "./slice";
+import { allProducts, allUsers,LoginWithGoogle,oneUsers, oneComment } from "./slice";
 import {firebase, googleAuthProvider} from "../views/RegisterFirebase/ConfigFirebase";
 
 export async function getAllProducts(dispatch) {
@@ -64,4 +64,24 @@ export const StartGoogleAuth = (dispatch)=>{
       return error.response;
     }
   }
+
+  export async function getComments(dispatch, id) {
+    try {
+         let response =  axios.get(`http://localhost:3001/reviews/id/${id}`, dispatch)
+        dispatch(oneComment(response?.data));
+    } catch (error) {
+     return error.message
+    }
+   }
+
+   export async function postComments (dispatch, id) {
+   
+      try {
+        let json = await axios.post(`http://localhost:3001/reviews/id/${id}`, dispatch);
+        return json;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
  

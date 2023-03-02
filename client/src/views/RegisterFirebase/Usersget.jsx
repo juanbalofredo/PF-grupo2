@@ -25,6 +25,7 @@ const Register = () => {
     }
     const handleSubmitGoogle= ()=>{
         dispatch(LoginWithGoogle())
+        console.log(LoginWithGoogle())
     }
     async function handleSubmit(e) {
     e.preventDefault()
