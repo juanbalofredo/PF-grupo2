@@ -17,3 +17,10 @@ export async function getProductByName(name){
     });
     return productsByName;
 };
+
+export async function getProductsByCategory(category){
+    const productByCategory = await Products.findAll({
+        where: {category},
+    })
+    return productByCategory;
+};
