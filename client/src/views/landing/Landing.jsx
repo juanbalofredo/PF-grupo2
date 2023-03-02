@@ -7,7 +7,7 @@ const Landing = () => {
     return (
         <div className='landing-container'>
             <div className='landing-principal'>
-                <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677677451/dfmbqz6lottpgltuy6ye.webp" alt="foto" />
+                <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp" alt="foto" />
                 <div className='landing-boton'>
                     <button><Link to='/home'>Ir al inicio</Link></button>
                 </div>

@@ -13,10 +13,7 @@ const Register = () => {
 
 
   const uploadImage = (e) => {
-    console.log("hola")
-    console.log(e)
-    console.log("adios")
-
+    e.preventDefault();
     const formData = new FormData();
 
     formData.append("file", e.target.files[0]);
@@ -29,8 +26,8 @@ const Register = () => {
         uploadedImage = response.data.secure_url;
         console.log(uploadedImage)
         setInput({
-            ...input,
-            avatar: uploadedImage,
+          ...input,
+          avatar: uploadedImage,
         })
       });
   };
@@ -125,7 +122,7 @@ const Register = () => {
           password: "",
         });
         alert("Usuario creado");
-        window.location.href = "http://localhost:3000/home";
+        window.location.href = "/home";
       } catch (error) {
         alert("ERROR: reintenta más tarde! (" + error + ")");
       }
@@ -146,12 +143,13 @@ const Register = () => {
         <div className="register-container">
           <div className="register-logo">
             <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677677451/dfmbqz6lottpgltuy6ye.webp"
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp"
               alt="logo"
             />
           </div>
           <div className="register-form">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}
+              autoComplete='off'>
               <h1>Registrarse</h1>
               <div className="register-text">
                 <label htmlFor="img">Imagen</label>
@@ -160,15 +158,16 @@ const Register = () => {
                     type="file"
                     name="avatar"
                     placeholder="Imagen"
-                    autoComplete="off"
+                    autoComplete='off'
                     value={uploadedImage}
-                    onChange={e=>uploadImage(e)}
+                    onChange={e => uploadImage(e)}
                   ></input>
                 </div>
                 <div onClick={uploadImage}>Subir imagen</div>
                 <div className="register-name">
                   <div>
                     <input
+                      autoComplete='off'
                       placeholder="Nombre"
                       name="name"
                       type="text"
@@ -178,6 +177,7 @@ const Register = () => {
                   </div>
                   <div>
                     <input
+                      autoComplete='off'
                       placeholder="Apellido"
                       name="last_name"
                       type="text"
@@ -188,6 +188,7 @@ const Register = () => {
                 </div>
                 <div className="register-correo">
                   <input
+                    autoComplete='off'
                     name="email"
                     type="email"
                     value={input.email}
@@ -197,6 +198,7 @@ const Register = () => {
                 </div>
                 <div className="rgister-contra">
                   <input
+                    autoComplete='off'
                     name="password"
                     type="password"
                     value={input.password}
@@ -206,6 +208,7 @@ const Register = () => {
                 </div>
                 <div className="register-contra2">
                   <input
+                    autoComplete='off'
                     name="password"
                     type="password"
                     onChange={handleChange}
@@ -226,9 +229,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
       <Footer />
     </>
   );

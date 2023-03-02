@@ -88,7 +88,7 @@ const Login = () => {
         <div className="register-container">
           <div className="register-logo">
             <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677677451/dfmbqz6lottpgltuy6ye.webp"
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp"
               alt="logo"
             />
           </div>

@@ -16,6 +16,7 @@ body {
   align-items: center;
   margin: 0;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .reg-google-fac {
@@ -29,7 +30,8 @@ body {
 }
 
 .register-logo img {
-  width: 24rem;
+  width: 15rem;
+  margin-right: 60px;
 }
 
 .register-form {
