@@ -13,15 +13,16 @@ export async function getAllReviews(req, res) {
     }
 };
 
-export async function getRevById(req, res){
-    try{
-        const {id} = req.params;
+export async function getRevById(req, res) {
+    try {
+        const { id } = req.params;
         const response = await getReviewsById(id);
-        if(!response) return res.status(404).send("Not found 404");
+        if (!response) return res.status(404).send("Not found 404");
         return res.status(200).json(response);
     } catch {
-        return res.status(500).json({err: error.message}) };
+        return res.status(500).json({ err: error.message })
     };
+};
 
 export async function postReview(req, res) {
     try {
@@ -37,16 +38,13 @@ export async function deleteReview(req, res) {
     const { id } = req.body;
     try {
         const deletedReview = await deleteReviewById(id)
-        
+
         if (deletedReview === 0) {
             throw Error("No se encontro ninguna review con ese iD")
         }
-        res.status(200).json("Se ha borrado la review exitosamente"); 
+        res.status(200).json("Se ha borrado la review exitosamente");
     } catch (error) {
-        res.status(500).send({err: error.message});
+        res.status(500).send({ err: error.message });
     }
 
 };
-
-
-//agregando comentarios

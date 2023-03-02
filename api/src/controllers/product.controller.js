@@ -12,7 +12,6 @@ export async function getProducts(req, res) {
         else return res.status(200).json(response2);
     } catch (error) {
         return res.status(400).json({ err: error.message });
-
     }
 };
 
@@ -23,27 +22,27 @@ export async function getProductId(req, res) {
         console.log(response);
         return res.status(200).json(response)
     } catch {
-        return res.status(400).json({err: error.message})
+        return res.status(400).json({ err: error.message })
     }
 
-    }
+}
 
-export async function getByName(req, res){
-    try{
-        const {name} = req.query;
-         const response = await getProductByName(name);
-         return res.status(200).json(response);
+export async function getByName(req, res) {
+    try {
+        const { name } = req.query;
+        const response = await getProductByName(name);
+        return res.status(200).json(response);
     } catch {
-        return res.status(400).json({err: error.message});
+        return res.status(400).json({ err: error.message });
     }
 };
 
-export async function getByCategory(req, res){
+export async function getByCategory(req, res) {
     try {
         const { category } = req.params;
-         const response = await getProductsByCategory(category)
-         return res.status(200).json(response);
+        const response = await getProductsByCategory(category)
+        return res.status(200).json(response);
     } catch {
-        return res.status(400).json({err: error.message});
+        return res.status(400).json({ err: error.message });
     }
 };

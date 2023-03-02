@@ -6,9 +6,7 @@ const review = Router();
 
 review.get("/", getAllReviews);
 review.get("/id/:id", getRevById)
-
 review.post("/createpost", postReview);
-
 review.delete("/deleteReview", deleteReview)
 
 export default review;
