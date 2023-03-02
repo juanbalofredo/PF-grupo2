@@ -1,5 +1,4 @@
 import "./login.css"
-import "./register.css"
 import { useState } from "react"
 import { useEffect } from "react"
 import NavBar from '../../components/assets/NavBar'
@@ -30,21 +29,6 @@ const Login = () => {
     function handleChange(e) {
         const { name, value } = e.target;
         switch (name) {
-            case 'name': {
-                setError({
-                    ...error,
-                    name: value.length < 3 ? 'El nombre es demasiado corto' : ''
-                })
-                break;
-            }
-
-            case 'last_name': {
-                setError({
-                    ...error,
-                    last_name: value.length < 1 ? 'Apellido no puede estar vacio' : ''
-                })
-                break;
-            }
 
             case 'email': {
                 setError({
@@ -76,11 +60,6 @@ const Login = () => {
     function validarForm() {
         let valid = true;
 
-
-        if (input.name.length <= 2) valid = false
-
-        if (input.last_name.length <= 2) valid = false
-
         if (input.email.length <= 2) valid = false
 
         if (input.password.length <= 2) valid = false
@@ -92,24 +71,14 @@ const Login = () => {
         e.preventDefault()
         if (validarForm()) {
             try {
-
-                    crearUser(input)
-                    setInput({
-                        name: '',
-                        avatar: '',
-                        last_name: '',
-                        email: '',
-                        password: '',
-                    })
-                    console.log(input)
-                 
-                    alert("Usuario creado");
+                    alert("Ingresado correctamente");
+                    window.location.href = 'http://localhost:3000/home';
                 }
             catch (error) {
                 alert("ERROR: reintenta más tarde! (" + error + ")");
             }
         } else {
-            alert("ERROR: Faltan completar algunos campos");
+            alert("email no puede estar vacio");
         }
     }
 
@@ -134,7 +103,6 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                     <h1>Iniciar sesion</h1>
                     <div className="register-text">
-                        <div onClick={uploadImage}>Subir imagen</div>
                         <div className="register-correo"><input name="email" type="email" value={input.email} onChange={handleChange} placeholder="bautgod@gmail.com" /></div>
                         <div className="rgister-contra"><input name="password" type='password' value={input.password} onChange={handleChange} placeholder="Contraseña" /></div>
                         <button type="submit">Iniciar sesion</button>

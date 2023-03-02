@@ -107,7 +107,6 @@ const Register = () => {
         e.preventDefault()
         if (validarForm()) {
             try {
-
                     crearUser(input)
                     setInput({
                         name: '',
@@ -115,10 +114,9 @@ const Register = () => {
                         last_name: '',
                         email: '',
                         password: '',
-                    })
-                    console.log(input)
-                 
+                    })        
                     alert("Usuario creado");
+                    window.location.href = 'http://localhost:3000/home';
                 }
             catch (error) {
                 alert("ERROR: reintenta más tarde! (" + error + ")");
