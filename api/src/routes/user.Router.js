@@ -6,8 +6,8 @@ import { getById } from "../controllers/users.js";
 const users = Router();
 
 users.get("/", allUsers)
-users.post("/postUsers", postUser)
 users.get("/id/:id", getById)
+users.post("/postUsers", postUser)
 
 //app.delete("/users/:id", allProducts)
 
