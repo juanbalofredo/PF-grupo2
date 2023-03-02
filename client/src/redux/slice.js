@@ -9,6 +9,7 @@ const initialState = {
   last_name: '',
   email:'',
   avatar: '',
+  comment: [] 
 };
 export const bolsilloSlice = createSlice({
   name: "bolsillo",
@@ -34,11 +35,14 @@ export const bolsilloSlice = createSlice({
         state.avatar = action.payload.avatar;
       } else { state.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp' }
     },
-    LoginWithGoogle(state, actions){
-      state.name = actions.payload.name 
+    LoginWithGoogle(state, action){
+      state.name = action.payload;
+   },
+   oneComment(state, action) {
+    state.comment = action.payload;
    }
   },
 });
 
-export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle } = bolsilloSlice.actions;
+export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;
