@@ -33,10 +33,12 @@ export const bolsilloSlice = createSlice({
       if (action.payload.avatar.length > 10) {
         state.avatar = action.payload.avatar;
       } else { state.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp' }
-
-    }
+    },
+    LoginWithGoogle(state, actions){
+      state.name = actions.payload.name 
+   }
   },
 });
 
-export const { allProducts, createUser,allUsers,oneUsers } = bolsilloSlice.actions;
+export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;
