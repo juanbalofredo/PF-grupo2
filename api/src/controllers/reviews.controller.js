@@ -11,3 +11,5 @@ export default async function getReviews(req, res){
         return res.status(400).json({ err: error.message });
     }
 }
+
+//agregando comentarios
