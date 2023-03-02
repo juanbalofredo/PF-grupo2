@@ -1,5 +1,5 @@
 import Reviews from "../models/review.js";
-import { createReviews, getReviewsById } from "../helpers/reviews.helper.js";
+import { createReviews, getReviewsById, deleteReviewById } from "../helpers/reviews.helper.js";
 
 export async function getAllReviews(req, res) {
     const allReviews = await Reviews.findAll();
@@ -23,14 +23,30 @@ export async function getRevById(req, res){
         return res.status(500).json({err: error.message}) };
     };
 
-export function postReview(req, res) {
+export async function postReview(req, res) {
     try {
         const bodyReview = req.body;
-        createReviews(bodyReview);
+        await createReviews(bodyReview);
         return res.status(200).json(bodyReview);
     } catch (error) {
         return res.status(400).json({ err: error.message })
     };
 }
+
+export async function deleteReview(req, res) {
+    const { id } = req.body;
+    try {
+        const deletedReview = await deleteReviewById(id)
+        
+        if (deletedReview === 0) {
+            throw Error("No se encontro ninguna review con ese iD")
+        }
+        res.status(200).json("Se ha borrado la review exitosamente"); 
+    } catch (error) {
+        res.status(500).send({err: error.message});
+    }
+
+};
+
 
 //agregando comentarios
