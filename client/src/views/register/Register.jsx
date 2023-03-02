@@ -8,7 +8,8 @@ import Footer from "../footer/Footer";
 
 const Register = () => {
   const [imageSelected, setImageSelected] = useState("");
-  const uploadImage = () => {
+  const uploadImage = () => { 
+     
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "proyectof");
@@ -103,7 +104,9 @@ const Register = () => {
     e.preventDefault();
     if (validarForm()) {
       try {
+        uploadImage();
         crearUser(input);
+        console.log(input.avatar)
         setInput({
           name: "",
           avatar: "",
@@ -149,8 +152,7 @@ const Register = () => {
                     placeholder="Imagen"
                     autoComplete="off"
                     onChange={(e) => {
-                      setImageSelected(e.target.files[0]);
-                    }}
+                      setImageSelected(e.target.files[0]);}}
                   ></input>
                 </div>
                 <div onClick={uploadImage}>Subir imagen</div>
