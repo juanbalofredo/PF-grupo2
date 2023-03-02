@@ -6,6 +6,7 @@ const initialState = {
   page: 1,
   error: false,
   name: '',
+  id:"",
   last_name: '',
   email:'',
   avatar: '',
@@ -32,9 +33,6 @@ export const bolsilloSlice = createSlice({
     createUser(state, action) {
       state.name = action.payload.name;
       state.last_name = action.payload.last_name;
-      if (action.payload.avatar.length > 10) {
-        state.avatar = action.payload.avatar;
-      } else { state.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp' }
     },
     LoginWithGoogle(state, action){
       state.name = action.payload;

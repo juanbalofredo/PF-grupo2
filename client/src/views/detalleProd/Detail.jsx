@@ -1,22 +1,23 @@
 import "./detalleProd.css"
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCarts, getProductId } from "../../redux/apiPetitions";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/assets/NavBar"
+import axios from "axios";
 
 
 const DetalleProd =()=>{
-
-    const dispatch = useDispatch();
-    const { id } = useParams();
-    const product = useSelector((state) => state.detail);
-
-    useEffect(() => {
-        // dispatch(getComments(product.id))
-        dispatch(getProductId(id));
-      }, [dispatch, id]);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/products/id/${id}`)
+      .then((e) => setProduct(e.data))
+      .catch((err) => {
+        return err;
+      });
+  }, [id, navigate, product]);
 
       const myProduct = product
 
@@ -45,7 +46,7 @@ const DetalleProd =()=>{
               </h3>
               <h3 className="texts">
                 {" "}
-                Camera: <br /> {myProduct.unit}
+                Unity: <br /> {myProduct.unit}
               </h3>   
               <h3 className="texts">
                 Stock: <br /> {myProduct.stock}
