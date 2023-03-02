@@ -16,11 +16,7 @@ const Users = dataBase.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    user_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    email: {
+    mail: {
         type: DataTypes.STRING,
         allowNull: false
     },

@@ -17,10 +17,10 @@ const apiInfo = async () => {
         });
     }
 
-    const todosLosProductos = await Products.findAll()
+    const allProducts= await Products.findAll()
 
 
-    return todosLosProductos;
+    return allProducts;
 
 };
 export default apiInfo;
