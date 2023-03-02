@@ -84,4 +84,14 @@ export const StartGoogleAuth = (dispatch)=>{
       }
     };
 
+    export async function getProductId(dispatch, id) {
+     
+        try {
+          let json = await axios.get(`http://localhost:3001/products/id/${id}`, dispatch);
+          return json;
+        } catch (error) {
+        console.log(error)
+          };
+        };
+
  
