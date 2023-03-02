@@ -1,14 +1,14 @@
 import Users from "../models/users.js";
 
-export async function getUserById(id){
-    const userById = await Users.findOne({
+export function getUserById(id){
+    const userById = Users.findOne({
         where: {id}
     });
     return userById;
 }
 
-export async function getUserByEmail(email){
-    const userByemail = await Users.findOne({
+export function getUserByEmail(email){
+    const userByEmail = Users.findOne({
         where: {email}
     });
     return userByEmail;
