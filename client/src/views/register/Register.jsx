@@ -31,7 +31,7 @@ const Register = () => {
         name: '',
         avatar: '',
         apellido: '',
-        mail: '',
+        email: '',
         password: '',
     })
 
@@ -40,7 +40,7 @@ const Register = () => {
         name: '',
         avatar: '',
         apellido: '',
-        mail: '',
+        email: '',
         password: '',
     })
 
@@ -63,10 +63,10 @@ const Register = () => {
                 break;
             }
 
-            case 'mail': {
+            case 'email': {
                 setError({
                     ...error,
-                    mail: value.length < 1 ? 'mail no puede esatr vacio' : ''
+                    email: value.length < 1 ? 'email no puede esatr vacio' : ''
                 })
                 break;
             }
@@ -98,7 +98,7 @@ const Register = () => {
 
         if (input.apellido.length <= 2) valid = false
 
-        if (input.mail.length <= 2) valid = false
+        if (input.email.length <= 2) valid = false
 
         if (input.password.length <= 2) valid = false
 
@@ -109,17 +109,18 @@ const Register = () => {
         e.preventDefault()
         if (validarForm()) {
             try {
-                    console.log(input)
-                    dispatch(crearUser(input))
+                    uploadImage()
+                    crearUser(input)
                     setInput({
                         name: '',
                         avatar: '',
                         apellido: '',
-                        mail: '',
+                        email: '',
                         password: '',
                     })
+                    console.log(input)
                  
-                    alert("ERROR: El usuario con ese nombre ya existe");
+                    alert("Usuario creado");
                 }
             catch (error) {
                 alert("ERROR: reintenta más tarde! (" + error + ")");
@@ -159,7 +160,7 @@ const Register = () => {
                             <div><input placeholder="Nombre" name="name" type="text" value={input.name}  onChange={handleChange} /></div>
                             <div><input placeholder="Apellido" name="apellido" type="text" value={input.apellido} onChange={handleChange} /></div>
                         </div>
-                        <div className="register-correo"><input name="mail" type="email" value={input.mail} onChange={handleChange} placeholder="bautgod@gmail.com" /></div>
+                        <div className="register-correo"><input name="email" type="email" value={input.email} onChange={handleChange} placeholder="bautgod@gmail.com" /></div>
                         <div className="rgister-contra"><input name="password" type='password' value={input.password} onChange={handleChange} placeholder="Contraseña" /></div>
                         <div className="register-contra2"><input name="password" type='password' onChange={handleChange} placeholder="Repetir contraseña" /></div>
                         <button type="submit">Registrarse</button>
