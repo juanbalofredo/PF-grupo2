@@ -23,7 +23,7 @@ export const bolsilloSlice = createSlice({
       state.productsBackup = action.payload;
     },  
     allUsers(state, action) {
-      state.users = action.payload;
+      state.user = action.payload;
     },
     oneUsers(state, action) {
       state.name = action.payload.name;
@@ -41,9 +41,12 @@ export const bolsilloSlice = createSlice({
    },
    oneComment(state, action) {
     state.comment = action.payload;
+   },
+   getName(state, action) {
+    state.nameQuery = action.payload;
    }
   },
 });
 
-export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment } = bolsilloSlice.actions;
+export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment, getName } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;

@@ -1,4 +1,4 @@
-import SuperM from "../models/superM";
+import SuperM from "../models/superM.js";
 
 export function getMarketById(id) {
     const getId = SuperM.findOne({

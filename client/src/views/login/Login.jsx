@@ -1,7 +1,7 @@
 import "./login.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import NavBar from "../../components/assets/NavBar";
+import NavBar from "../../components/Navbar/NavBar";
 import Footer from "../footer/Footer";
 
 const Login = () => {
@@ -73,10 +73,6 @@ const Login = () => {
       alert("email no puede estar vacio");
     }
   }
-
-  useEffect(() => {
-    document.title = "Log in";
-  }, []);
 
 
   return (

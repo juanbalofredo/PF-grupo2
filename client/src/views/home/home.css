@@ -3,11 +3,21 @@
     align-items: center;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
+    padding-top: 100px;
+    padding-bottom: 300px;
+   
+}
+
+body {
+    background: #141631;
+    background: -moz-linear-gradient(left, #5f5a5e 0%, #ffeffb 50%, #5f5a5e 100%);
+    background: -webkit-linear-gradient(left, #5f5a5e 0%, #ffeffb 50%, #5f5a5e 100%);
+    background: linear-gradient(to right, #5f5a5e 0%, #ffeffb 50%, #5f5a5e 100%);
+}
+
+.bodyDark {
     background: #141631;
     background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
     background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
     background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%);
-    padding-top: 100px;
-    padding-bottom: 300px;
-   
 }

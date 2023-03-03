@@ -1,13 +1,23 @@
 import './home.css'
-import NavBar from '../../components/assets/NavBar'
-import { useSelector } from "react-redux";
+import NavBar from '../../components/Navbar/NavBar'
+import { useDispatch, useSelector } from "react-redux";
 import Card from '../Card/Card';
 import Footer from "../footer/Footer";
+import { useEffect } from 'react';
+import { getAllProducts } from '../../redux/apiPetitions';
 
 const Home =()=>{
 const state = useSelector((state) => state.bolsillo);
+const dispatch = useDispatch();
+let didInit = false;
+useEffect(() => {
+    if (!didInit) {
+        didInit = true;
+        getAllProducts(dispatch);
 
-const generales = state.productsBackup.filter(a => a.supermarket === "Coto")    
+}
+}, [dispatch]);
+const myProduct = state.productsBackup.filter(p=>p.supermarket === "Coto")
 
 return(
     <>
@@ -16,7 +26,7 @@ return(
     </div>
     <div className='Home-container'>
     <div className="Home-container-products">
-    {   generales.map((p)=>(
+    {   myProduct.map((p)=>(
         <Card key={p.id} product={p} />
         ))}  
     </div>

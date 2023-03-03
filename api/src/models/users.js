@@ -45,13 +45,4 @@ const Users = dataBase.define('users', {
 
 }, { timestamps: false })
 
-// Users.belongsToMany(Reviews, {
-//     through: "Users_Review",
-//     timestamps: false,
-//   });
-// Reviews.hasOne(Users, {
-//     through: "Users_Review",
-//     timestamps: false,
-//   });
-
 export default Users;
