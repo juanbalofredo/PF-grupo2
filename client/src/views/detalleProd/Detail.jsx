@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/assets/NavBar"
 import axios from "axios";
+import Footer from "../footer/Footer";
 
 
 const DetalleProd = () => {
@@ -25,13 +26,13 @@ const DetalleProd = () => {
     return <div>"LOADING"</div>;
   } else {
     return (
-      <div key={myProduct.id} className="back">
+      <>
         <NavBar />
-
         <div className="Detail-container">
           <Link to="/home">
             <button className="">Volver</button>
           </Link>
+          <div className="det-prod">
           <div className="imageContainer">
             <img src={myProduct.image} alt="product" className="" />
           </div>
@@ -55,9 +56,10 @@ const DetalleProd = () => {
             <h3 className="texts">
               Descripcion: <br /> {myProduct.description}
             </h3>
-          </div>
+          </div></div>
         </div>
-      </div>
+       <Footer/>
+       </>
     );
   }
 
