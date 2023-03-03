@@ -17,7 +17,7 @@ const Navbar = ({}) => {
     e.preventDefault();
     setModel(e.target.value);
   };
-
+  console.log("hola")
   function handleSubmit(e) {
     e.preventDefault();
     console.log(model);
