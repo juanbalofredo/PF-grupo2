@@ -40,7 +40,7 @@ const Landing = () => {
             </div>
 
      <div className='land-text'>
-     <div className='landing-t1'><h1>Compará</h1><br /><p>de la manera mas</p> <br /><h2>fácil y rapida</h2><br /><p>posible</p></div>
+     <div className='landing-t1'><h1>Compará</h1><br /><p>de la manera mas</p> <br /><h2>fácil y rapida</h2></div>
             <div className='landing-principal'>
                 <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp" alt="foto" />
                 <div className='landing-boton'>
@@ -48,7 +48,7 @@ const Landing = () => {
                 </div>
                 <img src="" alt="" />
             </div>
-            <div className='landing-t2'><h1>Ahorrá</h1><br /><p>lo máximo, gastando lo</p><br /><h2> minimo</h2><br /><p>e indispensable</p></div>
+            <div className='landing-t2'><h1> Ahorrá </h1><h2> mas</h2> <div className='kkiajs'><p>gastá menos</p></div></div>
   </div>
         </div>
     )

@@ -91,34 +91,6 @@ body {
   color: white;
 }
 
-.button-light {
-  margin-right: 2rem;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #23477c;
-  border: none;
-  transition: 0.3s;
-  background-image: url("../../../public/moon.svg");
-  background-size: cover;
-  border-radius: 50%;
-  width: 3vw;
-  height: 3vw;
-}
-
-.button-dark {
-  margin-right: 2rem;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #23477c;
-  border: none;
-  transition: 0.3s;
-  background-image: url("../../../public/sun.svg");
-  background-size: cover;
-  border-radius: 50%;
-  width: 3vw;
-  height: 3vw;
-}
-
 .navButton:hover {
   background-color: #193053;
 }
