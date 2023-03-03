@@ -1,11 +1,13 @@
 import { Router } from "express";
+import { getAllMarket, getById, deleteMarket} from "../controllers/market.controller.js"
 
+const market = Router();
 
+market.get("/", getAllMarket);
+market.get("/id/:id", getById);
 
+market.put("/putmarket/:id", )
 
+market.delete("/deletemarket/:id", deleteMarket );
 
-
-// app.get("/supermarket", allProducts)
-// app.get("/supermarket/:id", allProducts)
-// app.put("/supermarket/:id", allProducts)
-// app.delete("/supermarket/:id", allProducts)
+export default market;
