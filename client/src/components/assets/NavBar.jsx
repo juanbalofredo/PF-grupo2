@@ -5,17 +5,25 @@ import Cart from "../../views/cart/Cart";
 import "./navBar.css";
 import User from "./User";
 import { Link } from "react-router-dom";
+import { getNameQuery } from "../../redux/apiPetitions";
 
 const Navbar = ({}) => {
   const dispatch = useDispatch();
   const [model, setModel] = useState("");
-  const user = useSelector((state) => state.userLogged);
+  const user = useSelector((state) => state.id);
   const [active, setActive] = useState(false);
 
   const handleInputModel = (e) => {
     e.preventDefault();
     setModel(e.target.value);
   };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(model);
+    dispatch(getNameQuery(model));
+    setModel("");
+  }
 
   const changeTheme = () => {
     if (
@@ -42,10 +50,11 @@ const Navbar = ({}) => {
           <img
             src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp"
             alt="logo"
-          /></Link>
+          />
+        </Link>
       </div>
       <div className="searchbar-container">
-        <form className="">
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="busca">
             <input
               className="form-control "
@@ -54,8 +63,8 @@ const Navbar = ({}) => {
               aria-label="Search"
               onChange={(e) => handleInputModel(e)}
             />
-            <div type="submit" onClick={(e) => e}>
-              <i className="bi bi-search" id="formbusca"></i>
+            <div type="submit">
+              <i className="" id="formbusca"></i>
             </div>
           </div>
         </form>
@@ -86,7 +95,7 @@ const Navbar = ({}) => {
 
         <div>
           <button onClick={changeTheme} className="navButton">
-            Dark mode
+            cambniar color(img)
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { allProducts, allUsers,LoginWithGoogle,oneComment } from "./slice";
+import { allProducts, allUsers,LoginWithGoogle,oneComment, getName } from "./slice";
 import {firebase, googleAuthProvider} from "../views/Firebase/ConfigFirebase";
 
 export async function getAllProducts(dispatch) {
@@ -48,8 +48,8 @@ export async function StartGoogleAuth(dispatch) {
       .signInWithPopup(googleAuthProvider)
       .then(({user})=>{
           console.log(user);
-          dispatch(LoginWithGoogle(user.displayName))
-      .then((e) => (window.location.pathname = "/home"))});
+          dispatch(LoginWithGoogle(user.displayName));
+      })
     } catch (error) {
       return error.response;
     }
@@ -86,3 +86,13 @@ export async function StartGoogleAuth(dispatch) {
         };
 
  
+        export async function getNameQuery(dispatch, getNameQuery) {
+          console.log(getNameQuery + "estas entrando?")
+               try {
+                 let json = await axios.get(`http://localhost:3001/products/name?name=${getNameQuery}`, dispatch);
+                 dispatch(getName(json?.data));
+                 return json;
+               } catch (error) {
+               console.log(error)
+                 };
+               };
