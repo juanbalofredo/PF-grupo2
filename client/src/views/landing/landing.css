@@ -1,3 +1,6 @@
+body {
+  padding: 0;
+}
 .landing-principal {
   display: flex;
   flex-direction: column;
@@ -7,12 +10,42 @@
   margin-top: 100px;
 }
 .landing-principal img {
-  width: 600px;
+  width: 230px;
+}
+.land-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  font-family: 'Phudu', cursive;
+}
+.land-text h1 {
+  font-size: 100px;
+  margin: 0%;
+  margin-top: 100px;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+.land-text h2 {
+  margin: 0%;
+  margin-left: 20px;
+  font-size: 60px;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+.land-text p {
+  margin: 0%;
+  margin-left: 20px;
+  font-size: 30px;
+  text-shadow: 0px 0px 3px #ffffff;
 }
 .landing-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  background: #141631;
+  background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+  background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+  background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%);
 }
 .landing-fotos {
   display: grid;
@@ -30,12 +63,48 @@
   margin-top: 40px;
   width: 200px;
   height: 40px;
-  background-color: #0f4571;
+  background-color: #ffffff;
   border-radius: 4px;
+  font-size: 20px;
   border: none;
 }
-.landing-boton button a {
+.landing-boton button:hover {
+  cursor: pointer;
   font-size: 20px;
-  color: #ffffff;
-  text-decoration: none;
+  box-shadow: 0px 0px 10px 1px #ffffff;
+}
+#carrusel-caja {
+  display: flex;
+  animation: automatizacion 20s infinite linear;
+  transition: all 1s ease;
+  margin-top: 50px;
+  width: 300%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 100px;
+}
+#carrusel-caja img {
+  width: 200px;
+}
+#carrusel-contenido {
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+}
+.imagenes {
+  width: 100%;
+}
+.carru {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200%;
+}
+@keyframes automatizacion {
+  0% {
+    margin-left: 0%;
+  }
+  100% {
+    margin-left: -100%;
+  }
 }
