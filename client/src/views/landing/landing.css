@@ -1,6 +1,11 @@
 body {
   padding: 0;
 }
+
+button {
+  transition: 0.3s;
+}
+
 .landing-principal {
   display: flex;
   flex-direction: column;
@@ -42,10 +47,10 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background: #141631;
+  /* background: #141631;
   background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
   background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
-  background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%);
+  background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%); */
 }
 .landing-fotos {
   display: grid;
