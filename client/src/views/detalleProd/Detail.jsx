@@ -11,16 +11,19 @@ const DetalleProd = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
+  let didInit = false;
   useEffect(() => {
-    axios
+    if (!didInit && product === null) {  
+            didInit = true;
+      axios
       .get(`http://localhost:3001/products/id/${id}`)
       .then((e) => setProduct(e.data))
       .catch((err) => {
+
         return err;
-      });
+      }); }
   }, [id, navigate, product]);
 
-  const myProduct = product
 
   if (!product) {
     return <div>"LOADING"</div>;
@@ -34,27 +37,27 @@ const DetalleProd = () => {
           </Link>
           <div className="det-prod">
           <div className="imageContainer">
-            <img src={myProduct.image} alt="product" className="" />
+            <img src={product.image} alt="product" className="" />
           </div>
           <div className="textContainer">
-            <h2 className="texts">{myProduct.name}</h2>
+            <h2 className="texts">{product.name}</h2>
             <h3 className="texts">
               {" "}
-              Marca: <br /> {myProduct.brand}
-            </h3>
-            <h3 className="texts">
-              {" "}
-              Price: <br /> {myProduct.price}
+              Marca: <br /> {product.brand}
             </h3>
             <h3 className="texts">
               {" "}
-              Unity: <br /> {myProduct.unit}
+              Price: <br /> {product.price}
             </h3>
             <h3 className="texts">
-              Stock: <br /> {myProduct.stock}
+              {" "}
+              Unity: <br /> {product.unit}
             </h3>
             <h3 className="texts">
-              Descripcion: <br /> {myProduct.description}
+              Stock: <br /> {product.stock}
+            </h3>
+            <h3 className="texts">
+              Descripcion: <br /> {product.description}
             </h3>
           </div></div>
         </div>
