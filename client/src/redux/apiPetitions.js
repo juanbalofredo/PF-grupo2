@@ -4,7 +4,6 @@ import {
   allUsers,
   LoginWithGoogle,
   oneComment,
-  getName,
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 
@@ -17,7 +16,7 @@ export async function getAllProducts(dispatch) {
   }
 }
 
-export async function crearUser(input) {
+export async function crearUser(dispacth, input) {
   if (input.avatar.lenght < 5) {
     input.avatar =
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
