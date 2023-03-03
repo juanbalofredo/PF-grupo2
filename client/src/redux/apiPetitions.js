@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { allProducts, allUsers,LoginWithGoogle,oneUsers, oneComment } from "./slice";
-import {firebase, googleAuthProvider} from "../views/RegisterFirebase/ConfigFirebase";
+import { allProducts, allUsers,LoginWithGoogle,oneComment } from "./slice";
+import {firebase, googleAuthProvider} from "../views/Firebase/ConfigFirebase";
 
 export async function getAllProducts(dispatch) {
     try {
@@ -41,23 +41,14 @@ return error.message
 }
 }
 
-
-export async function validateUser(dispatch) {
-try {
-  const pedir = axios.get("http://localhost:3001/user/email/:email");
-  dispatch(oneUsers(pedir?.data));
-} catch (error) {
-return error.message  
-}
-}
-export const StartGoogleAuth = (dispatch)=>{
+export async function StartGoogleAuth(dispatch) {
   try {
       firebase
       .auth()
       .signInWithPopup(googleAuthProvider)
       .then(({user})=>{
           console.log(user);
-          dispatch(LoginWithGoogle(user));
+          dispatch(LoginWithGoogle(user.displayName));
       })
     } catch (error) {
       return error.response;

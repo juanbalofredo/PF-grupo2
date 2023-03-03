@@ -1,13 +1,12 @@
 import "./register.css";
 import { useState } from "react";
-import { useEffect } from "react";
 import NavBar from "../../components/assets/NavBar";
 import axios from "axios";
 import { crearUser } from "../../redux/apiPetitions";
 import Footer from "../footer/Footer";
+import GoogleSign from "../Firebase/GoogleSign";
 
 const Register = () => {
-
 
   var uploadedImage = "";
 
@@ -131,10 +130,6 @@ const Register = () => {
     }
   }
 
-  useEffect(() => {
-    document.title = "Registrarse";
-  }, []);
-
   return (
     <>
       {" "}
@@ -217,15 +212,10 @@ const Register = () => {
                 </div>
                 <button type="submit">Registrarse</button>
               </div>
-              <div className="reg-google-fac">
-                <button className="register-google">
-                  Registrarse con Google
-                </button>
-                <button className="register-facebook">
-                  Registrarse con Facebook
-                </button>
-              </div>
             </form>
+              <div className="reg-google-fac">
+              <GoogleSign/>
+              </div>
           </div>
         </div>
       </div>
@@ -233,5 +223,4 @@ const Register = () => {
     </>
   );
 };
-
 export default Register;
