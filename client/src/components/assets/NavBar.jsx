@@ -86,7 +86,7 @@ const Navbar = ({}) => {
 
         <div>
           <button onClick={changeTheme} className="navButton">
-            cambniar color(img)
+            Dark mode
           </button>
         </div>
       </div>

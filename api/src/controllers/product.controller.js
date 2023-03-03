@@ -19,7 +19,6 @@ export async function getProductId(req, res) {
     const { id } = req.params;
     try {
         const response = await getProductsById(id)
-        console.log(response);
         return res.status(200).json(response)
     } catch {
         return res.status(400).json({ err: error.message })
