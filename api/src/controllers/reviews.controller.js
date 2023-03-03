@@ -1,3 +1,5 @@
+
+//agregando comentarios
 import Reviews from "../models/review.js";
 import { createReviews, getReviewsById, deleteReviewById } from "../helpers/reviews.helper.js";
 
@@ -38,7 +40,6 @@ export async function deleteReview(req, res) {
     const { id } = req.body;
     try {
         const deletedReview = await deleteReviewById(id)
-
         if (deletedReview === 0) {
             throw Error("No comment found with that ID")
         }
@@ -46,5 +47,4 @@ export async function deleteReview(req, res) {
     } catch (error) {
         res.status(500).send({ err: error.message });
     }
-
 };
