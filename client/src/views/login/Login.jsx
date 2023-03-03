@@ -74,10 +74,6 @@ const Login = () => {
     }
   }
 
-  useEffect(() => {
-    document.title = "Log in";
-  }, []);
-
 
   return (
     <>
