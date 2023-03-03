@@ -53,26 +53,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-  // const changeTheme = () => {
-  //   if (
-  //     document.querySelector("body").getAttribute("data-bs-theme") === "light"
-  //   ) {
-  //     document.querySelector("body").setAttribute("data-bs-theme", "dark");
-  //     document
-  //       .querySelector("#dl-icon")
-  //       .setAttribute("class", "bi bi-moon-fill");
-  //     document.querySelector("#body").setAttribute("class", "bodyDark");
-  //   } else {
-  //     document.querySelector("body").setAttribute("data-bs-theme", "light");
-  //     document
-  //       .querySelector("#dl-icon")
-  //       .setAttribute("class", "bi bi-sun-fill");
-  //     document.querySelector("#body").setAttribute("class", "");
-  //   }
-  // };
-  //* <div>
-   //       <button onClick={changeTheme} className="navButton">
-     //       cambniar color(img)
-       //   </button>
-        //</div>
