@@ -85,13 +85,14 @@ body {
   margin-right: 2rem;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #ea9711;
+  background-color: #23477c;
   border: none;
   transition: 0.3s;
+  color: white;
 }
 
 .navButton:hover {
-  background-color: #c67b02;
+  background-color: #193053;
 }
 
 .account-login {
@@ -428,11 +429,11 @@ img {
   justify-content: space-evenly;
 }
 .logo-Container {
-  width: 7.5vw;
-  height: 7.5vw;
+  width: 2vw;
   background-image: url("");
   background-size: cover;
   background-repeat: no-repeat;
+  margin-left: 2rem;
 }
 
 .user-container {

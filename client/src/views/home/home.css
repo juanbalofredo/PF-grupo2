@@ -3,7 +3,10 @@
     align-items: center;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    background-color: #0f4571;
+    background: #141631;
+    background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+    background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+    background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%);
     padding-top: 100px;
     padding-bottom: 200px;
 }
