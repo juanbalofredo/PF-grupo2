@@ -15,7 +15,7 @@ import Products from "./products.js";
             allowNull: true
         }
 	},
-	{sequelize, timestamps: false});
+	{timestamps: false});
 
 
 SuperM.hasMany(Products, {
