@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import invitado from "../../media/invitado.png";
+import invitado from "../../assets/invitado.png";
 import "./user.css"
 
 export const User = () => {

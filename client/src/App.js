@@ -1,7 +1,7 @@
 import Landing from "./views/landing/Landing";
 import Home from "./views/home/Home";
-import Login from "./views/login/Login";
-import Register from "./views/register/Register";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 import { Route, Routes} from "react-router-dom";
 import Usersget from "./views/Firebase/GoogleSign";
 import DetalleProd from "./views/detalleProd/Detail";
