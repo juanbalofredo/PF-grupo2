@@ -6,7 +6,7 @@ import NavBar from "../../components/assets/NavBar"
 import axios from "axios";
 
 
-const DetalleProd =()=>{
+const DetalleProd = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
@@ -19,45 +19,49 @@ const DetalleProd =()=>{
       });
   }, [id, navigate, product]);
 
-      const myProduct = product
+  const myProduct = product
 
-      if (!product) {
-        return <div>"LOADING"</div>;
-      }else{
-        return (
-        <div key={myProduct.id} className="back">
-          <NavBar/>
+  if (!product) {
+    return <div>"LOADING"</div>;
+  } else {
+    return (
+      <div key={myProduct.id} className="back">
+        <NavBar />
+
+        <div className="Detail-container">
           <Link to="/home">
-            <button className="">Back</button>
+            <button className="">Volver</button>
           </Link>
-          <div className="Detail">
-            <div className="imageContainer">
-              <img src={myProduct.image} alt="product" className="" />
-            </div>
-            <div className="textContainer">
-              <h2 className="texts">{myProduct.name}</h2>
-              <h3 className="texts">
-                {" "}
-                Marca: <br /> {myProduct.brand}
-              </h3>    
-              <h3 className="texts">
-                {" "}
-                Price: <br /> {myProduct.price}
-              </h3>
-              <h3 className="texts">
-                {" "}
-                Unity: <br /> {myProduct.unit}
-              </h3>   
-              <h3 className="texts">
-                Stock: <br /> {myProduct.stock}
-              </h3>
-            </div>
+          <div className="imageContainer">
+            <img src={myProduct.image} alt="product" className="" />
+          </div>
+          <div className="textContainer">
+            <h2 className="texts">{myProduct.name}</h2>
+            <h3 className="texts">
+              {" "}
+              Marca: <br /> {myProduct.brand}
+            </h3>
+            <h3 className="texts">
+              {" "}
+              Price: <br /> {myProduct.price}
+            </h3>
+            <h3 className="texts">
+              {" "}
+              Unity: <br /> {myProduct.unit}
+            </h3>
+            <h3 className="texts">
+              Stock: <br /> {myProduct.stock}
+            </h3>
+            <h3 className="texts">
+              Descripcion: <br /> {myProduct.description}
+            </h3>
           </div>
         </div>
-      );
-      }
-      
-    };
+      </div>
+    );
+  }
+
+};
 
 
 
