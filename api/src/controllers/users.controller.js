@@ -43,9 +43,7 @@ export async function deleteUser(req, res) {
 };
 
 export async function updateUser(req, res) {
-    // const { id } = req.params;
     const dataToUpdate = req.body;
-    // console.log("esto es ==> dataToUpdate",dataToUpdate)
     try {
         await updateUserByTypeAccount(dataToUpdate)
         res.status(200).json("The user was successfully updated");
