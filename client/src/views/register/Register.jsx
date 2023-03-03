@@ -147,18 +147,19 @@ const Register = () => {
               autoComplete='off'>
               <h1>Registrarse</h1>
               <div className="register-text">
-                <label htmlFor="img">Imagen</label>
-                <div>
+                <label htmlFor="img">Seleccionar Imagen</label>
+                <div className="reg-avata">
+                  <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png" alt="avatar" />
                   <input
                     type="file"
                     name="avatar"
+                    id="my_file"
                     placeholder="Imagen"
                     autoComplete='off'
                     value={uploadedImage}
                     onChange={e => uploadImage(e)}
-                  ></input>
+                  />
                 </div>
-                <div onClick={uploadImage}>Subir imagen</div>
                 <div className="register-name">
                   <div>
                     <input
