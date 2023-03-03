@@ -109,7 +109,6 @@ export async function getProductId(dispatch, id) {
 // }
 export const getNameQuery = async (dispacth, name) => {
   try {
-    console.log(name);
     const petition = await axios.get(
       `http://localhost:3001/products/name?name=${name}`
     );

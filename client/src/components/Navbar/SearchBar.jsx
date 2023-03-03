@@ -5,32 +5,33 @@ import "./navBar.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const [input, SetInput] = useState(null);
+  const [model, setModel] = useState("");
 
-  const handleSubmit = (e) => {
-    dispatch(getNameQuery(input));
-    }
-    
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      console.log(input)
-    console.log(name);
-    console.log(value);
-    SetInput(value);
+  const handleInputModel = (e) => {
+    e.preventDefault();
+    setModel(e.target.value);
   };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    getNameQuery(dispatch,model);
+  }
   return (
     <>
-      <div className="c">
-        <form className="form" onSubmit={handleSubmit}>
-          <input
-            required
-            type="text"
-            id="name"
-            name="text"
-            className="input"
-            onChange={handleChange}
-            placeholder="Search product"
-          />
+      <div className="searchbar-container">
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="busca">
+            <input
+              className="form-control "
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={(e) => handleInputModel(e)}
+            />
+            <div type="submit">
+              <i className="" id="formbusca"></i>
+            </div>
+          </div>
         </form>
       </div>
     </>

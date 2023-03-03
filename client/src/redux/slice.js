@@ -44,6 +44,7 @@ export const bolsilloSlice = createSlice({
    },
    getName(state, action) {
     state.nameQuery = action.payload;
+    state.products = action.payload
    }
   },
 });
