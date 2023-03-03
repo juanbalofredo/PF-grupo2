@@ -3,7 +3,7 @@
 @bigMobile: ~"only screen and (min-width: 701px) and (max-width: 999px)";
 @mobile: ~"only screen and (min-width: 0px) and (max-width: 700px)";
 
-@font:'Open Sans', sans-serif;
+@font: 'Phudu', cursive;
 @pNormal:  #c94d18;
 @pClaro:  #c94d18;
 @pOscuro:  #c94d18;
@@ -15,8 +15,40 @@
 @backG3:  #c94d18;
 @backG4:  #c94d18;
 
+.Detail-container{
+    background: #141631;
+    background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+    background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+    background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%);
+    height: 140vh;
+    display: flex;
+    font-family: @font;
+    color: rgb(4, 12, 46);
+}
+.det-prod{
+    margin-top: 100px;
+    height: 100vh;
+    width: 40rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+.imageContainer img{
+    margin-top: 50px;
+    width: 20rem;
+    border-radius: 10px;
+
+}
 .imageContainer{
-    width: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid rgb(133, 133, 133);
+}
+.textContainer{
+    width: 25rem;
 }
 
 
