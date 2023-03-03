@@ -5,9 +5,10 @@ import Card from '../Card/Card';
 import Footer from "../footer/Footer";
 
 const Home =()=>{
-const state = useSelector((state) => state.bolsillo);
+const produas = useSelector((state) => state.productsBackup);
+console.log(produas)
 
-const generales = state.productsBackup.filter(a => a.supermarket === "Coto")    
+const generales = produas.filter(a => a.supermarket === "Coto")    
 
 return(
     <>
