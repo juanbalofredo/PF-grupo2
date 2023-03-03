@@ -7,7 +7,7 @@ import User from "../user/User";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-const Navbar = ({}) => {
+const Navbar = () => {
   const user = useSelector((state) => state.id);
   const [active, setActive] = useState(false);
 
