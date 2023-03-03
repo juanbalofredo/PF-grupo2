@@ -17,7 +17,6 @@ useEffect(() => {
         
 }
 }, [dispatch]);
-const generales = state.productsBackup.filter(a => a.supermarket === "Coto")    
 
 return(
     <>
@@ -26,7 +25,7 @@ return(
     </div>
     <div className='Home-container'>
     <div className="Home-container-products">
-    {   generales.map((p)=>(
+    {   state.productsBackup.map((p)=>(
         <Card key={p.id} product={p} />
         ))}  
     </div>
