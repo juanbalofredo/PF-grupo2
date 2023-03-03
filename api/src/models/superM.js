@@ -15,15 +15,15 @@ import Products from "./products.js";
             allowNull: true
         }
 	},
-	{timestamps: false});
+	{ timestamps: false});
 
 
-SuperM.hasMany(Products, {
+SuperM.belongsToMany(Products, {
     through: "SuperM_Products",
     timestamps: false
 });
 
-Products.hasOne(SuperM, {
+Products.belongsTo(SuperM, {
     through: "SuperM_Products",
     timestamps: false
 });
