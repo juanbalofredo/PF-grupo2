@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Cart from "../../views/cart/Cart";
 import "./navBar.css";
-import User from "../assets/User";
+import User from "../user/User";
 import { Link } from "react-router-dom";
-import { getNameQuery } from "../../redux/apiPetitions";
 import SearchBar from "./SearchBar";
 
 const Navbar = ({}) => {
