@@ -33,7 +33,6 @@ export function updateUserByTypeAccount({ activity, email, name, last_name, pass
             dataForChange,
             { where: { id } }
         )
-        console.log(dataForChange)
         return updatedAdmin;
     } else {
         let datas = { email, name, last_name, password, avatar, notifications }

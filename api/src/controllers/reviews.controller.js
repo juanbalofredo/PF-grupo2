@@ -5,7 +5,7 @@ export async function getAllReviews(req, res) {
     const allReviews = await Reviews.findAll();
     try {
         if (allReviews.length == 0) {
-            return res.status(400).send("No hay reviews")
+            return res.status(400).send("There are no comments")
         } else return res.status(200).json(allReviews);
     }
     catch (error) {
@@ -40,9 +40,9 @@ export async function deleteReview(req, res) {
         const deletedReview = await deleteReviewById(id)
 
         if (deletedReview === 0) {
-            throw Error("No se encontro ninguna review con ese iD")
+            throw Error("No comment found with that ID")
         }
-        res.status(200).json("Se ha borrado la review exitosamente");
+        res.status(200).json("Comment has been deleted successfully");
     } catch (error) {
         res.status(500).send({ err: error.message });
     }
