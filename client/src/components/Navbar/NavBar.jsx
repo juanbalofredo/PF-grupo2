@@ -6,24 +6,11 @@ import "./navBar.css";
 import User from "../assets/User";
 import { Link } from "react-router-dom";
 import { getNameQuery } from "../../redux/apiPetitions";
+import SearchBar from "./SearchBar";
 
 const Navbar = ({}) => {
-  const dispatch = useDispatch();
-  const [model, setModel] = useState("");
   const user = useSelector((state) => state.id);
   const [active, setActive] = useState(false);
-
-  const handleInputModel = (e) => {
-    e.preventDefault();
-    setModel(e.target.value);
-  };
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(model);
-    dispatch(getNameQuery(model));
-    setModel("");
-  }
 
   const changeTheme = () => {
     if (document.querySelector("body").getAttribute("theme") === "light") {
@@ -48,20 +35,7 @@ const Navbar = ({}) => {
         </Link>
       </div>
       <div className="searchbar-container">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div className="busca">
-            <input
-              className="form-control "
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={(e) => handleInputModel(e)}
-            />
-            <div type="submit">
-              <i className="" id="formbusca"></i>
-            </div>
-          </div>
-        </form>
+        <SearchBar/>
       </div>
 
       <div className="login-Container">
