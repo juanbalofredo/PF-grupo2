@@ -92,10 +92,7 @@ body {
 .reg-avata img{
   width: 100px;
 }
- /* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
-.reg-avata input{                       
-  display: none;
-}
+
 
 .register-name input {
   text-align: center;
