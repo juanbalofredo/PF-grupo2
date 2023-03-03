@@ -48,8 +48,8 @@ export async function StartGoogleAuth(dispatch) {
       .signInWithPopup(googleAuthProvider)
       .then(({user})=>{
           console.log(user);
-          dispatch(LoginWithGoogle(user.displayName));
-      })
+          dispatch(LoginWithGoogle(user.displayName))
+      .then((e) => (window.location.pathname = "/home"))});
     } catch (error) {
       return error.response;
     }

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./card.css";
 export default function Card({ product }) {
-  const { name, brand, price, image } = product;
+  const { name, brand, image } = product;
 
     const navigate = useNavigate();
     const click = () => {

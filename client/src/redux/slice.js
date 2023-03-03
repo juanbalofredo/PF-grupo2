@@ -23,7 +23,7 @@ export const bolsilloSlice = createSlice({
       state.productsBackup = action.payload;
     },  
     allUsers(state, action) {
-      state.users = action.payload;
+      state.user = action.payload;
     },
     oneUsers(state, action) {
       state.name = action.payload.name;
