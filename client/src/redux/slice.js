@@ -5,9 +5,14 @@ const initialState = {
   productsBackup: [],
   page: 1,
   error: false,
+  user:false,
   name: '',
-  apellido: '',
-  avatar: 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp',
+  id:"",
+  last_name: '',
+  email:'',
+  avatar: '',
+  comment: [], 
+  detail: []
 };
 export const bolsilloSlice = createSlice({
   name: "bolsillo",
@@ -16,17 +21,29 @@ export const bolsilloSlice = createSlice({
     allProducts(state, action) {
       state.products = action.payload;
       state.productsBackup = action.payload;
+    },  
+    allUsers(state, action) {
+      state.user = action.payload;
+    },
+    oneUsers(state, action) {
+      state.name = action.payload.name;
+      state.last_name = action.payload.last_name;
+      state.avatar = action.payload.avatar;
+      state.email = action.payload.email;
     },
     createUser(state, action) {
       state.name = action.payload.name;
-      state.apellido = action.payload.apellido;
-      if (!action.payload.avatar) {
-        state.avatar = action.payload.avatar;
-      } else { state.avatar = 'https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp' }
-
-    }
+      state.last_name = action.payload.last_name;
+    },
+    LoginWithGoogle(state,action){
+    state.name = action.payload.displayName;
+    state.user = true
+   },
+   oneComment(state, action) {
+    state.comment = action.payload;
+   }
   },
 });
 
-export const { allProducts, createUser } = bolsilloSlice.actions;
+export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;

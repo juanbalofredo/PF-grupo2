@@ -6,7 +6,7 @@ import "./navBar.css";
 import User from "./User";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ }) => {
+const Navbar = ({}) => {
   const dispatch = useDispatch();
   const [model, setModel] = useState("");
   const user = useSelector((state) => state.userLogged);
@@ -15,24 +15,34 @@ const Navbar = ({ }) => {
   const handleInputModel = (e) => {
     e.preventDefault();
     setModel(e.target.value);
-  }
+  };
 
   const changeTheme = () => {
-    if (document.querySelector("body").getAttribute("data-bs-theme") === "light") {
+    if (
+      document.querySelector("body").getAttribute("data-bs-theme") === "light"
+    ) {
       document.querySelector("body").setAttribute("data-bs-theme", "dark");
-      document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+      document
+        .querySelector("#dl-icon")
+        .setAttribute("class", "bi bi-moon-fill");
       document.querySelector("#body").setAttribute("class", "bodyDark");
     } else {
       document.querySelector("body").setAttribute("data-bs-theme", "light");
-      document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+      document
+        .querySelector("#dl-icon")
+        .setAttribute("class", "bi bi-sun-fill");
       document.querySelector("#body").setAttribute("class", "");
     }
-  }
+  };
 
   return (
     <section className="" id="navbar1">
       <div className="logo-Container">
-        <a href="/"></a>
+        <Link to="/home">
+          <img
+            src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp"
+            alt="logo"
+          /></Link>
       </div>
       <div className="searchbar-container">
         <form className="">
@@ -44,7 +54,7 @@ const Navbar = ({ }) => {
               aria-label="Search"
               onChange={(e) => handleInputModel(e)}
             />
-            <div type="submit" onClick={(e) => (e)}>
+            <div type="submit" onClick={(e) => e}>
               <i className="bi bi-search" id="formbusca"></i>
             </div>
           </div>
@@ -52,8 +62,7 @@ const Navbar = ({ }) => {
       </div>
 
       <div className="login-Container">
-        <div onClick={() => setActive(!active)}>
-        </div>
+        <div onClick={() => setActive(!active)}></div>
         <User />
         <div
           className={`container-cart-products ${active ? "" : "hidden-cart"}`}
@@ -61,27 +70,28 @@ const Navbar = ({ }) => {
           <Cart />
         </div>
         <div>
-          {!user ?
+          {!user ? (
             <div>
               <Link to="/register">
-                <button>Register</button>
+                <button className="navButton">Registrarse</button>
               </Link>
               <Link to="/login">
-                <button>Log in</button>
+                <button className="navButton">Iniciar sesion</button>
               </Link>
             </div>
-            :
-            <button className="btnClose">Log out</button>}
+          ) : (
+            <button className="navButton">Log out</button>
+          )}
         </div>
 
         <div>
-          <button onClick={changeTheme} className="btn rounded-fill">
-            cambniar color(img)
+          <button onClick={changeTheme} className="navButton">
+            Dark mode
           </button>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Navbar;

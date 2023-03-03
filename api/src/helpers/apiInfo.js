@@ -9,7 +9,7 @@ const apiInfo = async () => {
             name: products[i].name,
             brand: products[i].brand,
             price: products[i].price,
-            unit: products[i].unity,
+            unit: products[i].unit,
             category: products[i].category,
             description: products[i].description,
             supermarket: products[i].supermarket,
@@ -17,10 +17,10 @@ const apiInfo = async () => {
         });
     }
 
-    const todosLosProductos = await Products.findAll()
+    const allProducts= await Products.findAll()
 
 
-    return todosLosProductos;
+    return allProducts;
 
 };
 export default apiInfo;
