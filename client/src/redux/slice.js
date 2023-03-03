@@ -5,6 +5,7 @@ const initialState = {
   productsBackup: [],
   page: 1,
   error: false,
+  user:false,
   name: '',
   id:"",
   last_name: '',
@@ -34,8 +35,9 @@ export const bolsilloSlice = createSlice({
       state.name = action.payload.name;
       state.last_name = action.payload.last_name;
     },
-    LoginWithGoogle(state, action){
-      state.name = action.payload;
+    LoginWithGoogle(state,action){
+    state.name = action.payload.displayName;
+    state.user = true
    },
    oneComment(state, action) {
     state.comment = action.payload;
