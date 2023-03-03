@@ -38,10 +38,11 @@ const Navbar = ({}) => {
   return (
     <section className="" id="navbar1">
       <div className="logo-Container">
+        <Link to="/home">
           <img
-            src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677677451/dfmbqz6lottpgltuy6ye.webp"
+            src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp"
             alt="logo"
-          />
+          /></Link>
       </div>
       <div className="searchbar-container">
         <form className="">
@@ -72,10 +73,10 @@ const Navbar = ({}) => {
           {!user ? (
             <div>
               <Link to="/register">
-                <button className="navButton">Register</button>
+                <button className="navButton">Registrarse</button>
               </Link>
               <Link to="/login">
-                <button className="navButton">Log in</button>
+                <button className="navButton">Iniciar sesion</button>
               </Link>
             </div>
           ) : (
@@ -85,7 +86,7 @@ const Navbar = ({}) => {
 
         <div>
           <button onClick={changeTheme} className="navButton">
-            cambniar color(img)
+            Dark mode
           </button>
         </div>
       </div>

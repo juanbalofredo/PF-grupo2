@@ -1,7 +1,6 @@
 body {
   margin: 0;
   position: relative;
-  padding-bottom: 3em;
   min-height: 100vh;
 }
 
@@ -10,12 +9,16 @@ body {
 }
 
 .register-container {
-  background-color: #0f4571;
+  background: #141631;
+  background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+  background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+  background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%);
   display: flex;
   height: 100vh;
   align-items: center;
   margin: 0;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .reg-google-fac {
@@ -29,7 +32,8 @@ body {
 }
 
 .register-logo img {
-  width: 24rem;
+  width: 15rem;
+  margin-right: 60px;
 }
 
 .register-form {
@@ -59,7 +63,7 @@ body {
 }
 
 .register-text {
-  margin-top: 100px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,13 +79,22 @@ body {
   font-size: 17px;
   border-radius: 4px;
 }
-
+.reg-todo{
+  padding-bottom: 3rem;
+}
 .register-text button:hover {
   cursor: pointer;
   background-color: #494949;
 }
 .register-name {
   display: flex;
+}
+.reg-avata img{
+  width: 100px;
+}
+ /* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+.reg-avata input{                       
+  display: none;
 }
 
 .register-name input {

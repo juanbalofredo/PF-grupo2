@@ -1,22 +1,110 @@
-@media only screen and (min-width: 1401px) and (max-width: 1000000px) {
-  .landing-principal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 700px;
-    background-color: aqua;
-    margin-bottom: 100px;
+body {
+  padding: 0;
+}
+.landing-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+.landing-principal img {
+  width: 230px;
+}
+.land-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  font-family: 'Phudu', cursive;
+}
+.land-text h1 {
+  font-size: 100px;
+  margin: 0%;
+  margin-top: 100px;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+.land-text h2 {
+  margin: 0%;
+  margin-left: 20px;
+  font-size: 60px;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+.land-text p {
+  margin: 0%;
+  margin-left: 20px;
+  font-size: 30px;
+  text-shadow: 0px 0px 3px #ffffff;
+}
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: #141631;
+  background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+  background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
+  background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%);
+}
+.landing-fotos {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  align-items: center;
+  column-gap: 100px;
+  margin-bottom: 100px;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+}
+.landing-fotos img {
+  scroll-snap-align: center;
+}
+.landing-boton button {
+  margin-top: 40px;
+  width: 200px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  font-size: 20px;
+  border: none;
+}
+.landing-boton button:hover {
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0px 0px 10px 1px #ffffff;
+}
+#carrusel-caja {
+  display: flex;
+  animation: automatizacion 20s infinite linear;
+  transition: all 1s ease;
+  margin-top: 50px;
+  width: 300%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 100px;
+}
+#carrusel-caja img {
+  width: 200px;
+}
+#carrusel-contenido {
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+}
+.imagenes {
+  width: 100%;
+}
+.carru {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200%;
+}
+@keyframes automatizacion {
+  0% {
+    margin-left: 0%;
   }
-  .landing-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .landing-fotos {
-    display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
-    align-items: center;
-    column-gap: 100px;
-    margin-bottom: 100px;
+  100% {
+    margin-left: -100%;
   }
 }

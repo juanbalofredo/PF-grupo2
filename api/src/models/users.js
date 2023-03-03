@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
-import Reviews from "./comments.js";
 
 const Users = dataBase.define('users', {
     id: {
@@ -18,6 +17,7 @@ const Users = dataBase.define('users', {
     },
     email: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false
     },
     password: {
@@ -29,7 +29,7 @@ const Users = dataBase.define('users', {
         allowNull: false
     },
     type_account: {
-        type: DataTypes.ENUM("1","2","3"),
+        type: DataTypes.ENUM("1", "2", "3"),
         allowNull: false,
         defaultValue: "1"
     },
@@ -41,17 +41,17 @@ const Users = dataBase.define('users', {
         type: DataTypes.BOOLEAN,
         defaultValue: true
     },
-    
+
 
 }, { timestamps: false })
 
-Users.belongsToMany(Reviews, {
-    through: "Users_Review",
-    timestamps: false,
-  });
-Reviews.hasOne(Users, {
-    through: "Users_Review",
-    timestamps: false,
-  });
+// Users.belongsToMany(Reviews, {
+//     through: "Users_Review",
+//     timestamps: false,
+//   });
+// Reviews.hasOne(Users, {
+//     through: "Users_Review",
+//     timestamps: false,
+//   });
 
 export default Users;

@@ -6,6 +6,9 @@ import Footer from "../footer/Footer";
 
 const Home =()=>{
 const state = useSelector((state) => state.bolsillo);
+
+const generales = state.productsBackup.filter(a => a.supermarket === "Coto")    
+
 return(
     <>
     <div className="Navbar-Home">
@@ -13,7 +16,7 @@ return(
     </div>
     <div className='Home-container'>
     <div className="Home-container-products">
-    {state.productsBackup.map((p)=>(
+    {   generales.map((p)=>(
         <Card key={p.id} product={p} />
         ))}  
     </div>

@@ -3,8 +3,9 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 //importo las rutas
-import products from "../routes/products.Router.js"
+import products from "../routes/products.Router.js";
 import users from '../routes/user.Router.js';
+import review from "../routes/review.Router.js";
 
 const server = express();
 
@@ -21,10 +22,9 @@ server.use((req, res, next) => {
 });
 
 server.use('/products', products);
-server.use('/user', users)
-//  server.use('/commentes', coments)
+server.use('/user', users);
+server.use('/reviews', review)
 //  server.use('/market', market )
-// server.use('/comentaries', post); 
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars

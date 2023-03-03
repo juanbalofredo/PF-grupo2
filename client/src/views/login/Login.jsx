@@ -2,8 +2,6 @@ import "./login.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import NavBar from "../../components/assets/NavBar";
-import axios from "axios";
-import { crearUser } from "../../redux/apiPetitions";
 import Footer from "../footer/Footer";
 
 const Login = () => {
@@ -85,10 +83,10 @@ const Login = () => {
     <>
       <div className="reg-todo">
         <NavBar />
-        <div className="register-container">
+        <div className="login-container">
           <div className="register-logo">
             <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677677451/dfmbqz6lottpgltuy6ye.webp"
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp"
               alt="logo"
             />
           </div>

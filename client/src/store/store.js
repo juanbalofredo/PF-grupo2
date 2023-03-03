@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import bolsillo from "../redux/slice";
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     bolsillo,
   },
 });
+
+export default store;

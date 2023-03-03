@@ -1,27 +1,33 @@
 import "./register.css";
 import { useState } from "react";
-import { useEffect } from "react";
 import NavBar from "../../components/assets/NavBar";
 import axios from "axios";
 import { crearUser } from "../../redux/apiPetitions";
 import Footer from "../footer/Footer";
+import GoogleSign from "../Firebase/GoogleSign";
 
 const Register = () => {
-  const [imageSelected, setImageSelected] = useState("");
-  const uploadImage = () => { 
-     
+
+  var uploadedImage = "";
+
+
+  const uploadImage = (e) => {
+    e.preventDefault();
     const formData = new FormData();
-    formData.append("file", imageSelected);
+
+    formData.append("file", e.target.files[0]);
     formData.append("upload_preset", "proyectof");
 
     axios
       .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
       .then((response) => {
-        const url = response.data.secure_url;
+        console.log(response);
+        uploadedImage = response.data.secure_url;
+        console.log(uploadedImage)
         setInput({
           ...input,
-          avatar: url,
-        });
+          avatar: uploadedImage,
+        })
       });
   };
 
@@ -104,9 +110,9 @@ const Register = () => {
     e.preventDefault();
     if (validarForm()) {
       try {
-        uploadImage();
-        crearUser(input);
+        console.log('queso')
         console.log(input.avatar)
+        crearUser(input);
         setInput({
           name: "",
           avatar: "",
@@ -115,7 +121,7 @@ const Register = () => {
           password: "",
         });
         alert("Usuario creado");
-        window.location.href = "http://localhost:3000/home";
+        window.location.href = "/home";
       } catch (error) {
         alert("ERROR: reintenta más tarde! (" + error + ")");
       }
@@ -123,10 +129,6 @@ const Register = () => {
       alert("ERROR: Faltan completar algunos campos");
     }
   }
-
-  useEffect(() => {
-    document.title = "Registrarse";
-  }, []);
 
   return (
     <>
@@ -136,29 +138,32 @@ const Register = () => {
         <div className="register-container">
           <div className="register-logo">
             <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677677451/dfmbqz6lottpgltuy6ye.webp"
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp"
               alt="logo"
             />
           </div>
           <div className="register-form">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}
+              autoComplete='off'>
               <h1>Registrarse</h1>
               <div className="register-text">
-                <label htmlFor="img">Imagen</label>
-                <div>
+                <label htmlFor="img">Seleccionar Imagen</label>
+                <div className="reg-avata">
+                  <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png" alt="avatar" />
                   <input
                     type="file"
                     name="avatar"
+                    id="my_file"
                     placeholder="Imagen"
-                    autoComplete="off"
-                    onChange={(e) => {
-                      setImageSelected(e.target.files[0]);}}
-                  ></input>
+                    autoComplete='off'
+                    value={uploadedImage}
+                    onChange={e => uploadImage(e)}
+                  />
                 </div>
-                <div onClick={uploadImage}>Subir imagen</div>
                 <div className="register-name">
                   <div>
                     <input
+                      autoComplete='off'
                       placeholder="Nombre"
                       name="name"
                       type="text"
@@ -168,6 +173,7 @@ const Register = () => {
                   </div>
                   <div>
                     <input
+                      autoComplete='off'
                       placeholder="Apellido"
                       name="last_name"
                       type="text"
@@ -178,6 +184,7 @@ const Register = () => {
                 </div>
                 <div className="register-correo">
                   <input
+                    autoComplete='off'
                     name="email"
                     type="email"
                     value={input.email}
@@ -187,6 +194,7 @@ const Register = () => {
                 </div>
                 <div className="rgister-contra">
                   <input
+                    autoComplete='off'
                     name="password"
                     type="password"
                     value={input.password}
@@ -196,6 +204,7 @@ const Register = () => {
                 </div>
                 <div className="register-contra2">
                   <input
+                    autoComplete='off'
                     name="password"
                     type="password"
                     onChange={handleChange}
@@ -204,24 +213,15 @@ const Register = () => {
                 </div>
                 <button type="submit">Registrarse</button>
               </div>
-              <div className="reg-google-fac">
-                <button className="register-google">
-                  Registrarse con Google
-                </button>
-                <button className="register-facebook">
-                  Registrarse con Facebook
-                </button>
-              </div>
             </form>
+              <div className="reg-google-fac">
+              <GoogleSign/>
+              </div>
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
       <Footer />
     </>
   );
 };
-
 export default Register;

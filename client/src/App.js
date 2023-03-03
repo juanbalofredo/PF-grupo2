@@ -6,7 +6,8 @@ import { Route, Routes} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllProducts } from "./redux/apiPetitions";
-import Usersget from "../src/views/RegisterFirebase/Usersget";
+import Usersget from "./views/Firebase/GoogleSign";
+import DetalleProd from "./views/detalleProd/Detail";
 
 
 const App =()=>{
@@ -23,6 +24,7 @@ const App =()=>{
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/register" element={<Register/>} />
         <Route exact path="/prueba" element={<Usersget/>} />
+        <Route exact path="/products/id/:id" element={<DetalleProd/>} />
       </Routes>
     </div>
   );
