@@ -1,9 +1,10 @@
 import React from "react";
 import "./footer.css";
-import fb from "../../media/facebook.svg"
-import twitter from "../../media/twitter.svg"
-import linkedin from "../../media/linkedin.svg"
-import instagram from "../../media/instagram.svg"
+import fb from "../../assets/facebook.svg"
+import twitter from "../../assets/twitter.svg"
+import linkedin from "../../assets/linkedin.svg"
+import instagram from "../../assets/instagram.svg"
+
 
 export const Footer = () => {
   return (

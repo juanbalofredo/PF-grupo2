@@ -1,10 +1,10 @@
 import "./register.css";
 import { useState } from "react";
-import NavBar from "../../components/Navbar/NavBar";
+import NavBar from "../Navbar/NavBar";
 import axios from "axios";
 import { crearUser } from "../../redux/apiPetitions";
-import Footer from "../footer/Footer";
-import GoogleSign from "../Firebase/GoogleSign";
+import Footer from "../../views/footer/Footer";
+import GoogleSign from "../../views/Firebase/GoogleSign";
 
 const Register = () => {
 
