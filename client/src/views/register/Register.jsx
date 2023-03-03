@@ -1,6 +1,6 @@
 import "./register.css";
 import { useState } from "react";
-import NavBar from "../../components/assets/NavBar";
+import NavBar from "../../components/Navbar/NavBar";
 import axios from "axios";
 import { crearUser } from "../../redux/apiPetitions";
 import Footer from "../footer/Footer";

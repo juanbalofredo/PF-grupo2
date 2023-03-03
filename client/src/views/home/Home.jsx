@@ -1,5 +1,5 @@
 import './home.css'
-import NavBar from '../../components/assets/NavBar'
+import NavBar from '../../components/Navbar/NavBar'
 import { useDispatch, useSelector } from "react-redux";
 import Card from '../Card/Card';
 import Footer from "../footer/Footer";
@@ -14,9 +14,10 @@ useEffect(() => {
     if (!didInit) {
         didInit = true;
         getAllProducts(dispatch);
-        
+
 }
 }, [dispatch]);
+const myProduct = state.productsBackup.filter(p=>p.supermarket === "Coto")
 
 return(
     <>
@@ -25,7 +26,7 @@ return(
     </div>
     <div className='Home-container'>
     <div className="Home-container-products">
-    {   state.productsBackup.map((p)=>(
+    {   myProduct.map((p)=>(
         <Card key={p.id} product={p} />
         ))}  
     </div>
