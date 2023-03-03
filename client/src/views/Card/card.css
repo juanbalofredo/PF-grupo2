@@ -33,7 +33,8 @@
     mix-blend-mode: multiply;
    }
    .cardetails p{
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Phudu', cursive;
+    color: rgb(43, 43, 43);
    }
    .cardetails{
     display: flex;
