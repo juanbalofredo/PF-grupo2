@@ -3,15 +3,18 @@ import Home from "./views/home/Home";
 import Login from "./views/login/Login";
 import Register from "./views/register/Register";
 import { Route, Routes} from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { useEffect } from "react";
-// import { getAllProducts } from "./redux/apiPetitions";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getAllProducts } from "./redux/apiPetitions";
 import Usersget from "./views/Firebase/GoogleSign";
 import DetalleProd from "./views/detalleProd/Detail";
 
 
 const App =()=>{
- 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getAllProducts(dispatch);
+  }, [dispatch]);
 
   return (
     <div className="App">
