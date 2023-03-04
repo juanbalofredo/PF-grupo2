@@ -417,6 +417,11 @@ img {
   height: 3rem;
   text-indent: 10px;
   font-family: 'Phudu', cursive;
+
+
+}
+.form-control:focus-visible {
+  outline: none;
 }
 
 .searchbar-container {
