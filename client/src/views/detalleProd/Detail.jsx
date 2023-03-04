@@ -51,7 +51,7 @@ const DetalleProd = () => {
                 </h3>
                 <h3 className="texts">
                   {" "}
-                  Unity: <br /> {product.unit}
+                  Cantidad: <br /> {product.unit}
                 </h3>
               </div>
               <h3 className="texts">
