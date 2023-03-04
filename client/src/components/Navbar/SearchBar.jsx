@@ -12,10 +12,14 @@ export default function SearchBar() {
     setModel(e.target.value);
   };
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    getNameQuery(dispatch,model);
-  }
+    if (window.location.href !== 'http://localhost:3000/home') {
+        window.location.href = '/home'
+  }     
+  await  getNameQuery(dispatch,model);
+   
+}
   return (
     <>
       <div className="searchbar-container">

@@ -110,24 +110,20 @@ const Register = () => {
     e.preventDefault();
     if (validarForm()) {
       try {
-        console.log('queso')
-        console.log(input.avatar)
-        crearUser(input);
-        setInput({
-          name: "",
-          avatar: "",
-          last_name: "",
-          email: "",
-          password: "",
-        });
+        const azul =  await crearUser(input);
+        console.log(azul)
+        if(azul === 'Request failed with status code 400'){
+          throw Error('Ya existe un usuario con ese Email')
+        }
         alert("Usuario creado");
+       
         window.location.href = "/home";
       } catch (error) {
-        alert("ERROR: reintenta más tarde! (" + error + ")");
+        alert("ERROR: " + error );
       }
     } else {
       alert("ERROR: Faltan completar algunos campos");
-    }
+    }        
   }
 
   return (
