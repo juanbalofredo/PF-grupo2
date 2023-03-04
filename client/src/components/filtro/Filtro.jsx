@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { getCategoryParams, getBrandParams } from "../../redux/apiPetitions";
+import '../filtro/filtro.css'
 
 
 const Filtro = () => {
@@ -19,18 +21,25 @@ const Filtro = () => {
             seenElements[element] = true;
         }
     });
-
- 
     const sinNorepetidos = ["Todas", ...new Set(duplicatesArray)];
- 
+
+    async function handleFilterCategory(e) {
+        getCategoryParams(dispatch, e);
+
+    }
+
+    async function handleFilterBrand(e) {
+        dispatch(getBrandParams(dispatch, e));
+    }
+
     return (<>
 
-        <div className='filt-container'>
+        <div className='filtaa-container'>
 
             <div className='filt-tipo'>
                 <h3 name="filtPorTipo" id="filtPorTipo">Categoria</h3>{
                     allCategories.map(categoria =>
-                        <label value={categoria}>{categoria}</label>
+                        <label onClick={e => handleFilterCategory(categoria)} value={categoria}>{categoria}</label>
                     )
                 }
             </div>
@@ -39,7 +48,7 @@ const Filtro = () => {
                 <h3 name="filtPorRelleno" id="filtPorRelleno">Marca</h3>
                 {
                     sinNorepetidos.map(categoria =>
-                        <label value={categoria}>{categoria}</label>
+                        <label onClick={e => handleFilterBrand(categoria)} value={categoria}>{categoria}</label>
                     )
                 }
             </div>

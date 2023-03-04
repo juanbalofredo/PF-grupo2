@@ -3,6 +3,7 @@
   margin-bottom: 1px;
   display: flex;
   justify-content: center;
+
 }
 
 .navbar img {
@@ -89,6 +90,7 @@ body {
   border: none;
   transition: 0.3s;
   color: white;
+  font-family: 'Phudu', cursive;
 }
 
 .navButton:hover {
@@ -200,6 +202,7 @@ body {
   width: 100%;
   justify-content: center;
   align-items: center;
+  font-family: 'Phudu', cursive;
 }
 
 .navigation-menu {
@@ -413,6 +416,7 @@ img {
   border-radius: 10px;
   height: 3rem;
   text-indent: 10px;
+  font-family: 'Phudu', cursive;
 }
 
 .searchbar-container {

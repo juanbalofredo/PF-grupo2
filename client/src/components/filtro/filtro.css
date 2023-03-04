@@ -1,0 +1,5 @@
+.filtaa-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #0f4571;
+}
