@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALICT } = process.env;
+// const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_DIALICT } = process.env;
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -7,6 +7,7 @@ dotenv.config();
 //   logging: false, // set to console.log to see the raw SQL queries
 //   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 // });
+
 
 
 const dataBase = new Sequelize(
