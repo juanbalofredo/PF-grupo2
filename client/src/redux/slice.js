@@ -19,6 +19,7 @@ export const bolsilloSlice = createSlice({
   initialState,
   reducers: {
     allProducts(state, action) {
+      console.log(action.payload)
       state.products = action.payload;
       state.productsBackup = action.payload;
     },  

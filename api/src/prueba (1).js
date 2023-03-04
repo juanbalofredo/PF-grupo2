@@ -42,16 +42,6 @@ let products = [
     },
     {
         "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
         "brand": "Carrefour",
         "price": 360,
         "unit": "1l",
@@ -470,16 +460,6 @@ let products = [
         "supermarket": "General",
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677894361/dqxdwrfbyt9vfeneldvj.jpg",
         "description": "Los garbanzos son una legumbre versátil y nutritiva, rica en proteínas, fibra y carbohidratos complejos. Presentados enlatados o en bolsas de plástico, son un ingrediente esencial en la cocina mediterránea y en la preparación de platos como el hummus, la ensalada de garbanzos o el curry de garbanzos. Además, son económicos y fáciles de almacenar."
-    },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Coto",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
     {
         "name": "Leche",
@@ -509,39 +489,11 @@ let products = [
         "price":410,
         "unit": "1l",
         "category": "Lácteos",
+        "supermarket": "Carrefour",
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677888985/xrn9am7prdavxak3dgvn.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Carrefour",
-        "price": 360,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889234/adb7pgtpa8msosylj2tz.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
+
 
     {
         "name": "Yogurt",
@@ -984,26 +936,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Carrefour",
-        "price": 360,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889234/adb7pgtpa8msosylj2tz.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
+
 
     {
         "name": "Yogurt",
@@ -1436,36 +1369,9 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677888985/xrn9am7prdavxak3dgvn.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Carrefour",
-        "price": 360,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889234/adb7pgtpa8msosylj2tz.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
+
+
+
 
     {
         "name": "Yogurt",
@@ -1898,36 +1804,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677888985/xrn9am7prdavxak3dgvn.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Disco",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Carrefour",
-        "price": 360,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889234/adb7pgtpa8msosylj2tz.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
+ 
 
     {
         "name": "Yogurt",
@@ -2360,36 +2237,8 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677888985/xrn9am7prdavxak3dgvn.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Jumbo",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Carrefour",
-        "price": 360,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889234/adb7pgtpa8msosylj2tz.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
+
+
 
     {
         "name": "Yogurt",
@@ -2822,26 +2671,8 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677888985/xrn9am7prdavxak3dgvn.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Vea",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
+
+
     {
         "name": "Leche",
         "brand": "Carrefour",
@@ -3284,36 +3115,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677888985/xrn9am7prdavxak3dgvn.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Vital",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Carrefour",
-        "price": 360,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889234/adb7pgtpa8msosylj2tz.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
+
 
     {
         "name": "Yogurt",
@@ -3746,37 +3548,6 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677888985/xrn9am7prdavxak3dgvn.jpg",
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
-    {
-        "name": "Leche",
-        "brand": "Coto",
-        "price": 370,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Walmart",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889022/igrtk8c7zrq99v240gsz.jpg",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Dia",
-        "price": 355,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Dia",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889117/uc9j4mem8tankytwbjwq.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-    {
-        "name": "Leche",
-        "brand": "Carrefour",
-        "price": 360,
-        "unit": "1l",
-        "category": "Lácteos",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677889234/adb7pgtpa8msosylj2tz.webp",
-        "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
-    },
-
     {
         "name": "Yogurt",
         "brand": "Tregar",
