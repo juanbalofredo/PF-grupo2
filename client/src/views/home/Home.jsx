@@ -5,6 +5,7 @@ import Card from '../../components/Card/Card';
 import Footer from "../footer/Footer";
 import { useEffect } from 'react';
 import { getAllProducts } from '../../redux/apiPetitions';
+import Filtro from '../../components/filtro/Filtro';
 
 const Home =()=>{
 const state = useSelector((state) => state.bolsillo);
@@ -17,7 +18,7 @@ useEffect(() => {
 
 }
 }, [dispatch]);
- const myProduct = state.productsBackup.filter(p=>p.supermarket === "Coto")
+ const myProduct = state.productsBackup.filter(p=>p.supermarket === "General")
 
 return(
     <>
@@ -25,6 +26,7 @@ return(
     <NavBar/>
     </div>
     <div className='Home-container'>
+    <Filtro/>
     <div className="Home-container-products">
     {   myProduct.map((p)=>(
         <Card key={p.id} product={p} />
