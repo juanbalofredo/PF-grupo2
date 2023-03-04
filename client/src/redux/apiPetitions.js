@@ -4,14 +4,15 @@ import {
   allUsers,
   LoginWithGoogle,
   oneComment,
+  getName,
+  filterBrand,
+  filterCategory
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 
 export async function getAllProducts(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
-    console.log(peticion)
-    console.log(peticion.data)
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
@@ -109,12 +110,35 @@ export async function getProductId(dispatch, id) {
 //     console.log(error);
 //   }
 // }
-export const getNameQuery = async (dispacth, name) => {
+export const getNameQuery = async (dispatch, name) => {
   try {
     const petition = await axios.get(
       `http://localhost:3001/products/name?name=${name}`
     );
-    dispacth(allProducts(petition?.data));
+    dispatch(getName(petition?.data.filter(a=>a.supermarket ==="General")));
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const getCategoryParams = async (dispatch, category) => {
+  try {
+    const petition = await axios.get(
+      `http://localhost:3001/products/category/${category}`
+    );
+    dispatch(filterCategory(petition?.data.filter(a=>a.supermarket ==="General")));
+  } catch (error) {
+    return error.response;
+  }
+};
+
+
+export const getBrandParams = async (dispatch, brand) => {
+  try {
+    const petition = await axios.get(
+      `http://localhost:3001/products/brand/${brand}`
+    );
+    dispatch(filterBrand(petition?.data.filter(a=>a.supermarket ==="General")));
   } catch (error) {
     return error.response;
   }

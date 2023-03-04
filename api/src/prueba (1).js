@@ -697,16 +697,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890198/kvq4nhgsa7smsso7eoib.jpg",
         "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
     },
-    {
-        "name": "Azucar",
-        "brand": "Carrefour",
-        "price": 195,
-        "unit": "1kg",
-        "category": "Endulzantes",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890228/seazluxalg9hb6oavvrk.webp",
-        "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
-    },
+
     {
         "name": "Azucar",
         "brand": "Dominio",
@@ -1140,16 +1131,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890198/kvq4nhgsa7smsso7eoib.jpg",
         "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
     },
-    {
-        "name": "Azucar",
-        "brand": "Carrefour",
-        "price": 195,
-        "unit": "1kg",
-        "category": "Endulzantes",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890228/seazluxalg9hb6oavvrk.webp",
-        "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
-    },
+
     {
         "name": "Azucar",
         "brand": "Dominio",
@@ -2008,16 +1990,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890198/kvq4nhgsa7smsso7eoib.jpg",
         "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
     },
-    {
-        "name": "Azucar",
-        "brand": "Carrefour",
-        "price": 195,
-        "unit": "1kg",
-        "category": "Endulzantes",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890228/seazluxalg9hb6oavvrk.webp",
-        "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
-    },
+ 
     {
         "name": "Azucar",
         "brand": "Dominio",
@@ -2442,16 +2415,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890198/kvq4nhgsa7smsso7eoib.jpg",
         "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
     },
-    {
-        "name": "Azucar",
-        "brand": "Carrefour",
-        "price": 195,
-        "unit": "1kg",
-        "category": "Endulzantes",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890228/seazluxalg9hb6oavvrk.webp",
-        "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
-    },
+    
     {
         "name": "Azucar",
         "brand": "Dominio",
@@ -2886,16 +2850,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890198/kvq4nhgsa7smsso7eoib.jpg",
         "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
     },
-    {
-        "name": "Azucar",
-        "brand": "Carrefour",
-        "price": 195,
-        "unit": "1kg",
-        "category": "Endulzantes",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890228/seazluxalg9hb6oavvrk.webp",
-        "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
-    },
+
     {
         "name": "Azucar",
         "brand": "Dominio",
@@ -3319,16 +3274,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890198/kvq4nhgsa7smsso7eoib.jpg",
         "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
     },
-    {
-        "name": "Azucar",
-        "brand": "Carrefour",
-        "price": 195,
-        "unit": "1kg",
-        "category": "Endulzantes",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890228/seazluxalg9hb6oavvrk.webp",
-        "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
-    },
+
     {
         "name": "Azucar",
         "brand": "Dominio",
@@ -3750,16 +3696,7 @@ let products = [
         "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890198/kvq4nhgsa7smsso7eoib.jpg",
         "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
     },
-    {
-        "name": "Azucar",
-        "brand": "Carrefour",
-        "price": 195,
-        "unit": "1kg",
-        "category": "Endulzantes",
-        "supermarket": "Carrefour",
-        "image": "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677890228/seazluxalg9hb6oavvrk.webp",
-        "description": "El azúcar es un ingrediente básico en la repostería y en la cocina en general. Presentado en una bolsa o en un envase de cartón resistente, su textura fina y granulada permite una fácil disolución en líquidos y la creación de postres deliciosos. Esencial en la preparación de bebidas, postres y en la elaboración de algunas salsas."
-    },
+
     {
         "name": "Azucar",
         "brand": "Dominio",

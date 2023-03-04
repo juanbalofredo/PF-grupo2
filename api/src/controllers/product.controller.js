@@ -1,5 +1,5 @@
 import Products from "../models/products.js";
-import { getProductByName, getProductsByCategory, getProductsById } from "../helpers/products.helper.js";
+import { getProductByName, getProductsByCategory, getProductsById ,getProductsByBrand } from "../helpers/products.helper.js";
 import apiInfo from "../helpers/apiInfo.js"
 
 export async function getProducts(req, res) {
@@ -47,6 +47,16 @@ export async function getByCategory(req, res) {
     try {
         const { category } = req.params;
         const response = await getProductsByCategory(category)
+        return res.status(200).json(response);
+    } catch {
+        return res.status(400).json({ err: error.message });
+    }
+};
+
+export async function getByBrand(req, res) {
+    try {
+        const { brand } = req.params;
+        const response = await getProductsByBrand(brand)
         return res.status(200).json(response);
     } catch {
         return res.status(400).json({ err: error.message });
