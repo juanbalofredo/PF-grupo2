@@ -6,7 +6,8 @@ import {
   oneComment,
   getName,
   filterBrand,
-  filterCategory
+  filterCategory,
+  oneUsers
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 
@@ -42,6 +43,15 @@ export async function getUsers(dispatch) {
   try {
     const pedir = axios.get("http://localhost:3001/user");
     dispatch(allUsers(pedir?.data));
+  } catch (error) {
+    return error.message;
+  }
+}
+
+export async function getUserByEmail(dispatch, email) {
+  try {
+    const pedir = axios.get(`http://localhost:3001/user/email/${email}`);
+    dispatch(oneUsers(pedir?.data));
   } catch (error) {
     return error.message;
   }
