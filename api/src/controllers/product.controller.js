@@ -3,7 +3,14 @@ import { getProductByName, getProductsByCategory, getProductsById } from "../hel
 import apiInfo from "../helpers/apiInfo.js"
 
 export async function getProducts(req, res) {
-    const response2 = await Products.findAll()
+    const response2 = await Products.findAll(
+        {
+            where: {
+                supermarket:
+                    "General",
+            },
+        }
+    )
     try {
         // esto es para seguir creando la misma base de datos
         if (response2.length == 0) {
