@@ -1,8 +1,8 @@
 import "./login.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import NavBar from "../../components/assets/NavBar";
-import Footer from "../footer/Footer";
+import NavBar from "../Navbar/NavBar";
+import Footer from "../../views/footer/Footer";
 
 const Login = () => {
   const [input, setInput] = useState({
