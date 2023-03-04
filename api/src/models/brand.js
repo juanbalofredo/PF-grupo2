@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
-
+//import
 const Brand = dataBase.define('brandTable', {
   id: {
     type: DataTypes.INTEGER,
