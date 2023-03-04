@@ -55,10 +55,6 @@ const DetalleProd = () => {
                 </h3>
               </div>
               <h3 className="texts">
-                {" "}
-                Price: <br /> {product.price}
-              </h3>
-              <h3 className="texts">
                 Descripcion: <br /> {product.description}
               </h3>
             </div></div>
