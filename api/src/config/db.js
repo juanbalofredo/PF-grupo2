@@ -8,6 +8,7 @@ dotenv.config();
 // });
 
 
+
 const dataBase = new Sequelize(
    process.env.DB_NAME || "products",
    process.env.DB_USER,
