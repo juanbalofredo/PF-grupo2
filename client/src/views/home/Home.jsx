@@ -1,7 +1,7 @@
 import './home.css'
 import NavBar from '../../components/Navbar/NavBar'
 import { useDispatch, useSelector } from "react-redux";
-import Card from '../Card/Card';
+import Card from '../../components/Card/Card';
 import Footer from "../footer/Footer";
 import { useEffect } from 'react';
 import { getAllProducts } from '../../redux/apiPetitions';
@@ -17,7 +17,7 @@ useEffect(() => {
 
 }
 }, [dispatch]);
-// const myProduct = state.productsBackup.filter(p=>p.supermarket === "Coto")
+ const myProduct = state.productsBackup.filter(p=>p.supermarket === "Coto")
 
 return(
     <>
@@ -26,7 +26,7 @@ return(
     </div>
     <div className='Home-container'>
     <div className="Home-container-products">
-    {   state.productsBackup.map((p)=>(
+    {   myProduct.map((p)=>(
         <Card key={p.id} product={p} />
         ))}  
     </div>
