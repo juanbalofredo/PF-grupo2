@@ -7,7 +7,8 @@ import {
   getName,
   filterBrand,
   filterCategory,
-  oneUsers
+  oneUsers,
+  resetFilter
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 
@@ -149,6 +150,17 @@ export const getBrandParams = async (dispatch, brand) => {
       `http://localhost:3001/products/brand/${brand}`
     );
     dispatch(filterBrand(petition?.data.filter(a=>a.supermarket ==="General")));
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const rsetFilters = async (dispatch) => {
+  try {
+    const petition = await axios.get(
+      "http://localhost:3001/products"
+    );
+    dispatch(resetFilter(petition?.data.filter(a=>a.supermarket ==="General")));
   } catch (error) {
     return error.response;
   }

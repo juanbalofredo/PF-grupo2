@@ -3,7 +3,7 @@
     align-items: center;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    padding-top: 100px;
+
     padding-bottom: 300px;
 }
 

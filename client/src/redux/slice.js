@@ -51,9 +51,12 @@ export const bolsilloSlice = createSlice({
    },
    filterCategory(state,action){
     state.productsBackup = action.payload
+   },
+   resetFilter(state,action){
+    state.productsBackup = state.products
    }
   },
 });
 
-export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment, getName,filterCategory,filterBrand } = bolsilloSlice.actions;
+export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment, getName,filterCategory,filterBrand,resetFilter } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;
