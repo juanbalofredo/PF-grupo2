@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getCategoryParams, getBrandParams } from "../../redux/apiPetitions";
+import '../filtro/filtro.css'
+
 
 const Filtro = () => {
 
@@ -32,7 +34,7 @@ const Filtro = () => {
 
     return (<>
 
-        <div className='filt-container'>
+        <div className='filtaa-container'>
 
             <div className='filt-tipo'>
                 <h3 name="filtPorTipo" id="filtPorTipo">Categoria</h3>{

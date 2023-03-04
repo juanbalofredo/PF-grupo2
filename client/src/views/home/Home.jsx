@@ -6,6 +6,7 @@ import Footer from "../footer/Footer";
 import { useEffect } from 'react';
 import { getAllProducts } from '../../redux/apiPetitions';
 import Filtro from '../../components/filtro/Filtro';
+import Orden from '../../components/order/Orden';
 
 const Home = () => {
     const state = useSelector((state) => state.bolsillo);
@@ -25,6 +26,7 @@ const Home = () => {
             <div className="Navbar-Home">
                 <NavBar />
             </div>
+            <Orden/>
             <div className='Home-container'>
                 <Filtro />
                 <div className="Home-container-products">
