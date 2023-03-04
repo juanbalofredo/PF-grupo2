@@ -1,10 +1,20 @@
 import "./login.css";
 import { useState } from "react";
-import { useEffect } from "react";
 import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
+import { useDispatch } from "react-redux";
+import { getUserByEmail } from "../../redux/apiPetitions";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const [password, setPassword] = useState("");
+
+  async function login(event) {
+    event.preventDefault();
+    console.log(input);
+    getUserByEmail(dispatch, input.email);
+  }
+
   const [input, setInput] = useState({
     name: "",
     avatar: "",
@@ -74,7 +84,6 @@ const Login = () => {
     }
   }
 
-
   return (
     <>
       <div className="reg-todo">
@@ -108,7 +117,9 @@ const Login = () => {
                     placeholder="Contraseña"
                   />
                 </div>
-                <button type="submit">Iniciar sesion</button>
+                <button type="submit" onClick={login}>
+                  Iniciar sesion
+                </button>
               </div>
               <div className="reg-google-fac">
                 <button className="register-google">Iniciar con Google</button>
