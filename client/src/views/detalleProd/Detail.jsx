@@ -2,7 +2,7 @@ import "./detalleProd.css"
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import NavBar from "../../components/Navbar/NavBar";
+import NavBar from "../../components/Navbar/NavBar"
 import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
@@ -51,13 +51,9 @@ const DetalleProd = () => {
                 </h3>
                 <h3 className="texts">
                   {" "}
-                  Unity: <br /> {product.unit}
+                  Cantidad: <br /> {product.unit}
                 </h3>
               </div>
-              <h3 className="texts">
-                {" "}
-                Price: <br /> {product.price}
-              </h3>
               <h3 className="texts">
                 Descripcion: <br /> {product.description}
               </h3>

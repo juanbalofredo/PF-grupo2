@@ -1,4 +1,4 @@
-import Navbar from "../assets/NavBar"
+import Navbar from "../Navbar/NavBar"
 import Footer from "../../views/footer/Footer"
 import React from "react"
 import "./Detaillaoding.css"

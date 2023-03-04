@@ -11,6 +11,10 @@ const Reviews = dataBase.define('reviews', {
     message: {
         type: DataTypes.STRING(250),
         allowNull: false,
+    },
+    activity: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
     }
     // agregar supermercado y puntaje
 }, { timestamps: false })
