@@ -1,7 +1,7 @@
 
 //agregando comentarios
 import Reviews from "../models/review.js";
-import { createReviews, getReviewsById, deleteReviewById } from "../helpers/reviews.helper.js";
+import { createReviews, getReviewsById, deleteReviewById, showReview } from "../helpers/reviews.helper.js";
 
 export async function getAllReviews(req, res) {
     const allReviews = await Reviews.findAll();
@@ -48,3 +48,13 @@ export async function deleteReview(req, res) {
         res.status(500).send({ err: error.message });
     }
 };
+
+export async function updateReviews(req, res) {
+    const dataToUpdate = req.body;
+    try {
+        await showReview(dataToUpdate)
+        res.status(200).json("borrado exitoso");
+    } catch (error) {
+        res.status(500).send({ err: error.message });
+    }
+}
