@@ -3,23 +3,29 @@ import { useState } from "react";
 import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserByEmail } from "../../redux/apiPetitions";
-
+import { getAllProducts, getUserByEmail } from "../../redux/apiPetitions";
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const state = useSelector((state) => state.bolsillo.name);
   console.log(state);
 
-  async function login(event) {
-    event.preventDefault();
-    console.log(input.password);
-    await getUserByEmail(dispatch, input.email, input.password);
-    if (state === input.name) {
-      window.location.href = "/home";
-    } else {
-      window.location.href = "/login";
-    }
+  const login = (e)=> {
+    e.preventDefault();
+    getUserByEmail(dispatch, input.email, input.password)
+    .then((res) => {
+      swal({
+        title: "sesión iniciada",
+        text: "sesión iniciada",
+        icon: "success",
+        button: "A comparar!",
+      }).then((e) => navigate("/home"));
+      getAllProducts(dispatch);
+    })
+    .catch((err) => swal("Error! :(", `${err.response.data}`, "error"));
   }
 
   const [input, setInput] = useState({
