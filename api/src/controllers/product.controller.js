@@ -67,10 +67,11 @@ export async function getByName(req, res) {
 };
 
 export async function getByCategory(req, res) {
-    const { category, order } = req.params;
-    console.log(category, order)
+    const filterCategory = req.params;
+    console.log("esto es filterCategory ==>",filterCategory)
+    // console.log(category, order)
     try {
-        const response = await getProductsByCategory(category, order)
+        const response = await getProductsByCategory(filterCategory)
         return res.status(200).json(response);
     } catch(error) {
         return res.status(400).json({ error: error.message });

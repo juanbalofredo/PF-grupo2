@@ -19,16 +19,28 @@ export function getProductByName(name) {
     return productsByName;
 };
 
-export async function getProductsByCategory(category, order) {
-    const productByCategory = await Products.findAll({
-        where: {
-            category,
-            supermarket: "General"
-        },
-        order: [["name", order]]
-    })
-    if (productByCategory.length != 0) return productByCategory;
-    throw Error("Category not found");
+export async function getProductsByCategory({ category, order, supermarket }) {
+    if (supermarket === "all") {
+        let productByCategory = await Products.findAll({
+            where: {
+                category,
+                supermarket: "General"
+            },
+            order: [["name", order]]
+        })
+        if (productByCategory.length != 0) return productByCategory;
+        throw Error("Category not found");
+    } else {
+        let productByCategory = await Products.findAll({
+            where: {
+                category,
+                supermarket: supermarket
+            },
+            order: [["name", order]]
+        })
+        if (productByCategory.length != 0) return productByCategory;
+        throw Error("Category not found");
+    }
 
 };
 
