@@ -1,6 +1,6 @@
 import "./login.css";
 import { useState } from "react";
-import NavBar from "../Navbar/NavBar";
+import NavBar from "../Navbar/NavBar2";
 import Footer from "../../views/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductosGenerales, getUserByEmail } from "../../redux/apiPetitions";
@@ -27,7 +27,7 @@ const Login = () => {
       }).then((e) => navigate("/home"));
       getProductosGenerales(dispatch);
     })
-    .catch((err) => swal("Error! :(", `${err.response.data}`, "error"));
+    .catch((err) => swal("Error! :(", 'vuelve a verificar los datos', "error"));
   }
 
   const [input, setInput] = useState({
@@ -106,7 +106,7 @@ const Login = () => {
         <div className="login-container">
           <div className="register-logo">
             <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp"
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp"
               alt="logo"
             />
           </div>
@@ -120,7 +120,7 @@ const Login = () => {
                     type="email"
                     value={input.email}
                     onChange={handleChange}
-                    placeholder="bautgod@gmail.com"
+                    placeholder="emailExample@gmail.com"
                   />
                 </div>
                 <div className="rgister-contra">
@@ -138,9 +138,6 @@ const Login = () => {
               </div>
               <div className="reg-google-fac">
                 <button className="register-google">Iniciar con Google</button>
-                <button className="register-facebook">
-                  Iniciar con Facebook
-                </button>
               </div>
             </form>
           </div>

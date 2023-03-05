@@ -32,7 +32,7 @@ body {
 }
 
 .register-logo img {
-  width: 15rem;
+  width: 10rem;
   margin-right: 60px;
 }
 
@@ -47,6 +47,7 @@ body {
 }
 
 .register-form input {
+  font-family: 'Phudu', cursive;
   text-align: center;
   border: none;
   border-bottom: 1px solid #868686;
@@ -68,6 +69,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 .register-text button {
   margin-top: 40px;
@@ -76,6 +78,7 @@ body {
   border: none;
   background-color: #6e6e6e;
   color: white;
+  font-family: 'Phudu', cursive;
   font-size: 17px;
   border-radius: 4px;
 }
@@ -83,14 +86,31 @@ body {
   padding-bottom: 3rem;
 }
 .register-text button:hover {
+  font-family: 'Phudu', cursive;
   cursor: pointer;
   background-color: #494949;
 }
 .register-name {
   display: flex;
 }
-.reg-avata img{
-  width: 100px;
+
+.register-google{
+  font-family: 'Phudu', cursive;
+  width: 12rem;
+  height: 2rem;
+  background-color: #e6e6e6;
+  border: none;
+  border-bottom: 1px solid black;
+  border-right:1px solid  black;
+}
+.register-google:hover{
+  cursor: pointer;
+  border: none;
+}
+.reg-google-fac{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -99,11 +119,43 @@ body {
   width: 8rem;
   margin-left: 10PX;
   margin-right: 10px;
+  font-family: 'Phudu', cursive;
 }
 .register-name div {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.reg-avata{
+ display: flex;
+
+}
+.reg-avata input{
+  visibility: inherit;
+        height: 100px;
+        width: 100px;
+        position: relative;
+        right:51px;
+        background-color:          transparent;
+        color: transparent;
+        border: none;
+}
+.reg-avata input::file-selector-button{
+  display: none;
+}
+.reg-avata input:hover{
+  cursor: pointer;
+
+}
+.reg-avata img{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 49px;
+  top: 20px;
+  border-radius: 100px;
+  background-color: #000000;
+  object-fit:contain;
 }
 @media only screen and (min-width: 1400px) and (max-width: 1000000px) {
 
