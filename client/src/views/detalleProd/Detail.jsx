@@ -6,11 +6,18 @@ import NavBar from "../../components/Navbar/NavBar"
 import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
+import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
+import { getProductsAll } from "../../redux/apiPetitions";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 const DetalleProd = () => {
+
+  const state = useSelector((state) => state.bolsillo);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   let didInit = false;
   useEffect(() => {
@@ -25,6 +32,9 @@ const DetalleProd = () => {
         });
     }
   }, [id, navigate, product]);
+
+
+  // const comparadores = state.marketsProducts.map(a=>a.name === product.name)
 
 
   if (!product) {
@@ -58,6 +68,9 @@ const DetalleProd = () => {
                 Descripcion: <br /> {product.description}
               </h3>
             </div></div>
+            {/* <div>{
+              comparadores.map(a=> <ComparadorDetail img={a.image} name={a.name}  />)
+              }</div> */}
         </div>
         <Footer />
       </>
