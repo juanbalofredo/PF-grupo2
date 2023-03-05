@@ -24,7 +24,7 @@ export async function getProducts(req, res) {
 };
 export async function getProductsAll(req, res) {
     const response2 = await Products.findAll(
-        
+         
         {
             where: {
                 supermarket:

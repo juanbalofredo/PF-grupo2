@@ -8,7 +8,6 @@ const ComparadorDetail = (props) => {
     return (
         <>
            {props.name}
-
         </>)
 }
 

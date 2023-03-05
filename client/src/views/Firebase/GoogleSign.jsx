@@ -9,7 +9,7 @@ const Register = () => {
 
   return (
     <button className="register-google" onClick={handleSubmitGoogle}>
-      Ingresar con Google
+      Registrarse con Google
     </button>
   );
 };

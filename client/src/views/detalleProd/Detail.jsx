@@ -46,7 +46,7 @@ const DetalleProd = () => {
         <NavBar />
         <div className="Detail-container">
           <Link to="/home">
-            <button className="">Volver</button>
+            <button className="detail-back">Volver</button>
           </Link>
           <div className="det-prod">
             <div className="imageContainer">
