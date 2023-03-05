@@ -3,32 +3,43 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   productsBackup: [],
-  marketsProducts:[],
-  marketsProductsBackup:[],
+  marketsProducts: [],
+  marketsProductsBackup: [],
   page: 1,
   error: false,
-  user:false,
+  user: false,
   password: false,
   name: '',
-  id:"",
+  id: "",
   last_name: '',
-  email:'',
+  email: '',
   avatar: '',
-  comment: [], 
-  detail: []
+  comment: [],
+  detail: {brand:'',name:''}
 };
+
+
 export const bolsilloSlice = createSlice({
+
+
   name: "bolsillo",
+
   initialState,
+
   reducers: {
+
+    nuevoDetail(state, action) {
+      state.detail.brand = action.payload.brand
+      state.detail.name = action.payload.name
+    },
     productsGenerales(state, action) {
       state.products = action.payload;
       state.productsBackup = action.payload;
-    }, 
+    },
     allProducts(state, action) {
       state.marketsProductsBackup = action.payload;
       state.marketsProducts = action.payload;
-    },  
+    },
     allUsers(state, action) {
       state.user = action.payload;
     },
@@ -43,27 +54,27 @@ export const bolsilloSlice = createSlice({
       state.name = action.payload.name;
       state.last_name = action.payload.last_name;
     },
-    LoginWithGoogle(state,action){
-    state.name = action.payload.displayName;
-    state.user = true
-   },
-   oneComment(state, action) {
-    state.comment = action.payload;
-   },
-   getName(state, action) {
-    state.productsBackup = action.payload
-   },
-   filterBrand(state,action){
-    state.productsBackup = action.payload
-   },
-   filterCategory(state,action){
-    state.productsBackup = action.payload
-   },
-   resetFilter(state,action){
-    state.productsBackup = state.products
-   }
+    LoginWithGoogle(state, action) {
+      state.name = action.payload.displayName;
+      state.user = true
+    },
+    oneComment(state, action) {
+      state.comment = action.payload;
+    },
+    getName(state, action) {
+      state.productsBackup = action.payload
+    },
+    filterBrand(state, action) {
+      state.productsBackup = action.payload
+    },
+    filterCategory(state, action) {
+      state.productsBackup = action.payload
+    },
+    resetFilter(state, action) {
+      state.productsBackup = state.products
+    }
   },
 });
 
-export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment, getName,filterCategory,filterBrand,resetFilter,productsGenerales } = bolsilloSlice.actions;
+export const { allProducts, createUser, allUsers, oneUsers, nuevoDetail, LoginWithGoogle, oneComment, getName, filterCategory, filterBrand, resetFilter, productsGenerales } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;

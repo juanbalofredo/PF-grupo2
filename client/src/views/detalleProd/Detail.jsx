@@ -33,9 +33,19 @@ const DetalleProd = () => {
     }
   }, [id, navigate, product]);
 
+  let quesi = false;
+  useEffect(()=>{
+    if (!quesi) {
+      quesi=true;
+      getProductsAll(dispatch)
+    }
 
-  // const comparadores = state.marketsProducts.map(a=>a.name === product.name)
+  },[dispatch])
 
+
+  const comparadores = state.marketsProducts.filter(a=>a.name === state.detail.name && a.brand === state.detail.brand)
+ console.log(comparadores)
+ console.log(comparadores)
 
   if (!product) {
     return <DetailLoading />;
@@ -68,9 +78,9 @@ const DetalleProd = () => {
                 Descripcion: <br /> {product.description}
               </h3>
             </div></div>
-            {/* <div>{
-              comparadores.map(a=> <ComparadorDetail img={a.image} name={a.name}  />)
-              }</div> */}
+            <div className="contenedor-detail">{
+              comparadores.map(a=> <ComparadorDetail precio={a.price} supermarket={a.supermarket} img={a.image} name={a.name} key={a.name}  />)
+              }</div>
         </div>
         <Footer />
       </>
