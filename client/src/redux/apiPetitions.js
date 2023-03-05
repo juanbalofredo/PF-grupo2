@@ -49,10 +49,12 @@ export async function getUsers(dispatch) {
   }
 }
 
-export async function getUserByEmail(dispatch, email) {
+export async function getUserByEmail(dispatch, email, password) {
+  const pedir = await axios.get(`http://localhost:3001/user/email/${email}`);
   try {
-    const pedir = axios.get(`http://localhost:3001/user/email/${email}`);
-    dispatch(oneUsers(pedir?.data));
+    if(password === pedir.data.password) { 
+    dispatch(oneUsers(pedir?.data)); 
+    } else {alert("ContraseÃ±a incorrectos")}
   } catch (error) {
     return error.message;
   }
@@ -165,3 +167,4 @@ export const rsetFilters = async (dispatch) => {
     return error.response;
   }
 };
+

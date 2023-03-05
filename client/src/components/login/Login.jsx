@@ -2,17 +2,24 @@ import "./login.css";
 import { useState } from "react";
 import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserByEmail } from "../../redux/apiPetitions";
 
 const Login = () => {
   const dispatch = useDispatch();
   const [password, setPassword] = useState("");
+  const state = useSelector((state) => state.bolsillo.name);
+  console.log(state);
 
   async function login(event) {
     event.preventDefault();
-    console.log(input);
-    getUserByEmail(dispatch, input.email);
+    console.log(input.password);
+    await getUserByEmail(dispatch, input.email, input.password);
+    if (state === input.name) {
+      window.location.href = "/home";
+    } else {
+      window.location.href = "/login";
+    }
   }
 
   const [input, setInput] = useState({
@@ -131,9 +138,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
       <Footer />
     </>
   );
