@@ -20,6 +20,17 @@ export function getProductByName(name) {
 };
 
 export async function getProductsByCategory({ category, order, supermarket }) {
+    console.log(category)
+    if (category === "all" && supermarket) {
+        let productByCategory = await Products.findAll({
+            where: {
+                supermarket: supermarket
+            },
+            order: [["name", order]]
+        })
+        if (productByCategory.length != 0) return productByCategory;
+        throw Error("Category not found");
+    }
     if (supermarket === "all") {
         let productByCategory = await Products.findAll({
             where: {
