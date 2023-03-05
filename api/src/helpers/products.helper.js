@@ -21,12 +21,15 @@ export function getProductByName(name) {
 
 export async function getProductsByCategory(category, order) {
     const productByCategory = await Products.findAll({
-        where: { category },
+        where: {
+            category,
+            supermarket: "General"
+        },
         order: [["name", order]]
     })
-    if(productByCategory.length != 0) return productByCategory;
+    if (productByCategory.length != 0) return productByCategory;
     throw Error("Category not found");
-    
+
 };
 
 export function getProductsByBrand(brand, order) {

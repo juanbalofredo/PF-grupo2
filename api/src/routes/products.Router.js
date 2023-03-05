@@ -10,7 +10,7 @@ products.get("/all", getProductsAll);
 products.get("/id/:id", getProductId);
 products.get("/name=?", getByName);
 products.get("/category/:category/:order", getByCategory);
-products.get("/brand/:brand", getByBrand);
+products.get("/brand/:brand/:order", getByBrand);
 
 
 export default products;
