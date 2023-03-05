@@ -4,12 +4,35 @@ import {
   allUsers,
   LoginWithGoogle,
   oneComment,
+  getName,
+  filterBrand,
+  filterCategory,
+  oneUsers,
+  resetFilter,
+  nuevoDetail,
+  productsGenerales
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 
-export async function getAllProducts(dispatch) {
+export async function getProductosGenerales(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
+    dispatch(productsGenerales(peticion?.data));
+  } catch (error) {
+    return error.response;
+  }
+}
+export async function getnuevoDetail(laQuePaso,dispatch) {
+  try {
+    
+    dispatch(nuevoDetail(laQuePaso));
+  } catch (error) {
+    return error.response;
+  }
+}
+export async function getProductsAll(dispatch) {
+  try {
+    const peticion = await axios.get("http://localhost:3001/products/all");
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
@@ -39,6 +62,17 @@ export async function getUsers(dispatch) {
   try {
     const pedir = axios.get("http://localhost:3001/user");
     dispatch(allUsers(pedir?.data));
+  } catch (error) {
+    return error.message;
+  }
+}
+
+export async function getUserByEmail(dispatch, email, password) {
+  const pedir = await axios.get(`http://localhost:3001/user/email/${email}`);
+  try {
+    if(password === pedir.data.password) { 
+    dispatch(oneUsers(pedir?.data)); 
+    } else {alert("ContraseÃ±a incorrectos")}
   } catch (error) {
     return error.message;
   }
@@ -107,13 +141,48 @@ export async function getProductId(dispatch, id) {
 //     console.log(error);
 //   }
 // }
-export const getNameQuery = async (dispacth, name) => {
+export const getNameQuery = async (dispatch, name) => {
   try {
     const petition = await axios.get(
       `http://localhost:3001/products/name?name=${name}`
     );
-    dispacth(allProducts(petition?.data));
+    dispatch(getName(petition?.data.filter(a=>a.supermarket ==="General")));
   } catch (error) {
     return error.response;
   }
 };
+
+export const getCategoryParams = async (dispatch, category) => {
+  try {
+    const petition = await axios.get(
+      `http://localhost:3001/products/category/${category}`
+    );
+    dispatch(filterCategory(petition?.data.filter(a=>a.supermarket ==="General")));
+  } catch (error) {
+    return error.response;
+  }
+};
+
+
+export const getBrandParams = async (dispatch, brand) => {
+  try {
+    const petition = await axios.get(
+      `http://localhost:3001/products/brand/${brand}`
+    );
+    dispatch(filterBrand(petition?.data.filter(a=>a.supermarket ==="General")));
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const rsetFilters = async (dispatch) => {
+  try {
+    const petition = await axios.get(
+      "http://localhost:3001/products"
+    );
+    dispatch(resetFilter(petition?.data.filter(a=>a.supermarket ==="General")));
+  } catch (error) {
+    return error.response;
+  }
+};
+

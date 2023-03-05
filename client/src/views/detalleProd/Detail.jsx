@@ -6,11 +6,18 @@ import NavBar from "../../components/Navbar/NavBar"
 import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
+import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
+import { getProductsAll } from "../../redux/apiPetitions";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 const DetalleProd = () => {
+
+  const state = useSelector((state) => state.bolsillo);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   let didInit = false;
   useEffect(() => {
@@ -26,6 +33,19 @@ const DetalleProd = () => {
     }
   }, [id, navigate, product]);
 
+  let quesi = false;
+  useEffect(()=>{
+    if (!quesi) {
+      quesi=true;
+      getProductsAll(dispatch)
+    }
+
+  },[dispatch])
+
+
+  const comparadores = state.marketsProducts.filter(a=>a.name === state.detail.name && a.brand === state.detail.brand)
+ console.log(comparadores)
+ console.log(comparadores)
 
   if (!product) {
     return <DetailLoading />;
@@ -36,7 +56,7 @@ const DetalleProd = () => {
         <NavBar />
         <div className="Detail-container">
           <Link to="/home">
-            <button className="">Volver</button>
+            <button className="detail-back">Volver</button>
           </Link>
           <div className="det-prod">
             <div className="imageContainer">
@@ -58,6 +78,9 @@ const DetalleProd = () => {
                 Descripcion: <br /> {product.description}
               </h3>
             </div></div>
+            <div className="contenedor-detail">{
+              comparadores.map(a=> <ComparadorDetail precio={a.price} supermarket={a.supermarket} img={a.image} name={a.name} key={a.name}  />)
+              }</div>
         </div>
         <Footer />
       </>

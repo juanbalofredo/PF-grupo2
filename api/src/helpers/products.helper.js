@@ -24,3 +24,10 @@ export function getProductsByCategory(category){
     })
     return productByCategory;
 };
+
+export function getProductsByBrand(brand){
+    const productByBrand = Products.findAll({
+        where: {brand},
+    })
+    return productByBrand;
+};

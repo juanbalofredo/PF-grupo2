@@ -1,0 +1,9 @@
+.orde-pag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 10rem;
+}
+.orde-pag label {
+  margin-left: 25%;
+}
