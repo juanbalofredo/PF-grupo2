@@ -79,6 +79,9 @@ body {
 .msg {
   margin-left: 0.5rem;
 }
+.nav-kis{
+  display: flex;
+}
 
 .navButton {
   height: 2.5vw;
@@ -356,8 +359,8 @@ body {
   cursor: pointer;
 }
 
-img {
-  max-width: 100%;
+.logo-Container img{
+   width: 100%;
 }
 
 .container-icon {
@@ -417,6 +420,11 @@ img {
   height: 3rem;
   text-indent: 10px;
   font-family: 'Phudu', cursive;
+
+
+}
+.form-control:focus-visible {
+  outline: none;
 }
 
 .searchbar-container {
