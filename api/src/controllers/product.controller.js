@@ -25,12 +25,13 @@ export async function getProducts(req, res) {
 };
 export async function getProductsAll(req, res) {
     const response2 = await Products.findAll(
-         
+
         {
             where: {
                 supermarket:
-               { [Op.ne]:"General"},
+                    { [Op.ne]: "General" },
             },
+            order: [["name", "ASC"]]
         }
     )
     try {
@@ -49,7 +50,7 @@ export async function getProductId(req, res) {
     try {
         const response = await getProductsById(id)
         return res.status(200).json(response)
-    } catch {
+    } catch(error) {
         return res.status(400).json({ err: error.message })
     }
 
@@ -60,27 +61,28 @@ export async function getByName(req, res) {
         const { name } = req.query;
         const response = await getProductByName(name);
         return res.status(200).json(response);
-    } catch {
+    } catch(error) {
         return res.status(400).json({ err: error.message });
     }
 };
 
 export async function getByCategory(req, res) {
+    const { category, order } = req.params;
+    console.log(category, order)
     try {
-        const { category } = req.params;
-        const response = await getProductsByCategory(category)
+        const response = await getProductsByCategory(category, order)
         return res.status(200).json(response);
-    } catch {
-        return res.status(400).json({ err: error.message });
+    } catch(error) {
+        return res.status(400).json({ error: error.message });
     }
 };
 
 export async function getByBrand(req, res) {
+    const { brand, order } = req.params;
     try {
-        const { brand } = req.params;
-        const response = await getProductsByBrand(brand)
+        const response = await getProductsByBrand(brand, order)
         return res.status(200).json(response);
-    } catch {
+    } catch(error) {
         return res.status(400).json({ err: error.message });
     }
 };

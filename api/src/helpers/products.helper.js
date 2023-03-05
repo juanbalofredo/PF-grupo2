@@ -1,34 +1,38 @@
 import Products from "../models/products.js";
 import { Op } from "sequelize";
 
-export function getProductsById(id){
+export function getProductsById(id) {
     const productsById = Products.findOne({
-        where: {id},
+        where: { id },
     });
     return productsById;
 }
 
-export function getProductByName(name){
+export function getProductByName(name) {
     const productsByName = Products.findAll({
         where: {
             name: {
-                [Op.iLike]:`%${name}%`},
+                [Op.iLike]: `%${name}%`
             },
+        },
     });
     return productsByName;
 };
 
-export function getProductsByCategory(category){
-    const productByCategory = Products.findAll({
-        where: {category},
-        order: [["name", "ASC"]]
+export async function getProductsByCategory(category, order) {
+    const productByCategory = await Products.findAll({
+        where: { category },
+        order: [["name", order]]
     })
-    return productByCategory;
+    if(productByCategory.length != 0) return productByCategory;
+    throw Error("Category not found");
+    
 };
 
-export function getProductsByBrand(brand){
+export function getProductsByBrand(brand, order) {
     const productByBrand = Products.findAll({
-        where: {brand},
+        where: { brand },
+        order: [["brand", order]]
     })
     return productByBrand;
 };
