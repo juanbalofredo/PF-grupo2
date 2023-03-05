@@ -58,6 +58,7 @@ body {
 .register-form input:focus-visible {
   outline: none;
 }
+
 .register-form h1 {
   text-align: center;
   margin-top: 50px;
@@ -69,8 +70,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
 }
+
 .register-text button {
   margin-top: 40px;
   width: 10rem;
@@ -82,32 +84,37 @@ body {
   font-size: 17px;
   border-radius: 4px;
 }
-.reg-todo{
+
+.reg-todo {
   padding-bottom: 3rem;
 }
+
 .register-text button:hover {
   font-family: 'Phudu', cursive;
   cursor: pointer;
   background-color: #494949;
 }
+
 .register-name {
   display: flex;
 }
 
-.register-google{
+.register-google {
   font-family: 'Phudu', cursive;
   width: 12rem;
   height: 2rem;
   background-color: #e6e6e6;
   border: none;
   border-bottom: 1px solid black;
-  border-right:1px solid  black;
+  border-right: 1px solid black;
 }
-.register-google:hover{
+
+.register-google:hover {
   cursor: pointer;
   border: none;
 }
-.reg-google-fac{
+
+.reg-google-fac {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,33 +128,39 @@ body {
   margin-right: 10px;
   font-family: 'Phudu', cursive;
 }
+
 .register-name div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.reg-avata{
- display: flex;
+
+.reg-avata {
+  display: flex;
 
 }
-.reg-avata input{
+
+.reg-avata input {
   visibility: inherit;
-        height: 100px;
-        width: 100px;
-        position: relative;
-        right:51px;
-        background-color:          transparent;
-        color: transparent;
-        border: none;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  right: 51px;
+  background-color: transparent;
+  color: transparent;
+  border: none;
 }
-.reg-avata input::file-selector-button{
+
+.reg-avata input::file-selector-button {
   display: none;
 }
-.reg-avata input:hover{
+
+.reg-avata input:hover {
   cursor: pointer;
 
 }
-.reg-avata img{
+
+.reg-avata img {
   width: 100px;
   height: 100px;
   position: relative;
@@ -155,12 +168,9 @@ body {
   top: 20px;
   border-radius: 100px;
   background-color: #000000;
-  object-fit:contain;
+  object-fit: contain;
 }
-@media only screen and (min-width: 1400px) and (max-width: 1000000px) {
 
+@media only screen and (min-width: 1400px) and (max-width: 1000000px) {}
 
-}
-@media only screen and (min-width: 1000px) and (max-width: 1400px) {
-
-}
+@media only screen and (min-width: 1000px) and (max-width: 1400px) {}

@@ -9,6 +9,7 @@ import {
   filterCategory,
   oneUsers,
   resetFilter,
+  nuevoDetail,
   productsGenerales
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
@@ -17,6 +18,14 @@ export async function getProductosGenerales(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
     dispatch(productsGenerales(peticion?.data));
+  } catch (error) {
+    return error.response;
+  }
+}
+export async function getnuevoDetail(laQuePaso,dispatch) {
+  try {
+    
+    dispatch(nuevoDetail(laQuePaso));
   } catch (error) {
     return error.response;
   }

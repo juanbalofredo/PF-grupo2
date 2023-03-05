@@ -359,8 +359,8 @@ body {
   cursor: pointer;
 }
 
-img {
-  max-width: 100%;
+.logo-Container img{
+   width: 100%;
 }
 
 .container-icon {
