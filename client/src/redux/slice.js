@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   productsBackup: [],
+  marketsProducts:[],
+  marketsProductsBackup:[],
   page: 1,
   error: false,
   user:false,
@@ -19,9 +21,13 @@ export const bolsilloSlice = createSlice({
   name: "bolsillo",
   initialState,
   reducers: {
-    allProducts(state, action) {
+    productsGenerales(state, action) {
       state.products = action.payload;
       state.productsBackup = action.payload;
+    }, 
+    allProducts(state, action) {
+      state.marketsProductsBackup = action.payload;
+      state.marketsProducts = action.payload;
     },  
     allUsers(state, action) {
       state.user = action.payload;
@@ -59,5 +65,5 @@ export const bolsilloSlice = createSlice({
   },
 });
 
-export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment, getName,filterCategory,filterBrand,resetFilter } = bolsilloSlice.actions;
+export const { allProducts, createUser,allUsers,oneUsers, LoginWithGoogle, oneComment, getName,filterCategory,filterBrand,resetFilter,productsGenerales } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;

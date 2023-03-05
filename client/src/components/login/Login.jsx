@@ -3,9 +3,11 @@ import { useState } from "react";
 import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts, getUserByEmail } from "../../redux/apiPetitions";
+import { getProductosGenerales, getUserByEmail } from "../../redux/apiPetitions";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+
+
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ const Login = () => {
         icon: "success",
         button: "A comparar!",
       }).then((e) => navigate("/home"));
-      getAllProducts(dispatch);
+      getProductosGenerales(dispatch);
     })
     .catch((err) => swal("Error! :(", `${err.response.data}`, "error"));
   }

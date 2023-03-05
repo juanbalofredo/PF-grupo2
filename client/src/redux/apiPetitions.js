@@ -8,13 +8,22 @@ import {
   filterBrand,
   filterCategory,
   oneUsers,
-  resetFilter
+  resetFilter,
+  productsGenerales
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 
-export async function getAllProducts(dispatch) {
+export async function getProductosGenerales(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
+    dispatch(productsGenerales(peticion?.data));
+  } catch (error) {
+    return error.response;
+  }
+}
+export async function getProductsAll(dispatch) {
+  try {
+    const peticion = await axios.get("http://localhost:3001/products/all");
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
