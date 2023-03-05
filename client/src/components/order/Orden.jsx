@@ -10,7 +10,7 @@ const Orden = () => {
       <label value="">Ordenar Por  </label>
       <select name="ordenPrecio" id="ordenPrecio">
         <option value="asc">A-Z</option>
-        <option value="desc">Z-a</option>
+        <option value="desc">Z-A</option>
       </select>
     </div> 
     
