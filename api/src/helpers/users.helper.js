@@ -7,9 +7,13 @@ export function getUserById(id) {
     return userById;
 }
 
-export function getUserByEmail(email) {
+export function getUserByEmail(comparing) {
+    const { email, password } = comparing
     const userByEmail = Users.findOne({
-        where: { email }
+        where: {
+            email,
+            password
+        }
     });
     return userByEmail;
 };
@@ -19,7 +23,7 @@ export function deleteUserById(id) {
     return userDelete;
 };
 
-export function updateUserByTypeAccount({ activity, email, name, last_name, password, avatar, type_account, notifications, id, type_account_logged}) {
+export function updateUserByTypeAccount({ activity, email, name, last_name, password, avatar, type_account, notifications, id, type_account_logged }) {
     if (type_account_logged === "3") {
         let datas = { activity, email, name, last_name, password, avatar, type_account, notifications }
         const dataForChange = {}
