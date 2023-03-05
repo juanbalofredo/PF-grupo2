@@ -6,6 +6,6 @@ export default async function postUser(req, res) {
         await createUser(usuario);
         res.status(200).json(usuario);
     } catch (error) {
-        res.status(400).json({ err: error.message })
+        res.status(400).json(error.message)
     };
 }
