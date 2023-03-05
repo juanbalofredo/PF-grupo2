@@ -9,6 +9,7 @@ export async function getProducts(req, res) {
                 supermarket:
                     "General",
             },
+            order: [["name", "ASC"]]
         }
     )
     try {

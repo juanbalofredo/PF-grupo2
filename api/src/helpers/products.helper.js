@@ -21,6 +21,7 @@ export function getProductByName(name){
 export function getProductsByCategory(category){
     const productByCategory = Products.findAll({
         where: {category},
+        order: [["name", "ASC"]]
     })
     return productByCategory;
 };
