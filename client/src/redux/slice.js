@@ -6,6 +6,7 @@ const initialState = {
   page: 1,
   error: false,
   user:false,
+  password: false,
   name: '',
   id:"",
   last_name: '',
@@ -31,6 +32,7 @@ export const bolsilloSlice = createSlice({
       state.last_name = action.payload.last_name;
       state.avatar = action.payload.avatar;
       state.email = action.payload.email;
+      state.password = action.payload.password
     },
     createUser(state, action) {
       state.name = action.payload.name;
