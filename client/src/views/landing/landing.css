@@ -64,10 +64,11 @@ body {
 }
 .landing-boton button {
   font-family: 'Phudu', cursive;
+  color: #ffffff;
   margin-top: 40px;
   width: 200px;
   height: 40px;
-  background-color: #ffffff;
+  background-color: #0aa7ca;
   border-radius: 4px;
   font-size: 20px;
   border: none;
@@ -81,7 +82,7 @@ body {
   display: flex;
   animation: automatizacion 20s infinite linear;
   transition: all 1s ease;
-  margin-top: 50px;
+  margin-top: 17px;
   width: 200%;
   align-items: center;
   justify-content: center;
@@ -94,6 +95,7 @@ body {
   overflow: hidden;
   margin: 0;
   width: 100%;
+ 
 }
 .landing-t2 {
   display: flex;
