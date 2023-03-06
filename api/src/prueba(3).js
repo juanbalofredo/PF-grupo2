@@ -877,4 +877,4 @@ let Allproducts = [
 ]
 
 
-export default products
+export default Allproducts
