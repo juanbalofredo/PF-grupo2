@@ -13,23 +13,23 @@ const Login = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const state = useSelector((state) => state.bolsillo.name);
-  console.log(state);
 
-  const login = (e)=> {
+
+  const login = async (e)=> {
     e.preventDefault();
-    getUserByEmail(dispatch, input.email, input.password)
-    .then((res) => {
-      swal({
-        title: "sesión iniciada",
-        text: "sesión iniciada",
-        icon: "success",
-        button: "A comparar!",
-      }).then((e) => navigate("/home"));
-      getProductosGenerales(dispatch);
-    })
-    .catch((err) => swal("Error! :(", 'vuelve a verificar los datos', "error"));
-  }
-
+    const azul = await getUserByEmail(input.email, input.password)
+    console.log(azul);
+        if(azul === 'Request failed with status code 400'){
+         return swal("Error!", 'Los datos ingresados no son validos', "error") 
+        }
+        swal({
+          title: "Usuario creado",
+          text: "Usuario creado",
+          icon: "success",
+          button: "A comparar!",
+        })
+        .then((e) => navigate("/home"))
+    }
   const [input, setInput] = useState({
     name: "",
     avatar: "",
@@ -137,7 +137,6 @@ const Login = () => {
                 </button>
               </div>
               <div className="reg-google-fac">
-                <button className="register-google">Iniciar con Google</button>
               </div>
             </form>
           </div>
