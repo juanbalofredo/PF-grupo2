@@ -2,7 +2,6 @@ import React from "react"
 import "./Orden.css"
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoryParams } from "../../redux/apiPetitions";
-
 const Orden = () => {
   const dispatch = useDispatch();
   const stateCategory = useSelector((state) => state.bolsillo.category)
@@ -12,7 +11,7 @@ const Orden = () => {
   async function handleSort(e) {
   getCategoryParams(dispatch, stateCategory, stateSupermarket,e.target.value);   
 }
-console.log(stateSupermarket)
+
     return(<>
     <div className='orde-pag'>
       <label value="" >Ordenar Por</label>

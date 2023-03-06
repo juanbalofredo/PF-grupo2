@@ -1,5 +1,5 @@
 import Users from "../models/users.js";
-import { getUserById, getUserByEmail, deleteUserById, updateUserByTypeAccount } from "../helpers/users.helper.js";
+import { getUserById, getUserByEmail,  updateUserByTypeAccount } from "../helpers/users.helper.js";
 
 export async function getAllUsers(req, res) {
     const allUsers = await Users.findAll()

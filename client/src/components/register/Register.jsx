@@ -7,7 +7,6 @@ import Footer from "../../views/footer/Footer";
 import GoogleSign from "../../views/Firebase/GoogleSign";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-
 const Register = () => {
 
   var uploadedImage = "";
@@ -32,13 +31,13 @@ const Register = () => {
         })
       });
   };
-
   const [input, setInput] = useState({
     name: "",
     avatar: "",
     last_name: "",
     email: "",
     password: "",
+    password2:""
   });
 
   const [error, setError] = useState({
@@ -47,6 +46,7 @@ const Register = () => {
     last_name: "",
     email: "",
     password: "",
+    password2: "",
   });
 
   function handleChange(e) {
@@ -83,6 +83,13 @@ const Register = () => {
         });
         break;
       }
+      case "password2": {
+        setError({
+          ...error,
+          password2: value < 1 ? "password no puede esatr vacia" : "",
+        });
+        break;
+      }
       default: {
         break;
       }
@@ -105,6 +112,8 @@ const Register = () => {
 
     if (input.password.length <= 2) valid = false;
 
+    if (input.password !== input.password2) valid = false;
+
     return valid;
   }
 
@@ -113,7 +122,6 @@ const Register = () => {
     if (validarForm()) {
       try {
         const azul =  await crearUser(input);
-        console.log(azul)
         if(azul === 'Request failed with status code 400'){
          return swal("Error!", 'ya existe un usuario con ese mail', "error") 
         }
@@ -122,7 +130,10 @@ const Register = () => {
           text: "Usuario creado",
           icon: "success",
           button: "A comparar!",
-        }).then((e) => navigate("/home"))
+        }).then((e)=>{
+          console.log(input);
+        })
+        .then((e) => navigate("/home"))
   
       } catch (error) {
         alert("ERROR: " + error );
@@ -215,8 +226,9 @@ const Register = () => {
                 <div className="register-contra2">
                   <input
                     autoComplete='off'
-                    name="password"
+                    name="password2"
                     type="password"
+                    value={input.password2}
                     onChange={handleChange}
                     placeholder="Repetir contraseña"
                   />

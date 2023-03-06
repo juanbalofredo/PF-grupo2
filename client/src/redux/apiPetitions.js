@@ -14,7 +14,7 @@ import {
   Brand
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
-
+import {LocalStorage} from "../"
 export async function getProductosGenerales(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
@@ -46,19 +46,20 @@ export async function crearUser(input) {
       "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677690070/v55uvjjvoopg3pgmitz2.webp";
   }
   try {
-    return await axios.post("http://localhost:3001/user/postUsers", {
+    const user = await axios.post("http://localhost:3001/user/postUsers", {
       name: input.name,
       avatar: input.avatar,
       email: input.email,
       last_name: input.last_name,
       password: input.password,
       type_account: "1",
-    });
+    }).then(e=>{
+      console.log(user);
+    })
   } catch (error) {
     return error.message;
   }
 }
-
 export async function getUsers(dispatch) {
   try {
     const pedir = axios.get("http://localhost:3001/user");
@@ -86,8 +87,8 @@ export async function StartGoogleAuth(dispatch) {
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
         console.log(user);
-        dispatch(LoginWithGoogle(user.displayName));
-      });
+        dispatch(LoginWithGoogle(user.displayName))
+      })
   } catch (error) {
     return error.response;
   }
@@ -146,8 +147,16 @@ export const getCategoryParams = async (dispatch, category,supermarket,valor) =>
     const petition = await axios.get(
       `http://localhost:3001/products/category/${category}/${supermarket}/${valor}`
     );
-    dispatch(filterCategory(petition?.data));
-    dispatch(Category(petition.data[0].category))
+      if (category !== "all") {
+        dispatch(Category(petition?.data[0].category))
+        dispatch(filterCategory(petition?.data));
+      }if(supermarket !== "all"){
+        dispatch(Brand(petition?.data[0].brand))
+        dispatch(filterCategory(petition?.data));
+
+      }else{
+        dispatch(filterCategory(petition?.data));
+      }
   } catch (error) {
     return error.response;
   }
@@ -165,4 +174,3 @@ export const rsetFilters = async (dispatch) => {
     return error.response;
   }
 };
-
