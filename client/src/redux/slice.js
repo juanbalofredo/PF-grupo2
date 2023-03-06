@@ -71,7 +71,6 @@ export const bolsilloSlice = createSlice({
     },
     filterCategory(state, action) {
       state.productsBackup = action.payload
-      state.category = action.payload
     },
     Category(state, action) {
       state.category = action.payload
@@ -83,8 +82,7 @@ export const bolsilloSlice = createSlice({
       state.productsBackup = state.products
       state.brand = "all"
     }
-  },
-});
+  }},);
 
-export const { allProducts, createUser, allUsers, oneUsers, nuevoDetail, LoginWithGoogle, oneComment, getName, filterCategory, filterBrand, resetFilter, productsGenerales,Category,Brand} = bolsilloSlice.actions;
+export const { allProducts, createUser, allUsers, oneUsers, nuevoDetail, LoginWithGoogle, oneComment, getName, filterCategory, filterBrand, resetFilter, productsGenerales,Category,Brand,} = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;
