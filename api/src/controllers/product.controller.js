@@ -2,6 +2,7 @@ import Products from "../models/products.js";
 import { getProductByName, getProductsByCategory, getProductsById, getProductsByBrand } from "../helpers/products.helper.js";
 import apiInfo from "../helpers/apiInfo.js"
 import { Op } from "sequelize";
+import Prueba3 from "../prueba(3).js";
 
 export async function getProducts(req, res) {
     const response2 = await Products.findAll(
@@ -24,22 +25,24 @@ export async function getProducts(req, res) {
     }
 };
 export async function getProductsAll(req, res) {
-    const response2 = await Products.findAll(
+    // const response2 = await Products.findAll(
 
-        {
-            where: {
-                supermarket:
-                    { [Op.ne]: "General" },
-            },
-            order: [["name", "ASC"]]
-        }
-    )
+    //     {
+    //         where: {
+    //             supermarket:
+    //                 { [Op.ne]: "General" },
+    //         },
+    //         order: [["name", "ASC"]]
+    //     }
+    // )
+
     try {
         // esto es para seguir creando la misma base de datos
-        if (response2.length == 0) {
-            apiInfo().then(r => res.status(200).json(r));
-        }
-        else return res.status(200).json(response2);
+        // apiInfo().then(r => res.status(200).json(r));
+        // if (response2.length == 0) {
+        // }
+        // else 
+        return res.status(200).json(Prueba3);
     } catch (error) {
         return res.status(400).json({ err: error.message });
     }

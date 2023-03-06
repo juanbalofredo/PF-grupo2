@@ -7,10 +7,9 @@ export function getUserById(id) {
     return userById;
 }
 
-export async function getUserByEmail(comparing) {
+export function getUserByEmail(comparing) {
     const { email, password } = comparing;
-    console.log(email, password);
-    let userByEmail = await Users.findOne({
+    let userByEmail = Users.findOne({
         where: {
             email,
             password
@@ -18,6 +17,20 @@ export async function getUserByEmail(comparing) {
     });
     console.log(userByEmail)
     return userByEmail;
+};
+
+// if (email && !password) {
+//     let userByEmail = Users.findOne({
+//         where: {
+//             email
+//         }
+//     });
+//     return userByEmail;
+// }
+
+export function deleteUserById(id) {
+    const userDelete = Users.destroy({ where: { id } })
+    return userDelete;
 };
 
 export function updateUserByTypeAccount({ activity, email, name, last_name, password, avatar, type_account, notifications, id, type_account_logged }) {
