@@ -42,10 +42,8 @@ const DetalleProd = () => {
 
   },[dispatch])
 
+  const comparadores = state.marketsProducts.find(a=>a.id === state.detail).price
 
-  const comparadores = state.marketsProducts.filter(a=>a.name === state.detail.name && a.brand === state.detail.brand)
- console.log(comparadores)
- console.log(comparadores)
 
   if (!product) {
     return <DetailLoading />;
@@ -79,7 +77,7 @@ const DetalleProd = () => {
               </h3>
             </div></div>
             <div className="contenedor-detail">{
-              comparadores.map(a=> <ComparadorDetail precio={a.price} supermarket={a.supermarket} img={a.image} name={a.name} key={a.name}  />)
+             comparadores.map(a=> <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
               }</div>
         </div>
         <Footer />

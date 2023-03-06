@@ -17,7 +17,7 @@ const initialState = {
   comment: [],
   category:"all",
   brand:"all",
-  detail: {brand:'',name:''}
+  detail:0
 };
 
 
@@ -31,8 +31,8 @@ export const bolsilloSlice = createSlice({
   reducers: {
 
     nuevoDetail(state, action) {
-      state.detail.brand = action.payload.brand
-      state.detail.name = action.payload.name
+      
+      state.detail = action.payload
     },
     productsGenerales(state, action) {
       state.products = action.payload;
