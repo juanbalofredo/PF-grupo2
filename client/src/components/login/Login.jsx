@@ -23,8 +23,8 @@ const Login = () => {
          return swal("Error!", 'Los datos ingresados no son validos', "error") 
         }
         swal({
-          title: "Usuario creado",
-          text: "Usuario creado",
+          title: "Sesión iniciada",
+          text: "Sesión iniciada correctamente",
           icon: "success",
           button: "A comparar!",
         })
