@@ -73,7 +73,7 @@ export async function getUserByEmail(email, password) {
   console.log(password);
   try {
     const user = await axios({
-      method: 'get',
+      method: 'post',
       url: "http://localhost:3001/user/email",
       data: { "email": email, "password": password }
     })
