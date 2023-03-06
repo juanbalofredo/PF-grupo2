@@ -42,7 +42,7 @@ const DetalleProd = () => {
 
   },[dispatch])
 
-  const comparadores = state.marketsProducts.find(a=>a.id === state.detail).price
+  const comparadores = state.marketsProducts.find(a=>a.id === state.detail.price)
 
 
   if (!product) {
@@ -77,6 +77,7 @@ const DetalleProd = () => {
               </h3>
             </div></div>
             <div className="contenedor-detail">{
+              comparadores &&
              comparadores.map(a=> <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
               }</div>
         </div>
