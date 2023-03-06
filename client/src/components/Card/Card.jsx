@@ -2,7 +2,7 @@
 import { useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
-import { getnuevoDetail, getProductsAll } from "../../redux/apiPetitions";
+import { getProductsAll } from "../../redux/apiPetitions";
 import "./card.css";
 
 
@@ -14,7 +14,6 @@ export default function Card({ product }) {
     const navigate = useNavigate();
     const  click = async ()  => {
       getProductsAll(dispatch)
-     await getnuevoDetail(id,dispatch)
       navigate(`/products/id/${product.id}`);
     };
  
