@@ -38,10 +38,11 @@ export async function getProductsAll(req, res) {
 
     try {
         // esto es para seguir creando la misma base de datos
-        if (response2.length == 0) {
-            apiInfo().then(r => res.status(200).json(r));
-        }
-        else return res.status(200).json(Prueba3);
+        // apiInfo().then(r => res.status(200).json(r));
+        // if (response2.length == 0) {
+        // }
+        // else 
+        return res.status(200).json(Prueba3);
     } catch (error) {
         return res.status(400).json({ err: error.message });
     }
