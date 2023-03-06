@@ -6,7 +6,7 @@ const users = Router();
 
 users.get("/", getAllUsers);
 users.get("/id/:id", getById);
-users.get("/email/:email", getByEmail);
+users.get("/email", getByEmail);
 users.post("/postUsers", postUser);
 users.delete("/deleteUser", deleteUser);
 users.put("/update", updateUser);

@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -20,12 +21,5 @@ const dataBase = new Sequelize(
      logging: false,
    }
 )
-
-// DB_NAME=products
-// DB_USER=postgres
-// DB_PASSWORD=12345
-// DB_PORT=5432
-// DB_DIALICT=postgres
-// DB_HOST=localhost
 
 export default dataBase;

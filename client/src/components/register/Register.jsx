@@ -1,15 +1,16 @@
 import "./register.css";
 import { useState } from "react";
-import NavBar from "../Navbar/NavBar";
+import NavBar from "../Navbar/NavBar2";
 import axios from "axios";
 import { crearUser } from "../../redux/apiPetitions";
 import Footer from "../../views/footer/Footer";
 import GoogleSign from "../../views/Firebase/GoogleSign";
-
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
 
   var uploadedImage = "";
-
+  const navigate = useNavigate();
 
   const uploadImage = (e) => {
     e.preventDefault();
@@ -30,13 +31,13 @@ const Register = () => {
         })
       });
   };
-
   const [input, setInput] = useState({
     name: "",
     avatar: "",
     last_name: "",
     email: "",
     password: "",
+    password2:""
   });
 
   const [error, setError] = useState({
@@ -45,6 +46,7 @@ const Register = () => {
     last_name: "",
     email: "",
     password: "",
+    password2: "",
   });
 
   function handleChange(e) {
@@ -81,6 +83,13 @@ const Register = () => {
         });
         break;
       }
+      case "password2": {
+        setError({
+          ...error,
+          password2: value < 1 ? "password no puede esatr vacia" : "",
+        });
+        break;
+      }
       default: {
         break;
       }
@@ -103,6 +112,8 @@ const Register = () => {
 
     if (input.password.length <= 2) valid = false;
 
+    if (input.password !== input.password2) valid = false;
+
     return valid;
   }
 
@@ -111,18 +122,24 @@ const Register = () => {
     if (validarForm()) {
       try {
         const azul =  await crearUser(input);
-        console.log(azul)
         if(azul === 'Request failed with status code 400'){
-          throw Error('Ya existe un usuario con ese Email')
+         return swal("Error!", 'ya existe un usuario con ese mail', "error") 
         }
-        alert("Usuario creado");
-       
-        window.location.href = "/home";
+        swal({
+          title: "Usuario creado",
+          text: "Usuario creado",
+          icon: "success",
+          button: "A comparar!",
+        }).then((e)=>{
+          console.log(input);
+        })
+        .then((e) => navigate("/home"))
+  
       } catch (error) {
         alert("ERROR: " + error );
       }
     } else {
-      alert("ERROR: Faltan completar algunos campos");
+     swal("Error!", 'vuelve a verificar los datos', "error");
     }        
   }
 
@@ -134,7 +151,7 @@ const Register = () => {
         <div className="register-container">
           <div className="register-logo">
             <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp"
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp"
               alt="logo"
             />
           </div>
@@ -145,7 +162,15 @@ const Register = () => {
               <div className="register-text">
                 <label htmlFor="img">Seleccionar Imagen</label>
                 <div className="reg-avata">
-                  <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png" alt="avatar" />
+                {
+            input.avatar.length < 3 ?
+            <img
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png"
+              alt="logo"
+            />:     <img
+            src={input.avatar}
+            alt="logo"
+          /> }
                   <input
                     type="file"
                     name="avatar"
@@ -185,7 +210,7 @@ const Register = () => {
                     type="email"
                     value={input.email}
                     onChange={handleChange}
-                    placeholder="bautgod@gmail.com"
+                    placeholder="emailexample@gmail.com"
                   />
                 </div>
                 <div className="rgister-contra">
@@ -201,8 +226,9 @@ const Register = () => {
                 <div className="register-contra2">
                   <input
                     autoComplete='off'
-                    name="password"
+                    name="password2"
                     type="password"
+                    value={input.password2}
                     onChange={handleChange}
                     placeholder="Repetir contraseña"
                   />

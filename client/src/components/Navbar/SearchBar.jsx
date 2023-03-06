@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { getNameQuery } from "../../redux/apiPetitions";
 import "./navBar.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [model, setModel] = useState("");
+  const navigate = useNavigate();
 
   const handleInputModel = (e) => {
     e.preventDefault();
     setModel(e.target.value);
   };
 
-  async function handleSubmit(e) {
+   function handleSubmit(e) {
     e.preventDefault();
     if (window.location.href !== 'http://localhost:3000/home') {
-        window.location.href = '/home'
+      (getNameQuery(dispatch,model)).then(navigate("/home")).then(()=> getNameQuery(dispatch,model))
   }     
-  await  getNameQuery(dispatch,model);
+    getNameQuery(dispatch,model);
    
 }
   return (

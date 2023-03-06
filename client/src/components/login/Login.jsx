@@ -1,10 +1,35 @@
 import "./login.css";
 import { useState } from "react";
-import { useEffect } from "react";
-import NavBar from "../Navbar/NavBar";
+import NavBar from "../Navbar/NavBar2";
 import Footer from "../../views/footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductosGenerales, getUserByEmail } from "../../redux/apiPetitions";
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  const state = useSelector((state) => state.bolsillo.name);
+
+
+  const login = async (e)=> {
+    e.preventDefault();
+    const azul = await getUserByEmail(input.email, input.password)
+    console.log(azul);
+        if(azul === 'Request failed with status code 400'){
+         return swal("Error!", 'Los datos ingresados no son validos', "error") 
+        }
+        swal({
+          title: "Usuario creado",
+          text: "Usuario creado",
+          icon: "success",
+          button: "A comparar!",
+        })
+        .then((e) => navigate("/home"))
+    }
   const [input, setInput] = useState({
     name: "",
     avatar: "",
@@ -74,7 +99,6 @@ const Login = () => {
     }
   }
 
-
   return (
     <>
       <div className="reg-todo">
@@ -82,7 +106,7 @@ const Login = () => {
         <div className="login-container">
           <div className="register-logo">
             <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677791179/dfmbqz6lottpgltuy6ye.webp"
+              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp"
               alt="logo"
             />
           </div>
@@ -96,7 +120,7 @@ const Login = () => {
                     type="email"
                     value={input.email}
                     onChange={handleChange}
-                    placeholder="bautgod@gmail.com"
+                    placeholder="emailExample@gmail.com"
                   />
                 </div>
                 <div className="rgister-contra">
@@ -108,21 +132,16 @@ const Login = () => {
                     placeholder="Contraseña"
                   />
                 </div>
-                <button type="submit">Iniciar sesion</button>
+                <button type="submit" onClick={login}>
+                  Iniciar sesion
+                </button>
               </div>
               <div className="reg-google-fac">
-                <button className="register-google">Iniciar con Google</button>
-                <button className="register-facebook">
-                  Iniciar con Facebook
-                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
       <Footer />
     </>
   );

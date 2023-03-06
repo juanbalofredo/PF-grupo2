@@ -33,10 +33,6 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className="searchbar-container">
-        <SearchBar/>
-      </div>
-
       <div className="login-Container">
         <div onClick={() => setActive(!active)}></div>
         <User />

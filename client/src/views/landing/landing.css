@@ -10,7 +10,7 @@ body {
   margin-top: 100px;
 }
 .landing-principal img {
-  width: 230px;
+  width: 10rem;
 }
 .kkiajs {
   display: flex;
@@ -22,12 +22,13 @@ body {
 .land-text {
   display: flex;
   flex-direction: row;
+  height: 40%;
   justify-content: center;
   color: white;
   font-family: 'Phudu', cursive;
 }
 .land-text h1 {
-  font-size: 100px;
+  font-size: 6rem;
   margin: 0%;
   text-shadow: 4px 4px 10px #000000;
 }
@@ -71,11 +72,12 @@ body {
   border-radius: 4px;
   font-size: 20px;
   border: none;
+  border: 1px solid #616161;
 }
 .landing-boton button:hover {
   cursor: pointer;
   font-size: 20px;
-  box-shadow: 0px 0px 10px 1px #ffffff;
+  box-shadow: 0px 0px 10px 1px #868686;
 }
 #carrusel-caja {
   display: flex;
