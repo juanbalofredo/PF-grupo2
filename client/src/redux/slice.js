@@ -15,6 +15,8 @@ const initialState = {
   email: '',
   avatar: '',
   comment: [],
+  category:"all",
+  brand:"all",
   detail: {brand:'',name:''}
 };
 
@@ -69,12 +71,20 @@ export const bolsilloSlice = createSlice({
     },
     filterCategory(state, action) {
       state.productsBackup = action.payload
+      state.category = action.payload
+    },
+    Category(state, action) {
+      state.category = action.payload
+    },
+    Brand(state, action) {
+      state.brand = action.payload
     },
     resetFilter(state, action) {
       state.productsBackup = state.products
+      state.brand = "all"
     }
   },
 });
 
-export const { allProducts, createUser, allUsers, oneUsers, nuevoDetail, LoginWithGoogle, oneComment, getName, filterCategory, filterBrand, resetFilter, productsGenerales } = bolsilloSlice.actions;
+export const { allProducts, createUser, allUsers, oneUsers, nuevoDetail, LoginWithGoogle, oneComment, getName, filterCategory, filterBrand, resetFilter, productsGenerales,Category,Brand} = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;
