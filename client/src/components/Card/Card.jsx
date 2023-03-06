@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
+
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+
 import { useNavigate } from "react-router-dom";
-import { getnuevoDetail } from "../../redux/apiPetitions";
+import { getnuevoDetail, getProductsAll } from "../../redux/apiPetitions";
 import "./card.css";
 
 
 
 export default function Card({ product }) {
-  const { name, brand, image, supermarket,unit } = product;
+  const { name, brand, image,id } = product;
   const dispatch = useDispatch()
 
     const navigate = useNavigate();
-    const click = () => {
-      getnuevoDetail(laQuePaso,dispatch)
+    const  click = async ()  => {
+      getProductsAll(dispatch)
+     await getnuevoDetail(id,dispatch)
       navigate(`/products/id/${product.id}`);
     };
-    var laQuePaso = {name,brand}
+ 
 
   return (
     <>

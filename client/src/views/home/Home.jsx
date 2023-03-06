@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from '../../components/Card/Card';
 import Footer from "../footer/Footer";
 import { useEffect } from 'react';
-import { getProductosGenerales } from '../../redux/apiPetitions';
+import { getProductosGenerales, getProductsAll } from '../../redux/apiPetitions';
 import Filtro from '../../components/filtro/Filtro';
 import Orden from '../../components/order/Orden';
 
@@ -16,7 +16,7 @@ const Home = () => {
         if (!didInit) {
             didInit = true;
             getProductosGenerales(dispatch);
-
+            getProductsAll(dispatch)
         }
     }, [dispatch]);
     const myProduct = state.productsBackup
