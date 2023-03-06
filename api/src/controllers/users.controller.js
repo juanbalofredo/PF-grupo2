@@ -20,13 +20,13 @@ export async function getById(req, res) {
 
 export async function getByEmail(req, res) {
     const comparing = req.body;
+    console.log(comparing);
     try {
         const response = await getUserByEmail(comparing);
-        console.log(comparing)
         if (!response) return res.status(400).send("this email is not registered");
         return res.status(200).json(response);
-    } catch {
-        return res.status(500).json({ err: error.message })
+    } catch(error) {
+        return res.status(400).json({ err: error.message })
     };
 };
 

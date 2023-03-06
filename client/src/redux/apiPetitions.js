@@ -14,7 +14,7 @@ import {
   Brand
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
-import {LocalStorage} from "../"
+import {LocalStorage} from "../components/LocalStorage/LocalStorage"
 export async function getProductosGenerales(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
@@ -68,13 +68,16 @@ export async function getUsers(dispatch) {
     return error.message;
   }
 }
-
-export async function getUserByEmail(dispatch, email, password) {
-  const pedir = await axios.get(`http://localhost:3001/user/email/${email}`);
+export async function getUserByEmail(email, password) {
+  console.log(email);
+  console.log(password);
   try {
-    if(password === pedir.data.password) { 
-    dispatch(oneUsers(pedir?.data)); 
-    } else {alert("ContraseÃ±a incorrectos")}
+    const user = await axios({
+      method: 'get',
+      url: "http://localhost:3001/user/email",
+      data: { "email": email, "password": password }
+    })
+    return user
   } catch (error) {
     return error.message;
   }
