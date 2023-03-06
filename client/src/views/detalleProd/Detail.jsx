@@ -34,15 +34,20 @@ const DetalleProd = () => {
   }, [id, navigate, product]);
 
   let quesi = false;
-  useEffect(()=>{
+  useEffect(() => {
     if (!quesi) {
-      quesi=true;
+      quesi = true;
       getProductsAll(dispatch)
     }
 
-  },[dispatch])
+  }, [dispatch])
 
-  const comparadores = state.marketsProducts.find(a=>a.id === state.detail).price
+
+  const comparadores = state.marketsProducts.find(a => a.id === state.detail).price
+
+  const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
+
+
 
 
   if (!product) {
@@ -76,9 +81,9 @@ const DetalleProd = () => {
                 Descripcion: <br /> {product.description}
               </h3>
             </div></div>
-            <div className="contenedor-detail">{
-             comparadores.map(a=> <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
-              }</div>
+          <div className="contenedor-detail">{
+             emilia.map(a => <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
+          }</div>
         </div>
         <Footer />
       </>
