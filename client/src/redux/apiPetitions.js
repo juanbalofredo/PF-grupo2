@@ -5,12 +5,13 @@ import {
   LoginWithGoogle,
   oneComment,
   getName,
-  filterBrand,
   filterCategory,
   oneUsers,
   resetFilter,
   nuevoDetail,
-  productsGenerales
+  productsGenerales,
+  Category,
+  Brand
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 
@@ -57,7 +58,7 @@ export async function crearUser(input) {
     return error.message;
   }
 }
-//get usuarios
+
 export async function getUsers(dispatch) {
   try {
     const pedir = axios.get("http://localhost:3001/user");
@@ -129,18 +130,6 @@ export async function getProductId(dispatch, id) {
   }
 }
 
-// export async function getNameQuery(dispatch, getNameQuery) {
-//   console.log(getNameQuery + "estas entrando?");
-//   try {
-//     let json = await axios.get(
-//       `http://localhost:3001/products/name?name=${getNameQuery}`
-//     );
-//     dispatch(allProducts(json?.data));
-//     return json;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
 export const getNameQuery = async (dispatch, name) => {
   try {
     const petition = await axios.get(
@@ -152,24 +141,14 @@ export const getNameQuery = async (dispatch, name) => {
   }
 };
 
-export const getCategoryParams = async (dispatch, category) => {
+export const getCategoryParams = async (dispatch, category,supermarket,valor) => {
   try {
     const petition = await axios.get(
-      `http://localhost:3001/products/category/${category}`
+      `http://localhost:3001/products/category/${category}/${supermarket}/${valor}`
     );
-    dispatch(filterCategory(petition?.data.filter(a=>a.supermarket ==="General")));
-  } catch (error) {
-    return error.response;
-  }
-};
-
-
-export const getBrandParams = async (dispatch, brand) => {
-  try {
-    const petition = await axios.get(
-      `http://localhost:3001/products/brand/${brand}`
-    );
-    dispatch(filterBrand(petition?.data.filter(a=>a.supermarket ==="General")));
+    dispatch(filterCategory(petition?.data));
+    dispatch(Category(petition.data[1].category))
+    dispatch(Brand(petition?.data[0].brand))
   } catch (error) {
     return error.response;
   }
@@ -181,6 +160,8 @@ export const rsetFilters = async (dispatch) => {
       "http://localhost:3001/products"
     );
     dispatch(resetFilter(petition?.data.filter(a=>a.supermarket ==="General")));
+    dispatch(Brand("all"))
+    dispatch(Category("all"))
   } catch (error) {
     return error.response;
   }

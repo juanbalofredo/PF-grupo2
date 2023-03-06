@@ -1,19 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getCategoryParams, getBrandParams,rsetFilters } from "../../redux/apiPetitions";
+import { getCategoryParams,rsetFilters } from "../../redux/apiPetitions";
 import '../filtro/filtro.css'
-
+import swal from "sweetalert";
 
 const Filtro = () => {
 
     const state = useSelector((state) => state.bolsillo);
-    const allCategories = [...new Set(state.products.map(a => a.category))]
+    const allCategories = [...new Set(state.productsBackup.map(a => a.category))]
     const todasMarcas = state.productsBackup.map(a => a.brand)//con repetidos
     const dispatch = useDispatch();
     const duplicatesArray = [];
     const seenElements = {};
-
+    const valor = "ASC"
+    const stateSupermarket= useSelector((state)=> state.bolsillo.brand)
+    console.log(stateSupermarket);
+    const stateCategory= useSelector((state)=> state.bolsillo.category)
+    console.log(stateCategory);
     todasMarcas.forEach(element => {
         if (seenElements[element]) {
             duplicatesArray.push(element);
@@ -24,12 +28,16 @@ const Filtro = () => {
     const sinNorepetidos = [...new Set(duplicatesArray)];
 
     async function handleFilterCategory(e) {
-        getCategoryParams(dispatch, e);
-
+        getCategoryParams(dispatch, e,stateSupermarket, valor)
+        
     }
 
     async function handleFilterBrand(e) {
-        dispatch(getBrandParams(dispatch, e));
+        getCategoryParams(dispatch, stateCategory,e,valor)
+        .then((res) => {
+            
+          })
+          .catch((err) => swal("Error! :(", 'vuelve a verificar los datos', "error"));
     }
 
     async function handleFilterReset() {
