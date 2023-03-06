@@ -41,53 +41,50 @@ const DetalleProd = () => {
     }
 
   }, [dispatch])
+  if (state.marketsProducts.length > 4) {
+    const comparadores = state.marketsProducts.find(a => a.id == id).price
+    const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
 
 
-  const comparadores = state.marketsProducts.find(a => a.id === state.detail).price
+    if (!product) {
+      return <DetailLoading />;
 
-  const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
-
-
-
-
-  if (!product) {
-    return <DetailLoading />;
-
-  } else {
-    return (
-      <>
-        <NavBar />
-        <div className="Detail-container">
-          <Link to="/home">
-            <button className="detail-back">Volver</button>
-          </Link>
-          <div className="det-prod">
-            <div className="imageContainer">
-              <img src={product.image} alt="product" className="" />
-            </div>
-            <div className="textContainer">
-              <h2 className="texts">{product.name}</h2>
-              <div>
-                <h3 className="texts">
-                  {" "}
-                  Marca: <br /> {product.brand}
-                </h3>
-                <h3 className="texts">
-                  {" "}
-                  Cantidad: <br /> {product.unit}
-                </h3>
+    } else {
+      return (
+        <>
+          <NavBar />
+          <div className="Detail-container">
+            <Link to="/home">
+              <button className="detail-back">Volver</button>
+            </Link>
+            <div className="det-prod">
+              <div className="imageContainer">
+                <img src={product.image} alt="product" className="" />
               </div>
-              <h3 className="texts">
-                Descripcion: <br /> {product.description}
-              </h3>
-            </div></div>
-          <div className="contenedor-detail">{
-             emilia.map(a => <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
-          }</div>
-        </div>
-        <Footer />
-      </>
-    );
+              <div className="textContainer">
+                <h2 className="texts">{product.name}</h2>
+                <div>
+                  <h3 className="texts">
+                    {" "}
+                    Marca: <br /> {product.brand}
+                  </h3>
+                  <h3 className="texts">
+                    {" "}
+                    Cantidad: <br /> {product.unit}
+                  </h3>
+                </div>
+                <h3 className="texts">
+                  Descripcion: <br /> {product.description}
+                </h3>
+              </div></div>
+            <div className="contenedor-detail">{
+              emilia.map(a => <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
+            }</div>
+          </div>
+          <Footer />
+        </>
+      );
+    }
   }
 
 };
