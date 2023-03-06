@@ -42,14 +42,13 @@ const DetalleProd = () => {
 
   }, [dispatch])
   if (state.marketsProducts.length > 4) {
-    const comparadores = state.marketsProducts.find(a => a.id == id).price
-    const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
 
-
-    if (!product) {
+    if (!product && state.marketsProducts.length > 4) {
       return <DetailLoading />;
 
     } else {
+      const comparadores = state.marketsProducts.find(a => a.id == id).price
+      const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
       return (
         <>
           <NavBar />
