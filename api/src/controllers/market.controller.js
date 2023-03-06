@@ -1,8 +1,6 @@
-
-import SuperM from "../models/superM"
-import { getMarketById, deleteMarketById } from "../helpers/market.helper"
-
-
+import { getMarketById, deleteMarketById } from "../helpers/market.helper.js";
+import SuperM from "../models/superM.js";
+//listo
 export async function getAllMarket(req, res) {
     const allMarkets = await SuperM.findAll();
     try {
