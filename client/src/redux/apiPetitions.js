@@ -147,8 +147,7 @@ export const getCategoryParams = async (dispatch, category,supermarket,valor) =>
       `http://localhost:3001/products/category/${category}/${supermarket}/${valor}`
     );
     dispatch(filterCategory(petition?.data));
-    dispatch(Category(petition.data[1].category))
-    dispatch(Brand(petition?.data[0].brand))
+    dispatch(Category(petition.data[0].category))
   } catch (error) {
     return error.response;
   }
