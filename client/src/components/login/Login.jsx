@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
-  const state = useSelector((state) => state.bolsillo.name);
+  const state = useSelector((state) => state.bolsilloFeliz.name);
 
 
   const login = async (e) => {

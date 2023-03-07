@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategoryParams } from "../../redux/apiPetitions";
 const Orden = () => {
   const dispatch = useDispatch();
-  const stateCategory = useSelector((state) => state.bolsillo.category)
-  const stateSupermarket= useSelector((state)=> state.bolsillo.brand)
+  const stateCategory = useSelector((state) => state.bolsilloFeliz.category)
+  const stateSupermarket= useSelector((state)=> state.bolsilloFeliz.brand)
 
 
   async function handleSort(e) {

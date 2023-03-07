@@ -11,7 +11,7 @@ import { logOut } from "../../redux/apiPetitions";
 import swal from "sweetalert";
 
 const Navbar = () => {
-  const state = useSelector((state) => state.bolsillo);
+  const state = useSelector((state) => state.bolsilloFeliz);
   const user = state.user;
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()
