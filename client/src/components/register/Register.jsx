@@ -49,7 +49,9 @@ const Register = () => {
 
   const register = async (e) => {
     e.preventDefault();
-    if (await handleClickError()) {
+    const pasa = await handleClickError()
+    console.log(pasa)
+    if (pasa) {
       crearUser(input)
       swal({
         title: "Usuario creado",
@@ -63,21 +65,25 @@ const Register = () => {
 
   async function handleClickError() {
     const imail = await getUserSoloByEmail(input.email)
-    let valid = true;
+    let valid = 0;
+    let validado = true;
     if (imail !== "Request failed with status code 400") {
-      valid = false;
+      validado = false;
       setError({
         ...error,
         email: "Esta direccion email ya se encuentra en uso"
       })
       return valid;
     }
-    if (input.email.length <= 6){ valid = false; setError({...error,email:"Ingrese un email valido"})} else{valid = true}
-    if (input.password.length < 8){valid = false;  setError({...error,password:"La contraseña deberia tener al menos 8 caracteres"})} else{valid = true}
-    if (input.password2 !== input.password){ valid = false; setError({...error,password2:"Las contraseñas deberias ser iguales"})} else{valid = true}
-    if (input.name.length <= 2){ valid = false; setError({...error,name:"Ingrese un nombre valido"})} else{valid = true}
-    if (input.last_name.length <= 2){ valid = false; setError({...error,last_name:"Ingrese un apellido valido"})} else{valid = true}
-    return valid;
+    if (input.email.length <= 6){setError({...error,email:"Ingrese un email valido"})} else{valid ++}
+    if (input.password.length < 8){setError({...error,password:"La contraseña deberia tener al menos 8 caracteres"})} else{valid ++}
+    if (input.password2 !== input.password){ setError({...error,password2:"Las contraseñas deberias ser iguales"})}else{valid ++}
+    if (input.name.length <= 2){  setError({...error,name:"Ingrese un nombre valido"})}else{valid ++}
+    if (input.last_name.length <= 2){ setError({...error,last_name:"Ingrese un apellido valido"})}else{valid ++}
+    if (valid === 5) {
+          return true;
+    } return false;
+
   }
 
 
