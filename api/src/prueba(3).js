@@ -24,7 +24,7 @@ let Allproducts = [
         "brand": "Dia",
         "id": 2,
         "price": [
-            { name: "dia", price: 187 },
+            { name: "dia", price: 195 }
         ],
         "unit": "1l",
         "category": "Lácteos",
@@ -37,7 +37,7 @@ let Allproducts = [
         "brand": "Coto",
         "id": 3,
         "price": [
-            { name: "coto", price: 180 },
+            { name: "coto", price: 200 },
         ],
         "unit": "1l",
         "category": "Lácteos",
@@ -50,7 +50,7 @@ let Allproducts = [
         "brand": "Carrefour",
         "id": 4,
         "price": [
-            { name: "carrefour", price: 180 },
+            { name: "carrefour", price: 185 },
         ],
         "unit": "1l",
         "category": "Lácteos",
@@ -834,5 +834,60 @@ let Allproducts = [
     }
 ]
 
+const productosEspeciales = Allproducts.filter(element => {
+    if (element.brand === "Carrefour" || element.brand === "Dia" || element.brand === "Coto") {
+        return element;
+    }
 
-export default Allproducts
+
+});
+
+const productosNoEspeciales = Allproducts.filter(element => {
+    if (element.brand !== "Carrefour" && element.brand !== "Dia" && element.brand !== "Coto") {
+        return element;
+    }
+});
+
+
+
+
+// console.log(uniendoArrays)
+
+productosNoEspeciales.forEach(e => {
+    let coto = Math.floor(Math.random() * 21) + 190;
+    let dia = Math.floor(Math.random() * 21) + 190;
+    let jumbo = Math.floor(Math.random() * 21) + 190;
+    let carrefour = Math.floor(Math.random() * 21) + 190;
+    let vital = Math.floor(Math.random() * 21) + 190;
+    let wakmart = Math.floor(Math.random() * 21) + 190;
+    let disco = Math.floor(Math.random() * 21) + 190;
+    let preciosRamdon = [
+        { name: "coto", price: coto },
+        { name: "dia", price: dia },
+        { name: "jumbo", price: jumbo },
+        { name: "carrefour", price: carrefour },
+        { name: "vital", price: vital },
+        { name: "walmart", price: wakmart },
+        { name: "disco", price: disco }
+    ]
+    e.price = preciosRamdon
+})
+
+let uniendoArrays = [...productosEspeciales, ...productosNoEspeciales];
+
+// uniendoArrays.forEach(element => {
+//     if (element.brand !== "Carrefour" && element.brand !== "Dia" && element.brand !== "Coto") {
+//         console.log(element)
+//     }
+// })
+
+
+// console.log(uniendoArrays[0]);
+// console.log(uniendoArrays[1]);
+// console.log(uniendoArrays[2]);
+// console.log(uniendoArrays[3]);
+// console.log(uniendoArrays[4]);
+// console.log(uniendoArrays[5]);
+// console.log(uniendoArrays[6]);
+
+export default uniendoArrays;
