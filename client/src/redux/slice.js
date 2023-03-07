@@ -47,7 +47,7 @@ export const bolsilloSlice = createSlice({
       state.user = action.payload;
     },
     oneUsers(state, action) {
-         console.log(action.payload.type_account)
+
       state.name = action.payload.name;
       state.type_account = action.payload.type_account;
       state.user = true;
