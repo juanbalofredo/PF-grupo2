@@ -18,7 +18,6 @@ const Login = () => {
   const login = async (e) => {
     e.preventDefault();
     if (await handleClickError(input)) {
-
       const azul = await getUserByEmail(input.email, input.password)
       if (azul === 'Request failed with status code 400') {
         return swal("Error!", 'Los datos ingresados no son validos', "error")
@@ -56,31 +55,26 @@ const Login = () => {
 
 
   async function handleClickError() {
-    const imail = await getUserSoloByEmail(input.email)
+
     const azul = await getUserByEmail(input.email, input.password)
     let valid = true;
-    if (imail == "Request failed with status code 400") {
-       valid=false;
-            setError({
-        ...error,
-        email: "Email no existe"
-      })
-       return valid;
+    if (azul.data) {
+      if (input.email.length <= 6) valid = false;
+      if (input.password.length <= 8) valid = false;
+      if (input.password !== azul.data.password) valid = false;
+      if (input.email !== azul.data.email) valid = false; 
+      console.log(azul)
+      console.log(input.password.length)
+      console.log(input.password)
     }
-    console.log(azul)
-    console.log(input.password)
+    else { valid = false; swal({
+      title: "Cuenta incorrecta",
+      text: "Email o contraseña incorrecta",
+      icon: "error",
+      button: "Reintentar",
+    }) }
 
-    if (input.email.length <= 6) valid = false;
-    if (input.password.length <= 3) valid = false;
-
-      setError({
-        ...error,
-        password: azul === "Request failed with status code 400"  ? "contraseña incorrecta" : "contraseña no puede estar vacia",
-
-      })
-
-    
-     return valid;
+    return valid;
   }
 
 
@@ -124,7 +118,9 @@ const Login = () => {
                   />
                   {error.password.length ? <span id='error_name'>{error.password}</span> : null}
                 </div>
-              
+                <button type="submit" onClick={login}>
+                  Iniciar sesion
+                </button>
               </div>
               <div className="reg-google-fac">
               </div>

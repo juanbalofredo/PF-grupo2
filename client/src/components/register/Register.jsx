@@ -2,7 +2,7 @@ import "./register.css";
 import { useState } from "react";
 import NavBar from "../Navbar/NavBar2";
 import axios from "axios";
-import { crearUser, logearse, getUserSoloByEmail } from "../../redux/apiPetitions";
+import { crearUser, logearse, getUserByEmail } from "../../redux/apiPetitions";
 import Footer from "../../views/footer/Footer";
 import GoogleSign from "../../views/Firebase/GoogleSign";
 import swal from "sweetalert";
@@ -64,7 +64,7 @@ const Register = () => {
   }
 
   async function handleClickError() {
-    const imail = await getUserSoloByEmail(input.email)
+    const imail = await getUserByEmail(input.email)
     let valid = 0;
     let validado = true;
     if (imail !== "Request failed with status code 400") {
