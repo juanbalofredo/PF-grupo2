@@ -2,12 +2,15 @@ import "./register.css";
 import { useState } from "react";
 import NavBar from "../Navbar/NavBar2";
 import axios from "axios";
-import { crearUser } from "../../redux/apiPetitions";
+import { crearUser ,logearse} from "../../redux/apiPetitions";
 import Footer from "../../views/footer/Footer";
 import GoogleSign from "../../views/Firebase/GoogleSign";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 const Register = () => {
+
+  const dispatch = useDispatch()
 
   var uploadedImage = "";
   const navigate = useNavigate();
@@ -22,9 +25,7 @@ const Register = () => {
     axios
       .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
       .then((response) => {
-        console.log(response);
         uploadedImage = response.data.secure_url;
-        console.log(uploadedImage)
         setInput({
           ...input,
           avatar: uploadedImage,
@@ -130,10 +131,8 @@ const Register = () => {
           text: "Usuario creado",
           icon: "success",
           button: "A comparar!",
-        }).then((e)=>{
-          console.log(input);
         })
-        .then((e) => navigate("/home"))
+        .then(logearse(input,dispatch)).then((e) => navigate("/home"))
   
       } catch (error) {
         alert("ERROR: " + error );

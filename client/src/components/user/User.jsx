@@ -4,9 +4,11 @@ import "./user.css"
 
 export const User = () => {
   
-  const user = useSelector((state) => state.userLogged);
-  const image = user ? user.image : null;
-  const name = user ? user.name :null
+
+  const state = useSelector((state) => state.bolsillo);
+  const user = state.user;
+  const image = user ? state.avatar : null;
+  const name = user ? state.name :null
   return (
     <div className="user-container">
       <div>
