@@ -15,9 +15,6 @@ import {
   loggedOut
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
-import {LocalStorage} from "../components/LocalStorage/LocalStorage"
-
-
 export async function getProductos(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
@@ -101,8 +98,19 @@ export async function StartGoogleAuth(dispatch) {
       .auth()
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
-        dispatch(LoginWithGoogle(user.displayName))
+        axios.post("http://localhost:3001/user/soloemail",{
+        name: user.displayName,
+        avatar: user.photoURL,
+        email: user.email,
+        hashgoogle: user.uid,
+        type_account: "1",
+       })
+       .then(res=> res)
+       .then(info => {
+        dispatch(oneUsers(info.data))
+        return info.data 
       })
+    })
   } catch (error) {
     return error.response;
   }

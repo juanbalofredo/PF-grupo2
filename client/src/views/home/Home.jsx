@@ -10,7 +10,6 @@ import Orden from '../../components/order/Orden';
 
 const Home = () => {
     const state = useSelector((state) => state.bolsilloFeliz);
-    console.log(state)
     const dispatch = useDispatch();
     let didInit = false;
     useEffect(() => {
