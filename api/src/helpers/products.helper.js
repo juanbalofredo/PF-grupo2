@@ -8,15 +8,24 @@ export function getProductsById(id) {
     return productsById;
 }
 
-export function getProductByName(name) {
-    const productsByName = Products.findAll({
+export async function getProductByName({ name, order }) {
+    console.log("esto es Name y Order ==>",name, order)
+    const productsByName = await Products.findAll({
         where: {
             name: {
                 [Op.iLike]: `%${name}%`
             },
         },
+        order: [["name", order]]
     });
-    return productsByName;
+
+    console.log("esto es ProducByName ==>",productsByName)
+    const productsByNameParser = productsByName?.map(e => {
+        let parsePrice = JSON.parse(e.price);
+        e.price = parsePrice;
+        return e;
+    })
+    return productsByNameParser;
 };
 
 export async function getProductsByCategory({ category, order, brand }) {

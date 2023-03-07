@@ -39,9 +39,9 @@ export async function getProductId(req, res) {
 }
 
 export async function getByName(req, res) {
+    const nameOrder = req.query;
     try {
-        const { name } = req.query;
-        const response = await getProductByName(name);
+        const response = await getProductByName(nameOrder);
         return res.status(200).json(response);
     } catch (error) {
         return res.status(400).json({ err: error.message });
