@@ -1,5 +1,5 @@
 import Users from "../models/users.js";
-import { getUserById, getUserByEmail,  updateUserByTypeAccount } from "../helpers/users.helper.js";
+import { getUserById, getUserByEmail,  updateUserByTypeAccount,getUserSoloByEmail } from "../helpers/users.helper.js";
 
 export async function getAllUsers(req, res) {
     const allUsers = await Users.findAll()
@@ -23,6 +23,17 @@ export async function getByEmail(req, res) {
     console.log(comparing);
     try {
         const response = await getUserByEmail(comparing);
+        if (!response) return res.status(400).send("this email is not registered");
+        return res.status(200).json(response);
+    } catch(error) {
+        return res.status(400).json({ err: error.message })
+    };
+};
+export async function getSoloByEmail(req, res) {
+    const comparing = req.body;
+    console.log(comparing);
+    try {
+        const response = await getUserSoloByEmail(comparing);
         if (!response) return res.status(400).send("this email is not registered");
         return res.status(200).json(response);
     } catch(error) {

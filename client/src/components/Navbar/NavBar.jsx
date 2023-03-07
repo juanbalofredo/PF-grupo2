@@ -79,7 +79,7 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <button className="navButton" onClick={logOuter} >Log out</button>
+            <button className="navButton" onClick={logOuter} >Cerrar sesion</button>
           )}
         </div>
 
