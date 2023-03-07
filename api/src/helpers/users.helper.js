@@ -18,6 +18,15 @@ export function getUserByEmail(comparing) {
     console.log(userByEmail)
     return userByEmail;
 };
+export function getUserSoloByEmail(comparing) {
+    const { email } = comparing;
+    let userByEmail = Users.findOne({
+        where: {
+            email,
+        }
+    });
+    return userByEmail;
+};
 
 // if (email && !password) {
 //     let userByEmail = Users.findOne({

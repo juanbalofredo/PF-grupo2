@@ -42,7 +42,6 @@ const DetalleProd = () => {
 
   }, [dispatch])
 
-  console.log(state.products)
   if (state.products.length > 4) {
 
     if (!product && state.products.length > 4) {

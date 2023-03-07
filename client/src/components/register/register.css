@@ -159,6 +159,22 @@ body {
   cursor: pointer;
 
 }
+.apell-error-reg{
+  display: flex;
+  flex-direction: column;
+}
+.apell-error-reg #error_name{
+  color: red;
+  font-size: 0.8rem;
+}
+.name-error-reg{
+  display: flex;
+  flex-direction: column;
+}
+.name-error-reg #error_name{
+  color: red;
+  font-size: 0.8rem;
+}
 
 .reg-avata img {
   width: 100px;
