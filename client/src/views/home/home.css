@@ -24,6 +24,21 @@ body {
 .bodyDark .filtaa-container{
     color: rgb(255, 249, 239);
 }
+.img-home-cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 5px 20px 4px rgb(0, 0, 0);
+}
+.img-home-cart img{
+   width: 50%;
+   background-color: #ffeffb;
+}
+
+
+
+
 
 .bodyDark .orde-pag{
     color: rgb(255, 249, 239);

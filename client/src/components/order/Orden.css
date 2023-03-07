@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 10rem;
 }
 .orde-pag label {
   margin-left: 25%;
+}
+.orden-tecto-1 {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  margin-top: 100px;
 }
 #ordenPrecio {
   margin-left: 10px;
