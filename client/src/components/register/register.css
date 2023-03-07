@@ -176,6 +176,16 @@ body {
   font-size: 0.8rem;
 }
 
+.register-contra2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-contra2 #error_name{
+  color: red;
+  font-size: 0.8rem;
+}
+
 .reg-avata img {
   width: 100px;
   height: 100px;
