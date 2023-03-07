@@ -124,9 +124,7 @@ const Login = () => {
                   />
                   {error.password.length ? <span id='error_name'>{error.password}</span> : null}
                 </div>
-                <button type="submit" onClick={login}>
-                  Iniciar sesion
-                </button>
+              
               </div>
               <div className="reg-google-fac">
               </div>
