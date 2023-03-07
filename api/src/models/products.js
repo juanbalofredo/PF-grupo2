@@ -15,7 +15,7 @@ const Products = dataBase.define(
       allowNull: false,
     },
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSON,
       allowNull: false,
     },
     brand: {

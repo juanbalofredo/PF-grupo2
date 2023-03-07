@@ -1,11 +1,23 @@
 .login-container {
   height: 100vh;
-  /* background: #141631;
-  background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
-  background: -webkit-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);
-  background: linear-gradient(to right, #141631 0%, #222358 50%, #0B0B1D 100%); */
   padding-bottom: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.register-correo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-correo #error_name {
+  color: red;
+}
+.rgister-contra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rgister-contra #error_name {
+  color: red;
 }

@@ -4,19 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from '../../components/Card/Card';
 import Footer from "../footer/Footer";
 import { useEffect } from 'react';
-import { getProductosGenerales, getProductsAll } from '../../redux/apiPetitions';
+import { getProductos} from '../../redux/apiPetitions';
 import Filtro from '../../components/filtro/Filtro';
 import Orden from '../../components/order/Orden';
 
 const Home = () => {
-    const state = useSelector((state) => state.bolsillo);
+    const state = useSelector((state) => state.bolsilloFeliz);
+    console.log(state)
     const dispatch = useDispatch();
     let didInit = false;
     useEffect(() => {
         if (!didInit) {
             didInit = true;
-            getProductosGenerales(dispatch);
-            getProductsAll(dispatch)
+            getProductos(dispatch)
         }
     }, [dispatch]);
     const myProduct = state.productsBackup

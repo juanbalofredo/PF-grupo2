@@ -2,12 +2,15 @@ import "./register.css";
 import { useState } from "react";
 import NavBar from "../Navbar/NavBar2";
 import axios from "axios";
-import { crearUser } from "../../redux/apiPetitions";
+import { crearUser, logearse, getUserSoloByEmail } from "../../redux/apiPetitions";
 import Footer from "../../views/footer/Footer";
 import GoogleSign from "../../views/Firebase/GoogleSign";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 const Register = () => {
+
+  const dispatch = useDispatch()
 
   var uploadedImage = "";
   const navigate = useNavigate();
@@ -15,16 +18,12 @@ const Register = () => {
   const uploadImage = (e) => {
     e.preventDefault();
     const formData = new FormData();
-
     formData.append("file", e.target.files[0]);
     formData.append("upload_preset", "proyectof");
-
     axios
       .post("https://api.cloudinary.com/v1_1/dzuasgy3l/image/upload", formData)
       .then((response) => {
-        console.log(response);
         uploadedImage = response.data.secure_url;
-        console.log(uploadedImage)
         setInput({
           ...input,
           avatar: uploadedImage,
@@ -37,111 +36,70 @@ const Register = () => {
     last_name: "",
     email: "",
     password: "",
-    password2:""
+    password2: ""
   });
 
   const [error, setError] = useState({
     name: "",
-    avatar: "",
     last_name: "",
     email: "",
     password: "",
     password2: "",
   });
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    switch (name) {
-      case "name": {
-        setError({
-          ...error,
-          name: value.length < 3 ? "El nombre es demasiado corto" : "",
-        });
-        break;
-      }
-
-      case "last_name": {
-        setError({
-          ...error,
-          last_name: value.length < 1 ? "Apellido no puede estar vacio" : "",
-        });
-        break;
-      }
-
-      case "email": {
-        setError({
-          ...error,
-          email: value.length < 1 ? "email no puede esatr vacio" : "",
-        });
-        break;
-      }
-
-      case "password": {
-        setError({
-          ...error,
-          password: value < 1 ? "password no puede esatr vacia" : "",
-        });
-        break;
-      }
-      case "password2": {
-        setError({
-          ...error,
-          password2: value < 1 ? "password no puede esatr vacia" : "",
-        });
-        break;
-      }
-      default: {
-        break;
-      }
+  const register = async (e) => {
+    e.preventDefault();
+    const pasa = await handleClickError()
+    console.log(pasa)
+    if (pasa) {
+      crearUser(input)
+      swal({
+        title: "Usuario creado",
+        text: "Usuario creado",
+        icon: "success",
+        button: "A comparar!",
+      })
+        .then(logearse(input, dispatch)).then((e) => navigate("/home"))
     }
+  }
 
+  async function handleClickError() {
+    const imail = await getUserSoloByEmail(input.email)
+    let valid = 0;
+    let validado = true;
+    if (imail !== "Request failed with status code 400") {
+      validado = false;
+      setError({
+        ...error,
+        email: "Esta direccion email ya se encuentra en uso"
+      })
+      return valid;
+    }
+    if (input.email.length <= 6){setError({...error,email:"Ingrese un email valido"})} else{valid ++}
+    if (input.password.length < 8){setError({...error,password:"La contraseña deberia tener al menos 8 caracteres"})} else{valid ++}
+    if (input.password2 !== input.password){ setError({...error,password2:"Las contraseñas deberias ser iguales"})}else{valid ++}
+    if (input.name.length <= 2){  setError({...error,name:"Ingrese un nombre valido"})}else{valid ++}
+    if (input.last_name.length <= 2){ setError({...error,last_name:"Ingrese un apellido valido"})}else{valid ++}
+    if (valid === 5) {
+          return true;
+    } return false;
+
+  }
+
+
+
+
+  function setear(e) {
+    const { name, value } = e.target;
     setInput({
       ...input,
       [name]: value,
     });
   }
 
-  function validarForm() {
-    let valid = true;
 
-    if (input.name.length <= 2) valid = false;
 
-    if (input.last_name.length <= 2) valid = false;
 
-    if (input.email.length <= 2) valid = false;
-
-    if (input.password.length <= 2) valid = false;
-
-    if (input.password !== input.password2) valid = false;
-
-    return valid;
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    if (validarForm()) {
-      try {
-        const azul =  await crearUser(input);
-        if(azul === 'Request failed with status code 400'){
-         return swal("Error!", 'ya existe un usuario con ese mail', "error") 
-        }
-        swal({
-          title: "Usuario creado",
-          text: "Usuario creado",
-          icon: "success",
-          button: "A comparar!",
-        }).then((e)=>{
-          console.log(input);
-        })
-        .then((e) => navigate("/home"))
-  
-      } catch (error) {
-        alert("ERROR: " + error );
-      }
-    } else {
-     swal("Error!", 'vuelve a verificar los datos', "error");
-    }        
-  }
 
   return (
     <>
@@ -156,21 +114,21 @@ const Register = () => {
             />
           </div>
           <div className="register-form">
-            <form onSubmit={handleSubmit}
+            <form 
               autoComplete='off'>
               <h1>Registrarse</h1>
               <div className="register-text">
                 <label htmlFor="img">Seleccionar Imagen</label>
                 <div className="reg-avata">
-                {
-            input.avatar.length < 3 ?
-            <img
-              src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png"
-              alt="logo"
-            />:     <img
-            src={input.avatar}
-            alt="logo"
-          /> }
+                  {
+                    input.avatar.length < 3 ?
+                      <img
+                        src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png"
+                        alt="logo"
+                      /> : <img
+                        src={input.avatar}
+                        alt="logo"
+                      />}
                   <input
                     type="file"
                     name="avatar"
@@ -182,25 +140,29 @@ const Register = () => {
                   />
                 </div>
                 <div className="register-name">
-                  <div>
+                  <div className="name-error-reg">
                     <input
                       autoComplete='off'
                       placeholder="Nombre"
                       name="name"
                       type="text"
+                      maxLength="15"
                       value={input.name}
-                      onChange={handleChange}
+                      onChange={setear}
                     />
+                    {error.name.length ? <span id='error_name'>{error.name}</span> : null}
                   </div>
-                  <div>
+                  <div className="apell-error-reg">
                     <input
                       autoComplete='off'
                       placeholder="Apellido"
                       name="last_name"
                       type="text"
+                      maxLength="20"
                       value={input.last_name}
-                      onChange={handleChange}
+                      onChange={setear}
                     />
+                    {error.last_name.length ? <span id='error_name'>{error.last_name}</span> : null}
                   </div>
                 </div>
                 <div className="register-correo">
@@ -208,37 +170,43 @@ const Register = () => {
                     autoComplete='off'
                     name="email"
                     type="email"
+                    maxLength="30"
                     value={input.email}
-                    onChange={handleChange}
+                    onChange={setear}
                     placeholder="emailexample@gmail.com"
                   />
+                  {error.email.length ? <span id='error_name'>{error.email}</span> : null}
                 </div>
                 <div className="rgister-contra">
                   <input
                     autoComplete='off'
                     name="password"
                     type="password"
+                    maxLength="30"
                     value={input.password}
-                    onChange={handleChange}
+                    onChange={setear}
                     placeholder="Contraseña"
                   />
+                  {error.password.length ? <span id='error_name'>{error.password}</span> : null}
                 </div>
                 <div className="register-contra2">
                   <input
                     autoComplete='off'
                     name="password2"
                     type="password"
+                    maxLength="30"
                     value={input.password2}
-                    onChange={handleChange}
+                    onChange={setear}
                     placeholder="Repetir contraseña"
                   />
+                  {error.password2.length ? <span id='error_name'>{error.password2}</span> : null}
                 </div>
-                <button type="submit">Registrarse</button>
+                <button onClick={register}>Registrarse</button>
               </div>
             </form>
-              <div className="reg-google-fac">
-              <GoogleSign/>
-              </div>
+            <div className="reg-google-fac">
+              <GoogleSign />
+            </div>
           </div>
         </div>
       </div>

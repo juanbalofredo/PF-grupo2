@@ -11,35 +11,37 @@ import {
   nuevoDetail,
   productsGenerales,
   Category,
-  Brand
+  Brand,
+  loggedOut
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 import {LocalStorage} from "../components/LocalStorage/LocalStorage"
-export async function getProductosGenerales(dispatch) {
+
+
+export async function getProductos(dispatch) {
   try {
     const peticion = await axios.get("http://localhost:3001/products");
-    dispatch(productsGenerales(peticion?.data));
-  } catch (error) {
-    return error.response;
-  }
-}
-export async function getnuevoDetail(laQuePaso,dispatch) {
-  try {
-    
-    dispatch(nuevoDetail(laQuePaso));
-  } catch (error) {
-    return error.response;
-  }
-}
-export async function getProductsAll(dispatch) {
-  try {
-    const peticion = await axios.get("http://localhost:3001/products/all");
     dispatch(allProducts(peticion?.data));
   } catch (error) {
     return error.response;
   }
 }
 
+export async function logearse(input,dispatch) {
+  try {
+    dispatch(oneUsers(input))
+  } catch (error) {
+    return error.response;
+  }
+}
+
+export async function logOut(dispatch) {
+  try {
+    dispatch(loggedOut())
+  } catch (error) {
+    return error.response;
+  }
+}
 export async function crearUser(input) {
   if (input.avatar.length < 5) {
     input.avatar =
@@ -54,7 +56,6 @@ export async function crearUser(input) {
       password: input.password,
       type_account: "1",
     }).then(e=>{
-      console.log(user);
     })
   } catch (error) {
     return error.message;
@@ -69,13 +70,24 @@ export async function getUsers(dispatch) {
   }
 }
 export async function getUserByEmail(email, password) {
-  console.log(email);
-  console.log(password);
   try {
     const user = await axios({
       method: 'post',
       url: "http://localhost:3001/user/email",
       data: { "email": email, "password": password }
+    })
+    return user
+  } catch (error) {
+    return error.message;
+  }
+}
+
+export async function getUserSoloByEmail(email) {
+  try {
+    const user = await axios({
+      method: 'post',
+      url: "http://localhost:3001/user/soloemail",
+      data: { "email": email}
     })
     return user
   } catch (error) {
@@ -89,7 +101,6 @@ export async function StartGoogleAuth(dispatch) {
       .auth()
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
-        console.log(user);
         dispatch(LoginWithGoogle(user.displayName))
       })
   } catch (error) {

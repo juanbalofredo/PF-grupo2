@@ -3,7 +3,7 @@ import { useState } from "react";
 import NavBar from "../Navbar/NavBar2";
 import Footer from "../../views/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductosGenerales, getUserByEmail } from "../../redux/apiPetitions";
+import { getUserSoloByEmail, getUserByEmail, logearse } from "../../redux/apiPetitions";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 
@@ -12,92 +12,80 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
-  const state = useSelector((state) => state.bolsillo.name);
+  const state = useSelector((state) => state.bolsilloFeliz.name);
 
 
-  const login = async (e)=> {
+  const login = async (e) => {
     e.preventDefault();
-    const azul = await getUserByEmail(input.email, input.password)
-    console.log(azul);
-        if(azul === 'Request failed with status code 400'){
-         return swal("Error!", 'Los datos ingresados no son validos', "error") 
-        }
-        swal({
-          title: "Sesión iniciada",
-          text: "Sesión iniciada correctamente",
-          icon: "success",
-          button: "A comparar!",
-        })
+    if (await handleClickError(input)) {
+
+      const azul = await getUserByEmail(input.email, input.password)
+      if (azul === 'Request failed with status code 400') {
+        return swal("Error!", 'Los datos ingresados no son validos', "error")
+      }
+      logearse(azul.data, dispatch)
+      swal({
+        title: "Sesión iniciada",
+        text: "Sesión iniciada correctamente",
+        icon: "success",
+        button: "A comparar!",
+      })
         .then((e) => navigate("/home"))
     }
+  }
+
+
+
   const [input, setInput] = useState({
-    name: "",
-    avatar: "",
-    last_name: "",
     email: "",
     password: "",
   });
 
   const [error, setError] = useState({
-    name: "",
-    avatar: "",
-    last_name: "",
     email: "",
     password: "",
   });
 
-  function handleChange(e) {
+  function setear(e) {
     const { name, value } = e.target;
-    switch (name) {
-      case "email": {
-        setError({
-          ...error,
-          email: value.length < 1 ? "email no puede esatr vacio" : "",
-        });
-        break;
-      }
-
-      case "password": {
-        setError({
-          ...error,
-          password: value < 1 ? "password no puede esatr vacia" : "",
-        });
-        break;
-      }
-      default: {
-        break;
-      }
-    }
-
     setInput({
       ...input,
       [name]: value,
     });
   }
 
-  function validarForm() {
+
+  async function handleClickError() {
+    const imail = await getUserSoloByEmail(input.email)
+    const azul = await getUserByEmail(input.email, input.password)
     let valid = true;
-
-    if (input.email.length <= 2) valid = false;
-
-    if (input.password.length <= 2) valid = false;
-
-    return valid;
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    if (validarForm()) {
-      try {
-        alert("Ingresado correctamente");
-        window.location.href = "http://localhost:3000/home";
-      } catch (error) {
-        alert("ERROR: reintenta más tarde! (" + error + ")");
-      }
-    } else {
-      alert("email no puede estar vacio");
+    if (imail == "Request failed with status code 400") {
+       valid=false;
+            setError({
+        ...error,
+        email: "Email no existe"
+      })
+       return valid;
     }
+    console.log(azul)
+    console.log(input.password)
+
+    if (input.email.length <= 6) valid = false;
+    if (input.password.length <= 3) valid = false;
+
+      setError({
+        ...error,
+        password: azul === "Request failed with status code 400"  ? "contraseña incorrecta" : "contraseña no puede estar vacia",
+
+      })
+
+    
+     return valid;
   }
+
+
+
+
 
   return (
     <>
@@ -111,26 +99,30 @@ const Login = () => {
             />
           </div>
           <div className="register-form">
-            <form onSubmit={handleSubmit}>
+            <form >
               <h1>Iniciar sesion</h1>
               <div className="register-text">
                 <div className="register-correo">
                   <input
                     name="email"
                     type="email"
+                    maxLength="30"
                     value={input.email}
-                    onChange={handleChange}
+                    onChange={setear}
                     placeholder="emailExample@gmail.com"
                   />
+                  {error.email.length ? <span id='error_name'>{error.email}</span> : null}
                 </div>
                 <div className="rgister-contra">
                   <input
                     name="password"
                     type="password"
+                    maxLength="30"
+                    onChange={setear}
                     value={input.password}
-                    onChange={handleChange}
                     placeholder="Contraseña"
                   />
+                  {error.password.length ? <span id='error_name'>{error.password}</span> : null}
                 </div>
                 <button type="submit" onClick={login}>
                   Iniciar sesion

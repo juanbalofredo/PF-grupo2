@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
   products: [],
   productsBackup: [],
-  marketsProducts: [],
-  marketsProductsBackup: [],
   page: 1,
   error: false,
   user: false,
@@ -30,25 +29,28 @@ export const bolsilloSlice = createSlice({
 
   reducers: {
 
-    nuevoDetail(state, action) {
-      
-      state.detail = action.payload
-    },
-    productsGenerales(state, action) {
-      state.products = action.payload;
-      state.productsBackup = action.payload;
+    loggedOut(state){
+      state.name = '';
+      state.user = false;
+      state.last_name = '';
+      state.avatar = '';
+      state.id = '';
+      state.email = '';
+      state.password = false;
     },
     allProducts(state, action) {
-      state.marketsProductsBackup = action.payload;
-      state.marketsProducts = action.payload;
+      state.productsBackup = action.payload;
+      state.products = action.payload;
     },
     allUsers(state, action) {
       state.user = action.payload;
     },
     oneUsers(state, action) {
       state.name = action.payload.name;
+      state.user = true;
       state.last_name = action.payload.last_name;
       state.avatar = action.payload.avatar;
+      state.id = action.payload.id
       state.email = action.payload.email;
       state.password = action.payload.password
     },
@@ -78,11 +80,11 @@ export const bolsilloSlice = createSlice({
     Brand(state, action) {
       state.brand = action.payload
     },
-    resetFilter(state, action) {
+    resetFilter(state) {
       state.productsBackup = state.products
       state.brand = "all"
     }
   }},);
 
-export const { allProducts, createUser, allUsers, oneUsers, nuevoDetail, LoginWithGoogle, oneComment, getName, filterCategory, filterBrand, resetFilter, productsGenerales,Category,Brand,} = bolsilloSlice.actions;
+export const { allProducts, createUser, allUsers,loggedOut, oneUsers, nuevoDetail, LoginWithGoogle,logged, oneComment, getName, filterCategory, filterBrand, resetFilter,Category,Brand,} = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;

@@ -7,14 +7,15 @@ import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
-import { getProductsAll } from "../../redux/apiPetitions";
+import { getProductos } from "../../redux/apiPetitions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 
 const DetalleProd = () => {
 
-  const state = useSelector((state) => state.bolsillo);
+  const state = useSelector((state) => state.bolsilloFeliz);
+  console.log(state.products)
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const dispatch = useDispatch()
@@ -34,55 +35,59 @@ const DetalleProd = () => {
   }, [id, navigate, product]);
 
   let quesi = false;
-  useEffect(()=>{
+  useEffect(() => {
     if (!quesi) {
-      quesi=true;
-      getProductsAll(dispatch)
+      quesi = true;
+      getProductos(dispatch)
     }
 
-  },[dispatch])
+  }, [dispatch])
 
-  const comparadores = state.marketsProducts.find(a=>a.id === state.detail).price
+  if (state.products.length > 4) {
 
+    if (!product && state.products.length > 4) {
+      return <DetailLoading />;
 
-  if (!product) {
-    return <DetailLoading />;
+    } else {
 
-  } else {
-    return (
-      <>
-        <NavBar />
-        <div className="Detail-container">
-          <Link to="/home">
-            <button className="detail-back">Volver</button>
-          </Link>
-          <div className="det-prod">
-            <div className="imageContainer">
-              <img src={product.image} alt="product" className="" />
-            </div>
-            <div className="textContainer">
-              <h2 className="texts">{product.name}</h2>
-              <div>
-                <h3 className="texts">
-                  {" "}
-                  Marca: <br /> {product.brand}
-                </h3>
-                <h3 className="texts">
-                  {" "}
-                  Cantidad: <br /> {product.unit}
-                </h3>
+      const comparadores = state.products.find(a => a.id == id).price
+       console.log(comparadores)
+      const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
+      return (
+        <>
+          <NavBar />
+          <div className="Detail-container">
+            <Link to="/home">
+              <button className="detail-back">Volver</button>
+            </Link>
+            <div className="det-prod">
+              <div className="imageContainer">
+                <img src={product.image} alt="product" className="" />
               </div>
-              <h3 className="texts">
-                Descripcion: <br /> {product.description}
-              </h3>
-            </div></div>
+              <div className="textContainer">
+                <h2 className="texts">{product.name}</h2>
+                <div>
+                  <h3 className="texts">
+                    {" "}
+                    Marca: <br /> {product.brand}
+                  </h3>
+                  <h3 className="texts">
+                    {" "}
+                    Cantidad: <br /> {product.unit}
+                  </h3>
+                </div>
+                <h3 className="texts">
+                  Descripcion: <br /> {product.description}
+                </h3>
+              </div></div>
             <div className="contenedor-detail">{
-             comparadores.map(a=> <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
-              }</div>
-        </div>
-        <Footer />
-      </>
-    );
+              emilia.map(a => <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
+            }</div>
+          </div>
+          <Footer />
+        </>
+      );
+    }
   }
 
 };

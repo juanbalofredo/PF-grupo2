@@ -5,7 +5,7 @@ import { getCategoryParams, rsetFilters } from "../../redux/apiPetitions";
 import "../filtro/filtro.css";
 
 const Filtro = () => {
-  const state = useSelector((state) => state.bolsillo);
+  const state = useSelector((state) => state.bolsilloFeliz);
   const allCategories = [
     ...new Set(state.productsBackup.map((a) => a.category)),
   ].sort();
@@ -14,8 +14,8 @@ const Filtro = () => {
   const duplicatesArray = [];
   const seenElements = {};
   const valor = "ASC";
-  const stateSupermarket = useSelector((state) => state.bolsillo.brand);
-  const stateCategory = useSelector((state) => state.bolsillo.category);
+  const stateSupermarket = useSelector((state) => state.bolsilloFeliz.brand);
+  const stateCategory = useSelector((state) => state.bolsilloFeliz.category);
   todasMarcas.forEach((element) => {
     if (seenElements[element]) {
       duplicatesArray.push(element);
