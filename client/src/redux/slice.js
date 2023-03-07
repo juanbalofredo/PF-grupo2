@@ -10,7 +10,7 @@ const initialState = {
   password: false,
   name: '',
   id: "",
-  account_type: 1,
+  type_account: '',
   last_name: '',
   email: '',
   avatar: '',
@@ -19,7 +19,7 @@ const initialState = {
   brand:"all"
 };
 
-
+ 
 export const bolsilloSlice = createSlice({
 
 
@@ -31,7 +31,7 @@ export const bolsilloSlice = createSlice({
 
     loggedOut(state){
       state.name = '';
-      state.account_type = 1;
+      state.type_account = '';
       state.user = false;
       state.last_name = '';
       state.avatar = '';
@@ -47,8 +47,9 @@ export const bolsilloSlice = createSlice({
       state.user = action.payload;
     },
     oneUsers(state, action) {
+         console.log(action.payload.type_account)
       state.name = action.payload.name;
-      state.account_type = action.payload.account_type;
+      state.type_account = action.payload.type_account;
       state.user = true;
       state.last_name = action.payload.last_name;
       state.avatar = action.payload.avatar;
