@@ -7,7 +7,7 @@ import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
-import { getProductsAll } from "../../redux/apiPetitions";
+import { getProductos } from "../../redux/apiPetitions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -37,17 +37,21 @@ const DetalleProd = () => {
   useEffect(() => {
     if (!quesi) {
       quesi = true;
-      getProductsAll(dispatch)
+      getProductos(dispatch)
     }
 
   }, [dispatch])
-  if (state.marketsProducts.length > 4) {
 
-    if (!product && state.marketsProducts.length > 4) {
+  console.log(state.products)
+  if (state.products.length > 4) {
+
+    if (!product && state.products.length > 4) {
       return <DetailLoading />;
 
     } else {
-      const comparadores = state.marketsProducts.find(a => a.id == id).price
+
+      const comparadores = state.products.find(a => a.id == id).price
+
       const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
       return (
         <>

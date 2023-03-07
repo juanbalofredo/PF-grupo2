@@ -2,7 +2,7 @@
 import { useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
-import { getProductsAll } from "../../redux/apiPetitions";
+import { getProductos } from "../../redux/apiPetitions";
 import "./card.css";
 
 
@@ -13,7 +13,7 @@ export default function Card({ product }) {
 
     const navigate = useNavigate();
     const  click = async ()  => {
-      getProductsAll(dispatch)
+      getProductos(dispatch)
       navigate(`/products/id/${product.id}`);
     };
  

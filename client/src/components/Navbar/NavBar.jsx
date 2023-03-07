@@ -6,10 +6,16 @@ import "./navBar.css";
 import User from "../user/User";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../redux/apiPetitions";
+import swal from "sweetalert";
 
 const Navbar = () => {
-  const user = useSelector((state) => state.id);
+  const state = useSelector((state) => state.bolsillo);
+  const user = state.user;
   const [active, setActive] = useState(false);
+  const dispatch = useDispatch()
+
 
   const changeTheme = () => {
     if (document.querySelector("body").getAttribute("theme") === "light") {
@@ -22,6 +28,23 @@ const Navbar = () => {
       document.querySelector(".button-dark").setAttribute("class", "button-light");
     }
   };
+
+  const logOuter = async (e)=> {
+    swal({
+      title: 'Seguro!',
+      text: 'Desea cerrar sesion?',
+      icon: 'warning',
+      button: "Cerrar sesion",
+     }).then((result) => { 
+        if (result===true) { 
+          logOut(dispatch)
+        } 
+     }) 
+    }
+    
+
+
+  
 
   return (
     <section className="" id="navbar1">
@@ -56,7 +79,7 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <button className="navButton">Log out</button>
+            <button className="navButton" onClick={logOuter} >Log out</button>
           )}
         </div>
 

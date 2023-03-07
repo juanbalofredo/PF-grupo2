@@ -3,7 +3,7 @@ import { useState } from "react";
 import NavBar from "../Navbar/NavBar2";
 import Footer from "../../views/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductosGenerales, getUserByEmail } from "../../redux/apiPetitions";
+import { getProductosGenerales, getUserByEmail,logearse } from "../../redux/apiPetitions";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 
@@ -18,10 +18,13 @@ const Login = () => {
   const login = async (e)=> {
     e.preventDefault();
     const azul = await getUserByEmail(input.email, input.password)
-    console.log(azul);
+
         if(azul === 'Request failed with status code 400'){
          return swal("Error!", 'Los datos ingresados no son validos', "error") 
         }
+        logearse(azul.data,dispatch)
+
+
         swal({
           title: "Sesión iniciada",
           text: "Sesión iniciada correctamente",
