@@ -21,10 +21,10 @@ export const Footer = () => {
         </div>
         <div className="sb__footer-Links_div">
             <div className="socialmedia">
-                <p><img src={fb} alt="" /></p>
-                <p><img src={twitter} alt="" /></p>
-                <p><img src={linkedin} alt="" /></p>
-                <p><img src={instagram} alt="" /></p>
+           <a href=""></a><p><img src={fb} alt="" /></p>
+           <a href="https://twitter.com/bolsillo_feliz"><p><img src={twitter} alt="" /></p></a>
+           <a href="https://www.linkedin.com/in/bolsillo-feliz-10107b269/"><p><img src={linkedin} alt="" /></p></a>
+           <a href="https://www.instagram.com/bolsillofeliz123/"><p><img src={instagram} alt="" /></p></a>
             </div>
         </div>
       </div>
