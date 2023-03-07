@@ -25,6 +25,7 @@ const Home = () => {
             <div className="Navbar-Home">
                 <NavBar />
             </div>
+            <div  className='img-home-cart'><img  className='img-home-cart-2' src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678225600/oigno0vnzkexuoxumovc.jpg" alt=""/></div>
             <Orden/>
             <div className='Home-container'>
                 <Filtro />

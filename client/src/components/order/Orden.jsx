@@ -13,6 +13,7 @@ const Orden = () => {
 }
 
     return(<>
+        <div className="orden-tecto-1"><h2> Elija un producto para comparar</h2></div>
     <div className='orde-pag'>
       <label value="" >Ordenar Por</label>
       <select onClick={handleSort} name="ordenPrecio" id="ordenPrecio" key={stateCategory}>
@@ -20,6 +21,7 @@ const Orden = () => {
         <option value="DESC">Z-A</option>
       </select>
     </div> 
+
     
     </>)
 }
