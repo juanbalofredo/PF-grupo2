@@ -2,47 +2,26 @@ import Products from "../models/products.js";
 import { getProductByName, getProductsByCategory, getProductsById, getProductsByBrand } from "../helpers/products.helper.js";
 import apiInfo from "../helpers/apiInfo.js"
 import { Op } from "sequelize";
-import Prueba3 from "../prueba(3).js";
+import dataBase from "../config/db.js";
+// import Prueba3 from "../prueba(3).js";
 
 export async function getProducts(req, res) {
-    const response2 = await Products.findAll(
-        {
-            where: {
-                supermarket:
-                    "General",
-            },
-            order: [["name", "ASC"]]
-        }
-    )
     try {
+        const response2 = await Products.findAll(
+            {
+                order: [["name", "ASC"]]
+            }
+        )
+        const responseParseado = response2.map(e => {
+            let parsePrice = JSON.parse(e.price)
+            e.price = parsePrice
+            return e
+        })
         // esto es para seguir creando la misma base de datos
-        if (response2.length == 0) {
+        if (responseParseado.length == 0) {
             apiInfo().then(r => res.status(200).json(r));
         }
-        else return res.status(200).json(response2);
-    } catch (error) {
-        return res.status(400).json({ err: error.message });
-    }
-};
-export async function getProductsAll(req, res) {
-    // const response2 = await Products.findAll(
-
-    //     {
-    //         where: {
-    //             supermarket:
-    //                 { [Op.ne]: "General" },
-    //         },
-    //         order: [["name", "ASC"]]
-    //     }
-    // )
-
-    try {
-        // esto es para seguir creando la misma base de datos
-        // apiInfo().then(r => res.status(200).json(r));
-        // if (response2.length == 0) {
-        // }
-        // else 
-        return res.status(200).json(Prueba3);
+        else return res.status(200).json(responseParseado);
     } catch (error) {
         return res.status(400).json({ err: error.message });
     }
@@ -53,7 +32,7 @@ export async function getProductId(req, res) {
     try {
         const response = await getProductsById(id)
         return res.status(200).json(response)
-    } catch(error) {
+    } catch (error) {
         return res.status(400).json({ err: error.message })
     }
 
@@ -64,19 +43,19 @@ export async function getByName(req, res) {
         const { name } = req.query;
         const response = await getProductByName(name);
         return res.status(200).json(response);
-    } catch(error) {
+    } catch (error) {
         return res.status(400).json({ err: error.message });
     }
 };
 
 export async function getByCategory(req, res) {
     const filterCategory = req.params;
-    console.log("esto es filterCategory ==>",filterCategory)
+    console.log("esto es filterCategory ==>", filterCategory)
     // console.log(category, order)
     try {
         const response = await getProductsByCategory(filterCategory)
         return res.status(200).json(response);
-    } catch(error) {
+    } catch (error) {
         return res.status(400).json({ error: error.message });
     }
 };
@@ -86,7 +65,7 @@ export async function getByBrand(req, res) {
     try {
         const response = await getProductsByBrand(brand, order)
         return res.status(200).json(response);
-    } catch(error) {
+    } catch (error) {
         return res.status(400).json({ err: error.message });
     }
 };
