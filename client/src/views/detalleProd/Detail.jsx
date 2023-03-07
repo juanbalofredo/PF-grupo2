@@ -50,9 +50,9 @@ const DetalleProd = () => {
 
     } else {
 
-      // const comparadores = state.products.find(a => a.id == id)
-      //  console.log(comparadores)
-      // const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
+      const comparadores = state.products.find(a => a.id == id).price
+       console.log(comparadores)
+      const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
       return (
         <>
           <NavBar />
@@ -80,9 +80,9 @@ const DetalleProd = () => {
                   Descripcion: <br /> {product.description}
                 </h3>
               </div></div>
-            {/* <div className="contenedor-detail">{
+            <div className="contenedor-detail">{
               emilia.map(a => <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
-            }</div> */}
+            }</div>
           </div>
           <Footer />
         </>
