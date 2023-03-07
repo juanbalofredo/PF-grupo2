@@ -20,21 +20,21 @@ export async function getById(req, res) {
 
 export async function getByEmail(req, res) {
     const comparing = req.body;
-    console.log(comparing);
+    // console.log(comparing);
     try {
         const response = await getUserByEmail(comparing);
-        if (!response) return res.status(400).send("this email is not registered");
         return res.status(200).json(response);
+        if (!response) return res.status(400).send("this email is not registered");
     } catch(error) {
         return res.status(400).json({ err: error.message })
     };
 };
-export async function getSoloByEmail(req, res) {
+export async function googleAcces(req, res) {
     const comparing = req.body;
-    console.log(comparing);
     try {
         const response = await getUserSoloByEmail(comparing);
-        if (!response) return res.status(400).send("this email is not registered");
+        console.log("esto es comparing ==>",response);
+        if (!response) return res.status(400).send("Error: password wrong");
         return res.status(200).json(response);
     } catch(error) {
         return res.status(400).json({ err: error.message })

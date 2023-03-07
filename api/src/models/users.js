@@ -22,7 +22,11 @@ const Users = dataBase.define('users', {
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
+    },
+    hashgoogle: {
+        type: DataTypes.STRING,
+        allowNull: true
     },
     avatar: {
         type: DataTypes.STRING,
