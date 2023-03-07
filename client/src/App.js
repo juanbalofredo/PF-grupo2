@@ -5,6 +5,7 @@ import Register from "./components/register/Register";
 import { Route, Routes} from "react-router-dom";
 import Usersget from "./views/Firebase/GoogleSign";
 import DetalleProd from "./views/detalleProd/Detail";
+
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import { getAllProducts } from "./redux/apiPetitions";
