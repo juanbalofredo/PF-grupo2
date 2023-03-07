@@ -8,16 +8,24 @@ export function getUserById(id) {
     return userById;
 }
 
-export function getUserByEmail(comparing) {
-    const { email, password } = comparing;
+export function getUserByEmail(comparing) { 
+       const { email, password } = comparing;
+    if (!password) {
+        let userByEmail = Users.findOne({
+            where: {
+                email,
+            }
+        })
+         return userByEmail;
+    } else {
     let userByEmail = Users.findOne({
         where: {
             email,
             password
-        }
-    });
+        }   
+    }); return userByEmail;}
     // console.log(userByEmail)
-    return userByEmail;
+
 };
 export async function getUserSoloByEmail(comparing) {
     let { email } = comparing
