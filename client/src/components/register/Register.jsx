@@ -50,7 +50,6 @@ const Register = () => {
   const register = async (e) => {
     e.preventDefault();
     const pasa = await handleClickError()
-    console.log(pasa)
     if (pasa) {
       crearUser(input)
       swal({

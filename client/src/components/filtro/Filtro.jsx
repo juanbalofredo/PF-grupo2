@@ -34,6 +34,7 @@ const Filtro = () => {
   }
 
   async function handleFilterReset() {
+
     dispatch(rsetFilters(dispatch));
   }
 

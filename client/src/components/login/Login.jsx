@@ -22,6 +22,7 @@ const Login = () => {
       if (azul === 'Request failed with status code 400') {
         return swal("Error!", 'Los datos ingresados no son validos', "error")
       }
+
       logearse(azul.data, dispatch)
       swal({
         title: "Sesión iniciada",
@@ -63,9 +64,7 @@ const Login = () => {
       if (input.password.length <= 8) valid = false;
       if (input.password !== azul.data.password) valid = false;
       if (input.email !== azul.data.email) valid = false; 
-      console.log(azul)
-      console.log(input.password.length)
-      console.log(input.password)
+
     }
     else { valid = false; swal({
       title: "Cuenta incorrecta",
