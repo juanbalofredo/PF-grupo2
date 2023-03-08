@@ -7,7 +7,7 @@ import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
-import { getProductos } from "../../redux/apiPetitions";
+import { numberPage } from "../../redux/apiPetitions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -38,7 +38,7 @@ const DetalleProd = () => {
   useEffect(() => {
     if (!quesi) {
       quesi = true;
-      getProductos(dispatch)
+      numberPage(0,dispatch)
     }
 
   }, [dispatch])

@@ -2,27 +2,18 @@ import axios from "axios";
 import {
   allProducts,
   allUsers,
-  LoginWithGoogle,
   oneComment,
   getName,
   filterCategory,
   oneUsers,
   resetFilter,
-  nuevoDetail,
-  productsGenerales,
   Category,
   Brand,
-  loggedOut
+  loggedOut,
+  paginate
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
-export async function getProductos(dispatch) {
-  try {
-    const peticion = await axios.get("http://localhost:3001/products");
-    dispatch(allProducts(peticion?.data));
-  } catch (error) {
-    return error.response;
-  }
-}
+
 
 export async function logearse(input,dispatch) {
   try {
@@ -32,12 +23,11 @@ export async function logearse(input,dispatch) {
   }
 }
 
-export async function numberPage(num) {
+export async function numberPage(num,dispatch) {
   try {
-    const json = await fetch(`http://localhost:3001/products/page/${num}`)
-    const jsonRes = await json.json()
-    dispatch(paginate(num + 1))
-    
+    const json = await axios.get(`http://localhost:3001/products/page/${num}`)
+    dispatch(paginate(num))
+    dispatch(allProducts(json?.data));
   } catch (error) {
     return error.response;
   }
