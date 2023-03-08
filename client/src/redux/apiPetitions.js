@@ -25,9 +25,11 @@ export async function logearse(input,dispatch) {
 
 export async function numberPage(num,dispatch) {
   try {
+
     const json = await axios.get(`http://localhost:3001/products/page/${num}`)
     dispatch(paginate(num))
     dispatch(allProducts(json?.data));
+
   } catch (error) {
     return error.response;
   }
