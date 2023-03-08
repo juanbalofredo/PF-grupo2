@@ -8,6 +8,7 @@ export const User = () => {
   const state = useSelector((state) => state.bolsilloPersist);
   const user = state.user;
   const image = user ? state.avatar : null;
+  const rol = user ? state.type_account : null;
   const name = user ? state.name :null
   return (
     <div className="user-container">
