@@ -6,7 +6,8 @@ import {
     resetFilter,
     Category,
     oneComment,
-    Brand
+    Brand,
+    addProduct
 } from "../slice/globalSlice";
 
 
@@ -77,3 +78,14 @@ export const rsetFilters = async (dispatch) => {
         return error.response;
     }
 };
+
+export const postProduct = (payload) => {
+    return async () => {
+      try {
+        const petition = await axios.post("http://localhost:3001/products/", payload);
+        return petition;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  };
