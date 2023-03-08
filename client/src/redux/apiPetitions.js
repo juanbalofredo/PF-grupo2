@@ -12,7 +12,8 @@ import {
   productsGenerales,
   Category,
   Brand,
-  loggedOut
+  loggedOut,
+  paginate
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
 export async function getProductos(dispatch) {
@@ -32,12 +33,12 @@ export async function logearse(input,dispatch) {
   }
 }
 
-export async function numberPage(num) {
+export async function numberPage(num,dispatch) {
   try {
     const json = await fetch(`http://localhost:3001/products/page/${num}`)
     const jsonRes = await json.json()
     dispatch(paginate(num + 1))
-    
+
   } catch (error) {
     return error.response;
   }
