@@ -32,6 +32,17 @@ export async function logearse(input,dispatch) {
   }
 }
 
+export async function numberPage(num) {
+  try {
+    const json = await fetch(`http://localhost:3001/products/page/${num}`)
+    const jsonRes = await json.json()
+    dispatch(paginate(num + 1))
+    
+  } catch (error) {
+    return error.response;
+  }
+}
+
 export async function logOut(dispatch) {
   try {
     dispatch(loggedOut())

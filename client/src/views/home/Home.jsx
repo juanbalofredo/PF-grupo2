@@ -16,6 +16,7 @@ const Home = () => {
         if (!didInit) {
             didInit = true;
             getProductos(dispatch)
+            
         }
     }, [dispatch]);
     const myProduct = state.productsBackup
