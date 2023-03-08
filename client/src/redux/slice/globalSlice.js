@@ -23,7 +23,6 @@ export const bolsilloSlice = createSlice({
             state.productsBackup = action.payload;
             state.products = action.payload;
         },
-
         oneComment(state, action) {
             state.comment = action.payload;
         },
