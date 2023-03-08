@@ -19,29 +19,11 @@ export const bolsilloSlice = createSlice({
     initialState,
 
     reducers: {
-
-        loggedOut(state) {
-            state.name = '';
-            state.type_account = '';
-            state.user = false;
-            state.last_name = '';
-            state.avatar = '';
-            state.id = '';
-            state.email = '';
-            state.password = false;
-        },
         allProducts(state, action) {
             state.productsBackup = action.payload;
             state.products = action.payload;
         },
 
-        allUsers(state, action) {
-            state.user = action.payload;
-        },
-        createUser(state, action) {
-            state.name = action.payload.name;
-            state.last_name = action.payload.last_name;
-        },
         oneComment(state, action) {
             state.comment = action.payload;
         },
@@ -67,5 +49,5 @@ export const bolsilloSlice = createSlice({
     }
 },);
 
-export const { allProducts, createUser, allUsers, loggedOut, oneUsers, nuevoDetail, logged, oneComment, getName, filterCategory, filterBrand, resetFilter, Category, Brand, } = bolsilloSlice.actions;
+export const { allProducts, oneUsers, nuevoDetail, oneComment, getName, filterCategory, filterBrand, resetFilter, Category, Brand, } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;

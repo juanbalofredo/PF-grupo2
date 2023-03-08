@@ -5,13 +5,12 @@ import Cart from "../../views/cart/Cart";
 import "./navBar.css";
 import User from "../user/User";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
-import { logOut } from "../../redux/apiPetitions/userPetitions";
+import { loggedOut } from "../../redux/slice/persistSlice"
 import swal from "sweetalert";
 
 const Navbar = () => {
-  const state = useSelector((state) => state.bolsilloFeliz);
+  const state = useSelector((state) => state.bolsilloPersist);
   const user = state.user;
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()
@@ -37,7 +36,7 @@ const Navbar = () => {
       button: "Cerrar sesion",
      }).then((result) => { 
         if (result===true) { 
-          logOut(dispatch)
+         dispatch(loggedOut())
         } 
      }) 
     }

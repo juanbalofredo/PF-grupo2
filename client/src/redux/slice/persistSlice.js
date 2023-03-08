@@ -30,11 +30,27 @@ export const bolsilloPersist = createSlice({
             state.id = action.payload.id
             state.email = action.payload.email;
         },
+        allUsers(state, action) {
+            state.user = action.payload;
+        },
+        createUser(state, action) {
+            state.name = action.payload.name;
+            state.last_name = action.payload.last_name;
+        },
+        loggedOut(state) {
+            state.name = '';
+            state.type_account = '';
+            state.user = false;
+            state.last_name = '';
+            state.avatar = '';
+            state.id = '';
+            state.email = '';
+        },
         changeTheme(state) {
             state.darkMode = !state.darkMode
         }
     }
 },);
 
-export const { oneUsers, changeTheme } = bolsilloPersist.actions;
+export const { oneUsers, changeTheme,loggedOut,createUser,allUsers } = bolsilloPersist.actions;
 export default bolsilloPersist.reducer;

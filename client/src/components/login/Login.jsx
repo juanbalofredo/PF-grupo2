@@ -1,6 +1,6 @@
 import "./login.css";
 import { useState } from "react";
-import NavBar from "../Navbar/NavBar2";
+import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserByEmail, logearse } from "../../redux/apiPetitions/userPetitions";
