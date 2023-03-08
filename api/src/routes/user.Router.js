@@ -1,6 +1,6 @@
 import { Router } from "express";
 import postUser from "../controllers/postUser.js";
-import { getById, getAllUsers, getByEmail, deleteUser, updateUser,getSoloByEmail } from "../controllers/users.controller.js";
+import { getById, getAllUsers, getByEmail, deleteUser, updateUser, googleAcces } from "../controllers/users.controller.js";
 import bodyParser from "body-parser";
 
 
@@ -11,7 +11,7 @@ users.use(bodyParser.urlencoded({ extended: true }));
 users.get("/", getAllUsers);
 users.get("/id/:id", getById);
 users.post("/email", getByEmail);
-users.post("/soloemail", getSoloByEmail);
+users.post("/soloemail", googleAcces);
 users.post("/postUsers", postUser);
 users.delete("/deleteUser", deleteUser);
 users.put("/update", updateUser);

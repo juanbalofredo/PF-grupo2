@@ -2,34 +2,34 @@ import axios from "axios";
 import {
   allProducts,
   allUsers,
-  LoginWithGoogle,
   oneComment,
   getName,
   filterCategory,
   oneUsers,
   resetFilter,
-  nuevoDetail,
-  productsGenerales,
   Category,
   Brand,
-  loggedOut
+  loggedOut,
+  paginate
 } from "./slice";
 import { firebase, googleAuthProvider } from "../views/Firebase/ConfigFirebase";
-import {LocalStorage} from "../components/LocalStorage/LocalStorage"
 
 
-export async function getProductos(dispatch) {
+export async function logearse(input,dispatch) {
   try {
-    const peticion = await axios.get("http://localhost:3001/products");
-    dispatch(allProducts(peticion?.data));
+    dispatch(oneUsers(input))
   } catch (error) {
     return error.response;
   }
 }
 
-export async function logearse(input,dispatch) {
+export async function numberPage(num,dispatch) {
   try {
-    dispatch(oneUsers(input))
+
+    const json = await axios.get(`http://localhost:3001/products/page/${num}`)
+    dispatch(paginate(num))
+    dispatch(allProducts(json?.data));
+
   } catch (error) {
     return error.response;
   }
@@ -101,8 +101,19 @@ export async function StartGoogleAuth(dispatch) {
       .auth()
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
-        dispatch(LoginWithGoogle(user.displayName))
+        axios.post("http://localhost:3001/user/soloemail",{
+        name: user.displayName,
+        avatar: user.photoURL,
+        email: user.email,
+        hashgoogle: user.uid,
+        type_account: "1",
+       })
+       .then(res=> res)
+       .then(info => {
+        dispatch(oneUsers(info.data))
+        return info.data 
       })
+    })
   } catch (error) {
     return error.response;
   }

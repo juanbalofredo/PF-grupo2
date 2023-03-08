@@ -1,4 +1,5 @@
 import Users from "../models/users.js";
+import createUser from "./createUser.helper.js";
 
 export function getUserById(id) {
     const userById = Users.findOne({
@@ -7,24 +8,44 @@ export function getUserById(id) {
     return userById;
 }
 
-export function getUserByEmail(comparing) {
-    const { email, password } = comparing;
+export function getUserByEmail(comparing) { 
+       const { email, password } = comparing;
+    if (!password) {
+        let userByEmail = Users.findOne({
+            where: {
+                email,
+            }
+        })
+         return userByEmail;
+    } else {
     let userByEmail = Users.findOne({
         where: {
             email,
             password
-        }
-    });
-    console.log(userByEmail)
-    return userByEmail;
+        }   
+    }); return userByEmail;}
+    // console.log(userByEmail)
+
 };
-export function getUserSoloByEmail(comparing) {
-    const { email } = comparing;
-    let userByEmail = Users.findOne({
-        where: {
-            email,
-        }
-    });
+export async function getUserSoloByEmail(comparing) {
+    let { email } = comparing
+    console.log("esto es denfro de getUserSoloByEmail", email)
+    let userByEmail;
+    let emailDataBase = await Users.findOne({ where: { email } })
+    if (!emailDataBase) {
+        userByEmail = await createUser(comparing)
+        console.log("esto es userByEmail =>", userByEmail)
+
+    } else {
+        const { email, hashgoogle } = comparing;
+        // console.log("esto es hashgoogle ==>",hashgoogle)
+        userByEmail = Users.findOne({
+            where: {
+                email,
+                hashgoogle
+            }
+        });
+    }
     return userByEmail;
 };
 

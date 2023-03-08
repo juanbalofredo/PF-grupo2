@@ -874,13 +874,13 @@ productosNoEspeciales.forEach(e => {
     let wakmart = Math.floor(Math.random() * 21) + 190;
     let disco = Math.floor(Math.random() * 21) + 190;
     let preciosRamdon = [
-        { name: "coto", price: coto },
-        { name: "dia", price: dia },
-        { name: "jumbo", price: jumbo },
-        { name: "carrefour", price: carrefour },
-        { name: "vital", price: vital },
-        { name: "walmart", price: wakmart },
-        { name: "disco", price: disco }
+        { name: "coto", price: coto, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png" },
+        { name: "dia", price: dia, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png" },
+        { name: "jumbo", price: jumbo, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png" },
+        { name: "carrefour", price: carrefour, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png" },
+        { name: "vital", price: vital, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png" },
+        { name: "walmart", price: wakmart, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp" },
+        { name: "disco", price: disco, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png" }
     ]
     e.price = preciosRamdon
 })
