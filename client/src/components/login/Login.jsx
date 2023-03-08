@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserSoloByEmail, getUserByEmail, logearse } from "../../redux/apiPetitions";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-
+import GoogleSign from "../../views/Firebase/GoogleSign"
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -124,6 +124,9 @@ const Login = () => {
               <div className="reg-google-fac">
               </div>
             </form>
+            <div className="reg-google-fac">
+              <GoogleSign />
+            </div>
           </div>
         </div>
       </div>

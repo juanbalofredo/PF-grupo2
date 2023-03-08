@@ -20,7 +20,8 @@ const Home = () => {
         }
     }, [dispatch]);
     const myProduct = state.productsBackup
-
+    console.log(myProduct)
+    console.log(state)
     const pagina = state.page
     let paso = 0;
 
@@ -46,7 +47,7 @@ const Home = () => {
                     <button onClick={handleAntPage}>pag anterior</button><button onClick={handleSigPage}>pag siguiente</button>
                     <div className="Home-container-products">
 
-                        {myProduct.map((p) => (
+                        {myProduct?.map((p) => (
                             <Card key={p.id} product={p} />
                         ))}
 
@@ -57,8 +58,6 @@ const Home = () => {
         </>
     )
 }
-// {state.pokemonFilter?.slice((page -1) * perPage, (page -1) * perPage + perPage).map((p)=>(
-//     <Card key={p.name} pokemon={p} />
-//     ))}    
+
 
 export default Home
