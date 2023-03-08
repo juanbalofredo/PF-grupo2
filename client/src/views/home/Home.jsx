@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from '../../components/Card/Card';
 import Footer from "../footer/Footer";
 import { useEffect } from 'react';
-import { getProductos} from '../../redux/apiPetitions';
+import { getProductos} from '../../redux/apiPetitions/productsPetitions';
 import Filtro from '../../components/filtro/Filtro';
 import Orden from '../../components/order/Orden';
 

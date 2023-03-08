@@ -7,7 +7,7 @@ import User from "../user/User";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
-import { logOut } from "../../redux/apiPetitions";
+import { logOut } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
 
 const Navbar = () => {
@@ -57,7 +57,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="searchbar-container">
-        <SearchBar/>
+
       </div>
 
       <div className="login-Container">

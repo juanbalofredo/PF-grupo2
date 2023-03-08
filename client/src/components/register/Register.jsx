@@ -2,7 +2,7 @@ import "./register.css";
 import { useState } from "react";
 import NavBar from "../Navbar/NavBar2";
 import axios from "axios";
-import { crearUser, logearse, getUserByEmail } from "../../redux/apiPetitions";
+import { crearUser, logearse, getUserByEmail } from "../../redux/apiPetitions/userPetitions";
 import Footer from "../../views/footer/Footer";
 import GoogleSign from "../../views/Firebase/GoogleSign";
 import swal from "sweetalert";
