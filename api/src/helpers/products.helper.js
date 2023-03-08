@@ -28,10 +28,9 @@ export async function getProductByName({ name, order }) {
     return productsByNameParser;
 };
 
-export async function getProductsByCategory({ category, order, brand , number }) {
-    const itemsperpage = 10
-    const lasttindex = number * itemsperpage
-    const firstindex = lasttindex - itemsperpage
+
+// cambios para salvar la chamba
+export async function getProductsByCategory({ category, order, brand }) {
     if (category === "all" && brand == "all") {
         console.log("entro ambos en ALL")
         let productByCategory = await Products.findAll({
