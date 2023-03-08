@@ -27,7 +27,7 @@ export async function getProductByName({ name, order }) {
     })
     return productsByNameParser;
 };
-
+// cambios para salvar la chamba
 export async function getProductsByCategory({ category, order, brand }) {
     if (category === "all" && brand == "all") {
         console.log("entro ambos en ALL")
