@@ -46,7 +46,7 @@ const Home = () => {
                     <button onClick={handleAntPage}>pag anterior</button><button onClick={handleSigPage}>pag siguiente</button>
                     <div className="Home-container-products">
 
-                        {myProduct.map((p) => (
+                        {state && myProduct.map((p) => (
                             <Card key={p.id} product={p} />
                         ))}
 
