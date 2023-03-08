@@ -5,7 +5,7 @@ import Cart from "../../views/cart/Cart";
 import "./navBar.css";
 import User from "../user/User";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+
 
 const Navbar = () => {
   const user = useSelector((state) => state.id);

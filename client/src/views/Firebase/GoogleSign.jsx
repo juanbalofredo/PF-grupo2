@@ -1,7 +1,7 @@
 import { useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import { StartGoogleAuth } from "../../redux/apiPetitions";
+import { StartGoogleAuth } from "../../redux/apiPetitions/userPetitions";
 
 const Register = () => {
   const dispatch = useDispatch();

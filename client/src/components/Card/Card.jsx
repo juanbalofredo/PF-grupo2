@@ -2,7 +2,7 @@
 import { useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
-import { numberPage } from "../../redux/apiPetitions";
+import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import "./card.css";
 
 

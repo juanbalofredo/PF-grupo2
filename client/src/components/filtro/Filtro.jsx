@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getCategoryParams, rsetFilters } from "../../redux/apiPetitions";
+import { getCategoryParams, rsetFilters } from "../../redux/apiPetitions/productsPetitions";
 import "../filtro/filtro.css";
 
 const Filtro = () => {
@@ -13,6 +13,7 @@ const Filtro = () => {
   const dispatch = useDispatch();
   const duplicatesArray = [];
   const seenElements = {};
+  //hola
   const valor = "ASC";
   const stateSupermarket = useSelector((state) => state.bolsilloFeliz.brand);
   const stateCategory = useSelector((state) => state.bolsilloFeliz.category);

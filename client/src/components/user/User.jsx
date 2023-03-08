@@ -5,7 +5,7 @@ import "./user.css"
 export const User = () => {
   
 
-  const state = useSelector((state) => state.bolsilloFeliz);
+  const state = useSelector((state) => state.bolsilloPersist);
   const user = state.user;
   const image = user ? state.avatar : null;
   const name = user ? state.name :null
