@@ -7,11 +7,11 @@ import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
-import { getProductos } from "../../redux/apiPetitions";
+import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-
+//hola
 const DetalleProd = () => {
 
   const state = useSelector((state) => state.bolsilloFeliz);
@@ -51,7 +51,7 @@ const DetalleProd = () => {
     } else {
 
       const comparadores = state.products.find(a => a.id == id).price
-       console.log(comparadores)
+      console.log(comparadores)
       const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
       return (
         <>

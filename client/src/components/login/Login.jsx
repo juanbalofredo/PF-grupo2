@@ -3,7 +3,7 @@ import { useState } from "react";
 import NavBar from "../Navbar/NavBar2";
 import Footer from "../../views/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserSoloByEmail, getUserByEmail, logearse } from "../../redux/apiPetitions";
+import { getUserByEmail, logearse } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 
@@ -11,8 +11,6 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
-  const state = useSelector((state) => state.bolsilloFeliz.name);
 
 
   const login = async (e) => {
