@@ -24,11 +24,7 @@ let Allproducts = [
         "brand": "Dia",
         "id": 2,
         "price": [
-<<<<<<< HEAD
-            { name: "dia", price: 200 },
-=======
             { name: "dia", price: 195 }
->>>>>>> 228ec15fa63199e3866c90fe99de091b899dd402
         ],
         "unit": "1l",
         "category": "Lácteos",
@@ -41,11 +37,7 @@ let Allproducts = [
         "brand": "Coto",
         "id": 3,
         "price": [
-<<<<<<< HEAD
-            { name: "coto", price: 210 },
-=======
             { name: "coto", price: 200 },
->>>>>>> 228ec15fa63199e3866c90fe99de091b899dd402
         ],
         "unit": "1l",
         "category": "Lácteos",
@@ -58,11 +50,7 @@ let Allproducts = [
         "brand": "Carrefour",
         "id": 4,
         "price": [
-<<<<<<< HEAD
-            { name: "carrefour", price: 205 },
-=======
             { name: "carrefour", price: 185 },
->>>>>>> 228ec15fa63199e3866c90fe99de091b899dd402
         ],
         "unit": "1l",
         "category": "Lácteos",
