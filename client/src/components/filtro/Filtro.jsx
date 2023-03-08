@@ -13,6 +13,7 @@ const Filtro = () => {
   const dispatch = useDispatch();
   const duplicatesArray = [];
   const seenElements = {};
+  //hola
   const valor = "ASC";
   const stateSupermarket = useSelector((state) => state.bolsilloFeliz.brand);
   const stateCategory = useSelector((state) => state.bolsilloFeliz.category);
