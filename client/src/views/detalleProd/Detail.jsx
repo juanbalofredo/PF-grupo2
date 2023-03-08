@@ -38,7 +38,7 @@ const DetalleProd = () => {
   useEffect(() => {
     if (!quesi) {
       quesi = true;
-      numberPage(0,dispatch)
+      getProductos(dispatch)
     }
 
   }, [dispatch])

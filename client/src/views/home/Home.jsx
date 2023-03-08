@@ -15,7 +15,7 @@ const Home = () => {
     useEffect(() => {
         if (!didInit) {
             didInit = true;
-            numberPage(0,dispatch)
+            getProductos(dispatch)
 
         }
     }, [dispatch]);
@@ -26,11 +26,11 @@ const Home = () => {
 
     function handleSigPage () {
         paso = pagina + 1
-        numberPage(paso,dispatch)
+        getProductos(paso,dispatch)
     }
     function handleAntPage () {
         paso = pagina - 1
-        numberPage(paso,dispatch)
+        getProductos(paso,dispatch)
     }
 
     return (

@@ -13,7 +13,7 @@ export default function Card({ product }) {
 
     const navigate = useNavigate();
     const  click = async ()  => {
-      numberPage(0,dispatch)
+      getProductos(dispatch)
       navigate(`/products/id/${product.id}`);
     };
  
