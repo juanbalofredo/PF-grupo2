@@ -851,7 +851,7 @@ const productosNoEspeciales = Allproducts.filter(element => {
 
 
 
-// console.log(uniendoArrays)
+// console.log(uniendoArrays) para ver mis commits
 
 productosNoEspeciales.forEach(e => {
     let coto = Math.floor(Math.random() * 21) + 190;
