@@ -86,8 +86,11 @@ export const bolsilloSlice = createSlice({
     resetFilter(state) {
       state.productsBackup = state.products
       state.brand = "all"
+    },
+    paginate(state, action) {
+      state.page = action.payload
     }
   }},);
 
-export const { allProducts, createUser, allUsers,loggedOut, oneUsers, nuevoDetail, LoginWithGoogle,logged, oneComment, getName, filterCategory, filterBrand, resetFilter,Category,Brand,} = bolsilloSlice.actions;
+export const { allProducts, createUser, allUsers,loggedOut, oneUsers, nuevoDetail, LoginWithGoogle,logged, oneComment, getName, filterCategory, filterBrand, resetFilter,Category,Brand,paginate} = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;
