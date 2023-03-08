@@ -11,7 +11,7 @@ import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-
+//hola
 const DetalleProd = () => {
 
   const state = useSelector((state) => state.bolsilloFeliz);
