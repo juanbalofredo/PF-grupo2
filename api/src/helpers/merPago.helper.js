@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function createSuscription(req, res){
+export async function subscriptionHelper(req, res){
     const url = "https://api.mercadopago.com/preapproval";
 
     let preference = {
@@ -12,12 +12,12 @@ export async function createSuscription(req, res){
             currency_id: "ARS"
         },
         back_url: "https://yoursite.com.ar/succes",
-        payer_email
+        payer_email: "test_user_55610397@testuser.com"
 	};
 
-    const suscription = await axios.post(url, preference, {
+    const subscription = await axios.post(url, preference, {
         "Content-Type":"application/json",
         Authorization: `Bearer ${process.env.MP_TOKEN}`
     })
-    return suscription.data;
+    return subscription.data;
 }

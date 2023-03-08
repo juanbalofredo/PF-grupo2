@@ -1,13 +1,15 @@
 import axios from "axios";
 import {
     oneUsers,
-    changeTheme
+    changeTheme,
+    allUsers,
+    loggedOut
 } from "../slice/persistSlice";
 
 import {
-    allUsers,
+
     oneComment,
-    loggedOut,
+
 } from "../slice/globalSlice";
 
 import { firebase, googleAuthProvider } from "../../views/Firebase/ConfigFirebase";
@@ -23,13 +25,6 @@ export function changeColor(dispatch) {
     dispatch(changeTheme)
 }
 
-export async function logOut(dispatch) {
-    try {
-        dispatch(loggedOut())
-    } catch (error) {
-        return error.response;
-    }
-}
 export async function crearUser(input) {
     if (input.avatar.length < 5) {
         input.avatar =
