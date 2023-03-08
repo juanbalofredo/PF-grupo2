@@ -8,9 +8,12 @@ try {
     const itemsperpage = 10
     const lasttindex = number * itemsperpage
     const firstindex = lasttindex - itemsperpage
+    const numberButons = Math.ceil(response.length  / itemsperpage)
 
     const result = response.slice(firstindex,lasttindex)
-    res.send(result)
+    res.send({products:result,
+    botones:numberButons
+    })
 } catch (error) {
     throw Error(error)
 }
