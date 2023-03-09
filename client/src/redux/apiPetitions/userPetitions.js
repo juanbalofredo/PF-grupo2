@@ -8,6 +8,7 @@ import {
   googleAuthProvider,
 } from "../../views/Firebase/ConfigFirebase";
 
+
 export async function logearse(input, dispatch) {
   try {
     dispatch(oneUsers(input));
@@ -120,4 +121,9 @@ export async function postComments(dispatch, id) {
   } catch (error) {
     console.log(error);
   }
+}
+export async function payMercado (email){
+  console.log(email);
+  const peticion = await axios.post("http://localhost:3001/market/subscription")
+  console.log(peticion);
 }
