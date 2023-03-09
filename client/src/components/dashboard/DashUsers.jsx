@@ -1,8 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./dashUsers.css";
 import Navbar from "../Navbar/NavBar";
-import { useEffect } from "react";
-import { getUsers, updateUser,updateUserActivity } from "../../redux/apiPetitions/userPetitions";
+import { useEffect, useState } from "react";
+import {
+  getUsers,
+  updateUser,
+  updateUserActivity,
+} from "../../redux/apiPetitions/userPetitions";
 
 const DashUsers = () => {
   const dispatch = useDispatch();
@@ -11,17 +15,20 @@ const DashUsers = () => {
     getUsers(dispatch);
   }, [dispatch]);
 
+
+  const [input,setInput] = useState("");
+
   const state = useSelector((state) => state.bolsilloFeliz);
   const estate = useSelector((state) => state.bolsilloPersist);
   const allUsers = state.allUsers;
+  const filtrus = allUsers.filter((a) => a.email.includes(input));
+
 
   async function cambiarTipo(id, type_account) {
-    console.log(estate.type_account, id, type_account);
     updateUser(estate.type_account, id, type_account);
   }
 
-  async function kambiar(id,e) {
-    console.log(id,e)
+  async function kambiar(id, e) {
     updateUserActivity(estate.type_account, id, e);
     getUsers(dispatch);
   }
@@ -30,9 +37,10 @@ const DashUsers = () => {
     <>
       <Navbar />
       <div className="cont-de-cont">
+        <input className="tras" type="text" placeholder="Buscar por mail" name="bsuqeuda" onChange={e=>setInput(e.target.value)}  />
         <div className="container-ed-users">
           {allUsers.length ? (
-            allUsers.map((element) => {
+            filtrus.map((element) => {
               return (
                 <table key={element.id}>
                   <td className="ed-img">
@@ -86,7 +94,22 @@ const DashUsers = () => {
 
                   <td className="ag-but">
                     <label className="switchBtn">
-                      {element.activity ?  <input onChange={e=>kambiar(element.id,!element.activity)} type="checkbox" />:<input onChange={e=>kambiar(element.id,!element.activity)} checked type="checkbox" />}
+                      {element.activity ? (
+                        <input
+                          onChange={(e) =>
+                            kambiar(element.id, !element.activity)
+                          }
+                          type="checkbox"
+                        />
+                      ) : (
+                        <input
+                          onChange={(e) =>
+                            kambiar(element.id, !element.activity)
+                          }
+                          checked
+                          type="checkbox"
+                        />
+                      )}
                       <div className="slide round"></div>
                     </label>
                   </td>

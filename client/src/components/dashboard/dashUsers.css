@@ -1,3 +1,15 @@
+.cont-de-cont {
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+}
+.tras {
+  margin-bottom: 20px;
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
 .ed-img-av {
   width: 100px;
 }
@@ -5,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 150px;
+  margin-bottom: 200px;
 }
 .container-ed-users h3 {
   margin: 0;
