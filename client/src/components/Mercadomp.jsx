@@ -1,25 +1,27 @@
 import axios from "axios";
 import React from "react";
-// import { payMercado } from "../redux/apiPetitions/userPetitions";
 
 
 
-const Prueba = () => {
+
+const Mercadomp = () => {
 
 
 
-async function handleFilterReset() {
+  async function funsion() {
+    const pete = await axios.post('http://localhost:3001/market/subscription')
+    window.location.href = pete.data.init_point  }
 
-        console.log("hola")
-      }
+  return(
 
-    return (
-        <>
-            <button onClick={console.log("hola")}>
-            Todas
-          </button>
-        </>
-    )
+    <>
+    <div>
+      <button  onClick={funsion} >Comprar membresia</button>
+    </div>
+    </>
+  )
+
+
 }  
 
-export default Prueba
+export default Mercadomp
