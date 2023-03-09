@@ -16,12 +16,11 @@ const DashUsers = () => {
   return (
     <>
       <Navbar />
+      <div className="container-ed-users">
       <table>
         <tr className="ed-ekas">
-          <td className="ed-img-2">Avatar</td>
-          <td>Name</td>
-          <td>Tipo de cuenta</td>
-          <td>Email</td>
+          <td className="ed-img-2"><h3>Panel de usuarios</h3></td>
+
         </tr>
         {allUsers.length ? (
           allUsers.map((element) => {
@@ -33,7 +32,7 @@ const DashUsers = () => {
                 </td>
                 <td className="ed-name">{element.name}</td>
                 <td className="ed-last-name">{element.last_name}</td>
-                <td className="ed-email">${element.email}</td>
+                <td className="ed-email">{element.email}</td>
                 <td className="ed-tipo">{element.type_account}</td>
                 <td className="ag-but">
                   Deshabilitar <input type="checkbox" />
@@ -45,7 +44,7 @@ const DashUsers = () => {
           <div className="container_vacio_2"></div>
         )}
       </table>
-      hola admin
+      </div>
     </>
   );
 };
