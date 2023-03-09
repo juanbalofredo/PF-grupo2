@@ -3,7 +3,6 @@
   margin-bottom: 1px;
   display: flex;
   justify-content: center;
-
 }
 
 .navbar img {
@@ -79,7 +78,7 @@ body {
 .msg {
   margin-left: 0.5rem;
 }
-.nav-kis{
+.nav-kis {
   display: flex;
 }
 
@@ -93,7 +92,7 @@ body {
   border: none;
   transition: 0.3s;
   color: white;
-  font-family: 'Phudu', cursive;
+  font-family: "Phudu", cursive;
 }
 
 .navButton:hover {
@@ -205,7 +204,7 @@ body {
   width: 100%;
   justify-content: center;
   align-items: center;
-  font-family: 'Phudu', cursive;
+  font-family: "Phudu", cursive;
 }
 
 .navigation-menu {
@@ -358,7 +357,7 @@ body {
 .icon-cart:hover {
   cursor: pointer;
 }
-.profileImg{
+.profileImg {
   width: 50px;
   height: 50px;
   border-radius: 100px;
@@ -366,9 +365,8 @@ body {
   object-fit: contain;
 }
 
-.logo-Container img{
-   width: 100%;
-   
+.logo-Container img {
+  width: 100%;
 }
 
 .container-icon {
@@ -416,14 +414,13 @@ body {
 
 #navbar1 {
   position: sticky;
-top:0;
-z-index: 999;
+  height: 100px;
+  top: 0;
+  z-index: 999;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #272525;
-
-
 }
 
 .form-control {
@@ -431,9 +428,7 @@ z-index: 999;
   border-radius: 10px;
   height: 3rem;
   text-indent: 10px;
-  font-family: 'Phudu', cursive;
-
-
+  font-family: "Phudu", cursive;
 }
 .form-control:focus-visible {
   outline: none;
@@ -464,8 +459,7 @@ z-index: 999;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap:30%;
-
+  gap: 30%;
 }
 
 .name {
