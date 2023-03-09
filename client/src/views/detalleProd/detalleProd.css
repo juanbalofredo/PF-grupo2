@@ -1,6 +1,7 @@
 .Detail-container {
   height: 140vh;
   display: flex;
+  justify-content: center;
   font-family: 'Phudu', cursive;
   color: #040c2e;
 }

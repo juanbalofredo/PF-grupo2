@@ -26,6 +26,7 @@ const DetalleProd = () => {
   const navigate = useNavigate();
   let didInit = false;
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!didInit && product === null) {
       didInit = true;
       axios
