@@ -8,7 +8,6 @@ import {
   googleAuthProvider,
 } from "../../views/Firebase/ConfigFirebase";
 
-
 export async function logearse(input, dispatch) {
   try {
     dispatch(oneUsers(input));
@@ -16,7 +15,6 @@ export async function logearse(input, dispatch) {
     return error.response;
   }
 }
-
 
 export function changeColor(dispatch) {
   dispatch(changeTheme);
@@ -51,10 +49,18 @@ export async function getUsers(dispatch) {
   }
 }
 
-export async function updateUser(type_account_logged,id,type_account) {
+export async function updateUser(type_account_logged, id, type_account) {
   try {
-    const pedir = await axios.post("http://localhost:3001/user/update",{type_account_logged,id,type_account});
-    return pedir
+    const user = await axios({
+      method: "put",
+      url: "http://localhost:3001/user/update",
+      data: {
+        type_account_logged: type_account_logged,
+        id: id,
+        type_account: type_account,
+      },
+    });
+    return user;
   } catch (error) {
     return error.message;
   }
@@ -134,8 +140,10 @@ export async function postComments(dispatch, id) {
     console.log(error);
   }
 }
-export async function payMercado (email){
+export async function payMercado(email) {
   console.log(email);
-  const peticion = await axios.post("http://localhost:3001/market/subscription")
+  const peticion = await axios.post(
+    "http://localhost:3001/market/subscription"
+  );
   console.log(peticion);
 }
