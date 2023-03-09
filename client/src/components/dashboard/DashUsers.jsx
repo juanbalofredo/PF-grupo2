@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./dashUsers.css";
 import Navbar from "../Navbar/NavBar";
 import { useEffect } from "react";
-import { getUsers, updateUser } from "../../redux/apiPetitions/userPetitions";
+import { getUsers, updateUser,updateUserActivity } from "../../redux/apiPetitions/userPetitions";
 
 const DashUsers = () => {
   const dispatch = useDispatch();
@@ -20,20 +20,21 @@ const DashUsers = () => {
     updateUser(estate.type_account, id, type_account);
   }
 
+  async function kambiar(id,e) {
+    console.log(id,e)
+    updateUserActivity(estate.type_account, id, e);
+    getUsers(dispatch);
+  }
+
   return (
     <>
       <Navbar />
-      <div className="container-ed-users">
-        <table>
-          <tr className="ed-ekas">
-            <td className="ed-img-2">
-              <h3>Panel de usuarios</h3>
-            </td>
-          </tr>
+      <div className="cont-de-cont">
+        <div className="container-ed-users">
           {allUsers.length ? (
             allUsers.map((element) => {
               return (
-                <tr>
+                <table key={element.id}>
                   <td className="ed-img">
                     {" "}
                     <img
@@ -50,14 +51,7 @@ const DashUsers = () => {
                     onChange={(e) => cambiarTipo(element.id, e.target.value)}
                     className="ed-tipo"
                   >
-                    <select name="" id="">
-                      {element.type_account === "1"
-                        ? "Usuario"
-                        : element.type_account === "2"
-                        ? "Mercader"
-                        : element.type_account === "3"
-                        ? "Admin"
-                        : "Merc.Premium"}
+                    <select name="" id="select-ed-us">
                       <option value="">
                         {element.type_account === "1"
                           ? "Usuario"
@@ -67,26 +61,42 @@ const DashUsers = () => {
                           ? "Admin"
                           : "Merc.Premium"}
                       </option>
-                      <option value="1">Usuario</option>
-                      <option value="2">Mercader</option>
-                      <option value="4">Merc.Premium</option>
-                      <option value="3">Admin</option>
+                      {element.type_account === "1" ? (
+                        ""
+                      ) : (
+                        <option value="1">Usuario</option>
+                      )}
+                      {element.type_account === "2" ? (
+                        ""
+                      ) : (
+                        <option value="2">Mercader</option>
+                      )}
+                      {element.type_account === "3" ? (
+                        ""
+                      ) : (
+                        <option value="3">Admin</option>
+                      )}
+                      {element.type_account === "4" ? (
+                        ""
+                      ) : (
+                        <option value="4">Merc.Premium</option>
+                      )}
                     </select>
                   </td>
 
                   <td className="ag-but">
                     <label className="switchBtn">
-                      <input type="checkbox" />
+                      {element.activity ?  <input onChange={e=>kambiar(element.id,!element.activity)} type="checkbox" />:<input onChange={e=>kambiar(element.id,!element.activity)} checked type="checkbox" />}
                       <div className="slide round"></div>
                     </label>
                   </td>
-                </tr>
+                </table>
               );
             })
           ) : (
             <div className="container_vacio_2"></div>
           )}
-        </table>
+        </div>
       </div>
     </>
   );
