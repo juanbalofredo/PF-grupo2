@@ -66,6 +66,23 @@ export async function updateUser(type_account_logged, id, type_account) {
   }
 }
 
+export async function updateUserActivity(type_account_logged, id, activity) {
+  try {
+    const user = await axios({
+      method: "put",
+      url: "http://localhost:3001/user/update",
+      data: {
+        type_account_logged: type_account_logged,
+        id: id,
+        activity: activity,
+      },
+    });
+    return user;
+  } catch (error) {
+    return error.message;
+  }
+}
+
 export async function getUserByEmail(email, password) {
   try {
     const user = await axios({

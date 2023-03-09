@@ -91,3 +91,31 @@ input:checked + .slide:before {
 .slide.round:before {
   border-radius: 50%;
 }
+#select-ed-us:hover {
+  cursor: pointer;
+}
+.container-ed-users {
+  flex-direction: column;
+  width: 49rem;
+  background-color: white;
+}
+.container-ed-users table {
+  display: flex;
+  border: 2px solid black;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.cont-de-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#select-ed-us {
+  border-radius: 10px;
+  width: 6rem;
+  text-align: center;
+}
+#select-ed-us::-ms-expand {
+  display: none;
+}
