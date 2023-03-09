@@ -1,18 +1,24 @@
-import mercadopago from "mercadopago";
-import dotenv from "dotenv";
-dotenv.config();
-import { subscriptionHelper } from "../helpers/merPago.helper.js";
-
-mercadopago.configure({ access_token: process.env.MP_TOKEN });
-
-export async function subscriptionLink(req, res) {
-console.log(req.body)  
-  mercadopago.preferences
-    .create(subscriptionHelper)
-    .then((response) => res.status(200).send({ response }))
-    .catch((error) => res.status(400).send({ error: error.message }));
-};
-
+class PaymentController {
+    constructor(subscriptionService) {
+      this.subscriptionService = subscriptionService;
+    }
+  
+    async getSubscriptionLink(req, res) {
+      try {
+        const subscription = await this.subscriptionService.createSubscription();
+  
+        return res.json(subscription);
+      } catch (error) {
+        console.log(error);
+  
+        return res
+          .status(500)
+          .json({ error: true, msg: "Failed to create subscription" });
+      }
+    }
+  }
+  
+ export default PaymentController;
 
 
 // // https://api.mercadopago.com/preapproval
