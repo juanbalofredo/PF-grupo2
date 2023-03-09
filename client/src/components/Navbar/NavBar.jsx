@@ -58,6 +58,7 @@ const Navbar = () => {
     }).then((result) => {
       if (result === true) {
         dispatch(loggedOut());
+        window.location.href = "/home"
       }
     });
   };
