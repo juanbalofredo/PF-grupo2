@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAllMarket, getById, deleteMarket} from "../controllers/market.controller.js"
-// import { subscriptionLink } from "../controllers/mercPago.controller.js";
+import { subscriptionLink } from "../controllers/mercPago.controller.js";
 
 const market = Router();
 
@@ -13,6 +13,6 @@ market.delete("/deletemarket/:id", deleteMarket );
 
 //MERCADO PAGO
 
-// market.get("/paymentSubscription", subscriptionLink)
+market.post("/paymentSubscription", subscriptionLink)
 
 export default market;
