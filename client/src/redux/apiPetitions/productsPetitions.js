@@ -7,7 +7,6 @@ import {
   Category,
   oneComment,
   Brand,
-  addProduct,
 } from "../slice/globalSlice";
 
 export async function getProductos(dispatch) {

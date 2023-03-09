@@ -16,6 +16,8 @@ export async function logearse(input, dispatch) {
     return error.response;
   }
 }
+
+
 export function changeColor(dispatch) {
   dispatch(changeTheme);
 }
@@ -48,6 +50,16 @@ export async function getUsers(dispatch) {
     return error.message;
   }
 }
+
+export async function updateUser(type_account_logged,id,type_account) {
+  try {
+    const pedir = await axios.post("http://localhost:3001/user/update",{type_account_logged,id,type_account});
+    return pedir
+  } catch (error) {
+    return error.message;
+  }
+}
+
 export async function getUserByEmail(email, password) {
   try {
     const user = await axios({

@@ -7,12 +7,11 @@ import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
-import { getProductos } from "../../redux/apiPetitions/productsPetitions";
-import { numberPage } from "../../redux/apiPetitions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { getProductos } from "../../redux/apiPetitions/productsPetitions";
 
-//hola
+
 const DetalleProd = () => {
 
   const state = useSelector((state) => state.bolsilloFeliz);
@@ -40,7 +39,6 @@ const DetalleProd = () => {
   useEffect(() => {
     if (!quesi) {
       quesi = true;
-      numberPage(0,dispatch)
     }
 
   }, [dispatch])
