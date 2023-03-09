@@ -2,7 +2,7 @@
     border-radius: 100%;
   }
 
-  .dash-container {
+  .dash-container a{
     text-decoration: none;
     color: white;
     width: 10vw;
