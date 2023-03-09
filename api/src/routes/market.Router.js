@@ -24,7 +24,7 @@ market.get("/payment", function (req, res) {
   });
 });
 
-market.get("/subscription", function (req, res) {
+market.post("/subscription", function (req, res) {
   PaymentInstance.getSubscriptionLink(req, res);
 });
 
