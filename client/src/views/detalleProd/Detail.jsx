@@ -7,11 +7,8 @@ import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
-<<<<<<< HEAD
 import { getProductos } from "../../redux/apiPetitions/productsPetitions";
-=======
 import { numberPage } from "../../redux/apiPetitions";
->>>>>>> 69ab852501d8ef46376dc64b9a1cd2b866f3ee92
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
