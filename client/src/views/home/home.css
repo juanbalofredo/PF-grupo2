@@ -15,6 +15,11 @@ body {
     font-family: 'Phudu', cursive;
 }
 
+.Navbar-home{
+    position: sticky;
+    top:0;
+}
+
 .bodyDark {
     background: #141631;
     background: -moz-linear-gradient(left, #141631 0%, #222358 50%, #0B0B1D 100%);

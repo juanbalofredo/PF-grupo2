@@ -368,6 +368,7 @@ body {
 
 .logo-Container img{
    width: 100%;
+   
 }
 
 .container-icon {
@@ -414,11 +415,15 @@ body {
 }
 
 #navbar1 {
+  position: sticky;
+top:0;
+z-index: 999;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #272525;
-  height: 10vh;
+
+
 }
 
 .form-control {
@@ -459,14 +464,15 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  height: 50%;
+  gap:30%;
+
 }
 
 .name {
   color: white !important;
   margin-left: 1rem;
   margin-bottom: 0;
+  margin: 0 !important;
 }
 
 .button-light {
