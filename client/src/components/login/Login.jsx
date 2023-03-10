@@ -118,11 +118,11 @@ const Login = () => {
               </div>
               <div className="reg-google-fac"></div>
             </form>
+        <div className="reg-google-fac">
+          <GoogleSign />
+        </div>
           </div>
         </div>
-        <div className="reg-google-fac">
-              <GoogleSign />
-            </div>
       </div>
       <Footer />
     </>
