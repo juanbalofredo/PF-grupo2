@@ -26,11 +26,9 @@ const Home = () => {
     }
   }, [dispatch]);
 
-
   return (
     <>
       <NavBar />
-
       <div className="img-home-cart">
         <img
           className="img-home-cart-2"
@@ -38,25 +36,42 @@ const Home = () => {
           alt=""
         />
       </div>
-      <Orden />
-      <div className="Home-container">
+      <div className="container-de-cintainer">
         <Filtro />
-        <div className="paginated-fasle">
-            <div className="pg-but-cont">
-          {page === 1 ? (
-            <button className="but-pag-a" disabled>Anterior</button>
-          ) : (
-            <button className="but-pag-a" onClick={(e) => dispatch(antPage())}>Anterior</button>
-          )}
-          {   
-          page === Math.ceil(myProduct.length / 10) ? 
-          <button className="but-pag-s" disabled>Siguiente</button>:
-            <button className="but-pag-s" onClick={(e) => dispatch(sigPage())}>Siguiente</button>
-          }</div>
-          <div className="Home-container-products">
-            {aver.map((p) => (
-              <Card key={p.id} product={p} />
-            ))}
+        <div className="Home-container">
+          <Orden />
+          <div className="paginated-fasle">
+            <div className="Home-container-products">
+              {aver.map((p) => (
+                <Card key={p.id} product={p} />
+              ))}
+            </div>
+          </div>{" "}
+          <div className="pag-but-que">
+            {page === 1 ? (
+              <button className="but-pag-a" disabled>
+                Anterior
+              </button>
+            ) : (
+              <button
+                className="but-pag-a"
+                onClick={(e) => dispatch(antPage())}
+              >
+                Anterior
+              </button>
+            )}
+            {page === Math.ceil(myProduct.length / 10) ? (
+              <button className="but-pag-s" disabled>
+                Siguiente
+              </button>
+            ) : (
+              <button
+                className="but-pag-s"
+                onClick={(e) => dispatch(sigPage())}
+              >
+                Siguiente
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -1,3 +1,13 @@
+.pag-but-que {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.but-pag-a,
+.but-pag-s {
+  margin-top: 1rem;
+}
 .cont-de-cont {
   display: flex;
   flex-direction: column;
@@ -34,22 +44,34 @@
 .Home-container-products {
   min-height: 40rem;
 }
-.pg-but-cont button {
+.but-pag-a {
   width: 7rem;
   height: 2rem;
-  border-radius: 10rem;
-  margin-left: 3rem;
+  border-radius: 3px;
   margin-right: 3rem;
   background-color: white;
   border: none;
 }
-.pg-but-cont button:hover {
+.but-pag-a:hover {
+  background-color: #b9b9b9;
+  cursor: pointer;
+}
+.but-pag-s {
+  width: 7rem;
+  margin-left: 3rem;
+  height: 2rem;
+  border-radius: 3px;
+  background-color: white;
+  border: none;
+}
+.but-pag-s:hover {
   background-color: #b9b9b9;
   cursor: pointer;
 }
 .paginated-fasle {
   display: flex;
   flex-direction: column;
+  height: 40rem;
 }
 .pg-but-cont {
   display: flex;
@@ -158,7 +180,7 @@ input:checked + .slide:before {
   display: none;
 }
 .footer-tenes-c {
-  display: flex ;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }

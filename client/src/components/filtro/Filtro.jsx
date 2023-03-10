@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getCategoryParams, rsetFilters } from "../../redux/apiPetitions/productsPetitions";
 import "../filtro/filtro.css";
+import {  resPage } from "../../redux/slice/globalSlice";
+
+
 
 const Filtro = () => {
   const state = useSelector((state) => state.bolsilloFeliz);
@@ -27,15 +30,17 @@ const Filtro = () => {
   const sinNorepetidos = [...new Set(duplicatesArray)].sort();
 
   async function handleFilterCategory(e) {
+    dispatch(resPage())
     getCategoryParams(dispatch, e, stateSupermarket, valor);
   }
 
   async function handleFilterBrand(e) {
+    dispatch(resPage())
     getCategoryParams(dispatch, stateCategory, e, valor);
   }
 
   async function handleFilterReset() {
-
+    dispatch(resPage())
     dispatch(rsetFilters(dispatch));
   }
 
