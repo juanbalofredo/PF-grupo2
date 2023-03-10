@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getNameQuery } from "../../redux/apiPetitions/productsPetitions";
 import "./navBar.css";
+import {  resPage } from "../../redux/slice/globalSlice";
 
 export default function SearchBar(props) {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function SearchBar(props) {
   };
 
    function handleSubmit(e) {
+    dispatch(resPage())
     e.preventDefault();
     if (window.location.href !== 'http://localhost:3000/home') {
       (getNameQuery(dispatch,model)).then(navigate("/home")).then(()=> getNameQuery(dispatch,model))

@@ -64,6 +64,7 @@ export function deleteUserById(id) {
 };
 
 export function updateUserByTypeAccount({ activity, email, name, last_name, password, avatar, type_account, notifications, id, type_account_logged }) {
+    console.log(type_account_logged,id,type_account)
     if (type_account_logged === "3") {
         let datas = { activity, email, name, last_name, password, avatar, type_account, notifications }
         const dataForChange = {}
