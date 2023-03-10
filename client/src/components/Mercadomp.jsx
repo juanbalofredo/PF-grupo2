@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-const Mercadomp = () => {
+const preuba = () => {
 
 
 
@@ -16,7 +16,7 @@ const Mercadomp = () => {
 
     <>
     <div>
-      <button  onClick={funsion} >Comprar membresia</button>
+      <button onClick={funsion}>Comprar membresia</button>
     </div>
     </>
   )
@@ -24,4 +24,4 @@ const Mercadomp = () => {
 
 }  
 
-export default Mercadomp
+export default preuba

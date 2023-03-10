@@ -9,7 +9,7 @@ import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getProductos } from "../../redux/apiPetitions/productsPetitions";
+
 
 
 const DetalleProd = () => {
