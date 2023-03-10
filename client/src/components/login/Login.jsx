@@ -116,10 +116,9 @@ const Login = () => {
                   Iniciar sesion
                 </button>
               </div>
-              <div className="reg-google-fac"></div>
             </form>
         <div className="reg-google-fac">
-          <GoogleSign />
+          <GoogleSign/>
         </div>
           </div>
         </div>

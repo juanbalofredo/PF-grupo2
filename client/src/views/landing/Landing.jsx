@@ -1,7 +1,7 @@
 import './landing.css'
 import { Link } from 'react-router-dom'
 // import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import 'aos/dist/aos.css';
 import Navbar from '../../components/Navbar/NavBar';
 
 const Landing = () => {
@@ -11,9 +11,9 @@ const Landing = () => {
 
     return (
         <div className='landing-container'>
-            <div className="navbar">
+            {/* <div className="navbar">
                 <Navbar/>
-            </div>
+            </div> */}
             <div id="carrusel-contenido">
                 <div id="carrusel-caja">
                     <div className='carru'>
