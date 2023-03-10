@@ -1,6 +1,6 @@
 // import Products from "../models/products.js";
 import nuestrosPerfiles from "../perfiles.js";
-// comentario agragando 2
+// agregando comentario 3
 export async function getPerfiles (req,res){
 try {
    
