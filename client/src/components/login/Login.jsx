@@ -2,14 +2,14 @@ import "./login.css";
 import { useState } from "react";
 import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   getUserByEmail,
   logearse,
 } from "../../redux/apiPetitions/userPetitions";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-
+import GoogleSign from "../../views/Firebase/GoogleSign"
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,7 +41,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-
   function setear(e) {
     const { name, value } = e.target;
     setInput({
@@ -121,6 +120,9 @@ const Login = () => {
             </form>
           </div>
         </div>
+        <div className="reg-google-fac">
+              <GoogleSign />
+            </div>
       </div>
       <Footer />
     </>
