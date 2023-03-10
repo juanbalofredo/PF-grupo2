@@ -20,6 +20,15 @@ export const bolsilloSlice = createSlice({
       state.productsBackup = action.payload;
       state.products = action.payload;
     },
+    sigPage(state){
+      state.page = state.page +1;
+    },
+    antPage(state){
+      state.page = state.page -1;
+    },
+    resPage(state){
+      state.page = 1;
+    },
     allUsers(state, action) {
       state.allUsers = action.payload;
     },
@@ -54,6 +63,9 @@ export const {
   allUsers,
   nuevoDetail,
   oneComment,
+  sigPage,
+  antPage,
+  resPage,
   getName,
   filterCategory,
   filterBrand,

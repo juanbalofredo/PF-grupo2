@@ -31,6 +31,32 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.Home-container-products {
+  min-height: 40rem;
+}
+.pg-but-cont button {
+  width: 7rem;
+  height: 2rem;
+  border-radius: 10rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background-color: white;
+  border: none;
+}
+.pg-but-cont button:hover {
+  background-color: #b9b9b9;
+  cursor: pointer;
+}
+.paginated-fasle {
+  display: flex;
+  flex-direction: column;
+}
+.pg-but-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
 .ed-name {
   width: 5rem;
   text-align: center;
