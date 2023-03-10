@@ -8,6 +8,7 @@ const initialState = {
   brand: "all",
   comment: [],
   allUsers: [],
+  mercado: [],
 };
 
 export const bolsilloSlice = createSlice({
@@ -54,6 +55,9 @@ export const bolsilloSlice = createSlice({
       state.productsBackup = state.products;
       state.brand = "all";
     },
+    addMercader(state, action) {
+      state.mercado = action.payload
+    }
   },
 });
 
@@ -72,5 +76,6 @@ export const {
   resetFilter,
   Category,
   Brand,
+  addMercader,
 } = bolsilloSlice.actions;
 export default bolsilloSlice.reducer;

@@ -16,11 +16,10 @@ export const Footer = () => {
         <div className="sb__footer-links"></div>
         <div className="sb__footer-links-div">
           <a href="/about">
-            <p>About</p>
+            <p>Sobre nosotros</p>
           </a>
-          <a href="/contact">
-            <p>Contact</p>
-          </a>
+
+          <p>Nuestras redes</p>
         </div>
         <div className="sb__footer-Links_div">
           <div className="socialmedia">
@@ -49,7 +48,7 @@ export const Footer = () => {
       </div>
 
       <div>
-        <h3>Contact</h3>
+        <h3>Contacto</h3>
         <p className="team">
           <a href="https://www.linkedin.com/in/nicol%C3%A1s-piantini-4027b6194">
             Nicolás Piantini{" "}
@@ -75,9 +74,7 @@ export const Footer = () => {
 
       {logeado ? (
         <div className="footer-tenes-c">
-          <h3>
-          ¿ Te gustaria agregar los productos de tu comercio ?
-          </h3>
+          <h3>¿ Te gustaria agregar los productos de tu comercio ?</h3>
           <a
             href={`https://wa.me/541132695097?text=Hola quiero ser mercader en tu pagina de Bolsillo Feliz, email: ${state.email}`}
             target="_blank"
@@ -94,26 +91,21 @@ export const Footer = () => {
           <p>@{new Date().getFullYear()} CodeInn. All right reserved</p>
         </div>
         <div>
-          <a href="/terms">
-            <div>
-              <p>terms & conditions</p>
-            </div>
-          </a>
-          <a href="/privacy">
-            <div>
-              <p>Privacy</p>
-            </div>
-          </a>
-          <a href="/security">
-            <div>
-              <p>Security</p>
-            </div>
-          </a>
-          <a href="/cookie">
-            <div>
-              <p>Cookie Declaration</p>
-            </div>
-          </a>
+          <div>
+            <p>terms & conditions</p>
+          </div>
+
+          <div>
+            <p>Privacy</p>
+          </div>
+
+          <div>
+            <p>Security</p>
+          </div>
+
+          <div>
+            <p>Cookie Declaration</p>
+          </div>
         </div>
       </div>
     </div>

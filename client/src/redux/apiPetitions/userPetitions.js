@@ -164,3 +164,14 @@ export async function payMercado(email) {
   );
   console.log(peticion);
 }
+
+export async function autorizarMercado(payload) {
+  try {
+    let json = await axios.post(
+      `http://localhost:3001/`, payload
+    );
+    return json;
+  } catch (error) {
+    console.log(error);
+  }
+}
