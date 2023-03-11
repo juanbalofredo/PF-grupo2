@@ -1,86 +1,120 @@
-.card {
-    width: 190px;
-    height: 254px;
-    background: #f5f5f5;
-    padding: 2rem 1.5rem;
-    transition: box-shadow .3s ease, transform .2s ease;
-   }
-   
-   .card-info {
+.container_contacts{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 20px
+}
+.card-container{
+  padding: 15px;
+    width: 500px;
+    height: 200px;
+    background: whitesmoke;
+    transition: .2s linear;
+    box-shadow: 1px 1px 10px lightslategray;
+    cursor: default;
+  }
+  
+  .card-top-part {
+    width: 100%;
+    height: 70%;
+    padding: 5px;
+    display: flex;
+  }
+  .text{
+    color :black;  
+  }
+  .left-part {
+    padding: 15px;
+    padding-left: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform .2s ease, opacity .2s ease;
-   }
-   
-   /*Image*/
-   .card-avatar {
-    --size: 60px;
-    background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%);
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    transition: transform .2s ease;
-    margin-bottom: 1rem;
-   }
-   
-   
-   /*Card footer*/
-   .card-social {
-    transform: translateY(200%);
-    display: flex;
     justify-content: space-around;
+  }
+  
+  .right-part {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .user-name-contact{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .name-contact {
+    font-size: 24px;
+  }
+  
+  .role {
+    font-size: 10px;
+    color: lightcyan;
+    font-weight: bold;
+    text-transform: lowercase;
+    background-color: lightskyblue;
+    padding: 4px 10px;
+    border-radius: 15px;
+  }
+  
+  .position {
+    color: grey;
+  }
+  
+  .card-bottom-part {
     width: 100%;
-    opacity: 0;
-    transition: transform .2s ease, opacity .2s ease;
-   }
-   
-   .card-social__item {
-    list-style: none;
-   }
-   
-   .card-social__item svg {
-    display: block;
-    height: 18px;
-    width: 18px;
-    fill: #515F65;
-    cursor: pointer;
-    transition: fill 0.2s ease ,transform 0.2s ease;
-   }
-   
-   /*Text*/
-   .card-title {
-    color: #333;
-    font-size: 1.5em;
-    font-weight: 600;
-    line-height: 2rem;
-   }
-   
-   .card-subtitle {
-    color: #859ba8;
-    font-size: 0.8em;
-   }
-   
-   /*Hover*/
-   .card:hover {
-    box-shadow: 0 8px 50px #23232333;
-   }
-   
-   .card:hover .card-info {
-    transform: translateY(-5%);
-   }
-   
-   .card:hover .card-social {
-    transform: translateY(100%);
-    opacity: 1;
-   }
-   
-   .card-social__item svg:hover {
-    fill: #232323;
+    height: 30%;
+    display: flex;
+    border: 1px solid rgb(231, 227, 227);
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+  
+  .user-photo-contact {
+    width: 12rem;
+    overflow: hidden;
+    border: 1px solid rgb(231, 227, 227);
+    box-shadow: 2px 2px 10px lightslategray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+    
+  .bottom-part {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bottom-part:hover > .link {
     transform: scale(1.1);
-   }
-   
-   .card-avatar:hover {
-    transform: scale(1.1);
-   }
+  }
+  
+  .link-contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    gap: 5.5px;
+    font-weight: bold;
+    transition: .2s linear;
+  }
+  
+  .icon-contact {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bottom-part:first-child {
+    border-right: 1px solid rgb(231, 227, 227);
+  }
