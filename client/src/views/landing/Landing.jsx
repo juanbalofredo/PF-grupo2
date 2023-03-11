@@ -1,20 +1,21 @@
 import './landing.css'
 import { Link } from 'react-router-dom'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-// import Navbar from '../../components/Navbar/NavBar';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
+import Navbar from '../../components/Navbar/NavBar';
 
 const Landing = () => {
-    AOS.init({
-        duration: 1000,
-    });
+
 
 
 
     return (
         <div className='landing-container'>
+            {/* <div className="navbar">
+                <Navbar/>
+            </div> */}
             <div id="carrusel-contenido">
-                <div id="carrusel-caja" data-aos="fade-up">
+                <div id="carrusel-caja">
                     <div className='carru'>
                         <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png" alt="jumbo" />
                     </div>
@@ -44,7 +45,7 @@ const Landing = () => {
 
      <div className='land-text'>
      <div className='landing-t1' data-aos="fade-right"><h1>Compará</h1><br /><p>de la manera mas</p> <br /><h2>fácil y rapida</h2></div>
-            <div className='landing-principal' data-aos="fade-up">
+            <div className='landing-principal'>
                 <img src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677807225/de0ieqim2kymph6cldvl.webp" alt="foto" />
                 <div className='landing-boton'>
                     <Link to='/home'><button>Ingresar</button></Link>
