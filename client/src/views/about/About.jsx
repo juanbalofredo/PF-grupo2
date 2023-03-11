@@ -2,17 +2,26 @@ import React from "react";
 import "./about.css";
 // import faVite from '../../assets/faVite.png'
 // import faFireBase from '../../assets/'
-
-export default function About(props) {
+import Contact from "../contact/Contact"
+export default function About() {
   return (
     <div className="container-About">
       <h1>Acerca de Bolsillo Feliz</h1>
-      <p>
-Bolsillo es un proyecto final de la carrera Desarrollo Web Full-Stack que ofrece <a href='https://www.soyhenry.com'>SoyHenry</a>, realizado por ocho alumnos del cohorte 33b.</p>
-<p>
-      
-      </p>
-
+      <div className="text_about">
+        <p>
+          Somos siete estudiantes de{" "}
+          <a href='https://www.soyhenry.com'>SoyHenry</a>, que se
+          encuentran cursando actualmente la etapa final del Bootcamp en donde
+          tenemos que desarrollar una aplicación en grupo, cumpliendo diferentes
+          objetivos propuestos por el Bootcamp. Esta aplicación web tiene como
+          objetivo comparar precios de varios productos que se encuentra en
+          distintos super mercados para que el cliente tenga a disposición una
+          manera facil de comparar y ahorrar.
+        </p>
+      </div>
+      <div className="contact-about">
+        <Contact/>
+      </div>
       <div className="containerTechs">
         <h3 className="title">Tecnologías utilizadas</h3>
         <div className="containerAllIcons">
@@ -297,8 +306,8 @@ Bolsillo es un proyecto final de la carrera Desarrollo Web Full-Stack que ofrece
           </div>
           <div className="iconContainer">
             <svg
-            height='100px'
-            width='100px'
+              height="100px"
+              width="100px"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="23 6 469 132"
             >
