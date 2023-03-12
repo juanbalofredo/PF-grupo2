@@ -28,7 +28,7 @@ const Landing = () => {
             <div id='landing-1'>
                <div className='foto-landing-1' >
                <div className='text-land-1'><h2>Elegi los productos que mas te gusten</h2><br />
-                  <p>o productos en particular, para comprararlos entre si</p> <a href="#landing-3"><button>Siguiente</button></a></div> <img  
+                  <p>o productos en particular, para compararlos entre si</p> <a href="#landing-3"><button>Siguiente</button></a></div> <img  
                data-aos="fade-left"
                 data-aos-duration="10"
                 data-aos-offset="500"
