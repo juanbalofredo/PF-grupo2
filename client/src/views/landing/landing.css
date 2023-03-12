@@ -152,6 +152,31 @@ html {
   margin-left: 3rem;
   width: 35%;
 }
+.img-home-cart {
+  width: 100vw;
+  height: 300px;
+}
+.slider-home {
+  background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678594383/f5ozthjhvmyrepkqjies.jpg);
+  background-size: cover;
+  width: 100vw;
+  height: 100%;
+  animation: animate 20s 3s infinite;
+}
+@keyframes animate {
+  33% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678594388/mc7je2hwlpsdbddl7jv5.jpg);
+    background-size: cover;
+  }
+  66% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678593433/lmnjjhbfqgbdjmjnwgcm.png);
+    background-size: cover;
+  }
+  100% {
+    background-image: url(https://res.cloudinary.com/dzuasgy3l/image/upload/v1678594383/f5ozthjhvmyrepkqjies.jpg);
+    background-size: cover;
+  }
+}
 .foto-landing-2 {
   text-align: center;
   background-color: #f3e5fe;
