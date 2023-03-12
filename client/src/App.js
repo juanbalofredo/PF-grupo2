@@ -8,6 +8,7 @@ import DetalleProd from "./views/detalleProd/Detail";
 import DashUsers from "./components/dashboard/DashUsers";
 import Form from "./views/form/Form"
 import Mercadomp from "../src/components/Mercadomp"
+import About from "./views/about/About"
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import { getAllProducts } from "./redux/apiPetitions";
@@ -26,6 +27,7 @@ const App =()=>{
         <Route exact path="/dashuser" element={<DashUsers/>} />
         <Route exact path="/products/id/:id" element={<DetalleProd/>} />
         <Route exact path="/mercado" element={<Mercadomp/>} />
+        <Route exact path="/about" element={<About/>} />
       </Routes>
     </div>
   );

@@ -30,11 +30,7 @@ const Home = () => {
     <>
       <NavBar />
       <div className="img-home-cart">
-        <img
-          className="img-home-cart-2"
-          src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678233839/o0tk3bkxi7fj97h3rrx3.png"
-          alt=""
-        />
+        <div className="slider-home"></div>
       </div>
       <div className="container-de-cintainer">
         <Filtro />
