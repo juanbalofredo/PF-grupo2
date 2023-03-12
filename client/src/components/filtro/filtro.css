@@ -6,6 +6,19 @@
   width: 20rem;
   margin-left: 8rem;
 }
+.bodyDark .filtaa-container {
+  color: #c7c7c7;
+}
+.bodyDark .pag-but-que button {
+  background-color: #bdbdbd;
+}
+.bodyDark .busca input {
+  background-color: #bdbdbd;
+}
+.bodyDark .orden-tecto-1 h2,
+.bodyDark .orden-tecto-1 h3 {
+  color: #bdbdbd;
+}
 .filt-tipo {
   margin-top: 3rem;
   display: flex;
