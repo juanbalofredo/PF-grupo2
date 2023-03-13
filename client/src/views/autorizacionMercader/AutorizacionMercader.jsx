@@ -16,18 +16,16 @@ const AutorizacionMercader = () => {
 
   const [input, setInput] = useState({
     nombre: "",
-    producto: "",
+    especialidad: "",
     about: "",
-    cantidad: "",
     ubicacion: "",
     comoNosConocio: "",
   });
 
   const [error, setError] = useState({
     nombre: "",
-    producto: "",
+    especialidad: "",
     about: "",
-    cantidad: "",
     ubicacion: "",
     comoNosConocio: "",
   });
@@ -36,18 +34,16 @@ const AutorizacionMercader = () => {
     e.preventDefault();
     if (
       input.nombre.length >= 2 &&
-      input.producto.length >= 2 &&
+      input.especialidad.length >= 2 &&
       input.about.length >= 10 &&
-      input.cantidad.length >= 1 &&
       input.ubicacion.length >= 2
     ) {
       dispatch(input);
       alert("Success");
       setInput({
         nombre: "",
-        producto: "",
+        especialidad: "",
         about: "",
-        cantidad: "",
         ubicacion: "",
         comoNosConocio: "",
       });
@@ -97,15 +93,15 @@ const AutorizacionMercader = () => {
                   <div className="register-contra2">
                     <input
                       autoComplete="off"
-                      placeholder="Tu producto"
-                      name="producto"
+                      placeholder="Tu especialidad"
+                      name="especialidad"
                       type="text"
                       maxLength="20"
-                      value={input.producto}
+                      value={input.especialidad}
                       onChange={handleChange}
                     />
-                    {error.producto.length ? (
-                      <span id="error_name">{error.producto}</span>
+                    {error.especialidad.length ? (
+                      <span id="error_name">{error.especialidad}</span>
                     ) : null}
                   </div>
                 <div className="register-contra2">
@@ -120,20 +116,6 @@ const AutorizacionMercader = () => {
                   />
                   {error.about.length ? (
                     <span id="error_name">{error.about}</span>
-                  ) : null}
-                </div>
-                <div className="register-contra2">
-                  <input
-                    autoComplete="off"
-                    name="cantidad"
-                    type="number"
-                    maxLength="30"
-                    value={input.cantidad}
-                    onChange={handleChange}
-                    placeholder="Cantidad"
-                  />
-                  {error.cantidad.length ? (
-                    <span id="error_name">{error.cantidad}</span>
                   ) : null}
                 </div>
                 <div className="register-contra2">
