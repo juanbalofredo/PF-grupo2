@@ -5,6 +5,7 @@ import twitter from "../../assets/twitter.svg";
 import linkedin from "../../assets/linkedin.svg";
 import instagram from "../../assets/instagram.svg";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const state = useSelector((state) => state.bolsilloPersist);
@@ -75,13 +76,11 @@ export const Footer = () => {
       {logeado ? (
         <div className="footer-tenes-c">
           <h3>¿ Te gustaria agregar los productos de tu comercio ?</h3>
-          <a
-            href={`https://wa.me/541132695097?text=Hola quiero ser mercader en tu pagina de Bolsillo Feliz, email: ${state.email}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a>
             {" "}
+            <Link to="/autorizacion">
             <p>Hace click aca</p>
+            </Link>
           </a>
         </div>
       ) : null}

@@ -1,4 +1,3 @@
-import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
 import React from "react";
 import { useEffect, useState } from "react";
@@ -6,8 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { allProducts } from "../../redux/slice/globalSlice";
 import { postProduct } from "../../redux/apiPetitions/productsPetitions";
-import "./form.css";
+import "./autorizacionMercader.css";
 import axios from "axios";
+import Navbar from "../../components/Navbar/NavBar";
 
 const AutorizacionMercader = () => {
   const dispatch = useDispatch();
@@ -52,14 +52,15 @@ const AutorizacionMercader = () => {
         comoNosConocio: "",
       });
     } else {
-      alert("Complete the form correctly before sending it");
+      alert("Complete correctamente el formulario antes de enviarlo");
     }
   }
 
   function handleChange(e) {
+      const { name, value } = e.target;
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   }
 
@@ -67,7 +68,7 @@ const AutorizacionMercader = () => {
     <>
       {" "}
       <div className="todo">
-        <NavBar />
+        <Navbar/>
         <div className="autorizar-container">
           <div className="register-logo">
             <img
@@ -76,25 +77,24 @@ const AutorizacionMercader = () => {
             />
           </div>
           <div className="autorizar-form">
-            <form autoComplete="off">
+            <form onSubmit={handleSubmit} autoComplete="off">
               <h1>Solicitanos tu mercado</h1>
-              <div className="autorizar-text">
-                <div className="autorizar-name">
+              <div className="autorizar-text">         
                   <div className="name-error-form">
                     <input
                       autoComplete="off"
-                      placeholder="Nombre"
+                      placeholder="Nombre de tu mercado"
                       name="nombre"
                       type="text"
                       maxLength="15"
                       value={input.nombre}
-                      onChange={(e) => handleChange(e)}
+                      onChange={handleChange}
                     />
                     {error.nombre.length ? (
                       <span id="error_name">{error.nombre}</span>
                     ) : null}
                   </div>
-                  <div className="utorizar-name">
+                  <div className="register-contra2">
                     <input
                       autoComplete="off"
                       placeholder="Tu producto"
@@ -102,35 +102,34 @@ const AutorizacionMercader = () => {
                       type="text"
                       maxLength="20"
                       value={input.producto}
-                      onChange={(e) => handleChange(e)}
+                      onChange={handleChange}
                     />
                     {error.producto.length ? (
                       <span id="error_name">{error.producto}</span>
                     ) : null}
                   </div>
-                </div>
-                <div className="autorizar-name">
+                <div className="register-contra2">
                   <input
                     autoComplete="off"
                     name="about"
                     type="text"
-                    maxLength="30"
+                    maxLength="100"
                     value={input.about}
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     placeholder="Cuentanos algo de tu Mercado"
                   />
                   {error.about.length ? (
                     <span id="error_name">{error.about}</span>
                   ) : null}
                 </div>
-                <div className="autorizar-name">
+                <div className="register-contra2">
                   <input
                     autoComplete="off"
                     name="cantidad"
                     type="number"
                     maxLength="30"
                     value={input.cantidad}
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     placeholder="Cantidad"
                   />
                   {error.cantidad.length ? (
@@ -144,8 +143,8 @@ const AutorizacionMercader = () => {
                     type="text"
                     maxLength="30"
                     value={input.ubicacion}
-                    onChange={(e) => handleChange(e)}
-                    placeholder="Repetir contraseña"
+                    onChange={handleChange}
+                    placeholder="Ubicacion de tu negocio"
                   />
                   {error.ubicacion.length ? (
                     <span id="error_name">{error.ubicacion}</span>
@@ -156,16 +155,16 @@ const AutorizacionMercader = () => {
                     autoComplete="off"
                     name="comoNosConocio"
                     type="text"
-                    maxLength="30"
+                    maxLength="50"
                     value={input.comoNosConocio}
-                    onChange={(e) => handleChange(e)}
-                    placeholder="Repetir contraseña"
+                    onChange={handleChange}
+                    placeholder="Contanos como supiste de la página"
                   />
                   {error.comoNosConocio.length ? (
                     <span id="error_name">{error.comoNosConocio}</span>
                   ) : null}
                 </div>
-                <button id="bt" className="button" onClick={handleSubmit}>
+                <button type="submit" className="button" onClick={handleSubmit}>
                   Enviar
                 </button>
               </div>
