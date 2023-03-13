@@ -11,6 +11,7 @@ import Navbar from "../../components/Navbar/NavBar";
 
 const AutorizacionMercader = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.bolsilloPersist);
 
   const navigate = useNavigate();
 
@@ -53,7 +54,7 @@ const AutorizacionMercader = () => {
   }
 
   function handleChange(e) {
-      const { name, value } = e.target;
+    const { name, value } = e.target;
     setInput({
       ...input,
       [name]: value,
@@ -64,7 +65,7 @@ const AutorizacionMercader = () => {
     <>
       {" "}
       <div className="todo">
-        <Navbar/>
+        <Navbar />
         <div className="autorizar-container">
           <div className="register-logo">
             <img
@@ -75,35 +76,35 @@ const AutorizacionMercader = () => {
           <div className="autorizar-form">
             <form onSubmit={handleSubmit} autoComplete="off">
               <h1>Solicitanos tu mercado</h1>
-              <div className="autorizar-text">         
-                  <div className="name-error-form">
-                    <input
-                      autoComplete="off"
-                      placeholder="Nombre de tu mercado"
-                      name="nombre"
-                      type="text"
-                      maxLength="15"
-                      value={input.nombre}
-                      onChange={handleChange}
-                    />
-                    {error.nombre.length ? (
-                      <span id="error_name">{error.nombre}</span>
-                    ) : null}
-                  </div>
-                  <div className="register-contra2">
-                    <input
-                      autoComplete="off"
-                      placeholder="Tu especialidad"
-                      name="especialidad"
-                      type="text"
-                      maxLength="20"
-                      value={input.especialidad}
-                      onChange={handleChange}
-                    />
-                    {error.especialidad.length ? (
-                      <span id="error_name">{error.especialidad}</span>
-                    ) : null}
-                  </div>
+              <div className="autorizar-text">
+                <div className="name-error-form">
+                  <input
+                    autoComplete="off"
+                    placeholder="Nombre de tu mercado"
+                    name="nombre"
+                    type="text"
+                    maxLength="15"
+                    value={input.nombre}
+                    onChange={handleChange}
+                  />
+                  {error.nombre.length ? (
+                    <span id="error_name">{error.nombre}</span>
+                  ) : null}
+                </div>
+                <div className="register-contra2">
+                  <input
+                    autoComplete="off"
+                    placeholder="Tu especialidad"
+                    name="especialidad"
+                    type="text"
+                    maxLength="20"
+                    value={input.especialidad}
+                    onChange={handleChange}
+                  />
+                  {error.especialidad.length ? (
+                    <span id="error_name">{error.especialidad}</span>
+                  ) : null}
+                </div>
                 <div className="register-contra2">
                   <input
                     autoComplete="off"
@@ -146,9 +147,17 @@ const AutorizacionMercader = () => {
                     <span id="error_name">{error.comoNosConocio}</span>
                   ) : null}
                 </div>
-                <button type="submit" className="button" onClick={handleSubmit}>
-                  Enviar
-                </button>
+                <a className="boton-form-mer"
+                  href={`https://wa.me/541132695097?text=Hola quiero ser mercader en tu pagina de Bolsillo Feliz, 
+            email: ${state.email}  
+            nombre mercado: ${input.nombre},
+            especialidad:${input.especialidad},
+            ubicacion:${input.ubicacion},
+            como supo:${input.comoNosConocio}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >boton
+                </a>
               </div>
             </form>
           </div>
