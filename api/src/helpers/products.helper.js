@@ -28,6 +28,8 @@ export async function getProductByName({ name, order }) {
     return productsByNameParser;
 };
 
+
+// cambios para salvar la chamba
 export async function getProductsByCategory({ category, order, brand }) {
     if (category === "all" && brand == "all") {
         console.log("entro ambos en ALL")
@@ -37,7 +39,7 @@ export async function getProductsByCategory({ category, order, brand }) {
             },
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory;
+        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
         throw Error("Category not found");
     }
     if (category === "all" && brand) {
@@ -48,7 +50,7 @@ export async function getProductsByCategory({ category, order, brand }) {
             },
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory;
+        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
         throw Error("Category not found");
     }
     if (brand === "all") {
@@ -59,7 +61,7 @@ export async function getProductsByCategory({ category, order, brand }) {
             },
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory;
+        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
         throw Error("Category not found");
     } else {
         let productByCategory = await Products.findAll({
@@ -70,7 +72,7 @@ export async function getProductsByCategory({ category, order, brand }) {
             },
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory;
+        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
         throw Error("Category not found");
     }
 
@@ -81,5 +83,5 @@ export function getProductsByBrand(brand, order) {
         where: { brand },
         order: [["brand", order]]
     })
-    return productByBrand;
+    return productByBrand.slice(firstindex,lasttindex);
 };

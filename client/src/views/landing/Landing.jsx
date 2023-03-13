@@ -7,18 +7,18 @@ import Navbar from '../../components/Navbar/NavBar';
 const Landing = () => {
 
     AOS.init({
-        duration:1000,
+        duration: 1000,
     });
 
-    window.addEventListener('scroll',function(){
+    window.addEventListener('scroll', function () {
         let cart1 = document.getElementsByClassName('landing-1');
         let posicionCart1 = cart1.getBoundingClientRect().top;
         console.log(posicionCart1)
     })
     return (
         <div className='landing-container'>
-            <div className='landing-0'><img  
-               data-aos="fade-right"
+            <div className='landing-0'><img
+                data-aos="fade-right"
                 data-aos-duration="1000"
                 data-aos-offset="100"
                  src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678579215/vt0vtn2hi1tsz208yvgu.jpg" alt="" />

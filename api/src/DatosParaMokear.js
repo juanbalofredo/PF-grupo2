@@ -1,7 +1,86 @@
-let Allproducts = [
+export let arrayPrice = []
+
+for (let i = 1; i <= 30; i++) {
+    const producto = {
+        price: Math.floor(Math.random() * 51) + 100,
+        productId: Math.floor(Math.random() * 10) + 1,
+        superMId: Math.floor(Math.random() * 10) + 1
+    };
+
+    arrayPrice.push(producto);
+}
+
+// console.log(arrayPrice);
+
+export let arrayProducts = []
+
+for (let i = 1; i <= 15; i++) {
+    let numeroRamdon = Math.floor(Math.random() * 8) + 1
+    const producto = {
+        name: `Producto ${i}`,
+        brand: `Merca ${numeroRamdon}`,
+        category: numeroRamdon,
+        image: `imagen ${numeroRamdon}`
+    };
+
+    arrayProducts.push(producto);
+}
+
+// console.log(arrayProducts);
+
+export let arrayTienda = []
+
+for (let i = 1; i <= 8; i++) {
+    const producto = {
+        name: `Tienda ${i}`,
+    };
+
+    arrayTienda.push(producto);
+}
+
+// console.log(arrayTienda);
+
+
+
+export let tiendas = [
+    {
+        name: "dia",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png"
+    },
+    {
+        name: "coto",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png"
+    },
+    {
+        name: "carrefour",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png"
+    },
+    {
+        name: "disco",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png"
+    },
+    {
+        name: "jumbo",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png"
+    },
+    {
+        name: "vea",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/elsssfc03lvqxk6a3p4i.png"
+    },
+    {
+        name: "vital",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png"
+    },
+    {
+        name: "walmart",
+        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp"
+    }
+]
+
+export let Allproducts = [
 
     {
-        "name": "Leche",
+        "name": "Leche 1l",
         "brand": "Serenisima",
         "id": 1,
         "price": [
@@ -20,7 +99,7 @@ let Allproducts = [
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
     {
-        "name": "Leche",
+        "name": "Leche baquita",
         "brand": "Dia",
         "id": 2,
         "price": [
@@ -33,7 +112,7 @@ let Allproducts = [
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
     {
-        "name": "Leche",
+        "name": "Leche prueba",
         "brand": "Coto",
         "id": 3,
         "price": [
@@ -46,7 +125,7 @@ let Allproducts = [
         "description": "La leche en envase es un producto fresco y saludable, esencial en cualquier hogar. Con un envase de plástico resistente y fácil de abrir, la leche se mantiene fresca y lista para ser consumida. Perfecta para disfrutar en el desayuno, preparar postres o agregar a bebidas calientes."
     },
     {
-        "name": "Leche",
+        "name": "Leche en polvo",
         "brand": "Carrefour",
         "id": 4,
         "price": [
@@ -60,7 +139,7 @@ let Allproducts = [
     },
 
     {
-        "name": "Yogurt",
+        "name": "Yogurt griego",
         "brand": "Tregar",
         "id": 5,
         "price": [
@@ -79,7 +158,7 @@ let Allproducts = [
         "description": "El yogurt en envase es una deliciosa y saludable opción para cualquier momento del día. Con su textura cremosa y su sabor suave, se presenta en un envase de plástico con tapa hermética que mantiene su frescura. Perfecto para disfrutar solo, con frutas o en preparaciones culinarias."
     },
     {
-        "name": "Yogurt",
+        "name": "Yogurt diet",
         "brand": "Tregar",
         "id": 6,
         "price": [
@@ -834,218 +913,63 @@ let Allproducts = [
     }
 ]
 
-// esto me entrega todos los elementos pero solo con las propiedades q necesito
-let soloProductos = Allproducts.map(ele => {
-    const { name, brand, category, image } = ele;
-    let atributosFiltrados = { name, brand, category, image };
-    return atributosFiltrados;
-})
-
-
-
-// esto es para filtar los productos no Especiales
-const allowedBrands = ["Dia", "Coto", "Carrefour", "Jumbo", "Vea", "Walmart", "Disco", "Vital"];
-let productosNoEspeciales = soloProductos.filter(ele => {
-    if (!allowedBrands.includes(ele.brand)) {
-        return ele;
-    }
-})
-
-// esto es para filtrar productos especiales
-let productosEspeciales = soloProductos.filter(ele => {
-    if (allowedBrands.includes(ele.brand)) {
-        return ele;
-    }
-})
-
-export let productosUnidos = [...productosNoEspeciales, ...productosEspeciales]
-
-export let productos = productosUnidos.map((ele, indice) => {
+export let productos = Allproducts.map((ele, indice) => {
     let { name, brand, category, image } = ele;
     name = name + `${indice + 1}`
     let atributosFiltrados = { name, brand, category, image };
     return atributosFiltrados;
 })
 
-// console.log("esto es productos =>",productos)
-// let minimoEspeciales = 200;
-// let precioPorMercadoEspeciales = []
-// for (let j = 0; j < productosEspeciales.length; j++) {
-//     let precioRamdom = Math.floor(Math.random() * 21) + minimoEspeciales;
-//     let precio = {
-//         productoId: j + 1,
-//         mercadoId: j + 1,
-//         precio: precioRamdom
-//     }
-//     preciosPorMercado.push(precio);
-// }
-
-let preciosEspeciales = [
-    {
-        productId: 42,
-        superMId: 1,
-        price: 250
-    }, {
-
-        productId: 43,
-        superMId: 2,
-        price: 350
-
-    }, {
-        productId: 44,
-        superMId: 3,
-        price: 450
-    }, {
-
-        productId: 45,
-        superMId: 3,
-        price: 550
-
-    }
+export let preciosPorMercadoNoEspeciales = [
+    { price: 144, productId: 8, superMId: 10 },
+    { price: 131, productId: 4, superMId: 9 },
+    { price: 146, productId: 7, superMId: 9 },
+    { price: 110, productId: 5, superMId: 8 },
+    { price: 145, productId: 9, superMId: 1 },
+    { price: 150, productId: 3, superMId: 7 },
+    { price: 117, productId: 5, superMId: 9 },
+    { price: 111, productId: 9, superMId: 10 },
+    { price: 100, productId: 6, superMId: 10 },
+    { price: 147, productId: 3, superMId: 2 },
+    { price: 112, productId: 5, superMId: 4 },
+    { price: 145, productId: 4, superMId: 2 },
+    { price: 122, productId: 6, superMId: 6 },
+    { price: 120, productId: 5, superMId: 9 },
+    { price: 102, productId: 10, superMId: 6 },
+    { price: 129, productId: 4, superMId: 2 },
+    { price: 125, productId: 3, superMId: 5 },
+    { price: 122, productId: 3, superMId: 4 },
+    { price: 134, productId: 4, superMId: 3 },
+    { price: 106, productId: 5, superMId: 5 },
+    { price: 105, productId: 1, superMId: 8 },
+    { price: 115, productId: 1, superMId: 10 },
+    { price: 117, productId: 8, superMId: 9 },
+    { price: 105, productId: 4, superMId: 10 },
+    { price: 149, productId: 8, superMId: 4 },
+    { price: 128, productId: 2, superMId: 8 },
+    { price: 150, productId: 4, superMId: 3 },
+    { price: 101, productId: 2, superMId: 10 },
+    { price: 122, productId: 9, superMId: 1 },
+    { price: 134, productId: 1, superMId: 8 },
+    { price: 155, productId: 8, superMId: 7 }
 ]
 
-// console.log(productosEspeciales)
-
-
-
-
-// console.log ("esto es el CONSOLE.LOG ====>", productosNoEspeciales)
-
-export const tiendas = [
-    {
-        name: "Dia",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png"
-    },
-    {
-        name: "Coto",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png"
-    },
-    {
-        name: "Carrefour",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png"
-    },
-    {
-        name: "Disco",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png"
-    },
-    {
-        name: "Jumbo",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png"
-    },
-    {
-        name: "Vea",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/elsssfc03lvqxk6a3p4i.png"
-    },
-    {
-        name: "Vital",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png"
-    },
-    {
-        name: "Walmart",
-        image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp"
-    }
-]
-
-// esto es para generar precios por tienda en productos no Especiales
-let mercadosEnOrden = ["dia", "coto", "carrefour", "disco", "jumbo", "vea", "vital", "walmart"];
-const preciosPorMercadoNoEspeciales = []
-let minimo = 0
-for (let i = 0; i < productosNoEspeciales.length; i++) {
-    minimo = minimo + 100
-    for (let j = 0; j < mercadosEnOrden.length; j++) {
-        let precioRamdom = Math.floor(Math.random() * 21) + minimo;
-        let precio = {
-            productId: i + 1,
-            superMId: j + 1,
-            price: precioRamdom
+function precios2() {
+    let mercadosEnOrden = ["dia", "coto", "carrefour", "disco", "jumbo", "vea", "vital", "walmart"];
+    let precios1 = [];
+    let minimo = 0
+    for (let i = 0; i < productos.length; i++) {
+        minimo = minimo + 100
+        for (let j = 0; j < mercadosEnOrden.length; j++) {
+            let precioRamdom = Math.floor(Math.random() * 21) + minimo;
+            let precio = {
+                productId: i + 1,
+                superMId: j + 1,
+                price: precioRamdom
+            }
+            precios1.push(precio);
         }
-        preciosPorMercadoNoEspeciales.push(precio);
     }
+    return precios1
 }
-
-
-// console.log(preciosPorMercadoNoEspeciales)
-export let precios = [...preciosPorMercadoNoEspeciales, ...preciosEspeciales]
-// console.log(precios[precios.length-1])
-// console.log(precios[precios.length-2])
-// console.log(precios[precios.length-3])
-// console.log(precios[precios.length-4])
-// console.log(precios[precios.length-5])
-
-// {
-//     productoId: 1,
-//         mercadoId: 1,
-//             precio: 100
-// }
-//   1 | dia
-//   2 | coto
-//   3 | carrefour
-//   4 | disco
-//   5 | jumbo
-//   6 | vea
-//   7 | vital
-//   8 | walmart
-
-// productosNoEspeciales.forEach(e => {
-//     let coto = Math.floor(Math.random() * 21) + 1900;
-
-// })
-// console.log(soloProductos);
-
-// const productosEspeciales = Allproducts.filter(element => {
-//     if (element.brand === "Carrefour" || element.brand === "Dia" || element.brand === "Coto") {
-//         return element;
-//     }
-
-
-// });q
-
-// const productosNoEspeciales = Allproducts.filter(element => {
-//     if (element.brand !== "Carrefour" && element.brand !== "Dia" && element.brand !== "Coto") {
-//         return element;
-//     }
-// });
-
-
-//
-
-// // console.log(uniendoArrays) para ver mis commits
-
-// productosNoEspeciales.forEach(e => {
-//     let coto = Math.floor(Math.random() * 21) + 190;
-//     let dia = Math.floor(Math.random() * 21) + 190;
-//     let jumbo = Math.floor(Math.random() * 21) + 190;
-//     let carrefour = Math.floor(Math.random() * 21) + 190;
-//     let vital = Math.floor(Math.random() * 21) + 190;
-//     let wakmart = Math.floor(Math.random() * 21) + 190;
-//     let disco = Math.floor(Math.random() * 21) + 190;
-//     let preciosRamdon = [
-//!         { name: "coto", price: coto, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/xin8w1koh0ck5vu1vrem.png" },
-//?         { name: "dia", price: dia, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/ovuozay6oxqpnmqek4u0.png" },
-//*         { name: "jumbo", price: jumbo, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/gy5hpxliqxoknxbkytg2.png" },
-//         { name: "carrefour", price: carrefour, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/g8iupzjk1qrtkvr2lefo.png" },
-//         { name: "vital", price: vital, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676678/urcpur3gnbkjftcz1meh.png" },
-//         { name: "walmart", price: wakmart, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677805204/m5xpm7k7ovcmplzkwakl.webp" },
-//         { name: "disco", price: disco, image: "https://res.cloudinary.com/dzuasgy3l/image/upload/v1677676677/z6w6n2scxq7pp4tqjvpm.png" }
-//     ]
-//     e.price = preciosRamdon
-// })
-
-// let uniendoArrays = [...productosEspeciales, ...productosNoEspeciales];
-
-// uniendoArrays.forEach(element => {
-//     if (element.brand !== "Carrefour" && element.brand !== "Dia" && element.brand !== "Coto") {
-//         console.log(element)
-//     }
-// })
-
-
-// console.log(uniendoArrays[0]);
-// console.log(uniendoArrays[1]);
-// console.log(uniendoArrays[2]);
-// console.log(uniendoArrays[3]);
-// console.log(uniendoArrays[4]);
-// console.log(uniendoArrays[5]);
-// console.log(uniendoArrays[6]);
-
-// module.exports = { productosEnOrden, tiendas, uniendoPrecios };
+export let precios = precios2()
