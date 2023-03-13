@@ -1,19 +1,23 @@
 import Reviews from "../models/review.js";
 import Users from "../models/users.js";
+import SuperM from "../models/superM.js";
 
 export function getReviewsById(id) {
     const reviewById = Reviews.findOne({
         where: { id },
+        include: { model: SuperM, attributes: ['name']}
     });
     return reviewById;
 }
 
 
-export async function createReviews({ message, userId }) {
+export async function createReviews({ message, userId, superMId, score }) {
 
     await Reviews.create({
         userId,
-        message,
+        superMId,
+        score,
+        message
     })
 }
 
