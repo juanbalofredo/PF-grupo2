@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
-import Reviews from "./comments.js";
 
 const Users = dataBase.define('users', {
     id: {
@@ -13,42 +12,42 @@ const Users = dataBase.define('users', {
         allowNull: false
     },
     last_name: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    user_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
     email: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
-    image_avatar: {
+    hashgoogle: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    avatar: {
         type: DataTypes.STRING,
         allowNull: false
     },
     type_account: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.ENUM("1", "2", "3"),
+        allowNull: false,
+        defaultValue: "1"
     },
     notifications: {
         type: DataTypes.BOOLEAN,
+        defaultValue: true
     },
-
+    activity: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    },
+    location: {
+        type: DataTypes.STRING,
+    }
 }, { timestamps: false })
-
-Users.hasMany(Reviews, {
-    through: "Users_Review",
-    timestamps: false,
-  });
-Reviews.belongsToMany(Users, {
-    through: "Users_Review",
-    timestamps: false,
-  });
 
 export default Users;
