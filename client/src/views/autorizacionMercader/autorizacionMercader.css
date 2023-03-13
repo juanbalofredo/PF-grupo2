@@ -34,7 +34,22 @@ body {
   width: 10rem;
   margin-right: 60px;
 }
-
+.boton-form-mer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  width: 5rem;
+  height: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+.boton-form-mer:hover{
+  cursor: pointer;
+  background-color: rgb(94, 94, 94);
+}
 .autorizar-form {
   height: 30rem;
   width: 30rem;
