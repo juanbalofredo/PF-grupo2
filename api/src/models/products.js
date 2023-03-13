@@ -1,40 +1,22 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
 import Brand from "./brand.js";
+import Prices from "./price.js";
 
 const Products = dataBase.define(
   "products",
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    price: {
-      type: DataTypes.JSON,
-      allowNull: false,
+      unique: true
     },
     brand: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    unit: {
-      type: DataTypes.STRING,
-    },
     category: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    supermarket: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.TEXT,
       allowNull: false,
     },
     image: {
@@ -45,13 +27,6 @@ const Products = dataBase.define(
   { timestamps: false }
 );
 
-Products.belongsTo(Brand, {
-  through: "Products_Brand",
-  timestamps: false,
-});
-Brand.belongsToMany(Products, {
-  through: "Products_Brand",
-  timestamps: false,
-});
-
+Products.hasMany(Prices);
+Prices.belongsTo(Products);
 export default Products;
