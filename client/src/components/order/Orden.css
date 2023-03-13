@@ -1,0 +1,34 @@
+.orde-pag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.orde-pag label {
+  margin-left: 25%;
+}
+.orden-tecto-1 {
+  text-align: center;
+  color: black;
+  font-size: 30px;
+}
+#ordenPrecio {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+}
+#ordenPrecio:hover {
+  cursor: pointer;
+}
+#ordenPrecio:focus {
+  outline: none;
+}
+.bodyDark #ordenPrecio {
+  color: white;
+}
+.bodyDark #ordenPrecio option {
+  color: black;
+}
+.bodyDark .orden-tecto-1 {
+  color: white;
+}

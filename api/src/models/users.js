@@ -45,9 +45,8 @@ const Users = dataBase.define('users', {
         type: DataTypes.BOOLEAN,
         defaultValue: true
     },
-    location: {
-        type: DataTypes.STRING,
-    }
+
+
 }, { timestamps: false })
 
 export default Users;

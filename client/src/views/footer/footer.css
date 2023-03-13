@@ -1,0 +1,47 @@
+/* .footer {
+    background-color: rgb(10, 10, 10);
+    padding: 1em 0;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+} */
+
+.footer{
+  max-height: 200px;
+  display: flex;
+  background-color: #272525;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  color: white;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.footer a{
+  text-decoration: none;
+  color: white;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer img{
+  width: 30px;
+  margin-right: 1rem;
+}
+
+.socialmedia{
+  display: flex;
+}
+
+.rightContainer {
+  margin-right: 3rem;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+}
