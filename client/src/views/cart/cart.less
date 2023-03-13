@@ -2,32 +2,57 @@
 @tablet: ~"only screen and (min-width: 1000px) and (max-width: 1400px)";
 @bigMobile: ~"only screen and (min-width: 701px) and (max-width: 999px)";
 @mobile: ~"only screen and (min-width: 0px) and (max-width: 700px)";
-
-@font:'Open Sans', sans-serif;
-@pNormal:  #c94d18;
-@pClaro:  #c94d18;
-@pOscuro:  #c94d18;
-@jNormal:  #c94d18;
-@Jclaro:  #c94d18;
-@jOscuro:  #c94d18;
-@backG:  #c94d18;
-@backG2:  #c94d18;
-@backG3:  #c94d18;
-@backG4:  #c94d18;
+@font2: "Phudu", cursive;
+@font: "Open Sans", sans-serif;
+@azul-osc: #0f4571;
+@celeste-nor: #386dbd;
+@oscuro: #272525;
+@celeste: #009ddd;
+@celeste-claro: #05d3f8;
 
 
-
-@media @desktop{
-
+.foto-mp{
+     
+        width: 30rem;
+        filter:brightness(1.1);
+        mix-blend-mode: multiply;
+     
 }
-
-
-@media @tablet{
-    
+.container-mp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130vh;   
+     background-color: white;
+     align-items: flex-start;
+     padding-top: 20rem;
 }
-@media @bigMobile{
+.container-txt-mp{
+    background-color: rgb(196, 196, 196);
+    border-radius: 20px;
+    height: 30vh;
     
-}
-@media @mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 30rem;
+    p{
+        width: 25rem;
+    }
     
+    button{
+        margin-top: 20px;
+        width: 15rem;
+        height: 2rem;
+        border: none;
+        border-radius: 10px;
+        background-color: #7ed8fc;
+        font-family: "Phudu", cursive;
+        font-size: medium;
+        &:hover{
+        cursor: pointer;
+            background-color: #53a0be;
+        }
+    }
 }
