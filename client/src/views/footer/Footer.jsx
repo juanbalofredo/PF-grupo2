@@ -5,6 +5,7 @@ import twitter from "../../assets/twitter.svg";
 import linkedin from "../../assets/linkedin.svg";
 import instagram from "../../assets/instagram.svg";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const state = useSelector((state) => state.bolsilloPersist);
@@ -47,41 +48,14 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div>
-        <h3>Contacto</h3>
-        <p className="team">
-          <a href="https://www.linkedin.com/in/nicol%C3%A1s-piantini-4027b6194">
-            Nicolás Piantini{" "}
-          </a>
-          <a href="https://www.linkedin.com/in/juan-lofredo-49946520b">
-            Juan Lofredo
-          </a>
-          <a href="https://www.linkedin.com/in/bautista-godoy">
-            Bautista Godoy
-          </a>
-          <a href="https://www.linkedin.com/in/nicolasgalarce">
-            {" "}
-            Nicolás Galarce{" "}
-          </a>
-          <a href="https://www.linkedin.com/in/daniel-martel-chavez-866481238/">
-            {" "}
-            Daniel Martel{" "}
-          </a>
-          <a href=""> Alex Huaitiao </a>
-          <a href=""> Francisco Di Nucci </a>
-        </p>
-      </div>
-
       {logeado ? (
         <div className="footer-tenes-c">
           <h3>¿ Te gustaria agregar los productos de tu comercio ?</h3>
-          <a
-            href={`https://wa.me/541132695097?text=Hola quiero ser mercader en tu pagina de Bolsillo Feliz, email: ${state.email}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a>
             {" "}
+            <Link to="/autorizacion">
             <p>Hace click aca</p>
+            </Link>
           </a>
         </div>
       ) : null}

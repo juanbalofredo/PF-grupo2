@@ -1,4 +1,3 @@
-import NavBar from "../Navbar/NavBar";
 import Footer from "../../views/footer/Footer";
 import React from "react";
 import { useEffect, useState } from "react";
@@ -6,28 +5,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { allProducts } from "../../redux/slice/globalSlice";
 import { postProduct } from "../../redux/apiPetitions/productsPetitions";
-import "./form.css";
+import "./autorizacionMercader.css";
 import axios from "axios";
+import Navbar from "../../components/Navbar/NavBar";
 
 const AutorizacionMercader = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.bolsilloPersist);
 
   const navigate = useNavigate();
 
   const [input, setInput] = useState({
     nombre: "",
-    producto: "",
+    especialidad: "",
     about: "",
-    cantidad: "",
     ubicacion: "",
     comoNosConocio: "",
   });
 
   const [error, setError] = useState({
     nombre: "",
-    producto: "",
+    especialidad: "",
     about: "",
-    cantidad: "",
     ubicacion: "",
     comoNosConocio: "",
   });
@@ -36,30 +35,29 @@ const AutorizacionMercader = () => {
     e.preventDefault();
     if (
       input.nombre.length >= 2 &&
-      input.producto.length >= 2 &&
+      input.especialidad.length >= 2 &&
       input.about.length >= 10 &&
-      input.cantidad.length >= 1 &&
       input.ubicacion.length >= 2
     ) {
       dispatch(input);
       alert("Success");
       setInput({
         nombre: "",
-        producto: "",
+        especialidad: "",
         about: "",
-        cantidad: "",
         ubicacion: "",
         comoNosConocio: "",
       });
     } else {
-      alert("Complete the form correctly before sending it");
+      alert("Complete correctamente el formulario antes de enviarlo");
     }
   }
 
   function handleChange(e) {
+    const { name, value } = e.target;
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   }
 
@@ -67,7 +65,7 @@ const AutorizacionMercader = () => {
     <>
       {" "}
       <div className="todo">
-        <NavBar />
+        <Navbar />
         <div className="autorizar-container">
           <div className="register-logo">
             <img
@@ -76,65 +74,49 @@ const AutorizacionMercader = () => {
             />
           </div>
           <div className="autorizar-form">
-            <form autoComplete="off">
+            <form onSubmit={handleSubmit} autoComplete="off">
               <h1>Solicitanos tu mercado</h1>
               <div className="autorizar-text">
-                <div className="autorizar-name">
-                  <div className="name-error-form">
-                    <input
-                      autoComplete="off"
-                      placeholder="Nombre"
-                      name="nombre"
-                      type="text"
-                      maxLength="15"
-                      value={input.nombre}
-                      onChange={(e) => handleChange(e)}
-                    />
-                    {error.nombre.length ? (
-                      <span id="error_name">{error.nombre}</span>
-                    ) : null}
-                  </div>
-                  <div className="utorizar-name">
-                    <input
-                      autoComplete="off"
-                      placeholder="Tu producto"
-                      name="producto"
-                      type="text"
-                      maxLength="20"
-                      value={input.producto}
-                      onChange={(e) => handleChange(e)}
-                    />
-                    {error.producto.length ? (
-                      <span id="error_name">{error.producto}</span>
-                    ) : null}
-                  </div>
+                <div className="name-error-form">
+                  <input
+                    autoComplete="off"
+                    placeholder="Nombre de tu mercado"
+                    name="nombre"
+                    type="text"
+                    maxLength="15"
+                    value={input.nombre}
+                    onChange={handleChange}
+                  />
+                  {error.nombre.length ? (
+                    <span id="error_name">{error.nombre}</span>
+                  ) : null}
                 </div>
-                <div className="autorizar-name">
+                <div className="register-contra2">
+                  <input
+                    autoComplete="off"
+                    placeholder="Tu especialidad"
+                    name="especialidad"
+                    type="text"
+                    maxLength="20"
+                    value={input.especialidad}
+                    onChange={handleChange}
+                  />
+                  {error.especialidad.length ? (
+                    <span id="error_name">{error.especialidad}</span>
+                  ) : null}
+                </div>
+                <div className="register-contra2">
                   <input
                     autoComplete="off"
                     name="about"
                     type="text"
-                    maxLength="30"
+                    maxLength="100"
                     value={input.about}
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     placeholder="Cuentanos algo de tu Mercado"
                   />
                   {error.about.length ? (
                     <span id="error_name">{error.about}</span>
-                  ) : null}
-                </div>
-                <div className="autorizar-name">
-                  <input
-                    autoComplete="off"
-                    name="cantidad"
-                    type="number"
-                    maxLength="30"
-                    value={input.cantidad}
-                    onChange={(e) => handleChange(e)}
-                    placeholder="Cantidad"
-                  />
-                  {error.cantidad.length ? (
-                    <span id="error_name">{error.cantidad}</span>
                   ) : null}
                 </div>
                 <div className="register-contra2">
@@ -144,8 +126,8 @@ const AutorizacionMercader = () => {
                     type="text"
                     maxLength="30"
                     value={input.ubicacion}
-                    onChange={(e) => handleChange(e)}
-                    placeholder="Repetir contraseña"
+                    onChange={handleChange}
+                    placeholder="Ubicacion de tu negocio"
                   />
                   {error.ubicacion.length ? (
                     <span id="error_name">{error.ubicacion}</span>
@@ -156,18 +138,26 @@ const AutorizacionMercader = () => {
                     autoComplete="off"
                     name="comoNosConocio"
                     type="text"
-                    maxLength="30"
+                    maxLength="50"
                     value={input.comoNosConocio}
-                    onChange={(e) => handleChange(e)}
-                    placeholder="Repetir contraseña"
+                    onChange={handleChange}
+                    placeholder="Contanos como supiste de la página"
                   />
                   {error.comoNosConocio.length ? (
                     <span id="error_name">{error.comoNosConocio}</span>
                   ) : null}
                 </div>
-                <button id="bt" className="button" onClick={handleSubmit}>
-                  Enviar
-                </button>
+                <a className="boton-form-mer"
+                  href={`https://wa.me/541132695097?text=Hola quiero ser mercader en tu pagina de Bolsillo Feliz, 
+            email: ${state.email}  
+            nombre mercado: ${input.nombre},
+            especialidad:${input.especialidad},
+            ubicacion:${input.ubicacion},
+            como supo:${input.comoNosConocio}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >boton
+                </a>
               </div>
             </form>
           </div>

@@ -7,8 +7,9 @@ import Usersget from "./views/Firebase/GoogleSign";
 import DetalleProd from "./views/detalleProd/Detail";
 import DashUsers from "./components/dashboard/DashUsers";
 import Form from "./views/form/Form"
-import Mercadomp from "../src/components/Mercadomp"
+import MercadoP from "./views/cart/Cart"
 import About from "./views/about/About"
+import AutorizacionMercader from "./views/autorizacionMercader/AutorizacionMercader";
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import { getAllProducts } from "./redux/apiPetitions";
@@ -26,8 +27,9 @@ const App =()=>{
         <Route exact path="/form" element={<Form/>} />
         <Route exact path="/dashuser" element={<DashUsers/>} />
         <Route exact path="/products/id/:id" element={<DetalleProd/>} />
-        <Route exact path="/mercado" element={<Mercadomp/>} />
+        <Route exact path="/mp" element={<MercadoP/>} />
         <Route exact path="/about" element={<About/>} />
+        <Route exact path="/autorizacion" element={<AutorizacionMercader/>} />
       </Routes>
     </div>
   );

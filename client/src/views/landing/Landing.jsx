@@ -22,13 +22,13 @@ const Landing = () => {
                 data-aos-duration="1000"
                 data-aos-offset="100"
                  src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678579215/vt0vtn2hi1tsz208yvgu.jpg" alt="" />
-                  <div className='text-land-0'><h2>Queres ahorrar hasta el ultimo peso?</h2><br />
+                  <div className='text-land-0'><h2>Queres ahorrar hasta el último peso?</h2><br />
                   <p>te vamos a contar como es posible con bolsillo feliz</p> 
                   <a href="#landing-1"><button>Siguiente</button>  </a>   </div>  </div>
             <div id='landing-1'>
                <div className='foto-landing-1' >
-               <div className='text-land-1'><h2>Elegi los productos que mas te gusten</h2><br />
-                  <p>o productos en particular, para compararlos entre si</p> <a href="#landing-3"><button>Siguiente</button></a></div> <img  
+               <div className='text-land-1'><h2>Elegí los productos que más te gusten</h2><br />
+                  <p>o productos en particular, para compararlos entre sí</p> <a href="#landing-3"><button>Siguiente</button></a></div> <img  
                data-aos="fade-left"
                 data-aos-duration="10"
                 data-aos-offset="500"
@@ -37,7 +37,7 @@ const Landing = () => {
             <div id='landing-3'>
                <div className='foto-landing-3' >
                <div className='text-land-3'><h2>Nosotros te decimos donde <br /> te conviene comprarlo</h2><br />
-                  <p>puediendo elegir comprarlo en uno o mas <br /> supermercados diferentes</p> <a href="#landing-2"><button>Siguiente</button></a></div> <img  
+                  <p>pudiendo elegir comprarlo en uno o más <br /> supermercados diferentes</p> <a href="#landing-2"><button>Siguiente</button></a></div> <img  
                data-aos="fade-up"
                 data-aos-duration="10"
                 data-aos-offset="500"
@@ -50,8 +50,8 @@ const Landing = () => {
                 data-aos-duration="10"
                 data-aos-offset="500"
                  src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678574976/mxiwk9wpougp8gq3d2vs.png" alt="" />
-                 <div className='text-land-2'><h2>Ya podes empezar a Comparar</h2><br />
-                   <a href="/home"><button>Vamos</button></a></div> </div>
+                 <div className='text-land-2'><h2>Ya podés empezar a Comparar</h2><br />
+                   <a href="/home"><button>Estoy listo</button></a></div> </div>
             </div>
         </div>
     )

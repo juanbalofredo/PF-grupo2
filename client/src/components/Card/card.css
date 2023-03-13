@@ -20,12 +20,7 @@
    .card:hover{
     box-shadow: 2px 2px 10px 6px rgb(100, 100, 100);
    }
-   .bodyDark .card{
-    background: #a8a8a8;
-   }
-   .bodyDark .card:hover{
-    background: #cccccc;
-   }
+
    
    .card-details {
     color: black;
