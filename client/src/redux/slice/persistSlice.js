@@ -18,13 +18,13 @@ export const bolsilloPersist = createSlice({
 
   reducers: {
     oneUsers(state, action) {
-      state.name = action.payload.name;
+      state.name = action.payload.user_name;
       state.type_account = action.payload.type_account;
       state.user = true;
       state.last_name = action.payload.last_name;
       state.avatar = action.payload.avatar;
       state.id = action.payload.id;
-      state.email = action.payload.email;
+      state.email = action.payload.user_email;
     },
     createUser(state, action) {
       state.name = action.payload.name;
