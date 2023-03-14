@@ -1,27 +1,25 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { allProducts } from "../../redux/slice/globalSlice";
 import { postProduct } from "../../redux/apiPetitions/productsPetitions";
 import "./form.css";
 import axios from "axios";
+import Navbar from "../../components/Navbar/NavBar";
+import Footer from "../footer/Footer";
 
 const Form = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.bolsilloPersist.user);
+  // const user = useSelector((state) => state.bolsilloPersist.user);
 
   var uploadedImage = "";
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(allProducts());
-  }, [dispatch]);
-
   function handleChange(e) {
+    const { name, value } = e.target;
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   }
 
@@ -36,7 +34,7 @@ const Form = () => {
         uploadedImage = response.data.secure_url;
         setInput({
           ...input,
-          avatar: uploadedImage,
+          image: uploadedImage,
         });
       });
   };
@@ -51,7 +49,11 @@ const Form = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (input.name.length >= 1 && input.price >= 1 && input.price <= 1000000) {
+    if (
+      input.name.length >= 1 &&
+      input.price >= 1 &&
+      input.price <= 1000000  
+    ) {
       dispatch(postProduct(input));
       alert("Producto agregado exitosamente");
 
@@ -61,12 +63,13 @@ const Form = () => {
         image: "",
       });
     } else {
-      alert("Complete the form correctly before sending it");
+      alert("Complete correctamente el formulario antes de enviarlo");
     }
   }
 
   return (
     <div>
+      <div><Navbar/></div>
       <div>
         <Link to="/home">
           <button>Return to home</button>
@@ -79,7 +82,7 @@ const Form = () => {
             <div className="title">Añade tu producto</div>
           </div>
 
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={handleSubmit}>
             <div className="form">
               <div className="izq">
                 <div>
@@ -87,8 +90,8 @@ const Form = () => {
                   <input
                     type="text"
                     value={input.name}
-                    name="nombre"
-                    onChange={(e) => handleChange(e)}
+                    name="name"
+                    onChange={handleChange}
                     placeholder="Nombre"
                     className="inputs"
                   />
@@ -99,8 +102,8 @@ const Form = () => {
                   <input
                     type="number"
                     value={input.price}
-                    name="Precio"
-                    onChange={(e) => handleChange(e)}
+                    name="price"
+                    onChange={handleChange}
                     placeholder="Precio"
                     className="inputs"
                   />
@@ -117,24 +120,36 @@ const Form = () => {
                     type="text"
                     value={input.stock}
                     name="stock"
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     placeholder="stock"
                     className="inputs"
                   />
                 </div>
-                <div>
-                  <div>Image:</div>
+
+                <label htmlFor="img">
+                  Selecciona una imagen de tu producto:
+                </label>
+                <div className="reg-image">
+                  {input.image.length < 3 ? (
+                    <img
+                      src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1677853169/hhxaujrmszfjbzul3zvr.png"
+                      alt="logo"
+                    />
+                  ) : (
+                    <img src={input.image} alt="logo" />
+                  )}
+                </div>
+
                   <input
                     type="file"
                     name="image"
                     value={uploadedImage}
                     onChange={uploadImage}
                   />
-                </div>
-                <div>
+                {/* <div>
                   <img src={input.image} alt="" width={"100px"} />
                   Preview
-                </div>
+                </div> */}
                 <button id="bt" className="button" onClick={handleSubmit}>
                   Añadir
                 </button>
@@ -143,9 +158,7 @@ const Form = () => {
           </form>
         </div>
       </div>
-      <form>
-        <div></div>
-      </form>
+      <div><Footer/></div>
     </div>
   );
 };
