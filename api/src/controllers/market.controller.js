@@ -1,4 +1,4 @@
-import { getMarketById, deleteMarketById } from "../helpers/market.helper.js";
+import { getMarketById, deleteMarketById, createSmarket } from "../helpers/market.helper.js";
 import SuperM from "../models/superM.js";
 
 export async function getAllMarket(req, res) {
@@ -36,3 +36,13 @@ export async function deleteMarket(req, res) {
         res.status(500).send({ err: error.message });
     }
 };
+
+export async function postMarket(req, res) {
+    const dataMarketFromBody = req.body;
+    try {
+        let createNewMarket = await createSmarket(dataMarketFromBody);
+        res.status(200).json(createNewMarket)
+    } catch (error) {
+        res.status(400).send({err: error.message})
+    }
+}

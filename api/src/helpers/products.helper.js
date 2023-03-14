@@ -1,5 +1,30 @@
 import Products from "../models/products.js";
 import { Op } from "sequelize";
+import Prices from "../models/price.js";
+import SuperM from "../models/superM.js";
+import { productos } from "../prueba(4).js";
+
+export async function getAllProducts() {
+    const allProducts = await Products.findAll(
+        {
+            attributes: ['name'],
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
+            order: [["name", "ASC"]]
+        }
+    )
+    return allProducts;
+}
 
 export function getProductsById(id) {
     const productsById = Products.findOne({
@@ -9,7 +34,7 @@ export function getProductsById(id) {
 }
 
 export async function getProductByName({ name, order }) {
-    console.log("esto es Name y Order ==>",name, order)
+    console.log("esto es Name y Order ==>", name, order)
     const productsByName = await Products.findAll({
         where: {
             name: {
@@ -19,7 +44,7 @@ export async function getProductByName({ name, order }) {
         order: [["name", order]]
     });
 
-    console.log("esto es ProducByName ==>",productsByName)
+    console.log("esto es ProducByName ==>", productsByName)
     const productsByNameParser = productsByName?.map(e => {
         let parsePrice = JSON.parse(e.price);
         e.price = parsePrice;
@@ -83,3 +108,14 @@ export function getProductsByBrand(brand, order) {
     })
     return productByBrand;
 };
+
+export async function createProducts(productsFromBody) {
+    let verifyProducts = await Products.findAll()
+    if (verifyProducts.length === 0) {
+        let createProducts = await Products.bulkCreate(productos)
+        return createProducts;
+    }
+    let {name, brand, image,category} = productsFromBody
+    let createProduct = await Products.create({name, brand, image, category})
+    return createProduct;
+}
