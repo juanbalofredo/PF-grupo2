@@ -68,3 +68,13 @@ export async function getByBrand(req, res) {
         return res.status(400).json({ err: error.message });
     }
 };
+
+export async function postProduct(req, res) {
+    const infoBody = req.body
+    try {
+        let createProductsHere = await createProducts(infoBody);
+        res.status(200).json(createProductsHere);
+    } catch (error) {
+        res.status(400).send({ err: error.message })
+    }
+};
