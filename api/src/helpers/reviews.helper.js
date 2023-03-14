@@ -5,9 +5,19 @@ import SuperM from "../models/superM.js";
 export function getReviewsById(id) {
     const reviewById = Reviews.findOne({
         where: { id },
-        include: { model: SuperM, attributes: ['name']}
+        attributes: ['id','message','score','userId','activity'],
+        include: { model: SuperM, attributes: ['name','id']},
+        
     });
     return reviewById;
+}
+
+export function getTotalReviews(){
+    const totalReviews = Reviews.findAll({
+        attributes: ['id','message','score','userId','activity'],
+        include: { model: SuperM, attributes: ['name','id']}
+    });
+    return totalReviews;
 }
 
 
