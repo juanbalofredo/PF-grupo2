@@ -100,6 +100,32 @@ export async function getProductsByCategory({ category, order, brand, name }) {
         if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
+    if (category === "all" && brand !== "all" && name === "all") {
+        console.log('"entro a "category === "all" && brand === "all" && name')
+        let productByCategory = await Products.findAll({
+            where: {
+                brand: {
+                    [Op.iLike]: `%${brand}%`
+                }
+                // supermarket: "General"
+            },
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
+            order: [["name", order]]
+        })
+        if (productByCategory.length != 0) return productByCategory
+        throw Error("Category not found");
+    }
     if (brand === "all") {
         console.log('entro en  brand === "all"')
         let productByCategory = await Products.findAll({
