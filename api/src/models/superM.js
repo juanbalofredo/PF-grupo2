@@ -18,9 +18,10 @@ const SuperM = dataBase.define(
         image: {
             type: DataTypes.STRING,
             allowNull: true,
-        }
+        }},
 
     { timestamps: false });
+    
 
 SuperM.hasMany(Prices);
 Prices.belongsTo(SuperM);
