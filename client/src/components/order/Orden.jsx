@@ -27,7 +27,7 @@ const Orden = () => {
     </div>
     <div className='orde-pag'>
       <label value="" >Ordenar Por</label>
-      <select onChange={changeOrder} name="ordenPrecio" id="ordenPrecio" key={stateCategory}>
+      <select onChange={changeOrder} name="ordenPrecio" id="ordenPrecio" key={category}>
         <option value="ASC">A-Z</option>
         <option value="DESC">Z-A</option>
       </select>

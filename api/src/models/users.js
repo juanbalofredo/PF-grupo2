@@ -33,9 +33,9 @@ const Users = dataBase.define('users', {
         allowNull: false
     },
     type_account: {
-        type: DataTypes.ENUM("1", "2", "3","4"),
+        type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: "1"
+        defaultValue:"Client"
     },
     notifications: {
         type: DataTypes.BOOLEAN,
