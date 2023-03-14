@@ -36,6 +36,7 @@ const Filtro = () => {
 
   async function handleFilterBrand(e) {
     dispatch(resPage())
+    console.log(stateCategory,e,valor)
     getCategoryParams(dispatch, stateCategory, e, valor);
   }
 

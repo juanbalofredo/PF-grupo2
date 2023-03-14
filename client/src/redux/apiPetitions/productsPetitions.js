@@ -7,6 +7,9 @@ import {
   Category,
   oneComment,
   Brand,
+  filterPName,
+  Pname
+
 } from "../slice/globalSlice";
 
 export async function getProductos(dispatch) {
@@ -37,7 +40,7 @@ export const getNameQuery = async (dispatch, name, order) => {
       `http://localhost:3001/products/name?name=${name}&order=${order}`
     );
     dispatch(
-      getName(petition?.data.filter((a) => a.supermarket === "General"))
+      getName(petition?.data)
     );
   } catch (error) {
     return error.response;
@@ -47,20 +50,25 @@ export const getNameQuery = async (dispatch, name, order) => {
 export const getCategoryParams = async (
   dispatch,
   category,
-  supermarket,
+  brand,
+  pname,
   valor
 ) => {
   try {
     const petition = await axios.get(
-      `http://localhost:3001/products/category/${category}/${supermarket}/${valor}`
+      `http://localhost:3001/products/category/${category}/${brand}/${valor}/${pname}`
     );
     if (category !== "all") {
       dispatch(Category(petition?.data[0].category));
       dispatch(filterCategory(petition?.data));
     }
-    if (supermarket !== "all") {
+    if (brand !== "all") {
       dispatch(Brand(petition?.data[0].brand));
       dispatch(filterCategory(petition?.data));
+    }
+    if (pname !== "all") {
+      dispatch(Pname(petition?.data[0].name));
+      dispatch(filterPName(petition?.data));
     } else {
       dispatch(filterCategory(petition?.data));
     }

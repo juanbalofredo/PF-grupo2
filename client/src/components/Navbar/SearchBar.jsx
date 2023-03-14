@@ -1,29 +1,32 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getNameQuery } from "../../redux/apiPetitions/productsPetitions";
+import { getCategoryParams } from "../../redux/apiPetitions/productsPetitions";
 import "./navBar.css";
-import {  resPage } from "../../redux/slice/globalSlice";
+import { resPage } from "../../redux/slice/globalSlice";
 
 export default function SearchBar(props) {
+  const { brand, category } = useSelector((state) => state.bolsilloFeliz);
   const dispatch = useDispatch();
-  const [model, setModel] = useState("");
+  const [pname, setPname] = useState("");
   const navigate = useNavigate();
+  const valor = "ASC";
 
   const handleInputModel = (e) => {
     e.preventDefault();
-    setModel(e.target.value);
+    dispatch(resPage());
+    setPname(e.target.value);
   };
 
-   function handleSubmit(e) {
-    dispatch(resPage())
+  function handleSubmit(e) {
     e.preventDefault();
-    if (window.location.href !== 'http://localhost:3000/home') {
-      (getNameQuery(dispatch,model)).then(navigate("/home")).then(()=> getNameQuery(dispatch,model))
-  }     
-    getNameQuery(dispatch,model,props.estado);
-   
-}
+    if (window.location.href !== "http://localhost:3000/home") {
+      getCategoryParams(dispatch, brand, category, valor, pname)
+        .then(navigate("/home"))
+        .then(() => getCategoryParams(dispatch, brand, category, valor, pname));
+    }
+    getCategoryParams(dispatch, brand, category, valor, pname);
+  }
   return (
     <>
       <div className="searchbar-container">
@@ -44,5 +47,4 @@ export default function SearchBar(props) {
       </div>
     </>
   );
-};
-  
+}
