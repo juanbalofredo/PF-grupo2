@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAllMarket, getById, deleteMarket, postMarket} from "../controllers/market.controller.js"
-
+import { payment, feedback } from "../controllers/mercPago.controller.js";
 const market = Router();
 
 market.get("/", getAllMarket);
@@ -11,22 +11,7 @@ market.put("/putmarket/:id", )
 market.delete("/deletemarket/:id", deleteMarket );
 
 //MERCADO PAGO
-import PaymentController from "../controllers/mercPago.controller.js";
-import getSubscriptionLink from "../controllers/mercPago.controller.js"
-import PaymentService from "../helpers/merPago.helper.js"
-
-const PaymentInstance = new PaymentController(new PaymentService());
-
-market.get("/payment", function (req, res) {
-  return res.json({
-    "/payment": "generates a payment link",
-    "/subscription": "generates a subscription link"
-  });
-});
-
-market.post("/subscription", function (req, res) {
-  PaymentInstance.getSubscriptionLink(req, res);
-});
-
+market.post("/payment", payment);
+market.get("/feedback", feedback);
 
 export default market;

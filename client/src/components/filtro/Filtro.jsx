@@ -20,6 +20,7 @@ const Filtro = () => {
   const valor = "ASC";
   const stateSupermarket = useSelector((state) => state.bolsilloFeliz.brand);
   const stateCategory = useSelector((state) => state.bolsilloFeliz.category);
+  const statePname = useSelector((state) => state.bolsilloFeliz.pname);
   todasMarcas.forEach((element) => {
     if (seenElements[element]) {
       duplicatesArray.push(element);
@@ -31,12 +32,13 @@ const Filtro = () => {
 
   async function handleFilterCategory(e) {
     dispatch(resPage())
-    getCategoryParams(dispatch, e, stateSupermarket, valor);
+    getCategoryParams(dispatch, e, stateSupermarket, valor,statePname);
   }
 
   async function handleFilterBrand(e) {
     dispatch(resPage())
-    getCategoryParams(dispatch, stateCategory, e, valor);
+    console.log(stateCategory,e,valor)
+    getCategoryParams(dispatch, stateCategory, e,valor,statePname);
   }
 
   async function handleFilterReset() {

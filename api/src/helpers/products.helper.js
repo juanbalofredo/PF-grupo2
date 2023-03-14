@@ -7,7 +7,7 @@ import { productos } from "../prueba(4).js";
 export async function getAllProducts() {
     const allProducts = await Products.findAll(
         {
-            attributes: ['name',"image",'brand',"id","category"],
+            attributes: ['name', "image", 'brand', "id", "category"],
             include: [
                 {
                     model: Prices,
@@ -53,49 +53,130 @@ export async function getProductByName({ name, order }) {
     return productsByNameParser;
 };
 
-export async function getProductsByCategory({ category, order, brand }) {
-    if (category === "all" && brand == "all") {
+export async function getProductsByCategory({ category, order, brand, name }) {
+    if (category === "all" && brand == "all" && name === "all") {
         console.log("entro ambos en ALL")
         let productByCategory = await Products.findAll({
-            where: {
-                supermarket: "General"
-            },
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
+        if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
-    if (category === "all" && brand) {
+    if (category === "all" && brand === "all" && name !== "all") {
+        console.log('"entro a "category === "all" && brand === "all" && name')
         let productByCategory = await Products.findAll({
             where: {
-                brand,
-                supermarket: "General"
+                name: {
+                    [Op.iLike]: `%${name}%`
+                }
+                // supermarket: "General"
             },
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
+        if (productByCategory.length != 0) return productByCategory
+        throw Error("Category not found");
+    }
+    if (category === "all" && brand !== "all" && name === "all") {
+        console.log('"entro a "category === "all" && brand === "all" && name')
+        let productByCategory = await Products.findAll({
+            where: {
+                brand: {
+                    [Op.iLike]: `%${brand}%`
+                }
+                // supermarket: "General"
+            },
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
+            order: [["name", order]]
+        })
+        if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
     if (brand === "all") {
+        console.log('entro en  brand === "all"')
         let productByCategory = await Products.findAll({
             where: {
-                category,
-                supermarket: "General"
+                category: {
+                    [Op.iLike]: `%${category}%`
+                }
             },
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
+        if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     } else {
+        console.log('entro en  ELSE')
         let productByCategory = await Products.findAll({
             where: {
-                category,
-                brand,
-                supermarket: "General"
+                category: {
+                    [Op.iLike]: `%${category}%`
+                },
+                brand: {
+                    [Op.iLike]: `%${brand}%`
+                },
             },
+            include: [
+                {
+                    model: Prices,
+                    attributes: ['price'],
+                    include: [
+                        {
+                            model: SuperM,
+                            attributes: ['name', "image", "id"]
+                        }
+                    ]
+                }
+            ],
             order: [["name", order]]
         })
-        if (productByCategory.length != 0) return productByCategory.slice(firstindex,lasttindex);
+        console.log(productByCategory)
+        if (productByCategory.length != 0) return productByCategory
         throw Error("Category not found");
     }
 
@@ -115,7 +196,7 @@ export async function createProducts(productsFromBody) {
         let createProducts = await Products.bulkCreate(productos)
         return createProducts;
     }
-    let {name, brand, image,category} = productsFromBody
-    let createProduct = await Products.create({name, brand, image, category})
+    let { name, brand, image, category } = productsFromBody
+    let createProduct = await Products.create({ name, brand, image, category })
     return createProduct;
 }
