@@ -6,6 +6,7 @@ const initialState = {
   page: 1,
   category: "all",
   brand: "all",
+  pname: "all",
   comment: [],
   allUsers: [],
   mercado: [],
@@ -42,11 +43,17 @@ export const bolsilloSlice = createSlice({
     filterBrand(state, action) {
       state.productsBackup = action.payload;
     },
+    filterPName(state, action) {
+      state.productsBackup = action.payload;
+    },
     filterCategory(state, action) {
       state.productsBackup = action.payload;
     },
     Category(state, action) {
       state.category = action.payload;
+    },
+    Pname(state, action) {
+      state.pname = action.payload;
     },
     Brand(state, action) {
       state.brand = action.payload;
@@ -64,7 +71,9 @@ export const bolsilloSlice = createSlice({
 export const {
   allProducts,
   oneUsers,
+  filterPName,
   allUsers,
+  Pname,
   nuevoDetail,
   oneComment,
   sigPage,

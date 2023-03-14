@@ -32,7 +32,7 @@ const Orden = () => {
         <option value="ASC">A-Z</option>
         <option value="DESC">Z-A</option>
       </select>
-      <SearchBar estado={orden} />
+      <SearchBar />
     </div>
 
 
