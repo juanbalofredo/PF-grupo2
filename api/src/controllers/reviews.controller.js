@@ -1,10 +1,11 @@
 
 //agregando comentarios
 import Reviews from "../models/review.js";
-import { createReviews, getReviewsById, deleteReviewById, showReview } from "../helpers/reviews.helper.js";
+import { createReviews, getReviewsById, deleteReviewById, showReview, getTotalReviews } from "../helpers/reviews.helper.js";
+import SuperM from "../models/superM.js";
 
 export async function getAllReviews(req, res) {
-    const allReviews = await Reviews.findAll();
+    const allReviews = await getTotalReviews();
     try {
         if (allReviews.length == 0) {
             return res.status(400).send("There are no comments")

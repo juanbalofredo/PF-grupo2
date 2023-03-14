@@ -1,19 +1,33 @@
 import Reviews from "../models/review.js";
 import Users from "../models/users.js";
+import SuperM from "../models/superM.js";
 
 export function getReviewsById(id) {
     const reviewById = Reviews.findOne({
         where: { id },
+        attributes: ['id','message','score','userId','activity'],
+        include: { model: SuperM, attributes: ['name','id']},
+        
     });
     return reviewById;
 }
 
+export function getTotalReviews(){
+    const totalReviews = Reviews.findAll({
+        attributes: ['id','message','score','userId','activity'],
+        include: { model: SuperM, attributes: ['name','id']}
+    });
+    return totalReviews;
+}
 
-export async function createReviews({ message, userId }) {
+
+export async function createReviews({ message, userId, superMId, score }) {
 
     await Reviews.create({
         userId,
-        message,
+        superMId,
+        score,
+        message
     })
 }
 

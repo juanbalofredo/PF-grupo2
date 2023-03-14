@@ -1,31 +1,34 @@
 import { DataTypes } from 'sequelize';
 import dataBase from "../config/db.js";
 import Products from "./products.js";
+import Prices from './price.js';
+import Reviews from './review.js';
 
- const SuperM = dataBase.define(
+const SuperM = dataBase.define(
     "superM",
     {
-		id: {
+        id: {
             type: DataTypes.INTEGER,
-            allowNull: true,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true,
         },
-        name : {
+        name: {
             type: DataTypes.STRING,
-            allowNull: true
-        }
-	},
-	{ timestamps: false});
+            unique: true,
+            allowNull: false,
+        },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+    },
+    { timestamps: false }
+);
+
+// Relacion con tabla de precios
+SuperM.hasMany(Prices);
+Prices.belongsTo(SuperM);
 
 
-SuperM.belongsToMany(Products, {
-    through: "SuperM_Products",
-    timestamps: false
-});
-
-Products.belongsTo(SuperM, {
-    through: "SuperM_Products",
-    timestamps: false
-});
 
 export default SuperM;
