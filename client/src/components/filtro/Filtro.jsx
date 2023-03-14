@@ -1,8 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getCategoryParams, rsetFilters } from "../../redux/apiPetitions";
+import { getCategoryParams, rsetFilters } from "../../redux/apiPetitions/productsPetitions";
 import "../filtro/filtro.css";
+import {  resPage } from "../../redux/slice/globalSlice";
+
+
 
 const Filtro = () => {
   const state = useSelector((state) => state.bolsilloFeliz);
@@ -13,6 +16,7 @@ const Filtro = () => {
   const dispatch = useDispatch();
   const duplicatesArray = [];
   const seenElements = {};
+  //hola
   const valor = "ASC";
   const stateSupermarket = useSelector((state) => state.bolsilloFeliz.brand);
   const stateCategory = useSelector((state) => state.bolsilloFeliz.category);
@@ -26,15 +30,17 @@ const Filtro = () => {
   const sinNorepetidos = [...new Set(duplicatesArray)].sort();
 
   async function handleFilterCategory(e) {
+    dispatch(resPage())
     getCategoryParams(dispatch, e, stateSupermarket, valor);
   }
 
   async function handleFilterBrand(e) {
+    dispatch(resPage())
     getCategoryParams(dispatch, stateCategory, e, valor);
   }
 
   async function handleFilterReset() {
-
+    dispatch(resPage())
     dispatch(rsetFilters(dispatch));
   }
 

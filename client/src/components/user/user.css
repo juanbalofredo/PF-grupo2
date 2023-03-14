@@ -1,3 +1,54 @@
 .profileImg{
     border-radius: 100%;
   }
+
+  .dash-container a{
+    text-decoration: none;
+    color: white;
+    width: 10vw;
+  }
+  .dash-container .name{
+    width: 4vw;
+  }
+
+  .dash-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 10vw;
+    height: 2.5vw;
+    border-radius: 10px;
+    margin-right: 2rem;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #23477c;
+  }
+  .dash-container:hover{
+    background-color: #1a355c;
+  }
+  .merc-container a{
+    text-decoration: none;
+    color: white;
+    width: 10vw;
+  }
+  .merc-container .name{
+    width: 4vw;
+  }
+
+  .merc-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 10vw;
+    height: 2.5vw;
+    border-radius: 10px;
+    margin-right: 2rem;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #23477c;
+  }
+  .merc-container:hover{
+    background-color: #1a355c;
+  }

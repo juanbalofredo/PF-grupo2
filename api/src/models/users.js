@@ -33,7 +33,11 @@ const Users = dataBase.define('users', {
         allowNull: false
     },
     type_account: {
+<<<<<<< HEAD
         type: DataTypes.STRING,
+=======
+        type: DataTypes.ENUM("1", "2", "3","4"),
+>>>>>>> 62ae056a73ab1bbe62c4487c4e02b1fecf1bd045
         allowNull: false,
         defaultValue:"Client"
     },

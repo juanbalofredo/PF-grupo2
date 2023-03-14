@@ -5,13 +5,13 @@ let Allproducts = [
         "brand": "Serenisima",
         "id": 1,
         "price": [
-            { name: "coto", price: 196 },
-            { name: "dia", price: 200 },
-            { name: "jumbo", price: 215 },
-            { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "coto", price: 240  },
+            { name: "dia", price: 255 },
+            { name: "jumbo", price: 260 },
+            { name: "carrefour", price: 252 },
+            { name: "vital", price: 250 },
+            { name: "walmart", price: 246 },
+            { name: "disco", price: 255 }
         ],
         "unit": "1l",
         "category": "Lácteos",
@@ -64,13 +64,13 @@ let Allproducts = [
         "brand": "Tregar",
         "id": 5,
         "price": [
-            { name: "coto", price: 196 },
-            { name: "dia", price: 200 },
-            { name: "jumbo", price: 215 },
-            { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "coto", price: 270 },
+            { name: "dia", price: 280 },
+            { name: "jumbo", price: 275 },
+            { name: "carrefour", price: 268 },
+            { name: "vital", price: 260 },
+            { name: "walmart", price: 274 },
+            { name: "disco", price: 290 }
         ],
         "unit": "160g",
         "category": "Lácteos",
@@ -83,13 +83,13 @@ let Allproducts = [
         "brand": "Tregar",
         "id": 6,
         "price": [
-            { name: "coto", price: 196 },
-            { name: "dia", price: 200 },
-            { name: "jumbo", price: 215 },
-            { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "coto", price: 270 },
+            { name: "dia", price: 280 },
+            { name: "jumbo", price: 275 },
+            { name: "carrefour", price: 268 },
+            { name: "vital", price: 260 },
+            { name: "walmart", price: 274 },
+            { name: "disco", price: 290 }
         ],
         "unit": "160g",
         "category": "Lácteos",
@@ -103,12 +103,12 @@ let Allproducts = [
         "id": 7,
         "price": [
             { name: "coto", price: 196 },
-            { name: "dia", price: 200 },
-            { name: "jumbo", price: 215 },
-            { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "dia", price: 281 },
+            { name: "jumbo", price: 276.9 },
+            { name: "carrefour", price: 272 },
+            { name: "vital", price: 285 },
+            { name: "walmart", price: 275 },
+            { name: "disco", price: 280 }
         ],
         "unit": "160g",
         "category": "Lácteos",
@@ -122,12 +122,12 @@ let Allproducts = [
         "id": 8,
         "price": [
             { name: "coto", price: 196 },
-            { name: "dia", price: 200 },
-            { name: "jumbo", price: 215 },
-            { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "dia", price: 281 },
+            { name: "jumbo", price: 276.9 },
+            { name: "carrefour", price: 272 },
+            { name: "vital", price: 285 },
+            { name: "walmart", price: 275 },
+            { name: "disco", price: 280 }
         ],
         "unit": "160g",
         "category": "Lácteos",
@@ -140,13 +140,13 @@ let Allproducts = [
         "brand": "Serenisima",
         "id": 9,
         "price": [
-            { name: "coto", price: 196 },
-            { name: "dia", price: 200 },
-            { name: "jumbo", price: 215 },
-            { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "coto", price: 316 },
+            { name: "dia", price: 300 },
+            { name: "jumbo", price: 315 },
+            { name: "carrefour", price: 320 },
+            { name: "vital", price: 302 },
+            { name: "walmart", price: 295 },
+            { name: "disco", price: 310 }
         ],
         "unit": "180g",
         "category": "Lácteos",
@@ -159,13 +159,13 @@ let Allproducts = [
         "brand": "Serenisima",
         "id": 10,
         "price": [
-            { name: "coto", price: 196 },
-            { name: "dia", price: 200 },
-            { name: "jumbo", price: 215 },
-            { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "coto", price: 316 },
+            { name: "dia", price: 300 },
+            { name: "jumbo", price: 315 },
+            { name: "carrefour", price: 320 },
+            { name: "vital", price: 302 },
+            { name: "walmart", price: 295 },
+            { name: "disco", price: 310 }
         ],
         "unit": "180g",
         "category": "Lácteos",
@@ -182,9 +182,9 @@ let Allproducts = [
             { name: "dia", price: 200 },
             { name: "jumbo", price: 215 },
             { name: "carrefour", price: 220 },
-            { name: "vital", price: 142 },
-            { name: "walmart", price: 421 },
-            { name: "disco", price: 110 }
+            { name: "vital", price: 190 },
+            { name: "walmart", price: 221 },
+            { name: "disco", price: 210 }
         ],
         "unit": "6u",
         "category": "Huevos y Derivados",
@@ -851,7 +851,7 @@ const productosNoEspeciales = Allproducts.filter(element => {
 
 
 
-// console.log(uniendoArrays)
+// console.log(uniendoArrays) para ver mis commits
 
 productosNoEspeciales.forEach(e => {
     let coto = Math.floor(Math.random() * 21) + 190;

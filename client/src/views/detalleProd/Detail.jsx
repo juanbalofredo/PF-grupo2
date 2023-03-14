@@ -7,9 +7,9 @@ import axios from "axios";
 import Footer from "../footer/Footer";
 import DetailLoading from "../../components/loadings/DetailLoading";
 import ComparadorDetail from "../../components/detalleComaprar/ComparadorDetail";
-import { numberPage } from "../../redux/apiPetitions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+
 
 
 const DetalleProd = () => {
@@ -22,6 +22,7 @@ const DetalleProd = () => {
   const navigate = useNavigate();
   let didInit = false;
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!didInit && product === null) {
       didInit = true;
       axios
@@ -38,7 +39,6 @@ const DetalleProd = () => {
   useEffect(() => {
     if (!quesi) {
       quesi = true;
-      numberPage(0,dispatch)
     }
 
   }, [dispatch])
@@ -51,7 +51,7 @@ const DetalleProd = () => {
     } else {
 
       const comparadores = state.products.find(a => a.id == id).price
-       console.log(comparadores)
+      console.log(comparadores)
       const emilia = comparadores.slice().sort((a, b) => a.price - b.price);
       return (
         <>

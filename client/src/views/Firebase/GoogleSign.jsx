@@ -1,7 +1,7 @@
 import { useDispatch, useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import { StartGoogleAuth } from "../../redux/apiPetitions";
+import { StartGoogleAuth } from "../../redux/apiPetitions/userPetitions";
 
 const Register = () => {
   const user = useSelector(state=> state.bolsilloFeliz)
