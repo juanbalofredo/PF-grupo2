@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import dataBase from "../config/db.js";
-import Brand from "./brand.js";
 import Prices from "./price.js";
 
 const Products = dataBase.define(
@@ -26,7 +25,15 @@ const Products = dataBase.define(
   },
   { timestamps: false }
 );
-
 Products.hasMany(Prices);
 Prices.belongsTo(Products);
+// Products.belongsTo(Brand, {
+//   through: "Products_Brand",
+//   timestamps: false,
+// });
+// Brand.belongsToMany(Products, {
+//   through: "Products_Brand",
+//   timestamps: false,
+// });
+
 export default Products;

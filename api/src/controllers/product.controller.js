@@ -1,27 +1,26 @@
-import Products from "../models/products.js";
-import { getProductByName, getProductsByCategory, getProductsById, getProductsByBrand } from "../helpers/products.helper.js";
-import apiInfo from "../helpers/apiInfo.js"
-import { Op } from "sequelize";
-import dataBase from "../config/db.js";
+import { getProductByName, getProductsByCategory, getProductsById, getProductsByBrand, getAllProducts, createProducts } from "../helpers/products.helper.js";
+import { createSmarket } from "../helpers/market.helper.js";
+import { createPrices } from "../helpers/helpers.price.js";
+import { precios } from "../prueba(4).js"
 // import Prueba3 from "../prueba(3).js";
 
 export async function getProducts(req, res) {
     try {
-        const response2 = await Products.findAll(
-            {
-                order: [["name", "ASC"]]
-            }
-        )
-        const responseParseado = response2.map(e => {
-            let parsePrice = JSON.parse(e.price)
-            e.price = parsePrice
-            return e
-        })
+        let allProducts = await getAllProducts();
+        console.log("entro a getProducts")
+
         // esto es para seguir creando la misma base de datos
-        if (responseParseado.length == 0) {
-            apiInfo().then(r => res.status(200).json(r));
+        if (allProducts.length == 0) {
+            console.log("entro a Linea 14")
+            await createSmarket()
+            console.log("entro a la condicion if")
+            await createProducts()
+            await createPrices(precios)
+            let allProducts = await getAllProducts();
+            console.log("salio del if")
+            res.status(200).json(allProducts);
         }
-        else return res.status(200).json(responseParseado);
+        else return res.status(200).json(allProducts);
     } catch (error) {
         return res.status(400).json({ err: error.message });
     }
