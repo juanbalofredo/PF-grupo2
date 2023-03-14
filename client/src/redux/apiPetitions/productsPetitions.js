@@ -52,11 +52,11 @@ export const getCategoryParams = async (
   category,
   brand,
   pname,
-  valor
+  order
 ) => {
   try {
     const petition = await axios.get(
-      `http://localhost:3001/products/category/${category}/${brand}/${valor}/${pname}`
+      `http://localhost:3001/products/category/${category}/${brand}/${order}/${pname}`
     );
     if (category !== "all") {
       dispatch(Category(petition?.data[0].category));
