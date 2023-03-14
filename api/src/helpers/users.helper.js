@@ -8,22 +8,23 @@ export function getUserById(id) {
     return userById;
 }
 
-export function getUserByEmail(comparing) { 
-       const { email, password } = comparing;
+export function getUserByEmail(comparing) {
+    const { email, password } = comparing;
     if (!password) {
         let userByEmail = Users.findOne({
             where: {
                 email,
             }
         })
-         return userByEmail;
+        return userByEmail;
     } else {
-    let userByEmail = Users.findOne({
-        where: {
-            email,
-            password
-        }   
-    }); return userByEmail;}
+        let userByEmail = Users.findOne({
+            where: {
+                email,
+                password
+            }
+        }); return userByEmail;
+    }
     // console.log(userByEmail)
 
 };
@@ -64,7 +65,7 @@ export function deleteUserById(id) {
 };
 
 export function updateUserByTypeAccount({ activity, email, name, last_name, password, avatar, type_account, notifications, id, type_account_logged }) {
-    console.log(type_account_logged,id,type_account)
+    console.log(type_account_logged, id, type_account)
     if (type_account_logged === "3") {
         let datas = { activity, email, name, last_name, password, avatar, type_account, notifications }
         const dataForChange = {}

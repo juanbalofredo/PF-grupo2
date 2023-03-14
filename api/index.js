@@ -5,9 +5,9 @@ import dotenv from "dotenv";
 //import apiInfo from "./src/helpers/apiInfo.js"
 
 dotenv.config();
-
+//s
 const index = async () => {
-  await dataBase.sync({ force: false })
+  await dataBase.sync({ force: false  })
   //   await apiInfo()
   serverHttp.listen(3001, () => {
     console.log('Listening on port 3001')
