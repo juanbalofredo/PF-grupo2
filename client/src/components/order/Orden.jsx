@@ -10,14 +10,12 @@ import {  resPage } from "../../redux/slice/globalSlice";
 const Orden = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.bolsilloFeliz);
-  console.log(state.page)
   const stateCategory = useSelector((state) => state.bolsilloFeliz.category)
   const stateSupermarket = useSelector((state) => state.bolsilloFeliz.brand)
   let orden = 'ASC';
   
 
   async function changeOrder(e) {
-    console.log('queso')
     dispatch(resPage())
     orden = e.target.value;
     getCategoryParams(dispatch, stateCategory, stateSupermarket, e.target.value)
