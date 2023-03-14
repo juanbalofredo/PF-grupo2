@@ -858,7 +858,7 @@ let productosEspeciales = soloProductos.filter(ele => {
     }
 })
 
-export let productosUnidos = [...productosNoEspeciales, ...productosEspeciales]
+let productosUnidos = [...productosNoEspeciales, ...productosEspeciales]
 
 export let productos = productosUnidos.map((ele, indice) => {
     let { name, brand, category, image } = ele;
@@ -866,6 +866,7 @@ export let productos = productosUnidos.map((ele, indice) => {
     let atributosFiltrados = { name, brand, category, image };
     return atributosFiltrados;
 })
+// console.log(productos)
 
 // console.log("esto es productos =>",productos)
 // let minimoEspeciales = 200;

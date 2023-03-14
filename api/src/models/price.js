@@ -5,25 +5,20 @@ import Products from "./products.js";
 const Prices = dataBase.define(
     "prices",
     {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-        },
         price: {
             type: DataTypes.FLOAT,
             allowNull: false,
         },
-        
+
     },
     {
         timestamps: false,
-        indexes: [
-            {
-                unique: true,
-                fields: ['productId', 'superMId']
-            }
-        ]
+        // indexes: [
+        //     {
+        //         unique: true,
+        //         fields: ['productId', 'superMId']
+        //     }
+        // ]
     }
 );
 

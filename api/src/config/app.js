@@ -9,8 +9,6 @@ import review from "../routes/review.Router.js";
 import market from '../routes/market.Router.js';
 import perfiles from '../routes/perfiles.router.js';
 import routerPrice from '../routes/router.price.js';
-import routerProducts from '../routes/router.products.js';
-import routerSmarket from '../routes/router.smarket.js';
 
 const server = express();
 
@@ -31,9 +29,9 @@ server.use('/user', users);
 server.use('/reviews', review)
 // server.use('/market', market)
 server.use('/perfiles', perfiles)
-server.use("/products", routerProducts);
+server.use("/products", products);
 server.use("/price", routerPrice);
-server.use("/market", routerSmarket);
+server.use("/market", market);
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
