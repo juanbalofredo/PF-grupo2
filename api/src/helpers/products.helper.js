@@ -7,7 +7,7 @@ import { productos } from "../prueba(4).js";
 export async function getAllProducts() {
     const allProducts = await Products.findAll(
         {
-            attributes: ['name'],
+            attributes: ['name',"image",'brand',"id","category"],
             include: [
                 {
                     model: Prices,
