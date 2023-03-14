@@ -33,7 +33,7 @@ const Users = dataBase.define('users', {
         allowNull: false
     },
     type_account: {
-        type: DataTypes.ENUM("1", "2", "3"),
+        type: DataTypes.ENUM("1", "2", "3","4"),
         allowNull: false,
         defaultValue: "1"
     },
