@@ -43,7 +43,7 @@ const DetalleProd = () => {
 
   }, [dispatch])
 
-  if (state.products.length > 4) {
+  const comparadores = state.marketsProducts.find(a=>a.id === state.detail).price
 
     if (!product && state.products.length > 4) {
       return <DetailLoading />;
@@ -81,13 +81,12 @@ const DetalleProd = () => {
                 </h3>
               </div></div>
             <div className="contenedor-detail">{
-              emilia.map(a => <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
-            }</div>
-          </div>
-          <Footer />
-        </>
-      );
-    }
+             comparadores.map(a=> <ComparadorDetail supermarket={a.name} precio={a.price} img={product.image} />)
+              }</div>
+        </div>
+        <Footer />
+      </>
+    );
   }
 
 };

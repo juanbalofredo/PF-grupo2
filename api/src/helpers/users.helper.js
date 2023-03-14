@@ -30,12 +30,10 @@ export function getUserByEmail(comparing) {
 };
 export async function getUserSoloByEmail(comparing) {
     let { email } = comparing
-    console.log("esto es denfro de getUserSoloByEmail", email)
     let userByEmail;
     let emailDataBase = await Users.findOne({ where: { email } })
     if (!emailDataBase) {
         userByEmail = await createUser(comparing)
-        console.log("esto es userByEmail =>", userByEmail)
 
     } else {
         const { email, hashgoogle } = comparing;
