@@ -10,10 +10,6 @@ import {
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import GoogleSign from "../../views/Firebase/GoogleSign"
-<<<<<<< HEAD
-
-=======
->>>>>>> 62ae056a73ab1bbe62c4487c4e02b1fecf1bd045
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -121,15 +117,9 @@ const Login = () => {
                 </button>
               </div>
             </form>
-<<<<<<< HEAD
             <div className="reg-google-fac">
               <GoogleSign />
             </div>
-=======
-        <div className="reg-google-fac">
-          <GoogleSign/>
-        </div>
->>>>>>> 62ae056a73ab1bbe62c4487c4e02b1fecf1bd045
           </div>
         </div>
       </div>

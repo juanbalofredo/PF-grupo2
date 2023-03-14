@@ -18,29 +18,11 @@ const Home = () => {
   const aver = myProduct.slice(startIndex, endIndex);
   const dispatch = useDispatch();
 
-<<<<<<< HEAD
-        }
-    }, [dispatch]);
-    const myProduct = state.productsBackup
-    console.log(myProduct)
-    console.log(state)
-    const pagina = state.page
-    let paso = 0;
-
-    function handleSigPage () {
-        paso = pagina + 1
-        numberPage(paso,dispatch)
-    }
-    function handleAntPage () {
-        paso = pagina - 1
-        numberPage(paso,dispatch)
-=======
   let didInit = false;
   useEffect(() => {
     if (!didInit) {
       didInit = true;
       getProductos(dispatch);
->>>>>>> 62ae056a73ab1bbe62c4487c4e02b1fecf1bd045
     }
   }, [dispatch]);
 
@@ -60,28 +42,6 @@ const Home = () => {
                 <Card key={p.id} product={p} />
               ))}
             </div>
-<<<<<<< HEAD
-            <div className='img-home-cart'><img className='img-home-cart-2' src="https://res.cloudinary.com/dzuasgy3l/image/upload/v1678233839/o0tk3bkxi7fj97h3rrx3.png" alt="" /></div>
-            <Orden />
-            <div className='Home-container'>
-                <Filtro />
-                <div className='botones-home'>
-                    <button onClick={handleAntPage}>pag anterior</button><button onClick={handleSigPage}>pag siguiente</button>
-                    <div className="Home-container-products">
-
-                        {myProduct?.map((p) => (
-                            <Card key={p.id} product={p} />
-                        ))}
-
-                    </div> 
-                </div>
-            </div>
-            <Footer />
-        </>
-    )
-}
-
-=======
           </div>{" "}
           <div className="pag-but-que">
             {page === 1 ? (
@@ -118,6 +78,5 @@ const Home = () => {
 // {state.pokemonFilter?.slice((page -1) * perPage, (page -1) * perPage + perPage).map((p)=>(
 //     <Card key={p.name} pokemon={p} />
 //     ))}
->>>>>>> 62ae056a73ab1bbe62c4487c4e02b1fecf1bd045
 
 export default Home;
