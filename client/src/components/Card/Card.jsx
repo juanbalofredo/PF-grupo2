@@ -11,6 +11,7 @@ export default function Card({ product }) {
   const click = async () => {
     navigate(`/products/id/${product.id}`);
   };
+  console.log(product)
 
   return (
     <>
